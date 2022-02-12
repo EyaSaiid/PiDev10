@@ -76,7 +76,10 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem.
                     </p>
-                    <a href=\"\">Voir Restaurent</a>
+                    <a href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant");
+        echo "\">Voir Restaurent</a>
                 </div>
             </div>
             <div class=\"col-md-4\">
@@ -155,7 +158,7 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
 
     public function getDebugInfo()
     {
-        return array (  68 => 3,  58 => 2,  35 => 1,);
+        return array (  81 => 14,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -173,7 +176,7 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem.
                     </p>
-                    <a href=\"\">Voir Restaurent</a>
+                    <a href=\"{{ path(\"restaurant\") }}\">Voir Restaurent</a>
                 </div>
             </div>
             <div class=\"col-md-4\">
@@ -231,6 +234,6 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
 </div>
 <!-- Food End -->
 
-{% endblock %}", "product/listRestaurent.html.twig", "C:\\Users\\SAID EYA\\Desktop\\Dma9Git\\Dma9Git\\templates\\product\\listRestaurent.html.twig");
+{% endblock %}", "product/listRestaurent.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\listRestaurent.html.twig");
     }
 }

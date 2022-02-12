@@ -65,7 +65,22 @@ class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyMenu"));
 
         // line 3
-        echo "    <!-- Contact Start -->
+        echo "    <!-- Page Header Start -->
+    <div class=\"page-header mb-0\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Contact us</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- Contact Start -->
     <div class=\"contact\">
         <div class=\"container\">
             <div class=\"section-header text-center\">
@@ -185,6 +200,21 @@ class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878
     {
         return new Source("{% extends 'base.html.twig' %}
 {% block bodyMenu %}
+    <!-- Page Header Start -->
+    <div class=\"page-header mb-0\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Contact us</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
     <!-- Contact Start -->
     <div class=\"contact\">
         <div class=\"container\">
@@ -278,6 +308,6 @@ class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878
     <!-- Contact End -->
 
 {% endblock %}
-", "product/contact.html.twig", "C:\\Users\\SAID EYA\\Desktop\\Dma9Git\\Dma9Git\\templates\\product\\contact.html.twig");
+", "product/contact.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\contact.html.twig");
     }
 }

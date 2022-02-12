@@ -65,7 +65,22 @@ class __TwigTemplate_85bf580666b2677b303a0c276dc47e9597f93123212d9193a0c4a0602c6
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyMenu"));
 
         // line 3
-        echo "
+        echo "    <!-- Page Header Start -->
+    <div class=\"page-header mb-0\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>About Us</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
     <!-- About Start -->
     <div class=\"about\">
         <div class=\"container\">
@@ -73,11 +88,11 @@ class __TwigTemplate_85bf580666b2677b303a0c276dc47e9597f93123212d9193a0c4a0602c6
                 <div class=\"col-lg-6\">
                     <div class=\"about-img\">
                         <img src=\"";
-        // line 10
+        // line 25
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/about.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                         <button type=\"button\" class=\"btn-play\" data-toggle=\"modal\" data-src=\"";
-        // line 11
+        // line 26
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://www.youtube.com/embed/DWRcNpR6Kdc"), "html", null, true);
         echo "\" data-target=\"#videoModal\">
                             <span></span>
@@ -144,13 +159,28 @@ class __TwigTemplate_85bf580666b2677b303a0c276dc47e9597f93123212d9193a0c4a0602c6
 
     public function getDebugInfo()
     {
-        return array (  81 => 11,  77 => 10,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  96 => 26,  92 => 25,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 {% block bodyMenu %}
+    <!-- Page Header Start -->
+    <div class=\"page-header mb-0\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>About Us</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
 
     <!-- About Start -->
     <div class=\"about\">
@@ -204,6 +234,6 @@ class __TwigTemplate_85bf580666b2677b303a0c276dc47e9597f93123212d9193a0c4a0602c6
     <!-- Video Modal End -->
 
 {% endblock %}
-", "product/about.html.twig", "C:\\Users\\SAID EYA\\Desktop\\Dma9Git\\Dma9Git\\templates\\product\\about.html.twig");
+", "product/about.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\about.html.twig");
     }
 }

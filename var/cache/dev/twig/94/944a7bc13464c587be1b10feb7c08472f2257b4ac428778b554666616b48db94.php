@@ -54,7 +54,7 @@ class __TwigTemplate_bcbe3dc10699f9461ff62824c931ac3e65b1c212671296f897dd1d3b607
 
     }
 
-    // line 2
+    // line 3
     public function block_bodyMenu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,11 +64,26 @@ class __TwigTemplate_bcbe3dc10699f9461ff62824c931ac3e65b1c212671296f897dd1d3b607
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyMenu"));
 
-        // line 3
-        echo "
+        // line 4
+        echo "    <!-- Page Header Start -->
+    <div class=\"page-header\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Why Choose Us</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Features</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
 
 
     <!-- Feature Start -->
+
     <div class=\"feature\">
         <div class=\"container\">
             <div class=\"row\">
@@ -82,25 +97,25 @@ class __TwigTemplate_bcbe3dc10699f9461ff62824c931ac3e65b1c212671296f897dd1d3b607
                             <div class=\"row\">
                                 <div class=\"col-6\">
                                     <img src=\"";
-        // line 19
+        // line 35
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/feature-1.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                                 </div>
                                 <div class=\"col-6\">
                                     <img src=\"";
-        // line 22
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/feature-2.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                                 </div>
                                 <div class=\"col-6\">
                                     <img src=\"";
-        // line 25
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/feature-3.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                                 </div>
                                 <div class=\"col-6\">
                                     <img src=\"";
-        // line 28
+        // line 44
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/feature-4.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                                 </div>
@@ -200,17 +215,33 @@ class __TwigTemplate_bcbe3dc10699f9461ff62824c931ac3e65b1c212671296f897dd1d3b607
 
     public function getDebugInfo()
     {
-        return array (  104 => 28,  98 => 25,  92 => 22,  86 => 19,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  119 => 44,  113 => 41,  107 => 38,  101 => 35,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
-{% block bodyMenu %}
 
+{% block bodyMenu %}
+    <!-- Page Header Start -->
+    <div class=\"page-header\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Why Choose Us</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Features</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
 
 
     <!-- Feature Start -->
+
     <div class=\"feature\">
         <div class=\"container\">
             <div class=\"row\">
@@ -310,6 +341,6 @@ class __TwigTemplate_bcbe3dc10699f9461ff62824c931ac3e65b1c212671296f897dd1d3b607
     <!-- Feature End -->
 
 {% endblock %}
-", "product/feature.html.twig", "C:\\Users\\SAID EYA\\Desktop\\Dma9Git\\Dma9Git\\templates\\product\\feature.html.twig");
+", "product/feature.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\feature.html.twig");
     }
 }

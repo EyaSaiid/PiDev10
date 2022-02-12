@@ -66,28 +66,23 @@ class __TwigTemplate_9939bbb44c08fba4883642b06c04053ac9cce063c47cc7806d02e9c0d2e
 
         // line 3
         echo "
-
+    <!-- Page Header Start -->
+    <div class=\"page-header mb-0\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Restaurant</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
     <div class=\"body-inner\">
-        <div id=\"banner-area\" class=\"banner-area\">
-            <div class=\"banner-text\">
-                <div class=\"container\">
-                    <div class=\"row\">
-                        <div class=\"col-lg-12\">
-                            <div class=\"banner-heading\">
-                                <h1 class=\"banner-title\">Restaurent</h1>
-                                <nav aria-label=\"breadcrumb\">
-                                    <ol class=\"breadcrumb justify-content-center\">
-                                        <li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li>
-                                        <li class=\"breadcrumb-item\"><a href=\"#\">Services</a></li>
-                                        <li class=\"breadcrumb-item active\" aria-current=\"page\">Service Single</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div><!-- Col end -->
-                    </div><!-- Row end -->
-                </div><!-- Container end -->
-            </div><!-- Banner text end -->
-        </div><!-- Banner area end -->
+
 
         <section id=\"main-container\" class=\"main-container\">
             <div class=\"container\">
@@ -115,7 +110,7 @@ class __TwigTemplate_9939bbb44c08fba4883642b06c04053ac9cce063c47cc7806d02e9c0d2e
 
                                     <div class=\"quote-item-footer\">
                                         <img loading=\"lazy\" class=\"testimonial-thumb\" src=\"";
-        // line 52
+        // line 47
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/images1/clients/testimonial1.png"), "html", null, true);
         echo "\" alt=\"testimonial\">
                                         <div class=\"quote-item-info\">
@@ -151,21 +146,21 @@ class __TwigTemplate_9939bbb44c08fba4883642b06c04053ac9cce063c47cc7806d02e9c0d2e
                             <div id=\"page-slider\" class=\"page-slider\">
                                 <div class=\"item\">
                                     <img loading=\"lazy\" class=\"img-fluid\" src=\"";
-        // line 85
+        // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/carousel-1.jpg"), "html", null, true);
         echo "\" alt=\"project-slider-image\" />
                                 </div>
 
                                 <div class=\"item\">
                                     <img loading=\"lazy\" class=\"img-fluid\" src=\"";
-        // line 89
+        // line 84
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/carousel-2.jpg"), "html", null, true);
         echo "\" alt=\"project-slider-image\" />
                                 </div>
 
                                 <div class=\"item\">
                                     <img loading=\"lazy\" class=\"img-fluid\" src=\"";
-        // line 93
+        // line 88
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/carousel-3.jpg"), "html", null, true);
         echo "\" alt=\"project-slider-image\" />
                                 </div>
@@ -310,7 +305,7 @@ class __TwigTemplate_9939bbb44c08fba4883642b06c04053ac9cce063c47cc7806d02e9c0d2e
 
     public function getDebugInfo()
     {
-        return array (  169 => 93,  162 => 89,  155 => 85,  119 => 52,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  164 => 88,  157 => 84,  150 => 80,  114 => 47,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -318,28 +313,23 @@ class __TwigTemplate_9939bbb44c08fba4883642b06c04053ac9cce063c47cc7806d02e9c0d2e
         return new Source("{% extends 'base.html.twig' %}
 {% block bodyMenu %}
 
-
+    <!-- Page Header Start -->
+    <div class=\"page-header mb-0\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Restaurant</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
     <div class=\"body-inner\">
-        <div id=\"banner-area\" class=\"banner-area\">
-            <div class=\"banner-text\">
-                <div class=\"container\">
-                    <div class=\"row\">
-                        <div class=\"col-lg-12\">
-                            <div class=\"banner-heading\">
-                                <h1 class=\"banner-title\">Restaurent</h1>
-                                <nav aria-label=\"breadcrumb\">
-                                    <ol class=\"breadcrumb justify-content-center\">
-                                        <li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li>
-                                        <li class=\"breadcrumb-item\"><a href=\"#\">Services</a></li>
-                                        <li class=\"breadcrumb-item active\" aria-current=\"page\">Service Single</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div><!-- Col end -->
-                    </div><!-- Row end -->
-                </div><!-- Container end -->
-            </div><!-- Banner text end -->
-        </div><!-- Banner area end -->
+
 
         <section id=\"main-container\" class=\"main-container\">
             <div class=\"container\">
@@ -529,6 +519,6 @@ class __TwigTemplate_9939bbb44c08fba4883642b06c04053ac9cce063c47cc7806d02e9c0d2e
     </div><!-- Body inner end -->
 
 
-{% endblock %}", "product/restaurent.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiDev10\\templates\\product\\restaurent.html.twig");
+{% endblock %}", "product/restaurent.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\restaurent.html.twig");
     }
 }

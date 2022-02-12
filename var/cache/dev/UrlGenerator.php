@@ -16,4 +16,13 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     'product' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/product']], [], []],
+    'home' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_home'], [], [['text', '/home']], [], []],
+    'contact' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_contact'], [], [['text', '/contact']], [], []],
+    'about' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_about'], [], [['text', '/about']], [], []],
+    'feature' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_feature'], [], [['text', '/feature']], [], []],
+    'team' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_team'], [], [['text', '/team']], [], []],
+    'details_menu' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_details_menu'], [], [['text', '/details_menu']], [], []],
+    'list_restaurant' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_list_restaurant'], [], [['text', '/list_restaurant']], [], []],
+    'restaurant' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_restaurant'], [], [['text', '/restaurant']], [], []],
+    'booking' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_booking'], [], [['text', '/booking']], [], []],
 ];

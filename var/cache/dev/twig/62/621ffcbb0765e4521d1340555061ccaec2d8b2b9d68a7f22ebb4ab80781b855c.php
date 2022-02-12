@@ -65,7 +65,23 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyMenu"));
 
         // line 3
-        echo "    <!-- Team Start -->
+        echo "    <!-- Page Header Start -->
+    <div class=\"page-header\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Master Chef</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Chef</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Team Start -->
     <div class=\"team\">
         <div class=\"container\">
             <div class=\"section-header text-center\">
@@ -77,8 +93,8 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                     <div class=\"team-item\">
                         <div class=\"team-img\">
                             <img src=\"";
-        // line 14
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/team-1.jpg"), "html", null, true);
+        // line 30
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/eya.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
@@ -88,7 +104,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Adam Phillips</h2>
+                            <h2>Eya SAID</h2>
                             <p>CEO, Co Founder</p>
                         </div>
                     </div>
@@ -97,8 +113,8 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                     <div class=\"team-item\">
                         <div class=\"team-img\">
                             <img src=\"";
-        // line 31
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/team-2.jpg"), "html", null, true);
+        // line 47
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/nour.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
@@ -108,7 +124,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Dylan Adams</h2>
+                            <h2>Nour HAMMAMI</h2>
                             <p>Master Chef</p>
                         </div>
                     </div>
@@ -117,8 +133,8 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                     <div class=\"team-item\">
                         <div class=\"team-img\">
                             <img src=\"";
-        // line 48
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/team-3.jpg"), "html", null, true);
+        // line 64
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/ines.PNG"), "html", null, true);
         echo "\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
@@ -128,7 +144,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Jhon Doe</h2>
+                            <h2>Ines HABA</h2>
                             <p>Master Chef</p>
                         </div>
                     </div>
@@ -137,8 +153,8 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                     <div class=\"team-item\">
                         <div class=\"team-img\">
                             <img src=\"";
-        // line 65
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/team-4.jpg"), "html", null, true);
+        // line 81
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/amen.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
@@ -148,7 +164,47 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Josh Dunn</h2>
+                            <h2>Amen GABSI</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-lg-3 col-md-6\">
+                    <div class=\"team-item\">
+                        <div class=\"team-img\">
+                            <img src=\"";
+        // line 98
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/badi.jpg"), "html", null, true);
+        echo "\" alt=\"Image\">
+                            <div class=\"team-social\">
+                                <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-linkedin-in\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-instagram\"></i></a>
+                            </div>
+                        </div>
+                        <div class=\"team-text\">
+                            <h2>Badi GUEDOUAR</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-lg-3 col-md-6\">
+                    <div class=\"team-item\">
+                        <div class=\"team-img\">
+                            <img src=\"";
+        // line 115
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/yassine.png"), "html", null, true);
+        echo "\" alt=\"Image\">
+                            <div class=\"team-social\">
+                                <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-linkedin-in\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-instagram\"></i></a>
+                            </div>
+                        </div>
+                        <div class=\"team-text\">
+                            <h2>Yassine SELLAMI</h2>
                             <p>Master Chef</p>
                         </div>
                     </div>
@@ -179,13 +235,29 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
 
     public function getDebugInfo()
     {
-        return array (  141 => 65,  121 => 48,  101 => 31,  81 => 14,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  197 => 115,  177 => 98,  157 => 81,  137 => 64,  117 => 47,  97 => 30,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 {% block bodyMenu %}
+    <!-- Page Header Start -->
+    <div class=\"page-header\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-12\">
+                    <h2>Master Chef</h2>
+                </div>
+                <div class=\"col-12\">
+                    <a href=\"\">Home</a>
+                    <a href=\"\">Chef</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
     <!-- Team Start -->
     <div class=\"team\">
         <div class=\"container\">
@@ -197,7 +269,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                 <div class=\"col-lg-3 col-md-6\">
                     <div class=\"team-item\">
                         <div class=\"team-img\">
-                            <img src=\"{{ asset('Front/img/team-1.jpg') }}\" alt=\"Image\">
+                            <img src=\"{{ asset('Front/img/eya.jpg') }}\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
                                 <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
@@ -206,7 +278,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Adam Phillips</h2>
+                            <h2>Eya SAID</h2>
                             <p>CEO, Co Founder</p>
                         </div>
                     </div>
@@ -214,7 +286,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                 <div class=\"col-lg-3 col-md-6\">
                     <div class=\"team-item\">
                         <div class=\"team-img\">
-                            <img src=\"{{ asset('Front/img/team-2.jpg') }}\" alt=\"Image\">
+                            <img src=\"{{ asset('Front/img/nour.jpg') }}\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
                                 <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
@@ -223,7 +295,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Dylan Adams</h2>
+                            <h2>Nour HAMMAMI</h2>
                             <p>Master Chef</p>
                         </div>
                     </div>
@@ -231,7 +303,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                 <div class=\"col-lg-3 col-md-6\">
                     <div class=\"team-item\">
                         <div class=\"team-img\">
-                            <img src=\"{{ asset('Front/img/team-3.jpg') }}\" alt=\"Image\">
+                            <img src=\"{{ asset('Front/img/ines.PNG') }}\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
                                 <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
@@ -240,7 +312,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Jhon Doe</h2>
+                            <h2>Ines HABA</h2>
                             <p>Master Chef</p>
                         </div>
                     </div>
@@ -248,7 +320,7 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                 <div class=\"col-lg-3 col-md-6\">
                     <div class=\"team-item\">
                         <div class=\"team-img\">
-                            <img src=\"{{ asset('Front/img/team-4.jpg') }}\" alt=\"Image\">
+                            <img src=\"{{ asset('Front/img/amen.jpg') }}\" alt=\"Image\">
                             <div class=\"team-social\">
                                 <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
                                 <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
@@ -257,7 +329,41 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
                             </div>
                         </div>
                         <div class=\"team-text\">
-                            <h2>Josh Dunn</h2>
+                            <h2>Amen GABSI</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-lg-3 col-md-6\">
+                    <div class=\"team-item\">
+                        <div class=\"team-img\">
+                            <img src=\"{{ asset('Front/img/badi.jpg') }}\" alt=\"Image\">
+                            <div class=\"team-social\">
+                                <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-linkedin-in\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-instagram\"></i></a>
+                            </div>
+                        </div>
+                        <div class=\"team-text\">
+                            <h2>Badi GUEDOUAR</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"col-lg-3 col-md-6\">
+                    <div class=\"team-item\">
+                        <div class=\"team-img\">
+                            <img src=\"{{ asset('Front/img/yassine.png') }}\" alt=\"Image\">
+                            <div class=\"team-social\">
+                                <a href=\"\"><i class=\"fab fa-twitter\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-facebook-f\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-linkedin-in\"></i></a>
+                                <a href=\"\"><i class=\"fab fa-instagram\"></i></a>
+                            </div>
+                        </div>
+                        <div class=\"team-text\">
+                            <h2>Yassine SELLAMI</h2>
                             <p>Master Chef</p>
                         </div>
                     </div>
@@ -268,6 +374,6 @@ class __TwigTemplate_e0d369630e4b86422a4c92a23fe2b0b22eb0a195622dad852153dc594d9
     <!-- Team End -->
 
 {% endblock %}
-", "product/team.html.twig", "C:\\Users\\SAID EYA\\Desktop\\Dma9Git\\Dma9Git\\templates\\product\\team.html.twig");
+", "product/team.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\team.html.twig");
     }
 }
