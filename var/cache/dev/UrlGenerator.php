@@ -26,4 +26,12 @@ return [
     'restaurant' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_restaurant'], [], [['text', '/restaurant']], [], []],
     'booking' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_booking'], [], [['text', '/booking']], [], []],
     'back' => [[], ['_controller' => 'App\\Controller\\ProductController::index2'], [], [['text', '/back']], [], []],
+    'GestionUser' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionUser'], [], [['text', '/GestionUser']], [], []],
+    'GestionRestaurant' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionResaturant'], [], [['text', '/GestionRestaurant']], [], []],
+    'GestionOffreTravail' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionOffreTravail'], [], [['text', '/GestionOffreTravail']], [], []],
+    'GestionProduit' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionProduit'], [], [['text', '/GestionProduit']], [], []],
+    'GestionEvenement' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionEvenement'], [], [['text', '/GestionEvenement']], [], []],
+    'GestionMenu' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionMenu'], [], [['text', '/GestionMenu']], [], []],
+    'GestionCommande' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionCommande'], [], [['text', '/GestionCommande']], [], []],
+    'GestionArtiste' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionArtiste'], [], [['text', '/GestionArtiste']], [], []],
 ];

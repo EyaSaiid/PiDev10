@@ -98,6 +98,9 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
+
+
+    /**********************************************/
     /**
      * @Route("/back", name="back")
      */
@@ -107,4 +110,77 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
+    /**
+     * @Route("/GestionUser", name="GestionUser")
+     */
+    public function btn_GestionUser(): Response
+    {
+        return $this->render('Back/GestionUtilisateur.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+    * @Route("/GestionRestaurant", name="GestionRestaurant")
+    */
+    public function btn_GestionResaturant(): Response
+    {
+        return $this->render('Back/GestionRestaurant.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/GestionOffreTravail", name="GestionOffreTravail")
+     */
+    public function btn_GestionOffreTravail(): Response
+    {
+        return $this->render('Back/GestionOffreTravail.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/GestionProduit", name="GestionProduit")
+     */
+    public function btn_GestionProduit(): Response
+    {
+        return $this->render('Back/GestionProduit.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/GestionEvenement", name="GestionEvenement")
+     */
+    public function btn_GestionEvenement(): Response
+    {
+        return $this->render('Back/GestionEvenement.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/GestionMenu", name="GestionMenu")
+     */
+    public function btn_GestionMenu(): Response
+    {
+        return $this->render('Back/GestionMenu.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/GestionCommande", name="GestionCommande")
+     */
+    public function btn_GestionCommande(): Response
+    {
+        return $this->render('Back/GestionCommande.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/GestionArtiste", name="GestionArtiste")
+     */
+    public function btn_GestionArtiste(): Response
+    {
+        return $this->render('Back/GestionArtiste.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+
 }
