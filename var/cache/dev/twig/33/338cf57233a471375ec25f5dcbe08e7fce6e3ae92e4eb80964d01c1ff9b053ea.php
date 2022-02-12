@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* product/listRestaurent.html.twig */
+/* Front/listRestaurent.html.twig */
 class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc54cc7 extends Template
 {
     private $source;
@@ -39,12 +39,12 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "product/listRestaurent.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Front/listRestaurent.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "product/listRestaurent.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Front/listRestaurent.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "product/listRestaurent.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "Front/listRestaurent.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -148,7 +148,7 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
 
     public function getTemplateName()
     {
-        return "product/listRestaurent.html.twig";
+        return "Front/listRestaurent.html.twig";
     }
 
     public function isTraitable()
@@ -234,6 +234,6 @@ class __TwigTemplate_6b561d224dc8a0399832fa9cf3eaa9e84419028e452d39ba8bfc77047fc
 </div>
 <!-- Food End -->
 
-{% endblock %}", "product/listRestaurent.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\listRestaurent.html.twig");
+{% endblock %}", "Front/listRestaurent.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\Front\\listRestaurent.html.twig");
     }
 }

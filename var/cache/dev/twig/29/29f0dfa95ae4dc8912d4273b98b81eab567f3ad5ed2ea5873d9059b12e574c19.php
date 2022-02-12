@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* product/contact.html.twig */
+/* Front/contact.html.twig */
 class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878198af extends Template
 {
     private $source;
@@ -39,12 +39,12 @@ class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "product/contact.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Front/contact.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "product/contact.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Front/contact.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "product/contact.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "Front/contact.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -183,7 +183,7 @@ class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878
 
     public function getTemplateName()
     {
-        return "product/contact.html.twig";
+        return "Front/contact.html.twig";
     }
 
     public function isTraitable()
@@ -308,6 +308,6 @@ class __TwigTemplate_bf711daccc6f818c14556efdba1eb9c721b8a219fc51f3a5583cdb83878
     <!-- Contact End -->
 
 {% endblock %}
-", "product/contact.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\product\\contact.html.twig");
+", "Front/contact.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\PiDev10\\PiDev10\\templates\\Front\\contact.html.twig");
     }
 }

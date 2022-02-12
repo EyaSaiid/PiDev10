@@ -9,20 +9,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product", name="product")
+     * @Route("/Front", name="Front")
      */
     public function index(): Response
     {
-        return $this->render('product/restaurent.html.twig', [
+        return $this->render('Front/restaurent.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function btn_home(): Response
     {
-        return $this->render('product/index.html.twig', [
+        return $this->render('Front/index.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -31,7 +31,7 @@ class ProductController extends AbstractController
      */
     public function btn_contact(): Response
     {
-        return $this->render('product/contact.html.twig', [
+        return $this->render('Front/contact.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -40,7 +40,7 @@ class ProductController extends AbstractController
      */
     public function btn_about(): Response
     {
-        return $this->render('product/about.html.twig', [
+        return $this->render('Front/about.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -49,7 +49,7 @@ class ProductController extends AbstractController
      */
     public function btn_feature(): Response
     {
-        return $this->render('product/feature.html.twig', [
+        return $this->render('Front/feature.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -58,7 +58,7 @@ class ProductController extends AbstractController
      */
     public function btn_team(): Response
     {
-        return $this->render('product/team.html.twig', [
+        return $this->render('Front/team.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -67,7 +67,7 @@ class ProductController extends AbstractController
      */
     public function btn_details_menu(): Response
     {
-        return $this->render('product/details_menu.html.twig', [
+        return $this->render('Front/details_menu.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -76,7 +76,7 @@ class ProductController extends AbstractController
      */
     public function btn_list_restaurant(): Response
     {
-        return $this->render('product/listRestaurent.html.twig', [
+        return $this->render('Front/listRestaurent.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -85,7 +85,7 @@ class ProductController extends AbstractController
      */
     public function btn_restaurant(): Response
     {
-        return $this->render('product/restaurent.html.twig', [
+        return $this->render('Front/restaurent.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
@@ -94,7 +94,16 @@ class ProductController extends AbstractController
      */
     public function btn_booking(): Response
     {
-        return $this->render('product/booking.html.twig', [
+        return $this->render('Front/booking.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/back", name="back")
+     */
+    public function index2(): Response
+    {
+        return $this->render('Back/index.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }

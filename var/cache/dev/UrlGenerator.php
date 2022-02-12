@@ -15,8 +15,8 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
-    'product' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/product']], [], []],
-    'home' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_home'], [], [['text', '/home']], [], []],
+    'Front' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/Front']], [], []],
+    'home' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_home'], [], [['text', '/']], [], []],
     'contact' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_contact'], [], [['text', '/contact']], [], []],
     'about' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_about'], [], [['text', '/about']], [], []],
     'feature' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_feature'], [], [['text', '/feature']], [], []],
@@ -25,4 +25,5 @@ return [
     'list_restaurant' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_list_restaurant'], [], [['text', '/list_restaurant']], [], []],
     'restaurant' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_restaurant'], [], [['text', '/restaurant']], [], []],
     'booking' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_booking'], [], [['text', '/booking']], [], []],
+    'back' => [[], ['_controller' => 'App\\Controller\\ProductController::index2'], [], [['text', '/back']], [], []],
 ];
