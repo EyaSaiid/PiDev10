@@ -268,7 +268,7 @@
                 </li>
 
 
-{#  **********************Gestion restaurant avec navbar*******************************#}
+{#  ********************** Gestion restaurant avec navbar*******************************#}
 
                 <nav class="mt-2">
 
@@ -277,22 +277,22 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
-                                 GestionRestaurant
+                                 Gestion Restaurant
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ path('GestionRestaurant') }}" class="nav-link">
+                                <a href="{{ path('restaurant_index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Afficher Restaraunt</p>
+                                    <p> Afficher Restaurant</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="../forms/general.html" class="nav-link">
+                                <a href="{{ path('restaurant_new') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Ajouter Restaraunt</p>
+                                    <p> Ajouter Restaurant</p>
                                 </a>
                             </li>
 
@@ -303,20 +303,102 @@
 
                 </nav>
  {#  ***************************        End  --------   Gestion restaurant avec navbar    ************************#}
+                {#  ********************** Gestion Categorie avec navbar *******************************#}
+
+                <nav class="mt-2">
 
 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion Catégorie
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('categorie_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Afficher Categorie</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('categorie_new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter Categorie</p>
+                                </a>
+                            </li>
+
+                        </ul>
 
 
-                <li class="nav-item">
-                    <a href="{{ path('GestionProduit') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Produit
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                    </li>
 
-                </li>
+                </nav>
+ {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
+                {#  ********************** Gestion ProduitPlat avec navbar *******************************#}
+
+
+                <nav class="mt-2">
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion Plats et Boissons
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('produit_plat_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Afficher Plats et Boissons</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('produit_plat_new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter Plats et Boissons</p>
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+                {#  ********************** Gestion Categorie avec navbar *******************************#}
+
+                <nav class="mt-2">
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion Reservation
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('reservation_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Afficher les reservations</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                </nav>
+                {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
+
+
                 <li class="nav-item">
                     <a href="{{ path('GestionOffreTravail') }}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
@@ -337,15 +419,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ path('GestionMenu') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Menu
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                </li>
+
 
 
                 <li class="nav-item">
@@ -362,7 +436,7 @@
                     <a href="{{ path('GestionCommande') }}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Gestion <Commande></Commande>
+                            Gestion Commande
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -406,11 +480,29 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="content-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+{#    <div class="content-wrapper">#}
 
     {% block bodyBack %} {% endblock %}
 
-    </div>
+{#    </div>#}
+
+
+
+
+
+
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

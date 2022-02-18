@@ -533,6 +533,6 @@ class __TwigTemplate_2bf7e9360c578898ae8b92a8787cc15281b54d68a8b549576cc7087c901
     </div>
     <!-- Menu End -->
 
-{% endblock %}", "Front/details_menu.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiGit\\Pi\\templates\\Front\\details_menu.html.twig");
+{% endblock %}", "Front/details_menu.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Front\\details_menu.html.twig");
     }
 }

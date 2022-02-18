@@ -126,6 +126,11 @@ class ComposerStaticInit1e2e059b6a804a419bb4bff68b0acc28
         array (
             'Laminas\\Code\\' => 13,
         ),
+        'K' => 
+        array (
+            'Knp\\Component\\' => 14,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
@@ -482,6 +487,14 @@ class ComposerStaticInit1e2e059b6a804a419bb4bff68b0acc28
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
+        ),
+        'Knp\\Component\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-components/src/Knp/Component',
+        ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (

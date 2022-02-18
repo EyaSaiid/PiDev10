@@ -351,11 +351,11 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
         echo "\" class=\"nav-item nav-link\">Detail menu</a>
                     <a href=\"";
         // line 123
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("list_restaurant");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_liste");
         echo "\" class=\"nav-item nav-link\"> Restaurants </a>
                     <a href=\"";
         // line 124
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_new");
         echo "\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"";
         // line 125
@@ -614,8 +614,8 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
                     <a href=\"{{ path(\"team\") }}\" class=\"nav-item nav-link\">Team</a>
                     {# <a href=\"{{ path('templates/menu.html.twig') }}\" class=\"nav-item nav-link\">Menu</a> #}
                      <a href=\"{{ path(\"details_menu\") }}\" class=\"nav-item nav-link\">Detail menu</a>
-                    <a href=\"{{ path(\"list_restaurant\") }}\" class=\"nav-item nav-link\"> Restaurants </a>
-                    <a href=\"{{ path(\"booking\") }}\" class=\"nav-item nav-link\"> Booking </a>
+                    <a href=\"{{ path(\"restaurant_liste\") }}\" class=\"nav-item nav-link\"> Restaurants </a>
+                    <a href=\"{{ path(\"reservation_new\") }}\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"{{ path(\"contact\") }}\" class=\"nav-item nav-link\">Contact</a>
                    {# <div class=\"nav-item dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\">Pages</a>
@@ -705,6 +705,6 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 {% endblock %}
 </body>
-</html>", "base.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiGit\\Pi\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\base.html.twig");
     }
 }

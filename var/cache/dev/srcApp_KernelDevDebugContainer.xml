@@ -21,6 +21,7 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -70,6 +71,10 @@
       <parameter key="WebServerBundle" type="collection">
         <parameter key="path">C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\web-server-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebServerBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -249,6 +254,11 @@
     <parameter key="security.authentication.session_strategy.strategy">migrate</parameter>
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
+    <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/sliding.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="maker.compatible_check.doctrine.supports_attributes">true</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
@@ -339,12 +349,72 @@
     <service id="kernel" class="App\Kernel" public="true" synthetic="true">
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\CategorieController" class="App\Controller\CategorieController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieController"/>
+      </call>
+    </service>
     <service id="App\Controller\ProductController" class="App\Controller\ProductController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ProductController"/>
       </call>
+    </service>
+    <service id="App\Controller\ProduitPlatController" class="App\Controller\ProduitPlatController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ProduitPlatController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ReservationController" class="App\Controller\ReservationController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ReservationController"/>
+      </call>
+    </service>
+    <service id="App\Controller\RestaurantController" class="App\Controller\RestaurantController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\RestaurantController"/>
+      </call>
+    </service>
+    <service id="App\Form\CategorieType" class="App\Form\CategorieType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ProduitPlatType" class="App\Form\ProduitPlatType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ReservationType" class="App\Form\ReservationType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\RestaurantType" class="App\Form\RestaurantType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ProduitPlatRepository" class="App\Repository\ProduitPlatRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\RestaurantRepository" class="App\Repository\RestaurantRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -760,9 +830,14 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\CategorieType</argument>
+        <argument>App\Form\ProduitPlatType</argument>
+        <argument>App\Form\ReservationType</argument>
+        <argument>App\Form\RestaurantType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1096,7 +1171,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.SFX6J7Y"/>
+      <argument type="service" id=".service_locator.eyiCWCa"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1402,6 +1477,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
@@ -1417,6 +1493,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.bg.xliff</argument>
           </argument>
           <argument key="bs" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
@@ -1432,6 +1509,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.cs.xliff</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
@@ -1440,11 +1518,13 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.da.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.de.xliff</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
@@ -1455,11 +1535,13 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
@@ -1470,21 +1552,25 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.eu.xliff</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fa.xliff</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fi.xliff</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
@@ -1500,11 +1586,13 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hr.xliff</argument>
           </argument>
           <argument key="hu" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hu.xliff</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
@@ -1515,16 +1603,19 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ja.xliff</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
@@ -1535,6 +1626,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.lt.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
@@ -1560,6 +1652,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
@@ -1570,11 +1663,13 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.no.xliff</argument>
           </argument>
           <argument key="pl" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pl.xliff</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
@@ -1585,16 +1680,19 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pt_BR.xliff</argument>
           </argument>
           <argument key="ro" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ro.xliff</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ru.xliff</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
@@ -1625,6 +1723,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sv.xliff</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
@@ -1640,11 +1739,13 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.tr.xliff</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.uk.xliff</argument>
           </argument>
           <argument key="uz" type="collection">
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations\validators.uz.xlf</argument>
@@ -1666,11 +1767,18 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
           </argument>
+          <argument key="ky" type="collection">
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\framework-bundle/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/FrameworkBundle/translations</argument>
@@ -1696,6 +1804,7 @@
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/TwigExtraBundle/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\web-server-bundle/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/WebServerBundle/translations</argument>
+          <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/KnpPaginatorBundle/translations</argument>
           <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -1703,6 +1812,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\validator/Resources/translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\form/Resources/translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/translations</argument>
             <argument>translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\framework-bundle/translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/FrameworkBundle/translations</argument>
@@ -1728,6 +1838,7 @@
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/TwigExtraBundle/translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\web-server-bundle/translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/WebServerBundle/translations</argument>
+            <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/KnpPaginatorBundle/translations</argument>
             <argument>C:\Users\dell\Desktop\PGit\PiDev10\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -2170,6 +2281,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service_closure" id="response_listener"/>
@@ -2584,6 +2703,46 @@
           <argument>onKernelFinishRequest</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver" public="false">
@@ -3102,6 +3261,9 @@
       <call method="addExtension">
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3217,6 +3379,14 @@
       <call method="addPath">
         <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\dell\Desktop\PGit\PiDev10\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\dell\Desktop\PGit\PiDev10/templates</argument>
@@ -3893,7 +4063,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.cLmi324"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4873,9 +5043,85 @@
         <argument>server:status</argument>
       </call>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <tag name="proxy" interface="Knp\Component\Pager\PaginatorInterface"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+          <argument key="pageOutOfRange">ignore</argument>
+          <argument key="defaultLimit">10</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="kernel.event_subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">@KnpPaginator/Pagination/sliding.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+        <argument key="defaultPageLimit">null</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieController" class="App\Controller\CategorieController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieController" class="App\Controller\CategorieController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CategorieController" class="App\Controller\CategorieController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProduitPlatController" class="App\Controller\ProduitPlatController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProduitPlatController" class="App\Controller\ProduitPlatController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ProduitPlatController" class="App\Controller\ProduitPlatController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReservationController" class="App\Controller\ReservationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReservationController" class="App\Controller\ReservationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ReservationController" class="App\Controller\ReservationController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RestaurantController" class="App\Controller\RestaurantController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RestaurantController" class="App\Controller\RestaurantController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\RestaurantController" class="App\Controller\RestaurantController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieType" class="App\Form\CategorieType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategorieType" class="App\Form\CategorieType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProduitPlatType" class="App\Form\ProduitPlatType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ProduitPlatType" class="App\Form\ProduitPlatType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReservationType" class="App\Form\ReservationType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReservationType" class="App\Form\ReservationType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RestaurantType" class="App\Form\RestaurantType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RestaurantType" class="App\Form\RestaurantType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitPlatRepository" class="App\Repository\ProduitPlatRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ProduitPlatRepository" class="App\Repository\ProduitPlatRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RestaurantRepository" class="App\Repository\RestaurantRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RestaurantRepository" class="App\Repository\RestaurantRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5157,9 +5403,166 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.I3K77mT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.hqNb5OX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="categorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.x8FmIZ0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RdXN6Y1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorie" type="service_closure" id=".errored..service_locator.RdXN6Y1.App\Entity\Categorie"/>
+      </argument>
+    </service>
+    <service id=".service_locator.pCoFPhJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorie" type="service_closure" id=".errored..service_locator.pCoFPhJ.App\Entity\Categorie"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.28.LKFQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="produitPlatRepository" type="service_closure" id="App\Repository\ProduitPlatRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Y_I45OW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="produitPlat" type="service_closure" id=".errored..service_locator.Y_I45OW.App\Entity\ProduitPlat"/>
+      </argument>
+    </service>
+    <service id=".service_locator.KU4StTS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorie" type="service_closure" id=".errored..service_locator.KU4StTS.App\Entity\Categorie"/>
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+        <argument key="res" type="service_closure" id=".errored..service_locator.KU4StTS.App\Entity\Restaurant"/>
+      </argument>
+    </service>
+    <service id=".service_locator.sKlhyKt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="produitPlat" type="service_closure" id=".errored..service_locator.sKlhyKt.App\Entity\ProduitPlat"/>
+      </argument>
+    </service>
+    <service id=".service_locator.COMnccu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reservationRepository" type="service_closure" id="App\Repository\ReservationRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.XISRjPO" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.kvNeJHT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reservation" type="service_closure" id=".errored..service_locator.kvNeJHT.App\Entity\Reservation"/>
+      </argument>
+    </service>
+    <service id=".service_locator.seS9gks" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="reservation" type="service_closure" id=".errored..service_locator.seS9gks.App\Entity\Reservation"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6fGK5AF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="restaurantRepository" type="service_closure" id="App\Repository\RestaurantRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.n8gOTNr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ky1UVZL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="restaurant" type="service_closure" id=".errored..service_locator.ky1UVZL.App\Entity\Restaurant"/>
+      </argument>
+    </service>
+    <service id=".service_locator.xDFrwl5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service_closure" id="knp_paginator"/>
+        <argument key="restaurant" type="service_closure" id=".errored..service_locator.xDFrwl5.App\Entity\Restaurant"/>
+      </argument>
+    </service>
+    <service id=".service_locator..ik47nb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="restaurant" type="service_closure" id=".errored..service_locator..ik47nb.App\Entity\Restaurant"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CF2ikXv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\CategorieController::delete" type="service_closure" id=".service_locator.pCoFPhJ"/>
+        <argument key="App\Controller\CategorieController::edit" type="service_closure" id=".service_locator.pCoFPhJ"/>
+        <argument key="App\Controller\CategorieController::index" type="service_closure" id=".service_locator.hqNb5OX"/>
+        <argument key="App\Controller\CategorieController::new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\CategorieController::show" type="service_closure" id=".service_locator.RdXN6Y1"/>
+        <argument key="App\Controller\ProduitPlatController::delete" type="service_closure" id=".service_locator.sKlhyKt"/>
+        <argument key="App\Controller\ProduitPlatController::edit" type="service_closure" id=".service_locator.sKlhyKt"/>
+        <argument key="App\Controller\ProduitPlatController::index" type="service_closure" id=".service_locator.28.LKFQ"/>
+        <argument key="App\Controller\ProduitPlatController::new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\ProduitPlatController::show" type="service_closure" id=".service_locator.Y_I45OW"/>
+        <argument key="App\Controller\ProduitPlatController::showPDT" type="service_closure" id=".service_locator.KU4StTS"/>
+        <argument key="App\Controller\ReservationController::delete" type="service_closure" id=".service_locator.seS9gks"/>
+        <argument key="App\Controller\ReservationController::edit" type="service_closure" id=".service_locator.seS9gks"/>
+        <argument key="App\Controller\ReservationController::index" type="service_closure" id=".service_locator.COMnccu"/>
+        <argument key="App\Controller\ReservationController::new" type="service_closure" id=".service_locator.XISRjPO"/>
+        <argument key="App\Controller\ReservationController::show" type="service_closure" id=".service_locator.kvNeJHT"/>
+        <argument key="App\Controller\RestaurantController::delete" type="service_closure" id=".service_locator..ik47nb"/>
+        <argument key="App\Controller\RestaurantController::edit" type="service_closure" id=".service_locator..ik47nb"/>
+        <argument key="App\Controller\RestaurantController::index" type="service_closure" id=".service_locator.6fGK5AF"/>
+        <argument key="App\Controller\RestaurantController::index2" type="service_closure" id=".service_locator.n8gOTNr"/>
+        <argument key="App\Controller\RestaurantController::new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\RestaurantController::show" type="service_closure" id=".service_locator.ky1UVZL"/>
+        <argument key="App\Controller\RestaurantController::show2" type="service_closure" id=".service_locator.xDFrwl5"/>
+        <argument key="App\Controller\CategorieController:delete" type="service_closure" id=".service_locator.pCoFPhJ"/>
+        <argument key="App\Controller\CategorieController:edit" type="service_closure" id=".service_locator.pCoFPhJ"/>
+        <argument key="App\Controller\CategorieController:index" type="service_closure" id=".service_locator.hqNb5OX"/>
+        <argument key="App\Controller\CategorieController:new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\CategorieController:show" type="service_closure" id=".service_locator.RdXN6Y1"/>
+        <argument key="App\Controller\ProduitPlatController:delete" type="service_closure" id=".service_locator.sKlhyKt"/>
+        <argument key="App\Controller\ProduitPlatController:edit" type="service_closure" id=".service_locator.sKlhyKt"/>
+        <argument key="App\Controller\ProduitPlatController:index" type="service_closure" id=".service_locator.28.LKFQ"/>
+        <argument key="App\Controller\ProduitPlatController:new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\ProduitPlatController:show" type="service_closure" id=".service_locator.Y_I45OW"/>
+        <argument key="App\Controller\ProduitPlatController:showPDT" type="service_closure" id=".service_locator.KU4StTS"/>
+        <argument key="App\Controller\ReservationController:delete" type="service_closure" id=".service_locator.seS9gks"/>
+        <argument key="App\Controller\ReservationController:edit" type="service_closure" id=".service_locator.seS9gks"/>
+        <argument key="App\Controller\ReservationController:index" type="service_closure" id=".service_locator.COMnccu"/>
+        <argument key="App\Controller\ReservationController:new" type="service_closure" id=".service_locator.XISRjPO"/>
+        <argument key="App\Controller\ReservationController:show" type="service_closure" id=".service_locator.kvNeJHT"/>
+        <argument key="App\Controller\RestaurantController:delete" type="service_closure" id=".service_locator..ik47nb"/>
+        <argument key="App\Controller\RestaurantController:edit" type="service_closure" id=".service_locator..ik47nb"/>
+        <argument key="App\Controller\RestaurantController:index" type="service_closure" id=".service_locator.6fGK5AF"/>
+        <argument key="App\Controller\RestaurantController:index2" type="service_closure" id=".service_locator.n8gOTNr"/>
+        <argument key="App\Controller\RestaurantController:new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\RestaurantController:show" type="service_closure" id=".service_locator.ky1UVZL"/>
+        <argument key="App\Controller\RestaurantController:show2" type="service_closure" id=".service_locator.xDFrwl5"/>
+      </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5220,9 +5623,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.SFX6J7Y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.eyiCWCa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\CategorieType" type="service_closure" id="App\Form\CategorieType"/>
+        <argument key="App\Form\ProduitPlatType" type="service_closure" id="App\Form\ProduitPlatType"/>
+        <argument key="App\Form\ReservationType" type="service_closure" id="App\Form\ReservationType"/>
+        <argument key="App\Form\RestaurantType" type="service_closure" id="App\Form\RestaurantType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service_closure" id="form.type.file"/>
@@ -5397,6 +5804,16 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
+    <service id=".service_locator.cLmi324" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Repository\CategorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
+        <argument key="App\Repository\ProduitPlatRepository" type="service_closure" id="App\Repository\ProduitPlatRepository"/>
+        <argument key="App\Repository\ReservationRepository" type="service_closure" id="App\Repository\ReservationRepository"/>
+        <argument key="App\Repository\RestaurantRepository" type="service_closure" id="App\Repository\RestaurantRepository"/>
+        <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
       <argument type="service" id="security.access.authenticated_voter"/>
       <argument type="service" id="debug.event_dispatcher"/>
@@ -5445,9 +5862,33 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\CategorieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\CategorieController"/>
+      <argument>App\Controller\CategorieController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\ProductController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ProductController"/>
       <argument>App\Controller\ProductController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ProduitPlatController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ProduitPlatController"/>
+      <argument>App\Controller\ProduitPlatController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ReservationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ReservationController"/>
+      <argument>App\Controller\ReservationController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\RestaurantController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\RestaurantController"/>
+      <argument>App\Controller\RestaurantController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -5597,12 +6038,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.CF2ikXv"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.CF2ikXv"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5612,6 +6053,17 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.RdXN6Y1.App\Entity\Categorie" class="App\Entity\Categorie"/>
+    <service id=".errored..service_locator.pCoFPhJ.App\Entity\Categorie" class="App\Entity\Categorie"/>
+    <service id=".errored..service_locator.Y_I45OW.App\Entity\ProduitPlat" class="App\Entity\ProduitPlat"/>
+    <service id=".errored..service_locator.KU4StTS.App\Entity\Categorie" class="App\Entity\Categorie"/>
+    <service id=".errored..service_locator.KU4StTS.App\Entity\Restaurant" class="App\Entity\Restaurant"/>
+    <service id=".errored..service_locator.sKlhyKt.App\Entity\ProduitPlat" class="App\Entity\ProduitPlat"/>
+    <service id=".errored..service_locator.kvNeJHT.App\Entity\Reservation" class="App\Entity\Reservation"/>
+    <service id=".errored..service_locator.seS9gks.App\Entity\Reservation" class="App\Entity\Reservation"/>
+    <service id=".errored..service_locator.ky1UVZL.App\Entity\Restaurant" class="App\Entity\Restaurant"/>
+    <service id=".errored..service_locator.xDFrwl5.App\Entity\Restaurant" class="App\Entity\Restaurant"/>
+    <service id=".errored..service_locator..ik47nb.App\Entity\Restaurant" class="App\Entity\Restaurant"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.TfYcj5y"/>
       <argument type="collection">
@@ -6000,9 +6452,10 @@
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.main" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.I3K77mT"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.CF2ikXv"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

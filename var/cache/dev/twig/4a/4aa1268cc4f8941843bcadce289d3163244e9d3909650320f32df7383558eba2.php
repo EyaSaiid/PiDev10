@@ -73,7 +73,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 ";
         // line 72
         $this->displayBlock('body', $context, $blocks);
-        // line 422
+        // line 514
         echo "
 </body>
 </html>";
@@ -518,7 +518,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                         <a href=\"#\" class=\"nav-link\">
                             <i class=\"nav-icon fas fa-table\"></i>
                             <p>
-                                 GestionRestaurant
+                                 Gestion Restaurant
                                 <i class=\"fas fa-angle-left right\"></i>
                             </p>
                         </a>
@@ -526,17 +526,20 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                             <li class=\"nav-item\">
                                 <a href=\"";
         // line 286
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionRestaurant");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_index");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
-                                    <p>Afficher Restaraunt</p>
+                                    <p> Afficher Restaurant</p>
                                 </a>
                             </li>
 
                             <li class=\"nav-item\">
-                                <a href=\"../forms/general.html\" class=\"nav-link\">
+                                <a href=\"";
+        // line 293
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_new");
+        echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
-                                    <p>Ajouter Restaraunt</p>
+                                    <p> Ajouter Restaurant</p>
                                 </a>
                             </li>
 
@@ -548,26 +551,125 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                 </nav>
  ";
         // line 306
+        echo "                ";
+        // line 307
+        echo "
+                <nav class=\"mt-2\">
+
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Catégorie
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 321
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_index");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Afficher Categorie</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 328
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_new");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Ajouter Categorie</p>
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+ ";
+        // line 341
+        echo "                ";
+        // line 342
         echo "
 
+                <nav class=\"mt-2\">
 
 
-                <li class=\"nav-item\">
-                    <a href=\"";
-        // line 311
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionProduit");
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Plats et Boissons
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 357
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_index");
         echo "\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Produit
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Afficher Plats et Boissons</p>
+                                </a>
+                            </li>
 
-                </li>
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 364
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_new");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Ajouter Plats et Boissons</p>
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+                ";
+        // line 377
+        echo "
+                <nav class=\"mt-2\">
+
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Reservation
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 391
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_index");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Afficher les reservations</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                </nav>
+                ";
+        // line 400
+        echo "
+
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 321
+        // line 403
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionOffreTravail");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -580,7 +682,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 331
+        // line 413
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionEvenement");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -591,23 +693,12 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
                 </li>
 
-                <li class=\"nav-item\">
-                    <a href=\"";
-        // line 341
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionMenu");
-        echo "\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Menu
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
-                </li>
+
 
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 352
+        // line 426
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionArtiste");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -620,12 +711,12 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 362
+        // line 436
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionCommande");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
-                            Gestion <Commande></Commande>
+                            Gestion Commande
                             <i class=\"fas fa-angle-left right\"></i>
                         </p>
                     </a>
@@ -669,14 +760,34 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class=\"content-wrapper\">
 
-    ";
-        // line 411
-        $this->displayBlock('bodyBack', $context, $blocks);
-        // line 412
+
+
+
+
+
+
+
+
+
+
+";
+        // line 495
         echo "
-    </div>
+    ";
+        // line 496
+        $this->displayBlock('bodyBack', $context, $blocks);
+        // line 497
+        echo "
+";
+        // line 499
+        echo "
+
+
+
+
+
+
 
     <!-- Control Sidebar -->
     <aside class=\"control-sidebar control-sidebar-dark\">
@@ -693,7 +804,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     }
 
-    // line 411
+    // line 496
     public function block_bodyBack($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -724,7 +835,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     public function getDebugInfo()
     {
-        return array (  697 => 411,  678 => 412,  676 => 411,  624 => 362,  611 => 352,  597 => 341,  584 => 331,  571 => 321,  558 => 311,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 422,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
+        return array (  808 => 496,  784 => 499,  781 => 497,  779 => 496,  776 => 495,  715 => 436,  702 => 426,  686 => 413,  673 => 403,  668 => 400,  657 => 391,  641 => 377,  626 => 364,  616 => 357,  599 => 342,  597 => 341,  582 => 328,  572 => 321,  556 => 307,  554 => 306,  539 => 293,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 514,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -999,7 +1110,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                 </li>
 
 
-{#  **********************Gestion restaurant avec navbar*******************************#}
+{#  ********************** Gestion restaurant avec navbar*******************************#}
 
                 <nav class=\"mt-2\">
 
@@ -1008,22 +1119,22 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                         <a href=\"#\" class=\"nav-link\">
                             <i class=\"nav-icon fas fa-table\"></i>
                             <p>
-                                 GestionRestaurant
+                                 Gestion Restaurant
                                 <i class=\"fas fa-angle-left right\"></i>
                             </p>
                         </a>
                         <ul class=\"nav nav-treeview\">
                             <li class=\"nav-item\">
-                                <a href=\"{{ path('GestionRestaurant') }}\" class=\"nav-link\">
+                                <a href=\"{{ path('restaurant_index') }}\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
-                                    <p>Afficher Restaraunt</p>
+                                    <p> Afficher Restaurant</p>
                                 </a>
                             </li>
 
                             <li class=\"nav-item\">
-                                <a href=\"../forms/general.html\" class=\"nav-link\">
+                                <a href=\"{{ path('restaurant_new') }}\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
-                                    <p>Ajouter Restaraunt</p>
+                                    <p> Ajouter Restaurant</p>
                                 </a>
                             </li>
 
@@ -1034,20 +1145,102 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 </nav>
  {#  ***************************        End  --------   Gestion restaurant avec navbar    ************************#}
+                {#  ********************** Gestion Categorie avec navbar *******************************#}
+
+                <nav class=\"mt-2\">
 
 
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Catégorie
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('categorie_index') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Afficher Categorie</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('categorie_new') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Ajouter Categorie</p>
+                                </a>
+                            </li>
+
+                        </ul>
 
 
-                <li class=\"nav-item\">
-                    <a href=\"{{ path('GestionProduit') }}\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Produit
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
+                    </li>
 
-                </li>
+                </nav>
+ {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
+                {#  ********************** Gestion ProduitPlat avec navbar *******************************#}
+
+
+                <nav class=\"mt-2\">
+
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Plats et Boissons
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('produit_plat_index') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Afficher Plats et Boissons</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('produit_plat_new') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Ajouter Plats et Boissons</p>
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+                {#  ********************** Gestion Categorie avec navbar *******************************#}
+
+                <nav class=\"mt-2\">
+
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Reservation
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('reservation_index') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Afficher les reservations</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                </nav>
+                {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
+
+
                 <li class=\"nav-item\">
                     <a href=\"{{ path('GestionOffreTravail') }}\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -1068,15 +1261,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
                 </li>
 
-                <li class=\"nav-item\">
-                    <a href=\"{{ path('GestionMenu') }}\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Menu
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
-                </li>
+
 
 
                 <li class=\"nav-item\">
@@ -1093,7 +1278,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     <a href=\"{{ path('GestionCommande') }}\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
-                            Gestion <Commande></Commande>
+                            Gestion Commande
                             <i class=\"fas fa-angle-left right\"></i>
                         </p>
                     </a>
@@ -1137,11 +1322,29 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class=\"content-wrapper\">
+
+
+
+
+
+
+
+
+
+
+
+{#    <div class=\"content-wrapper\">#}
 
     {% block bodyBack %} {% endblock %}
 
-    </div>
+{#    </div>#}
+
+
+
+
+
+
+
 
     <!-- Control Sidebar -->
     <aside class=\"control-sidebar control-sidebar-dark\">
