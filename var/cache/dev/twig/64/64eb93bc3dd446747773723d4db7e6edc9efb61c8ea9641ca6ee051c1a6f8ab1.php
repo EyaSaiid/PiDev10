@@ -91,10 +91,11 @@ class __TwigTemplate_5267fb1b9c8a4362e885935377d1cf616f7f26c863df025fe9de5854de0
 
 <div class=\"card\">
     <div class=\"card-header\">
-        <h3 class=\"card-title\">Table Plats/Boissons</h3>
+        <h3 class=\"card-title\">Liste des restaurants</h3>
     </div>
     <!-- /.card-header -->
     <div class=\"card-body\">
+
         <table id=\"example1\" class=\"table table-bordered table-striped\">
             <div class=\"row\">
                 <div class=\"col-sm-12 col-md-6\">
@@ -105,71 +106,63 @@ class __TwigTemplate_5267fb1b9c8a4362e885935377d1cf616f7f26c863df025fe9de5854de0
             <tr>
                 <th>Id_restaurant</th>
                 <td>";
-        // line 25
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 25, $this->source); })()), "idRestaurant", [], "any", false, false, false, 25), "html", null, true);
+        // line 26
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 26, $this->source); })()), "idRestaurant", [], "any", false, false, false, 26), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Nom_restaurant</th>
                 <td>";
-        // line 29
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 29, $this->source); })()), "nomRestaurant", [], "any", false, false, false, 29), "html", null, true);
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 30, $this->source); })()), "nomRestaurant", [], "any", false, false, false, 30), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Desc_restaurant</th>
                 <td>";
-        // line 33
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 33, $this->source); })()), "descRestaurant", [], "any", false, false, false, 33), "html", null, true);
+        // line 34
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 34, $this->source); })()), "descRestaurant", [], "any", false, false, false, 34), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Capacite</th>
                 <td>";
-        // line 37
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 37, $this->source); })()), "capacite", [], "any", false, false, false, 37), "html", null, true);
+        // line 38
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 38, $this->source); })()), "capacite", [], "any", false, false, false, 38), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Num_tel</th>
                 <td>";
-        // line 41
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 41, $this->source); })()), "numTel", [], "any", false, false, false, 41), "html", null, true);
+        // line 42
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 42, $this->source); })()), "numTel", [], "any", false, false, false, 42), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Adresse</th>
                 <td>";
-        // line 45
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 45, $this->source); })()), "adresse", [], "any", false, false, false, 45), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 46, $this->source); })()), "adresse", [], "any", false, false, false, 46), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Specialite</th>
                 <td>";
-        // line 49
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 49, $this->source); })()), "specialite", [], "any", false, false, false, 49), "html", null, true);
+        // line 50
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 50, $this->source); })()), "specialite", [], "any", false, false, false, 50), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
     </div>
 </div>
-
-    <a href=\"";
-        // line 56
+<div class=\"col-md-12 text-center\">
+    <a class=\"btn btn-outline-dark\" href=\"";
+        // line 57
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_index");
-        echo "\">back to list</a>
+        echo "\">Liste des restaurants</a>
+</div>
 
-    <a href=\"";
-        // line 58
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_edit", ["id_restaurant" => twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 58, $this->source); })()), "getIdRestaurant", [], "method", false, false, false, 58)]), "html", null, true);
-        echo "\">edit</a>
-
-    ";
-        // line 60
-        echo twig_include($this->env, $context, "Back/restaurant/_delete_form.html.twig");
-        echo "
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -191,7 +184,7 @@ class __TwigTemplate_5267fb1b9c8a4362e885935377d1cf616f7f26c863df025fe9de5854de0
 
     public function getDebugInfo()
     {
-        return array (  171 => 60,  166 => 58,  161 => 56,  151 => 49,  144 => 45,  137 => 41,  130 => 37,  123 => 33,  116 => 29,  109 => 25,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  162 => 57,  152 => 50,  145 => 46,  138 => 42,  131 => 38,  124 => 34,  117 => 30,  110 => 26,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -207,10 +200,11 @@ class __TwigTemplate_5267fb1b9c8a4362e885935377d1cf616f7f26c863df025fe9de5854de0
 
 <div class=\"card\">
     <div class=\"card-header\">
-        <h3 class=\"card-title\">Table Plats/Boissons</h3>
+        <h3 class=\"card-title\">Liste des restaurants</h3>
     </div>
     <!-- /.card-header -->
     <div class=\"card-body\">
+
         <table id=\"example1\" class=\"table table-bordered table-striped\">
             <div class=\"row\">
                 <div class=\"col-sm-12 col-md-6\">
@@ -250,12 +244,10 @@ class __TwigTemplate_5267fb1b9c8a4362e885935377d1cf616f7f26c863df025fe9de5854de0
     </table>
     </div>
 </div>
+<div class=\"col-md-12 text-center\">
+    <a class=\"btn btn-outline-dark\" href=\"{{ path('restaurant_index') }}\">Liste des restaurants</a>
+</div>
 
-    <a href=\"{{ path('restaurant_index') }}\">back to list</a>
-
-    <a href=\"{{ path('restaurant_edit', {'id_restaurant': restaurant.getIdRestaurant()}) }}\">edit</a>
-
-    {{ include('Back/restaurant/_delete_form.html.twig') }}
 {% endblock %}
 ", "Back/restaurant/show.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\restaurant\\show.html.twig");
     }

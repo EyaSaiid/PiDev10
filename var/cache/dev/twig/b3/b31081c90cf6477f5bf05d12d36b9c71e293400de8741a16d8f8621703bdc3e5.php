@@ -65,7 +65,7 @@ class __TwigTemplate_35a0e4c1816be0ee024fe336b75cceb95de1922b06f4ca0545b73b4609b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Restaurant index";
+        echo "Liste des Restaurants ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -88,7 +88,7 @@ class __TwigTemplate_35a0e4c1816be0ee024fe336b75cceb95de1922b06f4ca0545b73b4609b
         echo "
     <div class=\"card\">
         <div class=\"card-header\">
-            <h3 class=\"card-title\">DataTable with default features</h3>
+            <h3 class=\"card-title\">Liste des restaurants</h3>
         </div>
         <!-- /.card-header -->
         <div class=\"card-body\">
@@ -163,14 +163,14 @@ class __TwigTemplate_35a0e4c1816be0ee024fe336b75cceb95de1922b06f4ca0545b73b4609b
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["restaurant"], "specialite", [], "any", false, false, false, 42), "html", null, true);
             echo "</td>
                     <td>
-                        <a href=\"";
+                        <a class=\"btn btn-info\" href=\"";
             // line 44
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_show", ["id_restaurant" => twig_get_attribute($this->env, $this->source, $context["restaurant"], "getIdRestaurant", [], "method", false, false, false, 44)]), "html", null, true);
-            echo "\">show</a>
-                        <a href=\"";
+            echo "\">Afficher</a>
+                        <a class=\"btn btn-secondary\" href=\"";
             // line 45
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_edit", ["id_restaurant" => twig_get_attribute($this->env, $this->source, $context["restaurant"], "getIdRestaurant", [], "method", false, false, false, 45)]), "html", null, true);
-            echo "\">edit</a>
+            echo "\">Modifier</a>
                         ";
             // line 46
             echo twig_include($this->env, $context, "Back/restaurant/_delete_form.html.twig", ["button_label" => "Delete"]);
@@ -238,13 +238,13 @@ class __TwigTemplate_35a0e4c1816be0ee024fe336b75cceb95de1922b06f4ca0545b73b4609b
     {
         return new Source("{% extends 'base2.html.twig' %}
 
-{% block title %}Restaurant index{% endblock %}
+{% block title %}Liste des Restaurants {% endblock %}
 
 {% block bodyBack %}
 
     <div class=\"card\">
         <div class=\"card-header\">
-            <h3 class=\"card-title\">DataTable with default features</h3>
+            <h3 class=\"card-title\">Liste des restaurants</h3>
         </div>
         <!-- /.card-header -->
         <div class=\"card-body\">
@@ -279,8 +279,8 @@ class __TwigTemplate_35a0e4c1816be0ee024fe336b75cceb95de1922b06f4ca0545b73b4609b
                     <td>{{ restaurant.adresse }}</td>
                     <td>{{ restaurant.specialite }}</td>
                     <td>
-                        <a href=\"{{ path('restaurant_show', {'id_restaurant': restaurant.getIdRestaurant()}) }}\">show</a>
-                        <a href=\"{{ path('restaurant_edit', {'id_restaurant': restaurant.getIdRestaurant()}) }}\">edit</a>
+                        <a class=\"btn btn-info\" href=\"{{ path('restaurant_show', {'id_restaurant': restaurant.getIdRestaurant()}) }}\">Afficher</a>
+                        <a class=\"btn btn-secondary\" href=\"{{ path('restaurant_edit', {'id_restaurant': restaurant.getIdRestaurant()}) }}\">Modifier</a>
                         {{ include('Back/restaurant/_delete_form.html.twig' , {'button_label': 'Delete'}) }}
 
                     </td>

@@ -85,7 +85,7 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyBack"));
 
         // line 6
-        echo "    <h1>Edit Restaurant</h1>
+        echo "
 <div class=\"content-wrapper\">
     <section class=\"content\">
         <div class=\"container-fluid\">
@@ -95,7 +95,7 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
                     <!-- general form elements -->
                     <div class=\"card card-primary\">
                         <div class=\"card-header\">
-                            <h3 class=\"card-title\">modifier un restaurant</h3>
+                            <h2 class=\"card-title\">Modifier Un Restaurant </h2>
                         </div>
                         <!-- /.card-header -->
 
@@ -104,20 +104,12 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
 
                             ";
         // line 23
-        echo twig_include($this->env, $context, "Back/restaurant/_form.html.twig", ["button_label" => "Update"]);
+        echo twig_include($this->env, $context, "Back/restaurant/_form.html.twig", ["button_label" => "Modifier"]);
         echo "
-                        </div>
-                        <div class=\"card-body\">
 
-                            ";
-        // line 27
-        echo twig_include($this->env, $context, "Back/restaurant/_delete_form.html.twig", ["button_label" => "Delete"]);
-        echo "
+
                         </div>
-                        <a href=\"";
-        // line 29
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_index");
-        echo "\">back to list</a>
+
 
                     </div>
                 </div>
@@ -149,7 +141,7 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
 
     public function getDebugInfo()
     {
-        return array (  119 => 29,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -159,7 +151,7 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
 {% block title %}Edit Restaurant{% endblock %}
 
 {% block bodyBack %}
-    <h1>Edit Restaurant</h1>
+
 <div class=\"content-wrapper\">
     <section class=\"content\">
         <div class=\"container-fluid\">
@@ -169,20 +161,18 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
                     <!-- general form elements -->
                     <div class=\"card card-primary\">
                         <div class=\"card-header\">
-                            <h3 class=\"card-title\">modifier un restaurant</h3>
+                            <h2 class=\"card-title\">Modifier Un Restaurant </h2>
                         </div>
                         <!-- /.card-header -->
 
 
                         <div class=\"card-body\">
 
-                            {{ include('Back/restaurant/_form.html.twig', {'button_label': 'Update'}) }}
-                        </div>
-                        <div class=\"card-body\">
+                            {{ include('Back/restaurant/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-                            {{ include('Back/restaurant/_delete_form.html.twig', {'button_label': 'Delete'}) }}
+
                         </div>
-                        <a href=\"{{ path('restaurant_index') }}\">back to list</a>
+
 
                     </div>
                 </div>

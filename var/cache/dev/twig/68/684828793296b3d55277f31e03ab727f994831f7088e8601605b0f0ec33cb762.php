@@ -101,21 +101,13 @@ class __TwigTemplate_1eb79befab596d043e2ac2c83d07f8d47cd8068dc554de38c6e6fc08420
 
 
                     <div class=\"card-body\">
+
     ";
-        // line 22
-        echo twig_include($this->env, $context, "Back/reservation/_formEdit.html.twig", ["button_label" => "Update"]);
+        // line 23
+        echo twig_include($this->env, $context, "Back/reservation/_formEdit.html.twig", ["button_label" => "Modifier"]);
         echo "
                     </div>
-                    <div class=\"card-body\">
-                        ";
-        // line 25
-        echo twig_include($this->env, $context, "Back/reservation/_delete_form.html.twig");
-        echo "
-                    </div>
-    <a href=\"";
-        // line 27
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_index");
-        echo "\">back to list</a>
+
 
                 </div>
             </div>
@@ -144,7 +136,7 @@ class __TwigTemplate_1eb79befab596d043e2ac2c83d07f8d47cd8068dc554de38c6e6fc08420
 
     public function getDebugInfo()
     {
-        return array (  117 => 27,  112 => 25,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -170,12 +162,10 @@ class __TwigTemplate_1eb79befab596d043e2ac2c83d07f8d47cd8068dc554de38c6e6fc08420
 
 
                     <div class=\"card-body\">
-    {{ include('Back/reservation/_formEdit.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('Back/reservation/_formEdit.html.twig', {'button_label': 'Modifier'}) }}
                     </div>
-                    <div class=\"card-body\">
-                        {{ include('Back/reservation/_delete_form.html.twig') }}
-                    </div>
-    <a href=\"{{ path('reservation_index') }}\">back to list</a>
+
 
                 </div>
             </div>

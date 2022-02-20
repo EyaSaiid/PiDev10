@@ -89,7 +89,7 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
 
 <div class=\"card\">
     <div class=\"card-header\">
-        <h3 class=\"card-title\">Table Plats/Boissons</h3>
+        <h3 class=\"card-title\">Table des categories </h3>
     </div>
     <!-- /.card-header -->
     <div class=\"card-body\">
@@ -123,12 +123,12 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
     <a href=\"";
         // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_index");
-        echo "\">back to list</a>
+        echo "\">retour à la liste </a>
 
     <a href=\"";
         // line 37
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_edit", ["id_categorie" => twig_get_attribute($this->env, $this->source, (isset($context["categorie"]) || array_key_exists("categorie", $context) ? $context["categorie"] : (function () { throw new RuntimeError('Variable "categorie" does not exist.', 37, $this->source); })()), "GetIdCategorie", [], "method", false, false, false, 37)]), "html", null, true);
-        echo "\">edit</a>
+        echo "\">Modifier</a>
 
     ";
         // line 39
@@ -169,7 +169,7 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
 
 <div class=\"card\">
     <div class=\"card-header\">
-        <h3 class=\"card-title\">Table Plats/Boissons</h3>
+        <h3 class=\"card-title\">Table des categories </h3>
     </div>
     <!-- /.card-header -->
     <div class=\"card-body\">
@@ -194,9 +194,9 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
     </div>
 </div>
 
-    <a href=\"{{ path('categorie_index') }}\">back to list</a>
+    <a href=\"{{ path('categorie_index') }}\">retour à la liste </a>
 
-    <a href=\"{{ path('categorie_edit', {'id_categorie': categorie.GetIdCategorie()}) }}\">edit</a>
+    <a href=\"{{ path('categorie_edit', {'id_categorie': categorie.GetIdCategorie()}) }}\">Modifier</a>
 
     {{ include('Back/categorie/_delete_form.html.twig') }}
 {% endblock %}

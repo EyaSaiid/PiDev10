@@ -90,15 +90,16 @@ class __TwigTemplate_1fff9abf9245ebe7fad706280057508cd627e1cca98b7f3b6cde06a8203
         // line 23
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "restaurants", [], "any", false, false, false, 23), 'widget', ["attr" => ["class" => "custom-select form-control"]]);
         echo "
-        <div class=\"card-footer\">
-            <button class=\"btn\">";
+        <div class=\"col-md-12 text-center\">
+            <button class=\"btn btn-primary\">";
         // line 25
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 25, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 25, $this->source); })()), "Modifier")) : ("Modifier")), "html", null, true);
         echo "</button>
+
         </div>
     ";
-        // line 27
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_end');
+        // line 28
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 28, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -121,7 +122,7 @@ class __TwigTemplate_1fff9abf9245ebe7fad706280057508cd627e1cca98b7f3b6cde06a8203
 
     public function getDebugInfo()
     {
-        return array (  101 => 27,  96 => 25,  91 => 23,  87 => 22,  83 => 21,  77 => 18,  73 => 17,  69 => 16,  62 => 12,  58 => 11,  54 => 10,  51 => 9,  46 => 2,  43 => 1,);
+        return array (  102 => 28,  96 => 25,  91 => 23,  87 => 22,  83 => 21,  77 => 18,  73 => 17,  69 => 16,  62 => 12,  58 => 11,  54 => 10,  51 => 9,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -149,8 +150,9 @@ class __TwigTemplate_1fff9abf9245ebe7fad706280057508cd627e1cca98b7f3b6cde06a8203
     {{ form_label(form.restaurants,\"Nom du restaurant\") }}
     {{ form_errors(form.restaurants) }}
     {{ form_widget(form.restaurants ,{'attr': {'class': 'custom-select form-control'}}) }}
-        <div class=\"card-footer\">
-            <button class=\"btn\">{{ button_label|default('Save') }}</button>
+        <div class=\"col-md-12 text-center\">
+            <button class=\"btn btn-primary\">{{ button_label|default('Modifier') }}</button>
+
         </div>
     {{ form_end(form) }}
 ", "Back/reservation/_formEdit.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\reservation\\_formEdit.html.twig");

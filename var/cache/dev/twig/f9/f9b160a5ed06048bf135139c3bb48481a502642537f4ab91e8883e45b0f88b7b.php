@@ -47,7 +47,7 @@ class __TwigTemplate_99fb17720754e879295517f59b344a7def74c954acdf4531a602a269b41
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["produit_plat"]) || array_key_exists("produit_plat", $context) ? $context["produit_plat"] : (function () { throw new RuntimeError('Variable "produit_plat" does not exist.', 2, $this->source); })()), "getIdProduitPlat", [], "method", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn btn-danger\">Delete</button>
+    <button class=\"btn btn-danger\">Supprimer</button>
 </form>
 ";
         
@@ -77,7 +77,7 @@ class __TwigTemplate_99fb17720754e879295517f59b344a7def74c954acdf4531a602a269b41
     {
         return new Source("<form method=\"post\" action=\"{{ path('produit_plat_delete', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ produit_plat.getIdProduitPlat()) }}\">
-    <button class=\"btn btn-danger\">Delete</button>
+    <button class=\"btn btn-danger\">Supprimer</button>
 </form>
 ", "Back/produit_plat/_delete_form.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\produit_plat\\_delete_form.html.twig");
     }

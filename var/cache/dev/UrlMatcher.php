@@ -75,13 +75,16 @@ return [
                         .'|/edit(*:364)'
                         .'|(*:372)'
                     .')'
-                    .'|taurant/([^/]++)(?'
-                        .'|(*:400)'
-                        .'|/(?'
-                            .'|aff(*:415)'
-                            .'|edit(*:427)'
+                    .'|taurant/(?'
+                        .'|detail/([^/]++)(*:407)'
+                        .'|([^/]++)(?'
+                            .'|(*:426)'
+                            .'|/(?'
+                                .'|aff(*:441)'
+                                .'|edit(*:453)'
+                            .')'
+                            .'|(*:462)'
                         .')'
-                        .'|(*:436)'
                     .')'
                 .')'
             .')/?$}sD',
@@ -104,10 +107,11 @@ return [
         351 => [[['_route' => 'reservation_show', '_controller' => 'App\\Controller\\ReservationController::show'], ['id_reservation'], ['GET' => 0], null, false, true, null]],
         364 => [[['_route' => 'reservation_edit', '_controller' => 'App\\Controller\\ReservationController::edit'], ['id_reservation'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         372 => [[['_route' => 'reservation_delete', '_controller' => 'App\\Controller\\ReservationController::delete'], ['id_reservation'], ['POST' => 0], null, false, true, null]],
-        400 => [[['_route' => 'restaurant_show', '_controller' => 'App\\Controller\\RestaurantController::show'], ['id_restaurant'], ['GET' => 0], null, false, true, null]],
-        415 => [[['_route' => 'details_menu', '_controller' => 'App\\Controller\\RestaurantController::show2'], ['id_restaurant'], ['GET' => 0], null, false, false, null]],
-        427 => [[['_route' => 'restaurant_edit', '_controller' => 'App\\Controller\\RestaurantController::edit'], ['id_restaurant'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        436 => [
+        407 => [[['_route' => 'restaurant3', '_controller' => 'App\\Controller\\RestaurantController::show3'], ['id_restaurant'], ['GET' => 0], null, false, true, null]],
+        426 => [[['_route' => 'restaurant_show', '_controller' => 'App\\Controller\\RestaurantController::show'], ['id_restaurant'], ['GET' => 0], null, false, true, null]],
+        441 => [[['_route' => 'details_menu', '_controller' => 'App\\Controller\\RestaurantController::show2'], ['id_restaurant'], ['GET' => 0], null, false, false, null]],
+        453 => [[['_route' => 'restaurant_edit', '_controller' => 'App\\Controller\\RestaurantController::edit'], ['id_restaurant'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        462 => [
             [['_route' => 'restaurant_delete', '_controller' => 'App\\Controller\\RestaurantController::delete'], ['id_restaurant'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

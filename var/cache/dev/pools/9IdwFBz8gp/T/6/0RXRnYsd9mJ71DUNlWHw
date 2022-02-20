@@ -5,7 +5,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
         clone ($p['Symfony\\Component\\Validator\\Constraints\\Positive'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Positive')),
         clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
-        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Range'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Range')),
     ],
     null,
     [
@@ -18,6 +18,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'scale' => [
                 null,
+            ],
+            'message' => [
+                1 => 'La capacité doit etre une valeur positive',
+                'vous devez inserer le nombre de place de votre restaurant',
             ],
             'value' => [
                 1 => 0,
@@ -33,20 +37,14 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'Default',
                 ],
             ],
-            'message' => [
-                2 => 'vous devez inserer le nombre de place de votre restaurant',
-            ],
-            'maxMessage' => [
-                3 => 'la capacite du restaurant doit etre entre [1..500]',
-            ],
-            'minMessage' => [
-                3 => 'la capacite du restaurant doit etre entre [1..500]',
-            ],
-            'max' => [
-                3 => 500,
+            'notInRangeMessage' => [
+                3 => 'la capacite du restaurant doit etre entre {{ min }} et {{ max }}',
             ],
             'min' => [
                 3 => 1,
+            ],
+            'max' => [
+                3 => 50,
             ],
         ],
     ],

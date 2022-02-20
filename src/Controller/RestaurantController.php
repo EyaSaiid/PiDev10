@@ -7,6 +7,7 @@ use App\Entity\ProduitPlat;
 use App\Entity\Restaurant;
 use App\Form\RestaurantType;
 use App\Repository\RestaurantRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +35,7 @@ class RestaurantController extends AbstractController
     /**
      * @Route("/new", name="restaurant_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
     {
         $restaurant = new Restaurant();
 
@@ -49,7 +50,10 @@ class RestaurantController extends AbstractController
                     $produitplats->addRestaurant($restaurant);
                 }
             }
-
+            $UserId=35; // hethy twali b session
+            $User=$userRepository->find($UserId);
+           // $restaurant->setIdClient($UserId);
+            $restaurant->setUser($User);
             $entityManager->persist($restaurant);
             $entityManager->flush();
             return $this->redirectToRoute('restaurant_index', [], Response::HTTP_SEE_OTHER);
@@ -81,6 +85,16 @@ class RestaurantController extends AbstractController
         ]);
 
     }
+    /**
+     * @Route("/detail/{id_restaurant}", name="restaurant3", methods={"GET"})
+     */
+    public function show3(Restaurant $restaurant): Response
+    {
+        return $this->render('Front/restaurent.html.twig', [
+            'restaurant' => $restaurant,
+
+        ]);
+    }
 
     /**
      * @Route("/{id_restaurant}", name="restaurant_show", methods={"GET"})
@@ -92,6 +106,7 @@ class RestaurantController extends AbstractController
 
         ]);
     }
+
 
 
     /**

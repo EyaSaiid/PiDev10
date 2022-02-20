@@ -7,7 +7,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Table Plats/Boissons</h3>
+        <h3 class="card-title">Table des categories </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -32,9 +32,7 @@
     </div>
 </div>
 
-    <a href="{{ path('categorie_index') }}">back to list</a>
-
-    <a href="{{ path('categorie_edit', {'id_categorie': categorie.GetIdCategorie()}) }}">edit</a>
-
-    {{ include('Back/categorie/_delete_form.html.twig') }}
+    <div class="col-md-12 text-center">
+        <a class="btn btn-outline-dark" href="{{ path('categorie_index') }}">Liste des catégories</a>
+    </div>
 {% endblock %}

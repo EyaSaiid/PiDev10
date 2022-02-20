@@ -112,8 +112,8 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
                         </p>
                         <a href=\"";
             // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("details_menu", ["id_restaurant" => twig_get_attribute($this->env, $this->source, $context["restaurant"], "getIdRestaurant", [], "method", false, false, false, 34)]), "html", null, true);
-            echo "\">voir Restaurant</a>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant3", ["id_restaurant" => twig_get_attribute($this->env, $this->source, $context["restaurant"], "getIdRestaurant", [], "method", false, false, false, 34)]), "html", null, true);
+            echo "\">voir Menu</a>
                     </div>
                 </div>
             ";
@@ -201,7 +201,7 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
                         <p>
                        <h4> {{ restaurant.specialite }}</h4>
                         </p>
-                        <a href=\"{{ path('details_menu', {'id_restaurant': restaurant.getIdRestaurant()  }) }}\">voir Restaurant</a>
+                        <a href=\"{{ path('restaurant3', {'id_restaurant': restaurant.getIdRestaurant()  }) }}\">voir Menu</a>
                     </div>
                 </div>
             {% endfor %}

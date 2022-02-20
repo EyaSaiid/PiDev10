@@ -34,13 +34,12 @@ class Restaurant
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Positive
+     * @Assert\Positive(message="La capacité doit etre une valeur positive")
      * @Assert\NotBlank(message="vous devez inserer le nombre de place de votre restaurant")
-     *  @Assert\Length(
+     * * @Assert\Range(
      *      min = 1,
-     *      max = 500,
-     *      minMessage = "la capacite du restaurant doit etre entre [1..500]",
-     *      maxMessage = "la capacite du restaurant doit etre entre [1..500]"
+     *      max = 50,
+     *      notInRangeMessage = "la capacite du restaurant doit etre entre {{ min }} et {{ max }}",
      * )
      */
     private $capacite;
@@ -198,6 +197,14 @@ class Restaurant
     private $reservations;
 
     /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="restaurants")
+     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
+     * })
+     */
+    private $user;
+
+    /**
      * @return Collection|Reservation[]|null
      */
     public function getReservations(): Collection
@@ -223,6 +230,18 @@ class Restaurant
                 $reservation->setReservation(null);
             }
         }
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
         return $this;
     }
 

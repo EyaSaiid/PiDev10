@@ -47,7 +47,7 @@ class __TwigTemplate_cfe111070d9107e83aabec73141cfadb1617df1d16fbaf9bb808fa6cba8
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["reservation"]) || array_key_exists("reservation", $context) ? $context["reservation"] : (function () { throw new RuntimeError('Variable "reservation" does not exist.', 2, $this->source); })()), "getIdReservation", [], "method", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn btn-danger\">Delete</button>
+    <button class=\"btn btn-danger\">Supprimer</button>
 </form>
 ";
         
@@ -77,7 +77,7 @@ class __TwigTemplate_cfe111070d9107e83aabec73141cfadb1617df1d16fbaf9bb808fa6cba8
     {
         return new Source("<form method=\"post\" action=\"{{ path('reservation_delete', {'id_reservation': reservation.getIdReservation()}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ reservation.getIdReservation()) }}\">
-    <button class=\"btn btn-danger\">Delete</button>
+    <button class=\"btn btn-danger\">Supprimer</button>
 </form>
 ", "Back/reservation/_delete_form.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\reservation\\_delete_form.html.twig");
     }

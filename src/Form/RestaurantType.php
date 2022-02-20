@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
@@ -42,7 +43,6 @@ class RestaurantType extends AbstractType
             ->add('produitplats',
                 EntityType::class,[
                     'class' => ProduitPlat::class,
-
                     'choice_label' => 'nom_produitplat',
                     'expanded'=>'true',
                     'multiple'=>'true',

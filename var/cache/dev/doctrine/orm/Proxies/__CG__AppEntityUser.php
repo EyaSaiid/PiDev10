@@ -67,10 +67,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'date', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'numero_tele', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'date', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'numero_tele', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'restaurants'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'date', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'numero_tele', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'date', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'numero_tele', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'restaurants'];
     }
 
     /**
@@ -465,6 +465,39 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeReservation', [$reservation]);
 
         return parent::removeReservation($reservation);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRestaurants(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRestaurants', []);
+
+        return parent::getRestaurants();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addRestaurant(\App\Entity\Restaurant $restaurant): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addRestaurant', [$restaurant]);
+
+        return parent::addRestaurant($restaurant);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeRestaurant(\App\Entity\Restaurant $restaurant): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeRestaurant', [$restaurant]);
+
+        return parent::removeRestaurant($restaurant);
     }
 
 }

@@ -104,7 +104,7 @@ class __TwigTemplate_1711ddbca3ac77962e195870d2923067f38bc1e03c18598cb1a923d85d4
 
                             ";
         // line 23
-        echo twig_include($this->env, $context, "Back/categorie/_form.html.twig", ["button_label" => "Update"]);
+        echo twig_include($this->env, $context, "Back/categorie/_form.html.twig", ["button_label" => "Modifier"]);
         echo "
                         </div>
                     </div>
@@ -173,7 +173,7 @@ class __TwigTemplate_1711ddbca3ac77962e195870d2923067f38bc1e03c18598cb1a923d85d4
 
                         <div class=\"card-body\">
 
-                            {{ include('Back/categorie/_form.html.twig', {'button_label': 'Update'}) }}
+                            {{ include('Back/categorie/_form.html.twig', {'button_label': 'Modifier'}) }}
                         </div>
                     </div>
                 </div>

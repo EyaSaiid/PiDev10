@@ -47,7 +47,7 @@ class __TwigTemplate_3acbd18389de6c5c1e5519fe846ff4c29d94424986c1c79a64f457351c3
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 2, $this->source); })()), "getIdRestaurant", [], "method", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn btn-danger\">Delete</button>
+    <button class=\"btn btn-danger\">Supprimer</button>
 </form>
 ";
         
@@ -77,7 +77,7 @@ class __TwigTemplate_3acbd18389de6c5c1e5519fe846ff4c29d94424986c1c79a64f457351c3
     {
         return new Source("<form method=\"post\" action=\"{{ path('restaurant_delete', {'id_restaurant': restaurant.getIdRestaurant()}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ restaurant.getIdRestaurant()) }}\">
-    <button class=\"btn btn-danger\">Delete</button>
+    <button class=\"btn btn-danger\">Supprimer</button>
 </form>
 ", "Back/restaurant/_delete_form.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\restaurant\\_delete_form.html.twig");
     }

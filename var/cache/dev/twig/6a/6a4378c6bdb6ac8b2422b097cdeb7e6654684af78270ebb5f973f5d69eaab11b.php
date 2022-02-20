@@ -147,17 +147,17 @@ class __TwigTemplate_ada2c5942ff50b5c7eaf2dfdf1e331d00959448c9f863de1e9ed4b391a7
             echo "</td>
                 <td>";
             // line 35
-            ((twig_get_attribute($this->env, $this->source, $context["reservation"], "dateReservation", [], "any", false, false, false, 35)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reservation"], "dateReservation", [], "any", false, false, false, 35), "Y-m-d H:i:s"), "html", null, true))) : (print ("")));
+            ((twig_get_attribute($this->env, $this->source, $context["reservation"], "dateReservation", [], "any", false, false, false, 35)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reservation"], "dateReservation", [], "any", false, false, false, 35), "Y-m-d"), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>
-                    <a href=\"";
+                   <a class=\"btn btn-info\" href=\"";
             // line 37
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_show", ["id_reservation" => twig_get_attribute($this->env, $this->source, $context["reservation"], "getIdReservation", [], "method", false, false, false, 37)]), "html", null, true);
-            echo "\">show</a>
-                    <a href=\"";
+            echo "\">Afficher</a>
+                    <a class=\"btn btn-secondary\" href=\"";
             // line 38
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_edit", ["id_reservation" => twig_get_attribute($this->env, $this->source, $context["reservation"], "getIdReservation", [], "method", false, false, false, 38)]), "html", null, true);
-            echo "\">edit</a>
+            echo "\">Modifier</a>
                     ";
             // line 39
             echo twig_include($this->env, $context, "Back/reservation/_delete_form.html.twig", ["button_label" => "Delete"]);
@@ -254,10 +254,10 @@ class __TwigTemplate_ada2c5942ff50b5c7eaf2dfdf1e331d00959448c9f863de1e9ed4b391a7
                 <td>{{ reservation.idRestaurant }}</td>
                 <td>{{ reservation.idClient }}</td>
                 <td>{{ reservation.nombre }}</td>
-                <td>{{ reservation.dateReservation ? reservation.dateReservation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.dateReservation ? reservation.dateReservation|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href=\"{{ path('reservation_show', {'id_reservation': reservation.getIdReservation()}) }}\">show</a>
-                    <a href=\"{{ path('reservation_edit', {'id_reservation': reservation.getIdReservation()}) }}\">edit</a>
+                   <a class=\"btn btn-info\" href=\"{{ path('reservation_show', {'id_reservation': reservation.getIdReservation()}) }}\">Afficher</a>
+                    <a class=\"btn btn-secondary\" href=\"{{ path('reservation_edit', {'id_reservation': reservation.getIdReservation()}) }}\">Modifier</a>
                     {{ include('Back/reservation/_delete_form.html.twig' , {'button_label': 'Delete'}) }}
 
                 </td>

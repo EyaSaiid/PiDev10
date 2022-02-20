@@ -67,10 +67,10 @@ class Restaurant extends \App\Entity\Restaurant implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'id_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'nom_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'desc_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'capacite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'num_tel', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'produitplats', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'reservations'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'id_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'nom_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'desc_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'capacite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'num_tel', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'produitplats', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'user'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'id_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'nom_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'desc_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'capacite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'num_tel', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'produitplats', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'reservations'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'id_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'nom_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'desc_restaurant', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'capacite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'num_tel', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'produitplats', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\Restaurant' . "\0" . 'user'];
     }
 
     /**
@@ -384,6 +384,28 @@ class Restaurant extends \App\Entity\Restaurant implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeReservation', [$reservation]);
 
         return parent::removeReservation($reservation);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUser(): ?\App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
+
+        return parent::getUser();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUser(?\App\Entity\User $user): \App\Entity\Restaurant
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
+
+        return parent::setUser($user);
     }
 
 }

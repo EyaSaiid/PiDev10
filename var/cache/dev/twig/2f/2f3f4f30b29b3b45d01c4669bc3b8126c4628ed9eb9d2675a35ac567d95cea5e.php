@@ -71,11 +71,11 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-12\">
-                    <h2>Book A Table</h2>
+                    <h2>Rservez votre Table</h2>
                 </div>
                 <div class=\"col-12\">
-                    <a href=\"\">Home</a>
-                    <a href=\"\">Booking</a>
+                    <a href=\"\">Accueil</a>
+                    <a href=\"\">Reservation</a>
                 </div>
             </div>
         </div>
@@ -90,8 +90,14 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
                 <div class=\"col-lg-7\">
                     <div class=\"booking-content\">
                         <div class=\"section-header\">
-                            <p>Book A Table</p>
-                            <h2>Book</h2>
+                            <H1>Reserver une Table</H1>
+
+                            <div class=\"menu-img\">
+                                <img src=\"";
+        // line 30
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/reser.jpg"), "html", null, true);
+        echo "\" alt=\"Image\">
+                            </div>
                         </div>
                         <div class=\"about-text\">
                             <p>
@@ -104,9 +110,9 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
                 <div class=\"col-lg-5\">
                     <div class=\"booking-form\">
                     ";
-        // line 40
+        // line 43
         $this->displayBlock('booking', $context, $blocks);
-        // line 41
+        // line 44
         echo "
                 </div>
             </div>
@@ -122,7 +128,7 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
 
     }
 
-    // line 40
+    // line 43
     public function block_booking($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -153,7 +159,7 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
 
     public function getDebugInfo()
     {
-        return array (  126 => 40,  110 => 41,  108 => 40,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  132 => 43,  116 => 44,  114 => 43,  98 => 30,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -165,11 +171,11 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-12\">
-                    <h2>Book A Table</h2>
+                    <h2>Rservez votre Table</h2>
                 </div>
                 <div class=\"col-12\">
-                    <a href=\"\">Home</a>
-                    <a href=\"\">Booking</a>
+                    <a href=\"\">Accueil</a>
+                    <a href=\"\">Reservation</a>
                 </div>
             </div>
         </div>
@@ -184,8 +190,11 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
                 <div class=\"col-lg-7\">
                     <div class=\"booking-content\">
                         <div class=\"section-header\">
-                            <p>Book A Table</p>
-                            <h2>Book</h2>
+                            <H1>Reserver une Table</H1>
+
+                            <div class=\"menu-img\">
+                                <img src=\"{{ asset('Front/img/reser.jpg') }}\" alt=\"Image\">
+                            </div>
                         </div>
                         <div class=\"about-text\">
                             <p>

@@ -46,9 +46,9 @@ class __TwigTemplate_8375856da49bb2d6ca254d05b543acf6a1d1ae4dd30465b5bb4b4c0cf2f
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 2, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "class" => "form-horizontal"]]);
         echo "
 
-<h1> Ajouter une categorie </h1>
+<h1> Categorie </h1>
 
-<div class=\"form-group\">
+
 
     <h5 class=\"text-danger\">   ";
         // line 8
@@ -64,13 +64,16 @@ class __TwigTemplate_8375856da49bb2d6ca254d05b543acf6a1d1ae4dd30465b5bb4b4c0cf2f
         echo "
 </div>
 
-<button class=\"btn\">";
-        // line 13
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 13, $this->source); })()), "Save")) : ("Save")), "html", null, true);
-        echo "</button>
-";
+<div class=\"col-md-12 text-center\">
+    <button class=\"btn btn-primary\">";
         // line 14
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'form_end');
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 14, $this->source); })()), "Ajouter")) : ("Ajouter")), "html", null, true);
+        echo "</button>
+
+
+";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_end');
         echo "
 
 
@@ -95,7 +98,7 @@ class __TwigTemplate_8375856da49bb2d6ca254d05b543acf6a1d1ae4dd30465b5bb4b4c0cf2f
 
     public function getDebugInfo()
     {
-        return array (  73 => 14,  69 => 13,  63 => 10,  59 => 9,  55 => 8,  46 => 2,  43 => 1,);
+        return array (  76 => 17,  70 => 14,  63 => 10,  59 => 9,  55 => 8,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -103,16 +106,19 @@ class __TwigTemplate_8375856da49bb2d6ca254d05b543acf6a1d1ae4dd30465b5bb4b4c0cf2f
         return new Source("
 {{ form_start(form,{'attr': {'novalidate': 'novalidate' , 'class':'form-horizontal'}}) }}
 
-<h1> Ajouter une categorie </h1>
+<h1> Categorie </h1>
 
-<div class=\"form-group\">
+
 
     <h5 class=\"text-danger\">   {{ form_errors(form.nom_categorie) }} </h5>
     {{ form_label(form.nom_categorie,\"Nom de la categorie\") }}
     {{ form_widget(form.nom_categorie ,{'attr': {'class': 'form-control'}}) }}
 </div>
 
-<button class=\"btn\">{{ button_label|default('Save') }}</button>
+<div class=\"col-md-12 text-center\">
+    <button class=\"btn btn-primary\">{{ button_label|default('Ajouter') }}</button>
+
+
 {{ form_end(form) }}
 
 

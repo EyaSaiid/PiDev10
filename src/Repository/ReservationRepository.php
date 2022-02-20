@@ -47,4 +47,17 @@ class ReservationRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    public function check($idres,$Date)
+    {
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT SUM(r.nombre) as somme FROM APP\Entity\Reservation r JOIN r.restaurants res WHERE res.id_restaurant=:idres and r.date_reservation=:Date")
+            ->setParameter('idres',$idres)
+            ->setParameter('Date',$Date);
+        return $query->getSingleScalarResult();
+    }
+
 }

@@ -122,7 +122,7 @@ class __TwigTemplate_fe383991fd232dadb0a17c90a217cb66730c53bb169da5aa9d93b3b8cca
                 </div>
             </div>
         </div>
-       
+
     </div>
 ";
         
@@ -182,7 +182,7 @@ class __TwigTemplate_fe383991fd232dadb0a17c90a217cb66730c53bb169da5aa9d93b3b8cca
                 </div>
             </div>
         </div>
-       
+
     </div>
 {% endblock %}
 ", "Front/MenuCategorie.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Front\\MenuCategorie.html.twig");

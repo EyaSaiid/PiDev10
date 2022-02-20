@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ReservationType extends AbstractType
 {
@@ -17,7 +18,12 @@ class ReservationType extends AbstractType
            // ->add('id_restaurant')
            // ->add('id_client')
             ->add('nombre')
-            ->add('date_reservation')
+            ->add('date_reservation', DateType::class, [
+                'widget' => 'choice',
+                'format' => 'yyyy-MM-dd',
+                'years' => range(("2022")+3, date("Y")),
+                'data' => new \DateTime()
+                ])
             ->add('restaurants',
                 EntityType::class,[
                     'class' => Restaurant::class,
@@ -26,6 +32,7 @@ class ReservationType extends AbstractType
                 ])
         ;
     }
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {

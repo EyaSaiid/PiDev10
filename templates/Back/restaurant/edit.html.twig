@@ -1,9 +1,9 @@
 {% extends 'base2.html.twig' %}
 
-{% block title %}Edit Restaurant{% endblock %}
+{% block title %}Modifier Restaurant{% endblock %}
 
 {% block bodyBack %}
-    <h1>Edit Restaurant</h1>
+
 <div class="content-wrapper">
     <section class="content">
         <div class="container-fluid">
@@ -13,20 +13,18 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">modifier un restaurant</h3>
+                            <h2 class="card-title">Modifier Un Restaurant </h2>
                         </div>
                         <!-- /.card-header -->
 
 
                         <div class="card-body">
 
-                            {{ include('Back/restaurant/_form.html.twig', {'button_label': 'Update'}) }}
-                        </div>
-                        <div class="card-body">
+                            {{ include('Back/restaurant/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-                            {{ include('Back/restaurant/_delete_form.html.twig', {'button_label': 'Delete'}) }}
+
                         </div>
-                        <a href="{{ path('restaurant_index') }}">back to list</a>
+
 
                     </div>
                 </div>

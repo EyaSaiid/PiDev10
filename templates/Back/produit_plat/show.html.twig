@@ -38,10 +38,7 @@
     </table>
     </div>
 </div>
-
-    <a href="{{ path('produit_plat_index') }}">back to list</a>
-
-    <a href="{{ path('produit_plat_edit', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}">edit</a>
-
-    {{ include('Back/produit_plat/_delete_form.html.twig') }}
+    <div class="col-md-12 text-center">
+        <a class="btn btn-outline-dark" href="{{ path('produit_plat_index') }}">Liste des plats/boissons</a>
+    </div>
 {% endblock %}

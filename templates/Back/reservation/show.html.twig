@@ -43,9 +43,8 @@
     </div>
 </div>
 
-    <a class="btn btn-light" href="{{ path('reservation_index') }}">back to list</a>
 
-    <a href="{{ path('reservation_edit', {'id_reservation': reservation.getIdReservation()}) }}">edit</a>
-
-    {{ include('Back/reservation/_delete_form.html.twig') }}
+    <div class="col-md-12 text-center">
+        <a class="btn btn-outline-dark" href="{{ path('reservation_index') }}">Liste des reservations</a>
+    </div>
 {% endblock %}

@@ -65,7 +65,7 @@ class __TwigTemplate_52bb0a4836c7aab28b7ef9fe2e7dcdb2470721e45c7ba07756d7933a5b8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "ProduitPlat index";
+        echo "Liste des Produits/Plats ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -145,14 +145,14 @@ class __TwigTemplate_52bb0a4836c7aab28b7ef9fe2e7dcdb2470721e45c7ba07756d7933a5b8
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit_plat"], "prix", [], "any", false, false, false, 33), "html", null, true);
             echo "</td>
                 <td>
-                    <a href=\"";
+                    <a class=\"btn btn-info\" href=\"";
             // line 35
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_show", ["id_produitplat" => twig_get_attribute($this->env, $this->source, $context["produit_plat"], "getIdProduitPlat", [], "method", false, false, false, 35)]), "html", null, true);
-            echo "\">show</a>
-                    <a href=\"";
+            echo "\">Afficher</a>
+                    <a class=\"btn btn-secondary\" href=\"";
             // line 36
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_edit", ["id_produitplat" => twig_get_attribute($this->env, $this->source, $context["produit_plat"], "getIdProduitPlat", [], "method", false, false, false, 36)]), "html", null, true);
-            echo "\">edit</a>
+            echo "\">Modifier</a>
                     ";
             // line 37
             echo twig_include($this->env, $context, "Back/produit_plat/_delete_form.html.twig", ["button_label" => "Delete"]);
@@ -191,10 +191,7 @@ class __TwigTemplate_52bb0a4836c7aab28b7ef9fe2e7dcdb2470721e45c7ba07756d7933a5b8
 </div>
     <!-- /.card -->
 
-    <a href=\"";
-        // line 55
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_new");
-        echo "\">Create new</a>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -216,14 +213,14 @@ class __TwigTemplate_52bb0a4836c7aab28b7ef9fe2e7dcdb2470721e45c7ba07756d7933a5b8
 
     public function getDebugInfo()
     {
-        return array (  196 => 55,  187 => 48,  178 => 44,  158 => 37,  154 => 36,  150 => 35,  145 => 33,  141 => 32,  137 => 31,  133 => 30,  130 => 29,  112 => 28,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  187 => 48,  178 => 44,  158 => 37,  154 => 36,  150 => 35,  145 => 33,  141 => 32,  137 => 31,  133 => 30,  130 => 29,  112 => 28,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base2.html.twig' %}
 
-{% block title %}ProduitPlat index{% endblock %}
+{% block title %}Liste des Produits/Plats {% endblock %}
 
 {% block bodyBack %}
 <div class=\"card\">
@@ -255,8 +252,8 @@ class __TwigTemplate_52bb0a4836c7aab28b7ef9fe2e7dcdb2470721e45c7ba07756d7933a5b8
                 <td>{{ produit_plat.nomProduitplat }}</td>
                 <td>{{ produit_plat.prix }}</td>
                 <td>
-                    <a href=\"{{ path('produit_plat_show', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}\">show</a>
-                    <a href=\"{{ path('produit_plat_edit', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}\">edit</a>
+                    <a class=\"btn btn-info\" href=\"{{ path('produit_plat_show', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}\">Afficher</a>
+                    <a class=\"btn btn-secondary\" href=\"{{ path('produit_plat_edit', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}\">Modifier</a>
                     {{ include('Back/produit_plat/_delete_form.html.twig' , {'button_label': 'Delete'}) }}
 
 
@@ -275,7 +272,7 @@ class __TwigTemplate_52bb0a4836c7aab28b7ef9fe2e7dcdb2470721e45c7ba07756d7933a5b8
 </div>
     <!-- /.card -->
 
-    <a href=\"{{ path('produit_plat_new') }}\">Create new</a>
+
 {% endblock %}
 ", "Back/produit_plat/index.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\produit_plat\\index.html.twig");
     }

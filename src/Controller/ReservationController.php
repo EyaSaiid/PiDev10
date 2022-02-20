@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Reservation;
+use App\Entity\Restaurant;
+use App\Repository\RestaurantRepository;
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
 use App\Repository\UserRepository;
@@ -11,12 +13,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Controller\RestaurantController;
 
 /**
  * @Route("/reservation")
  */
 class ReservationController extends AbstractController
 {
+
+
+
     /**
      * @Route("/findAll", name="reservation_index", methods={"GET"})
      */
@@ -27,6 +33,10 @@ class ReservationController extends AbstractController
         ]);
     }
 
+
+
+
+
     /**
      * @Route("/new", name="reservation_new", methods={"GET", "POST"})
      */
@@ -35,16 +45,33 @@ class ReservationController extends AbstractController
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $IDrestaurant = $form["restaurants"]->getData();
+           // $IDrestaurant=$reservation->getIdRestaurant();
+            //$DateRes=$reservation->getDateReservation();
+            $DateRes = $form["date_reservation"]->getData();
+            $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find($IDrestaurant);
+            $somme=$this->getDoctrine()->getRepository(Reservation::class)->check($IDrestaurant,$DateRes)
+                +$form["nombre"]->getData();
             $UserId=34; // hethy twali b session
             $User=$userRepository->find($UserId);
             $reservation->setIdClient($UserId);
             $reservation->setUser($User);
-            $entityManager->persist($reservation);
-            $entityManager->flush();
+            $capacite=$restaurant->getCapacite();
+            if($somme>$capacite)
+            {
+             return $this->render('Front/ErreurBooking.html.twig', [
+                 'somme' => $somme,
+                 'date'=>$DateRes,
+             ]);}
+            else{
 
-            return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
+                //MAIL
+                $entityManager->persist($reservation);
+                $entityManager->flush();
+            }
+
+           // return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('Back/reservation/new.html.twig', [
@@ -62,6 +89,9 @@ class ReservationController extends AbstractController
             'reservation' => $reservation,
         ]);
     }
+
+
+
 
     /**
      * @Route("/{id_reservation}/edit", name="reservation_edit", methods={"GET", "POST"})
@@ -95,6 +125,18 @@ class ReservationController extends AbstractController
 
         return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

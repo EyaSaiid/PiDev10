@@ -66,13 +66,14 @@ class __TwigTemplate_3f0e14dda99d0818d5a69dc4322ec3b4816b4bae9f9e7ce6380044959fe
 
         // line 5
         echo "
-    <section class=\"content\">
+
 
     <div class=\"row justify-content-md-center\">
     <!-- left column -->
 
     <!-- general form elements -->
-
+        <div class=\"booking\">
+            <div class=\"container\">
     <div class=\"card-header\">
         <h3 class=\"card-title\">Ajouter une reservation</h3>
     </div>
@@ -82,16 +83,14 @@ class __TwigTemplate_3f0e14dda99d0818d5a69dc4322ec3b4816b4bae9f9e7ce6380044959fe
     <div class=\"card-body\">
 
 ";
-        // line 21
+        // line 22
         echo twig_include($this->env, $context, "Back/reservation/_form.html.twig");
         echo "
 
     </div>
-
+            </div>
+        </div>
 </div>
-    </section>
-
-
 
 
 ";
@@ -115,7 +114,7 @@ class __TwigTemplate_3f0e14dda99d0818d5a69dc4322ec3b4816b4bae9f9e7ce6380044959fe
 
     public function getDebugInfo()
     {
-        return array (  86 => 21,  68 => 5,  58 => 4,  35 => 2,);
+        return array (  87 => 22,  68 => 5,  58 => 4,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -125,13 +124,14 @@ class __TwigTemplate_3f0e14dda99d0818d5a69dc4322ec3b4816b4bae9f9e7ce6380044959fe
 
 {% block booking %}
 
-    <section class=\"content\">
+
 
     <div class=\"row justify-content-md-center\">
     <!-- left column -->
 
     <!-- general form elements -->
-
+        <div class=\"booking\">
+            <div class=\"container\">
     <div class=\"card-header\">
         <h3 class=\"card-title\">Ajouter une reservation</h3>
     </div>
@@ -143,11 +143,9 @@ class __TwigTemplate_3f0e14dda99d0818d5a69dc4322ec3b4816b4bae9f9e7ce6380044959fe
 {{ include('Back/reservation/_form.html.twig') }}
 
     </div>
-
+            </div>
+        </div>
 </div>
-    </section>
-
-
 
 
 {% endblock  %}", "Back/reservation/new.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\reservation\\new.html.twig");

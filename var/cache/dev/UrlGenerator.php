@@ -49,6 +49,7 @@ return [
     'restaurant_index' => [[], ['_controller' => 'App\\Controller\\RestaurantController::index'], [], [['text', '/restaurant/findAll']], [], []],
     'restaurant_new' => [[], ['_controller' => 'App\\Controller\\RestaurantController::new'], [], [['text', '/restaurant/new']], [], []],
     'restaurant_liste' => [[], ['_controller' => 'App\\Controller\\RestaurantController::index2'], [], [['text', '/restaurant/liste']], [], []],
+    'restaurant3' => [['id_restaurant'], ['_controller' => 'App\\Controller\\RestaurantController::show3'], [], [['variable', '/', '[^/]++', 'id_restaurant'], ['text', '/restaurant/detail']], [], []],
     'restaurant_show' => [['id_restaurant'], ['_controller' => 'App\\Controller\\RestaurantController::show'], [], [['variable', '/', '[^/]++', 'id_restaurant'], ['text', '/restaurant']], [], []],
     'details_menu' => [['id_restaurant'], ['_controller' => 'App\\Controller\\RestaurantController::show2'], [], [['text', '/aff'], ['variable', '/', '[^/]++', 'id_restaurant'], ['text', '/restaurant']], [], []],
     'restaurant_edit' => [['id_restaurant'], ['_controller' => 'App\\Controller\\RestaurantController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id_restaurant'], ['text', '/restaurant']], [], []],

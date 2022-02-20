@@ -32,7 +32,12 @@ class Reservation
 
     /**
      * @ORM\Column(type="integer")
-     *@Assert\NotBlank(message="le nopmbre de place est obligatoire")
+     *@Assert\NotBlank(message="le nombre de place est obligatoire")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 50,
+     *      notInRangeMessage = "la capacite du restaurant doit etre entre {{ min }} et {{ max }}",
+     * )
      */
     private $nombre;
 

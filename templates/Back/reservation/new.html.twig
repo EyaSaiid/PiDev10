@@ -3,13 +3,14 @@
 
 {% block booking %}
 
-    <section class="content">
+
 
     <div class="row justify-content-md-center">
     <!-- left column -->
 
     <!-- general form elements -->
-
+        <div class="booking">
+            <div class="container">
     <div class="card-header">
         <h3 class="card-title">Ajouter une reservation</h3>
     </div>
@@ -21,11 +22,9 @@
 {{ include('Back/reservation/_form.html.twig') }}
 
     </div>
-
+            </div>
+        </div>
 </div>
-    </section>
-
-
 
 
 {% endblock  %}
