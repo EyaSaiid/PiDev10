@@ -73,7 +73,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 ";
         // line 72
         $this->displayBlock('body', $context, $blocks);
-        // line 422
+        // line 497
         echo "
 </body>
 </html>";
@@ -463,7 +463,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         echo "\" class=\"img-circle elevation-2\" alt=\"User Image\">
             </div>
             <div class=\"info\">
-                <a href=\"#\" class=\"d-block\">Alexander Pierce</a>
+                <a href=\"#\" class=\"d-block\">Admin</a>
             </div>
         </div>
 
@@ -493,23 +493,67 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
 
                 </li>
-                <li class=\"nav-item\">
-                    <a href=\"";
-        // line 260
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionUser");
-        echo "\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Utilisateur
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
+                <nav class=\"mt-2\">
 
-                </li>
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Utilisateur
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 272
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_index");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Manipuler Utilisateur</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 279
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_new");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Stat Utilisateur</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 286
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_new");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Request des Utilisateurs</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 293
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_new");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Supprimer Utilisateur</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+
+                </nav>
 
 
 ";
-        // line 272
+        // line 307
         echo "
                 <nav class=\"mt-2\">
 
@@ -525,7 +569,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                         <ul class=\"nav nav-treeview\">
                             <li class=\"nav-item\">
                                 <a href=\"";
-        // line 286
+        // line 321
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionRestaurant");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
@@ -547,14 +591,14 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 </nav>
  ";
-        // line 306
+        // line 341
         echo "
 
 
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 311
+        // line 346
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionProduit");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -565,22 +609,63 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
 
                 </li>
-                <li class=\"nav-item\">
-                    <a href=\"";
-        // line 321
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionOffreTravail");
+
+
+
+                <nav class=\"mt-2\">
+
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion offre de travail
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 371
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("offre_travail_index");
         echo "\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Offres de travail
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
-                </li>
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Manipuler les offres</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Stat</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Request</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Supprimer Utilisateur</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+
+
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 331
+        // line 407
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionEvenement");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -593,7 +678,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 341
+        // line 417
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionMenu");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -607,7 +692,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 352
+        // line 428
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionArtiste");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -620,7 +705,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 362
+        // line 438
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionCommande");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -669,14 +754,13 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class=\"content-wrapper\">
 
     ";
-        // line 411
+        // line 486
         $this->displayBlock('bodyBack', $context, $blocks);
-        // line 412
+        // line 487
         echo "
-    </div>
+
 
     <!-- Control Sidebar -->
     <aside class=\"control-sidebar control-sidebar-dark\">
@@ -693,7 +777,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     }
 
-    // line 411
+    // line 486
     public function block_bodyBack($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -724,7 +808,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     public function getDebugInfo()
     {
-        return array (  697 => 411,  678 => 412,  676 => 411,  624 => 362,  611 => 352,  597 => 341,  584 => 331,  571 => 321,  558 => 311,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 422,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
+        return array (  781 => 486,  762 => 487,  760 => 486,  709 => 438,  696 => 428,  682 => 417,  669 => 407,  630 => 371,  602 => 346,  595 => 341,  573 => 321,  557 => 307,  541 => 293,  531 => 286,  521 => 279,  511 => 272,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 497,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -957,7 +1041,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                 <img src=\"{{ asset('Back/dist/img/user2-160x160.jpg') }}\" class=\"img-circle elevation-2\" alt=\"User Image\">
             </div>
             <div class=\"info\">
-                <a href=\"#\" class=\"d-block\">Alexander Pierce</a>
+                <a href=\"#\" class=\"d-block\">Admin</a>
             </div>
         </div>
 
@@ -987,16 +1071,51 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
 
                 </li>
-                <li class=\"nav-item\">
-                    <a href=\"{{ path('GestionUser') }}\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Utilisateur
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
+                <nav class=\"mt-2\">
 
-                </li>
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion Utilisateur
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('user_index') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Manipuler Utilisateur</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('user_new' ) }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Stat Utilisateur</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('user_new') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Request des Utilisateurs</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('user_new') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Supprimer Utilisateur</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+
+                </nav>
 
 
 {#  **********************Gestion restaurant avec navbar*******************************#}
@@ -1048,15 +1167,56 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
 
                 </li>
-                <li class=\"nav-item\">
-                    <a href=\"{{ path('GestionOffreTravail') }}\" class=\"nav-link\">
-                        <i class=\"nav-icon fas fa-table\"></i>
-                        <p>
-                            Gestion Offres de travail
-                            <i class=\"fas fa-angle-left right\"></i>
-                        </p>
-                    </a>
-                </li>
+
+
+
+                <nav class=\"mt-2\">
+
+
+                    <li class=\"nav-item\">
+                        <a href=\"#\" class=\"nav-link\">
+                            <i class=\"nav-icon fas fa-table\"></i>
+                            <p>
+                                Gestion offre de travail
+                                <i class=\"fas fa-angle-left right\"></i>
+                            </p>
+                        </a>
+                        <ul class=\"nav nav-treeview\">
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('offre_travail_index') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Manipuler les offres</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Stat</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Request</p>
+                                </a>
+                            </li>
+
+                            <li class=\"nav-item\">
+                                <a href=\"\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p>Supprimer Utilisateur</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+
+
 
                 <li class=\"nav-item\">
                     <a href=\"{{ path('GestionEvenement') }}\" class=\"nav-link\">
@@ -1137,11 +1297,10 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class=\"content-wrapper\">
 
     {% block bodyBack %} {% endblock %}
 
-    </div>
+
 
     <!-- Control Sidebar -->
     <aside class=\"control-sidebar control-sidebar-dark\">
@@ -1152,6 +1311,6 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 {% endblock %}
 
 </body>
-</html>", "base2.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\base2.html.twig");
+</html>", "base2.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiGit\\Pi\\templates\\base2.html.twig");
     }
 }

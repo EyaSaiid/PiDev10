@@ -97,6 +97,6 @@ class __TwigTemplate_ee5445753fa9028c8506664e03c23730c2a63d649f9c1c7fb000e366ea3
 {% block bodyBack %}
 
     <p>Gestion Produit</p>
-{% endblock %}", "Back/GestionProduit.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\GestionProduit.html.twig");
+{% endblock %}", "Back/GestionProduit.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiGit\\Pi\\templates\\Back\\GestionProduit.html.twig");
     }
 }

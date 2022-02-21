@@ -71,13 +71,13 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
     ";
         // line 64
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 104
+        // line 106
         echo "</head>
 <body>
 ";
-        // line 106
+        // line 108
         $this->displayBlock('body', $context, $blocks);
-        // line 213
+        // line 239
         echo "</body>
 </html>";
         
@@ -298,6 +298,8 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 
 
+
+
     ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -307,7 +309,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     }
 
-    // line 106
+    // line 108
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -317,7 +319,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 107
+        // line 109
         echo "
     <!-- Nav Bar Start -->
     <div class=\"navbar navbar-expand-lg bg-light navbar-light\">
@@ -327,42 +329,85 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"collapse navbar-collapse justify-content-between\" id=\"navbarCollapse\">
-                <div class=\"navbar-nav ml-auto\">
+                <li class=\"navbar-nav ml-auto\">
                     <a href=\"";
-        // line 117
+        // line 119
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\" class=\"nav-item nav-link active\">Home</a>
                     <a href=\"";
-        // line 118
+        // line 120
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("about");
         echo "\" class=\"nav-item nav-link\">About</a>
                     <a href=\"";
-        // line 119
+        // line 121
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("feature");
         echo "\" class=\"nav-item nav-link\">Feature</a>
                     <a href=\"";
-        // line 120
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("team");
-        echo "\" class=\"nav-item nav-link\">Team</a>
-                    ";
         // line 122
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("offre_travail_showAll");
+        echo "\" class=\"nav-item nav-link\">Jobs</a>
+                    ";
+        // line 124
         echo "                     <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("details_menu");
         echo "\" class=\"nav-item nav-link\">Detail menu</a>
                     <a href=\"";
-        // line 123
+        // line 125
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("list_restaurant");
         echo "\" class=\"nav-item nav-link\"> Restaurants </a>
                     <a href=\"";
-        // line 124
+        // line 126
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking");
         echo "\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"";
-        // line 125
+        // line 127
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
         echo "\" class=\"nav-item nav-link\">Contact</a>
-                   ";
-        // line 134
+                    ";
+        // line 128
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 128, $this->source); })()), "user", [], "any", false, false, false, 128)) {
+            // line 129
+            echo "                    <div class=\"nav-item dropdown\">
+
+                        <div class=\"mb-3\">
+                            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                ";
+            // line 133
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 133, $this->source); })()), "user", [], "any", false, false, false, 133), "username", [], "any", false, false, false, 133), "html", null, true);
+            echo "
+                            </a>
+                            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                <a class=\"dropdown-item\" href=\"#\">???</a>
+                                <a class=\"dropdown-item\" href=\" \">Profile</a>
+                                <a class=\"dropdown-item\" href=\"";
+            // line 138
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_index");
+            echo "\">Admin</a>
+                                <a class=\"dropdown-item\" href=\"";
+            // line 139
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\" >Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    ";
+        } else {
+            // line 146
+            echo "                            <div class=\"mb-3\">
+
+                                    <a href=\"";
+            // line 148
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\" class=\"nav-item nav-link \">Login</a>
+                            </div>
+
+                    ";
+        }
+        // line 152
+        echo "                   ";
+        // line 160
         echo "                </div>
             </div>
         </div>
@@ -373,9 +418,9 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 
 ";
-        // line 143
+        // line 169
         $this->displayBlock('bodyMenu', $context, $blocks);
-        // line 144
+        // line 170
         echo "
 
     <!-- Footer Start -->
@@ -429,7 +474,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
             <div class=\"container\">
                 <p>Copyright &copy; <a href=\"#\">Your Site Name</a>, All Right Reserved.</p>
                 <p>Designed By <a href= ";
-        // line 196
+        // line 222
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://htmlcodex.com"), "html", null, true);
         echo " >HTML Codex</a></p>
             </div>
@@ -456,7 +501,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     }
 
-    // line 143
+    // line 169
     public function block_bodyMenu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -487,7 +532,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     public function getDebugInfo()
     {
-        return array (  460 => 143,  433 => 196,  379 => 144,  377 => 143,  366 => 134,  362 => 125,  358 => 124,  354 => 123,  349 => 122,  345 => 120,  341 => 119,  337 => 118,  333 => 117,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 213,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
+        return array (  505 => 169,  478 => 222,  424 => 170,  422 => 169,  411 => 160,  409 => 152,  402 => 148,  398 => 146,  388 => 139,  384 => 138,  376 => 133,  370 => 129,  368 => 128,  364 => 127,  360 => 126,  356 => 125,  351 => 124,  347 => 122,  343 => 121,  339 => 120,  335 => 119,  323 => 109,  313 => 108,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 239,  79 => 108,  75 => 106,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -594,6 +639,8 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 
 
+
+
     {% endblock %}
 </head>
 <body>
@@ -607,16 +654,40 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"collapse navbar-collapse justify-content-between\" id=\"navbarCollapse\">
-                <div class=\"navbar-nav ml-auto\">
+                <li class=\"navbar-nav ml-auto\">
                     <a href=\"{{ path('home') }}\" class=\"nav-item nav-link active\">Home</a>
                     <a href=\"{{ path('about') }}\" class=\"nav-item nav-link\">About</a>
                     <a href=\"{{ path(\"feature\") }}\" class=\"nav-item nav-link\">Feature</a>
-                    <a href=\"{{ path(\"team\") }}\" class=\"nav-item nav-link\">Team</a>
+                    <a href=\"{{ path(\"offre_travail_showAll\") }}\" class=\"nav-item nav-link\">Jobs</a>
                     {# <a href=\"{{ path('templates/menu.html.twig') }}\" class=\"nav-item nav-link\">Menu</a> #}
                      <a href=\"{{ path(\"details_menu\") }}\" class=\"nav-item nav-link\">Detail menu</a>
                     <a href=\"{{ path(\"list_restaurant\") }}\" class=\"nav-item nav-link\"> Restaurants </a>
                     <a href=\"{{ path(\"booking\") }}\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"{{ path(\"contact\") }}\" class=\"nav-item nav-link\">Contact</a>
+                    {% if app.user %}
+                    <div class=\"nav-item dropdown\">
+
+                        <div class=\"mb-3\">
+                            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                {{ app.user.username }}
+                            </a>
+                            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                <a class=\"dropdown-item\" href=\"#\">???</a>
+                                <a class=\"dropdown-item\" href=\" \">Profile</a>
+                                <a class=\"dropdown-item\" href=\"{{ path('user_index') }}\">Admin</a>
+                                <a class=\"dropdown-item\" href=\"{{ path(\"app_logout\") }}\" >Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% else %}
+                            <div class=\"mb-3\">
+
+                                    <a href=\"{{ path(\"app_login\") }}\" class=\"nav-item nav-link \">Login</a>
+                            </div>
+
+                    {% endif %}
                    {# <div class=\"nav-item dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\">Pages</a>
                         <div class=\"dropdown-menu\">
