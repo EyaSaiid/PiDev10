@@ -69,15 +69,14 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
         </div>
     </div>
 
-
     <div class=\"control-group\">
         ";
-        // line 20
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), "date_reservation", [], "any", false, false, false, 20), 'label', ["label" => "la date de reservation"]);
+        // line 19
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), "date_reservation", [], "any", false, false, false, 19), 'label', ["label" => "la date de reservation"]);
         echo "
         <h5 class=\"text-danger\"> ";
-        // line 21
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), "date_reservation", [], "any", false, false, false, 21), 'errors');
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), "date_reservation", [], "any", false, false, false, 20), 'errors');
         echo "</h5>
 
         <div class=\"input-group-append\" data-target=\"#time\" data-toggle=\"datetimepicker\">
@@ -88,8 +87,8 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
                 });
             </script>
                 ";
-        // line 30
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "date_reservation", [], "any", false, false, false, 30), 'widget', ["attr" => ["class" => "input-group date"]]);
+        // line 29
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), "date_reservation", [], "any", false, false, false, 29), 'widget', ["attr" => ["class" => "input-group date"]]);
         echo "
             </div>
 
@@ -97,17 +96,17 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
     <div class=\"control-group\">
 
         ";
-        // line 36
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 36, $this->source); })()), "restaurants", [], "any", false, false, false, 36), 'label', ["label" => "Nom du restaurant"]);
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "restaurants", [], "any", false, false, false, 35), 'label', ["label" => "Nom du restaurant"]);
         echo "
         ";
-        // line 37
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "restaurants", [], "any", false, false, false, 37), 'errors');
+        // line 36
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 36, $this->source); })()), "restaurants", [], "any", false, false, false, 36), 'errors');
         echo "
         <div class=\"input-group\" >
             ";
-        // line 39
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "restaurants", [], "any", false, false, false, 39), 'widget', ["attr" => ["class" => "custom-select form-control"]]);
+        // line 38
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), "restaurants", [], "any", false, false, false, 38), 'widget', ["attr" => ["class" => "custom-select form-control-input-gray-dark"]]);
         echo "
 
             <div class=\"input-group-append \">
@@ -118,15 +117,15 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
 
         <div class=\"input-group\">
         <button class=\"btn custom-btn\">";
-        // line 48
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 48, $this->source); })()), "Réserver")) : ("Réserver")), "html", null, true);
+        // line 47
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 47, $this->source); })()), "Réserver")) : ("Réserver")), "html", null, true);
         echo "</button>
         </div>
 
 
     ";
-        // line 52
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 52, $this->source); })()), 'form_end');
+        // line 51
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 51, $this->source); })()), 'form_end');
         echo "
 </div>
 ";
@@ -150,7 +149,7 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
 
     public function getDebugInfo()
     {
-        return array (  129 => 52,  122 => 48,  110 => 39,  105 => 37,  101 => 36,  92 => 30,  80 => 21,  76 => 20,  64 => 11,  59 => 9,  55 => 8,  49 => 5,  43 => 1,);
+        return array (  128 => 51,  121 => 47,  109 => 38,  104 => 36,  100 => 35,  91 => 29,  79 => 20,  75 => 19,  64 => 11,  59 => 9,  55 => 8,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -172,7 +171,6 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
         </div>
     </div>
 
-
     <div class=\"control-group\">
         {{ form_label(form.date_reservation,\"la date de reservation\") }}
         <h5 class=\"text-danger\"> {{ form_errors(form.date_reservation) }}</h5>
@@ -193,7 +191,7 @@ class __TwigTemplate_0ac3990fe48873dd924c36a99001024fe0371fc979ba88bb08c89e76a97
         {{ form_label(form.restaurants,\"Nom du restaurant\") }}
         {{ form_errors(form.restaurants) }}
         <div class=\"input-group\" >
-            {{ form_widget(form.restaurants ,{'attr': {'class': 'custom-select form-control'}}) }}
+            {{ form_widget(form.restaurants ,{'attr': {'class': 'custom-select form-control-input-gray-dark'}}) }}
 
             <div class=\"input-group-append \">
                 <div class=\"input-group-text\"><i class=\"fa fa-chevron-down\"></i></div>

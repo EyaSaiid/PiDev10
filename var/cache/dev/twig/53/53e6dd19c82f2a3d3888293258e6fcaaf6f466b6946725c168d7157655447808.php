@@ -77,8 +77,8 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
         echo "</h2>
                 </div>
                 <div class=\"col-12\">
-                    <a href=\"\">Home</a>
-                    <a href=\"\">Menu</a>
+                    <a href=\"\">Accueil</a>
+                    <a href=\"\">Reservation</a>
                 </div>
             </div>
         </div>
@@ -101,9 +101,9 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
                                 <ul class=\"nav service-menu\">
 
 
-                                    <li><a href=\"#\">Address</a></li>
-                                    <li><a href=\"";
+";
         // line 34
+        echo "                                    <li><a href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("details_menu", ["id_restaurant" => twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 34, $this->source); })()), "getIdRestaurant", [], "method", false, false, false, 34)]), "html", null, true);
         echo "\">Menu</a></li>
 
@@ -121,15 +121,19 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 45, $this->source); })()), "NumTel", [], "any", false, false, false, 45), "html", null, true);
         echo "
 
+
                                     </div>
 
                                     <div class=\"quote-item-footer\">
                                         <img loading=\"lazy\" class=\"testimonial-thumb\" src=\"";
-        // line 50
+        // line 51
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/images1/clients/testimonial1.png"), "html", null, true);
         echo "\" alt=\"testimonial\">
                                         <div class=\"quote-item-info\">
-                                            <h3 class=\"quote-author\">Weldon Cash</h3>
+                                            <h3 class=\"quote-author\"> ";
+        // line 53
+        echo twig_escape_filter($this->env, (isset($context["nomProp"]) || array_key_exists("nomProp", $context) ? $context["nomProp"] : (function () { throw new RuntimeError('Variable "nomProp" does not exist.', 53, $this->source); })()), "html", null, true);
+        echo " </h3>
 
                                         </div>
                                     </div>
@@ -144,15 +148,15 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
                         <div class=\"content-inner-page\">
 
                             <h2 class=\"column-title mrt-0\">";
-        // line 66
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 66, $this->source); })()), "nomRestaurant", [], "any", false, false, false, 66), "html", null, true);
+        // line 67
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 67, $this->source); })()), "nomRestaurant", [], "any", false, false, false, 67), "html", null, true);
         echo "</h2>
 
                             <div class=\"row\">
                                 <div class=\"col-md-12\">
                                     <p>   ";
-        // line 70
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 70, $this->source); })()), "DescRestaurant", [], "any", false, false, false, 70), "html", null, true);
+        // line 71
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["restaurant"]) || array_key_exists("restaurant", $context) ? $context["restaurant"] : (function () { throw new RuntimeError('Variable "restaurant" does not exist.', 71, $this->source); })()), "DescRestaurant", [], "any", false, false, false, 71), "html", null, true);
         echo "   </p>
                                           </div><!-- col end -->
                             </div><!-- 1st row end-->
@@ -162,7 +166,7 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
                             <div id=\"page-slider\" class=\"page-slider\">
                                 <div class=\"item\">
                                     <img loading=\"lazy\" class=\"img-fluid\" src=\"";
-        // line 78
+        // line 79
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/restau.jpg"), "html", null, true);
         echo "\" alt=\"project-slider-image\" />
                                 </div>
@@ -215,7 +219,7 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
 
     public function getDebugInfo()
     {
-        return array (  166 => 78,  155 => 70,  148 => 66,  129 => 50,  121 => 45,  107 => 34,  99 => 29,  76 => 9,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  170 => 79,  159 => 71,  152 => 67,  135 => 53,  130 => 51,  121 => 45,  106 => 34,  99 => 29,  76 => 9,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -231,8 +235,8 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
                     <h2>{{restaurant.nomRestaurant }}</h2>
                 </div>
                 <div class=\"col-12\">
-                    <a href=\"\">Home</a>
-                    <a href=\"\">Menu</a>
+                    <a href=\"\">Accueil</a>
+                    <a href=\"\">Reservation</a>
                 </div>
             </div>
         </div>
@@ -252,7 +256,7 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
                                 <ul class=\"nav service-menu\">
 
 
-                                    <li><a href=\"#\">Address</a></li>
+{#                             <li><a href=\"#\">Address</a></li>#}
                                     <li><a href=\"{{ path('details_menu', {'id_restaurant': restaurant.getIdRestaurant()  }) }}\">Menu</a></li>
 
 
@@ -266,12 +270,13 @@ class __TwigTemplate_26c7af98b2a9220f37e81bd14d83d13670ec2ee3336b2244930b145ec8a
                                         Contactez moi en cas de besoin
                                         {{restaurant.NumTel }}
 
+
                                     </div>
 
                                     <div class=\"quote-item-footer\">
                                         <img loading=\"lazy\" class=\"testimonial-thumb\" src=\"{{ asset('Front/images1/clients/testimonial1.png') }}\" alt=\"testimonial\">
                                         <div class=\"quote-item-info\">
-                                            <h3 class=\"quote-author\">Weldon Cash</h3>
+                                            <h3 class=\"quote-author\"> {{nomProp}} </h3>
 
                                         </div>
                                     </div>

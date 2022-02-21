@@ -104,17 +104,18 @@ class __TwigTemplate_9a7fc97b3f0dfdfc37e028351acced2491090d665edbe76deb0b71e3221
         echo "
 </div>
 
-<div class=\"card-footer\">
-    <button class=\"btn\">";
+<div class=\"col-md-12 text-center\">
+    <button class=\"btn btn-primary\">";
         // line 27
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 27, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 27, $this->source); })()), "Ajouter")) : ("Ajouter")), "html", null, true);
         echo "</button>
+
 </div>
 
 
 ";
-        // line 31
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), 'form_end');
+        // line 32
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -137,7 +138,7 @@ class __TwigTemplate_9a7fc97b3f0dfdfc37e028351acced2491090d665edbe76deb0b71e3221
 
     public function getDebugInfo()
     {
-        return array (  117 => 31,  110 => 27,  103 => 23,  99 => 22,  95 => 21,  89 => 18,  85 => 17,  81 => 16,  75 => 13,  71 => 12,  67 => 11,  60 => 7,  56 => 6,  52 => 5,  46 => 2,  43 => 1,);
+        return array (  118 => 32,  110 => 27,  103 => 23,  99 => 22,  95 => 21,  89 => 18,  85 => 17,  81 => 16,  75 => 13,  71 => 12,  67 => 11,  60 => 7,  56 => 6,  52 => 5,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -167,8 +168,9 @@ class __TwigTemplate_9a7fc97b3f0dfdfc37e028351acced2491090d665edbe76deb0b71e3221
     {{ form_widget(form.categories,{'attr': {'class': 'form-control'}})  }}
 </div>
 
-<div class=\"card-footer\">
-    <button class=\"btn\">{{ button_label|default('Save') }}</button>
+<div class=\"col-md-12 text-center\">
+    <button class=\"btn btn-primary\">{{ button_label|default('Ajouter') }}</button>
+
 </div>
 
 

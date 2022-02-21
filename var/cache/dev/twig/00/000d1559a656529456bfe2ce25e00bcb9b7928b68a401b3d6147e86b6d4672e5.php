@@ -74,8 +74,8 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
                     <h2>Nos restaurants</h2>
                 </div>
                 <div class=\"col-12\">
-                    <a href=\"\">Home</a>
-                    <a href=\"\">Booking</a>
+                    <a href=\"\">Accueil</a>
+                    <a href=\"\">Reservation</a>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
             echo " </h2>
                         ";
             // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["restaurant"], "descRestaurant", [], "any", false, false, false, 30), "html", null, true);
+            echo twig_escape_filter($this->env, twig_slice($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["restaurant"], "descRestaurant", [], "any", false, false, false, 30)), 0, 200), "html", null, true);
             echo "
                         <p>
                        <h4> ";
@@ -113,7 +113,7 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
                         <a href=\"";
             // line 34
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant3", ["id_restaurant" => twig_get_attribute($this->env, $this->source, $context["restaurant"], "getIdRestaurant", [], "method", false, false, false, 34)]), "html", null, true);
-            echo "\">voir Menu</a>
+            echo "\">voir Restaurant</a>
                     </div>
                 </div>
             ";
@@ -179,8 +179,8 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
                     <h2>Nos restaurants</h2>
                 </div>
                 <div class=\"col-12\">
-                    <a href=\"\">Home</a>
-                    <a href=\"\">Booking</a>
+                    <a href=\"\">Accueil</a>
+                    <a href=\"\">Reservation</a>
                 </div>
             </div>
         </div>
@@ -197,11 +197,11 @@ class __TwigTemplate_39a20fd1dcf813cad751814d0e9f5cdc9a11815b70753d3ebc89adf83ba
                     <div class=\"food-item\">
                         <i class=\"flaticon-cocktail\"></i>
                       <h2>  {{ restaurant.nomRestaurant }} </h2>
-                        {{ restaurant.descRestaurant }}
+                        {{ restaurant.descRestaurant|striptags|slice(0,200) }}
                         <p>
                        <h4> {{ restaurant.specialite }}</h4>
                         </p>
-                        <a href=\"{{ path('restaurant3', {'id_restaurant': restaurant.getIdRestaurant()  }) }}\">voir Menu</a>
+                        <a href=\"{{ path('restaurant3', {'id_restaurant': restaurant.getIdRestaurant()  }) }}\">voir Restaurant</a>
                     </div>
                 </div>
             {% endfor %}

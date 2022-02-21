@@ -9,8 +9,8 @@
                     <h2>Nos restaurants</h2>
                 </div>
                 <div class="col-12">
-                    <a href="">Home</a>
-                    <a href="">Booking</a>
+                    <a href="">Accueil</a>
+                    <a href="">Reservation</a>
                 </div>
             </div>
         </div>
@@ -27,11 +27,11 @@
                     <div class="food-item">
                         <i class="flaticon-cocktail"></i>
                       <h2>  {{ restaurant.nomRestaurant }} </h2>
-                        {{ restaurant.descRestaurant }}
+                        {{ restaurant.descRestaurant|striptags|slice(0,200) }}
                         <p>
                        <h4> {{ restaurant.specialite }}</h4>
                         </p>
-                        <a href="{{ path('restaurant3', {'id_restaurant': restaurant.getIdRestaurant()  }) }}">voir Menu</a>
+                        <a href="{{ path('restaurant3', {'id_restaurant': restaurant.getIdRestaurant()  }) }}">voir Restaurant</a>
                     </div>
                 </div>
             {% endfor %}

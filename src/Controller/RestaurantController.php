@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\User;
 use App\Entity\ProduitPlat;
 use App\Entity\Restaurant;
 use App\Form\RestaurantType;
@@ -90,8 +91,12 @@ class RestaurantController extends AbstractController
      */
     public function show3(Restaurant $restaurant): Response
     {
+        $Prop=$restaurant->getUser();
+        $proprio=$this->getDoctrine()->getRepository(User::class)->find($Prop);
+        $nomProp=$proprio->getNom();
         return $this->render('Front/restaurent.html.twig', [
             'restaurant' => $restaurant,
+            'nomProp'=>$nomProp
 
         ]);
     }

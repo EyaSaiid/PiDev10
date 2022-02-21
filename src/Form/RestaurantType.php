@@ -9,7 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-
+use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
@@ -40,10 +40,14 @@ class RestaurantType extends AbstractType
                     'group_by' => ChoiceList::groupBy($this, 'id_categorie'),
                 ])*/
 
+
             ->add('produitplats',
                 EntityType::class,[
                     'class' => ProduitPlat::class,
                     'choice_label' => 'nom_produitplat',
+                    'group_by' => function(ProduitPlat $pdt) {
+                        return $pdt->getCategories()->getNomCategorie();
+                    },
                     'expanded'=>'true',
                     'multiple'=>'true',
                 ])

@@ -65,7 +65,7 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Edit Restaurant";
+        echo "Modifier Restaurant";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -148,7 +148,7 @@ class __TwigTemplate_cd1d1103850261e5ec5e1358f9844ba0837d0fbbed44a20f4ef5c09b4d0
     {
         return new Source("{% extends 'base2.html.twig' %}
 
-{% block title %}Edit Restaurant{% endblock %}
+{% block title %}Modifier Restaurant{% endblock %}
 
 {% block bodyBack %}
 

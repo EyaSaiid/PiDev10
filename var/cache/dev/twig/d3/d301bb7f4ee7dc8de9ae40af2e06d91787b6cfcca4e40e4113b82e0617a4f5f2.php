@@ -79,13 +79,16 @@ class __TwigTemplate_1130de61fab7c76a658bfc57ab8b650ff79bdc0d7fa1e25daab00f56af0
 
                     </div>
                     <div class=\"carousel-text\">
-                        <h1>Best <span>Quality</span> Ingredients</h1>
+                        <h1> Pour les amateurs de la <span>bonne bouffe</span>, Chez Dma9 vous trouverez votre plaisir</h1>
                         <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+
                         </p>
                         <div class=\"carousel-btn\">
-                            <a class=\"btn custom-btn\" href=\"\">View Menu</a>
-                            <a class=\"btn custom-btn\" href=\"\">Book Table</a>
+                            <a class=\"btn custom-btn\" href=\"\">Visiter la boutique en ligne</a>
+                            <a href=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_new");
+        echo "\" class=\"btn custom-btn\" href=\"\">Reserver une table</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +125,7 @@ class __TwigTemplate_1130de61fab7c76a658bfc57ab8b650ff79bdc0d7fa1e25daab00f56af0
 
     public function getDebugInfo()
     {
-        return array (  77 => 10,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  90 => 20,  77 => 10,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -140,13 +143,13 @@ class __TwigTemplate_1130de61fab7c76a658bfc57ab8b650ff79bdc0d7fa1e25daab00f56af0
 
                     </div>
                     <div class=\"carousel-text\">
-                        <h1>Best <span>Quality</span> Ingredients</h1>
+                        <h1> Pour les amateurs de la <span>bonne bouffe</span>, Chez Dma9 vous trouverez votre plaisir</h1>
                         <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+
                         </p>
                         <div class=\"carousel-btn\">
-                            <a class=\"btn custom-btn\" href=\"\">View Menu</a>
-                            <a class=\"btn custom-btn\" href=\"\">Book Table</a>
+                            <a class=\"btn custom-btn\" href=\"\">Visiter la boutique en ligne</a>
+                            <a href=\"{{ path(\"reservation_new\") }}\" class=\"btn custom-btn\" href=\"\">Reserver une table</a>
                         </div>
                     </div>
                 </div>

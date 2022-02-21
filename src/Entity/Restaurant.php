@@ -23,6 +23,12 @@ class Restaurant
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le nom du restaurant est obligatoire")
+     *  @Assert\Length(
+     *      min = 3,
+     *      max = 25,
+     *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
+     *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
+     * )
      */
     private $nom_restaurant;
 
@@ -53,7 +59,6 @@ class Restaurant
      *      maxMessage = "le numero du telephone doit contenir 8 numeros"
      * )
      *@Assert\NotBlank(message="le numero de telephone est obligatoire")
-
      * @Assert\Positive
      */
     private $num_tel;

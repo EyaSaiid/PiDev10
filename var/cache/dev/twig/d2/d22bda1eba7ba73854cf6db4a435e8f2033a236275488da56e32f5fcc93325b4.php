@@ -74,17 +74,27 @@ class __TwigTemplate_be0387e652c036b5cdd413b18fbe670cfef22d2a818c1e4ebcf17b1bd13
                 <h2>Nos restaurants</h2>
             </div>
             <div class=\"col-12\">
-                <a href=\"\">Home</a>
-                <a href=\"\">Booking</a>
+                <a href=\"\">Accueil</a>
+                <a href=\"\">Reservation</a>
             </div>
         </div>
     </div>
 </div>
-<p> Ce restaurant est déja complet </p>
-";
-        // line 19
-        echo twig_escape_filter($this->env, (isset($context["somme"]) || array_key_exists("somme", $context) ? $context["somme"] : (function () { throw new RuntimeError('Variable "somme" does not exist.', 19, $this->source); })()), "html", null, true);
-        echo "
+    <div class=\"booking\">
+    <div class=\"container-fluid\">
+    <div class=\"row align-items-center\">
+    <div class=\"col-lg-7\">
+        <div class=\"booking-content\">
+     <h1> Ce restaurant est déja complet </h1>
+            <a href=\"";
+        // line 24
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_new");
+        echo "\" class=\"btn custom-btn\"> Retour à la page </a>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -106,7 +116,7 @@ class __TwigTemplate_be0387e652c036b5cdd413b18fbe670cfef22d2a818c1e4ebcf17b1bd13
 
     public function getDebugInfo()
     {
-        return array (  86 => 19,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  91 => 24,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -122,14 +132,24 @@ class __TwigTemplate_be0387e652c036b5cdd413b18fbe670cfef22d2a818c1e4ebcf17b1bd13
                 <h2>Nos restaurants</h2>
             </div>
             <div class=\"col-12\">
-                <a href=\"\">Home</a>
-                <a href=\"\">Booking</a>
+                <a href=\"\">Accueil</a>
+                <a href=\"\">Reservation</a>
             </div>
         </div>
     </div>
 </div>
-<p> Ce restaurant est déja complet </p>
-{{ somme }}
+    <div class=\"booking\">
+    <div class=\"container-fluid\">
+    <div class=\"row align-items-center\">
+    <div class=\"col-lg-7\">
+        <div class=\"booking-content\">
+     <h1> Ce restaurant est déja complet </h1>
+            <a href=\"{{ path(\"reservation_new\") }}\" class=\"btn custom-btn\"> Retour à la page </a>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}", "Front/ErreurBooking.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Front\\ErreurBooking.html.twig");
     }
 }

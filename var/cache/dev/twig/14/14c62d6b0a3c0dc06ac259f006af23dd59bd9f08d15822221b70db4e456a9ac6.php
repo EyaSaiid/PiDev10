@@ -65,7 +65,7 @@ class __TwigTemplate_284fc94e0039234fc9f7f2a20ef73bac1147c862dfae38191ac0fa2affb
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Edit ProduitPlat";
+        echo "Modifier ProduitPlat";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -104,7 +104,7 @@ class __TwigTemplate_284fc94e0039234fc9f7f2a20ef73bac1147c862dfae38191ac0fa2affb
 
                             ";
         // line 23
-        echo twig_include($this->env, $context, "Back/produit_plat/_form.html.twig", ["button_label" => "Update"]);
+        echo twig_include($this->env, $context, "Back/produit_plat/_form.html.twig", ["button_label" => "Modifier"]);
         echo "
                         </div>
                         <div class=\"card-body\">
@@ -128,7 +128,7 @@ class __TwigTemplate_284fc94e0039234fc9f7f2a20ef73bac1147c862dfae38191ac0fa2affb
     <a href=\"";
         // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_index");
-        echo "\">back to list</a>
+        echo "\">Retour à la liste</a>
 
     ";
         // line 42
@@ -162,7 +162,7 @@ class __TwigTemplate_284fc94e0039234fc9f7f2a20ef73bac1147c862dfae38191ac0fa2affb
     {
         return new Source("{% extends 'base2.html.twig' %}
 
-{% block title %}Edit ProduitPlat{% endblock %}
+{% block title %}Modifier ProduitPlat{% endblock %}
 
 {% block bodyBack %}
 
@@ -182,7 +182,7 @@ class __TwigTemplate_284fc94e0039234fc9f7f2a20ef73bac1147c862dfae38191ac0fa2affb
 
                         <div class=\"card-body\">
 
-                            {{ include('Back/produit_plat/_form.html.twig', {'button_label': 'Update'}) }}
+                            {{ include('Back/produit_plat/_form.html.twig', {'button_label': 'Modifier'}) }}
                         </div>
                         <div class=\"card-body\">
                             {{ include('Back/produit_plat/_delete_form.html.twig') }}
@@ -199,7 +199,7 @@ class __TwigTemplate_284fc94e0039234fc9f7f2a20ef73bac1147c862dfae38191ac0fa2affb
 
 
 
-    <a href=\"{{ path('produit_plat_index') }}\">back to list</a>
+    <a href=\"{{ path('produit_plat_index') }}\">Retour à la liste</a>
 
     {{ include('Back/produit_plat/_delete_form.html.twig') }}
 {% endblock %}

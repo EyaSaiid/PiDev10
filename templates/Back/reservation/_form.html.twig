@@ -15,7 +15,6 @@
         </div>
     </div>
 
-
     <div class="control-group">
         {{ form_label(form.date_reservation,"la date de reservation") }}
         <h5 class="text-danger"> {{ form_errors(form.date_reservation) }}</h5>
@@ -36,7 +35,7 @@
         {{ form_label(form.restaurants,"Nom du restaurant") }}
         {{ form_errors(form.restaurants) }}
         <div class="input-group" >
-            {{ form_widget(form.restaurants ,{'attr': {'class': 'custom-select form-control'}}) }}
+            {{ form_widget(form.restaurants ,{'attr': {'class': 'custom-select form-control-input-gray-dark'}}) }}
 
             <div class="input-group-append ">
                 <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>

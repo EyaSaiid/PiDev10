@@ -65,7 +65,7 @@ class __TwigTemplate_83a885803fe5e292a415f984aa3495c2a57d1ebf0c269bfeb94baeb857a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "New ProduitPlat";
+        echo "Ajouter un ProduitPlat";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -118,7 +118,7 @@ class __TwigTemplate_83a885803fe5e292a415f984aa3495c2a57d1ebf0c269bfeb94baeb857a
     <a href=\"";
         // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_index");
-        echo "\">back to list</a>
+        echo "\">Retour a la liste</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -147,7 +147,7 @@ class __TwigTemplate_83a885803fe5e292a415f984aa3495c2a57d1ebf0c269bfeb94baeb857a
     {
         return new Source("{% extends 'base2.html.twig' %}
 
-{% block title %}New ProduitPlat{% endblock %}
+{% block title %}Ajouter un ProduitPlat{% endblock %}
 
 {% block bodyBack %}
     <div class=\"content-wrapper\">
@@ -177,7 +177,7 @@ class __TwigTemplate_83a885803fe5e292a415f984aa3495c2a57d1ebf0c269bfeb94baeb857a
 </section>
     </div>
 
-    <a href=\"{{ path('produit_plat_index') }}\">back to list</a>
+    <a href=\"{{ path('produit_plat_index') }}\">Retour a la liste</a>
 {% endblock %}
 ", "Back/produit_plat/new.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\produit_plat\\new.html.twig");
     }

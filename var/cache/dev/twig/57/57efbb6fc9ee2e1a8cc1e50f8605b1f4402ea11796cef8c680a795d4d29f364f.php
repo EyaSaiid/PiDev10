@@ -77,7 +77,7 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
 ";
         // line 106
         $this->displayBlock('body', $context, $blocks);
-        // line 213
+        // line 215
         echo "</body>
 </html>";
         
@@ -322,6 +322,10 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
     <!-- Nav Bar Start -->
     <div class=\"navbar navbar-expand-lg bg-light navbar-light\">
         <div class=\"container-fluid\">
+            <img width=\"40\" src=\"";
+        // line 111
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/DMA9_2.jpg"), "html", null, true);
+        echo "\" alt=\"Image\">
             <a href=\"base.html.twig\" class=\"navbar-brand\">Dma9-دمق</a>
             <button type=\"button\" class=\"navbar-toggler\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\">
                 <span class=\"navbar-toggler-icon\"></span>
@@ -329,41 +333,42 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
             <div class=\"collapse navbar-collapse justify-content-between\" id=\"navbarCollapse\">
                 <div class=\"navbar-nav ml-auto\">
                     <a href=\"";
-        // line 117
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\" class=\"nav-item nav-link active\">Home</a>
-                    <a href=\"";
         // line 118
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" class=\"nav-item nav-link active\">Accueil</a>
+                    <a href=\"";
+        // line 119
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("about");
         echo "\" class=\"nav-item nav-link\">About</a>
                     <a href=\"";
-        // line 119
+        // line 120
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("feature");
         echo "\" class=\"nav-item nav-link\">Feature</a>
                     <a href=\"";
-        // line 120
+        // line 121
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("team");
-        echo "\" class=\"nav-item nav-link\">Team</a>
+        echo "\" class=\"nav-item nav-link\">Equipe</a>
                     ";
-        // line 122
-        echo "                    ";
         // line 123
+        echo "                    ";
+        // line 124
         echo "                    <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurant_liste");
-        echo "\" class=\"nav-item nav-link\"> Restaurants </a>
-                    <a href=\"";
-        // line 124
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_new");
-        echo "\" class=\"nav-item nav-link\"> Booking </a>
+        echo "\" class=\"nav-item nav-link\"> Restaurant </a>
                     <a href=\"";
         // line 125
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_new");
+        echo "\" class=\"nav-item nav-link\"> Reservation </a>
+                    <a href=\"";
+        // line 126
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
         echo "\" class=\"nav-item nav-link\">Contact</a>
                    ";
-        // line 134
+        // line 135
         echo "                </div>
             </div>
-        </div>
+
+    </div>
     </div>
     <!-- Nav Bar End -->
 
@@ -371,9 +376,9 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
 
 
 ";
-        // line 143
+        // line 145
         $this->displayBlock('bodyMenu', $context, $blocks);
-        // line 144
+        // line 146
         echo "
 
     <!-- Footer Start -->
@@ -427,7 +432,7 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
             <div class=\"container\">
                 <p>Copyright &copy; <a href=\"#\">Your Site Name</a>, All Right Reserved.</p>
                 <p>Designed By <a href= ";
-        // line 196
+        // line 198
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://htmlcodex.com"), "html", null, true);
         echo " >HTML Codex</a></p>
             </div>
@@ -454,7 +459,7 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
 
     }
 
-    // line 143
+    // line 145
     public function block_bodyMenu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -485,7 +490,7 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
 
     public function getDebugInfo()
     {
-        return array (  458 => 143,  431 => 196,  377 => 144,  375 => 143,  364 => 134,  360 => 125,  356 => 124,  351 => 123,  349 => 122,  345 => 120,  341 => 119,  337 => 118,  333 => 117,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 213,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
+        return array (  463 => 145,  436 => 198,  382 => 146,  380 => 145,  368 => 135,  364 => 126,  360 => 125,  355 => 124,  353 => 123,  349 => 121,  345 => 120,  341 => 119,  337 => 118,  327 => 111,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 215,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -600,20 +605,21 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
     <!-- Nav Bar Start -->
     <div class=\"navbar navbar-expand-lg bg-light navbar-light\">
         <div class=\"container-fluid\">
+            <img width=\"40\" src=\"{{ asset('Front/img/DMA9_2.jpg') }}\" alt=\"Image\">
             <a href=\"base.html.twig\" class=\"navbar-brand\">Dma9-دمق</a>
             <button type=\"button\" class=\"navbar-toggler\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"collapse navbar-collapse justify-content-between\" id=\"navbarCollapse\">
                 <div class=\"navbar-nav ml-auto\">
-                    <a href=\"{{ path('home') }}\" class=\"nav-item nav-link active\">Home</a>
+                    <a href=\"{{ path('home') }}\" class=\"nav-item nav-link active\">Accueil</a>
                     <a href=\"{{ path('about') }}\" class=\"nav-item nav-link\">About</a>
                     <a href=\"{{ path(\"feature\") }}\" class=\"nav-item nav-link\">Feature</a>
-                    <a href=\"{{ path(\"team\") }}\" class=\"nav-item nav-link\">Team</a>
+                    <a href=\"{{ path(\"team\") }}\" class=\"nav-item nav-link\">Equipe</a>
                     {# <a href=\"{{ path('templates/menu.html.twig') }}\" class=\"nav-item nav-link\">Menu</a> #}
                     {#<a href=\"{{ path(\"details_menu\") }}\" class=\"nav-item nav-link\">Detail menu</a>#}
-                    <a href=\"{{ path(\"restaurant_liste\") }}\" class=\"nav-item nav-link\"> Restaurants </a>
-                    <a href=\"{{ path(\"reservation_new\") }}\" class=\"nav-item nav-link\"> Booking </a>
+                    <a href=\"{{ path(\"restaurant_liste\") }}\" class=\"nav-item nav-link\"> Restaurant </a>
+                    <a href=\"{{ path(\"reservation_new\") }}\" class=\"nav-item nav-link\"> Reservation </a>
                     <a href=\"{{ path(\"contact\") }}\" class=\"nav-item nav-link\">Contact</a>
                    {# <div class=\"nav-item dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\">Pages</a>
@@ -625,7 +631,8 @@ class __TwigTemplate_13cb11444322c3f95c671e83b287e6f7fc20f9f0fcb8be2846582fb571b
                     #}
                 </div>
             </div>
-        </div>
+
+    </div>
     </div>
     <!-- Nav Bar End -->
 

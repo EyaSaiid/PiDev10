@@ -65,7 +65,7 @@ class __TwigTemplate_64dc9a52fa10a45f839628e79a82db502d2deed7da3fbe2f01d059534f1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Nouvelle Categorie";
+        echo "Ajouter Categorie";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -118,7 +118,7 @@ class __TwigTemplate_64dc9a52fa10a45f839628e79a82db502d2deed7da3fbe2f01d059534f1
     <a href=\"";
         // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_index");
-        echo "\">back to list</a>
+        echo "\">Retour à la liste </a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -147,7 +147,7 @@ class __TwigTemplate_64dc9a52fa10a45f839628e79a82db502d2deed7da3fbe2f01d059534f1
     {
         return new Source("{% extends 'base2.html.twig' %}
 
-{% block title %}Nouvelle Categorie{% endblock %}
+{% block title %}Ajouter Categorie{% endblock %}
 
 
 {% block bodyBack %}
@@ -178,7 +178,7 @@ class __TwigTemplate_64dc9a52fa10a45f839628e79a82db502d2deed7da3fbe2f01d059534f1
     </div>
 
 
-    <a href=\"{{ path('categorie_index') }}\">back to list</a>
+    <a href=\"{{ path('categorie_index') }}\">Retour à la liste </a>
 {% endblock %}", "Back/categorie/new.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\categorie\\new.html.twig");
     }
 }

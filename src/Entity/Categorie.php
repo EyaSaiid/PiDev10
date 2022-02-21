@@ -22,6 +22,12 @@ class Categorie
     /**
      * @ORM\Column(type="string", length=255)
      *@Assert\NotBlank(message="le nom de la categorie est obligatoire")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 20,
+     *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
+     *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
+     * )
      */
     private $nom_categorie;
 

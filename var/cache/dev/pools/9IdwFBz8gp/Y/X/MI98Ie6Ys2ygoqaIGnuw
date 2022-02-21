@@ -4,6 +4,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     $o = [
         clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
         clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
     ],
     null,
     [
@@ -27,12 +28,28 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 1 => [
                     'Default',
                 ],
+                [
+                    'Default',
+                ],
+            ],
+            'maxMessage' => [
+                2 => 'Le nombre de caractére maximal est {{ limit }} ',
+            ],
+            'minMessage' => [
+                2 => 'Le nombre de caractére minimal est {{ limit }}',
+            ],
+            'max' => [
+                2 => 20,
+            ],
+            'min' => [
+                2 => 3,
             ],
         ],
     ],
     [
         $o[0],
         $o[1],
+        $o[2],
     ],
     []
 ); }];

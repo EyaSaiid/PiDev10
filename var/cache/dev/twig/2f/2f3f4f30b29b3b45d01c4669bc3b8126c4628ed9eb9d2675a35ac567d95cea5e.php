@@ -91,10 +91,9 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
                     <div class=\"booking-content\">
                         <div class=\"section-header\">
                             <H1>Reserver une Table</H1>
-
                             <div class=\"menu-img\">
                                 <img src=\"";
-        // line 30
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Front/img/reser.jpg"), "html", null, true);
         echo "\" alt=\"Image\">
                             </div>
@@ -110,9 +109,9 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
                 <div class=\"col-lg-5\">
                     <div class=\"booking-form\">
                     ";
-        // line 43
+        // line 42
         $this->displayBlock('booking', $context, $blocks);
-        // line 44
+        // line 43
         echo "
                 </div>
             </div>
@@ -128,7 +127,7 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
 
     }
 
-    // line 43
+    // line 42
     public function block_booking($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -159,7 +158,7 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
 
     public function getDebugInfo()
     {
-        return array (  132 => 43,  116 => 44,  114 => 43,  98 => 30,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  131 => 42,  115 => 43,  113 => 42,  97 => 29,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -191,7 +190,6 @@ class __TwigTemplate_b4279bc403c38794b1939a2599877864f2fc42d63b3d6e85ea1b41fe1ea
                     <div class=\"booking-content\">
                         <div class=\"section-header\">
                             <H1>Reserver une Table</H1>
-
                             <div class=\"menu-img\">
                                 <img src=\"{{ asset('Front/img/reser.jpg') }}\" alt=\"Image\">
                             </div>

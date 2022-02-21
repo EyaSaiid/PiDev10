@@ -9,8 +9,8 @@
                     <h2>{{restaurant.nomRestaurant }}</h2>
                 </div>
                 <div class="col-12">
-                    <a href="">Home</a>
-                    <a href="">Menu</a>
+                    <a href="">Accueil</a>
+                    <a href="">Reservation</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                                 <ul class="nav service-menu">
 
 
-                                    <li><a href="#">Address</a></li>
+{#                             <li><a href="#">Address</a></li>#}
                                     <li><a href="{{ path('details_menu', {'id_restaurant': restaurant.getIdRestaurant()  }) }}">Menu</a></li>
 
 
@@ -44,12 +44,13 @@
                                         Contactez moi en cas de besoin
                                         {{restaurant.NumTel }}
 
+
                                     </div>
 
                                     <div class="quote-item-footer">
                                         <img loading="lazy" class="testimonial-thumb" src="{{ asset('Front/images1/clients/testimonial1.png') }}" alt="testimonial">
                                         <div class="quote-item-info">
-                                            <h3 class="quote-author">Weldon Cash</h3>
+                                            <h3 class="quote-author"> {{nomProp}} </h3>
 
                                         </div>
                                     </div>

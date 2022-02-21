@@ -141,33 +141,34 @@ class __TwigTemplate_7a8fdeed9644acdd3c0f8db467764e63438924a00ff3b20bbbdc7a47746
 
 
 
-
-<div class=\"form-group\">
+<div class=\"container-fluid\">
+    <div class=\"checkbox\">
     <h5 class=\"text-danger\"> ";
         // line 47
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), "produitplats", [], "any", false, false, false, 47), 'errors');
         echo "</h5>
     ";
         // line 48
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 48, $this->source); })()), "produitplats", [], "any", false, false, false, 48), 'label', ["label" => "Composez votre menu"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 48, $this->source); })()), "produitplats", [], "any", false, false, false, 48), 'label', ["attr" => ["class" => "label label-primary"], "label" => "Composez votre menu"]);
         echo "
     ";
         // line 49
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 49, $this->source); })()), "produitplats", [], "any", false, false, false, 49), 'widget', ["attr" => ["class" => "form-control"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 49, $this->source); })()), "produitplats", [], "any", false, false, false, 49), 'widget', ["attr" => ["class" => "form-check-input position-static"]]);
         echo "
+</div>
 </div>
 <div class=\"col-md-12 text-center\">
     <button class=\"btn btn-primary\">";
-        // line 52
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 52, $this->source); })()), "Ajouter")) : ("Ajouter")), "html", null, true);
+        // line 53
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 53, $this->source); })()), "Ajouter")) : ("Ajouter")), "html", null, true);
         echo "</button>
 
 </div>
-
 ";
         // line 56
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 56, $this->source); })()), 'form_end');
         echo "
+
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -189,7 +190,7 @@ class __TwigTemplate_7a8fdeed9644acdd3c0f8db467764e63438924a00ff3b20bbbdc7a47746
 
     public function getDebugInfo()
     {
-        return array (  169 => 56,  162 => 52,  156 => 49,  152 => 48,  148 => 47,  135 => 37,  131 => 36,  127 => 35,  121 => 32,  117 => 31,  113 => 30,  107 => 27,  103 => 26,  98 => 24,  92 => 21,  88 => 20,  84 => 19,  78 => 16,  74 => 15,  68 => 12,  62 => 9,  58 => 8,  53 => 6,  46 => 2,  43 => 1,);
+        return array (  169 => 56,  163 => 53,  156 => 49,  152 => 48,  148 => 47,  135 => 37,  131 => 36,  127 => 35,  121 => 32,  117 => 31,  113 => 30,  107 => 27,  103 => 26,  98 => 24,  92 => 21,  88 => 20,  84 => 19,  78 => 16,  74 => 15,  68 => 12,  62 => 9,  58 => 8,  53 => 6,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -238,18 +239,19 @@ class __TwigTemplate_7a8fdeed9644acdd3c0f8db467764e63438924a00ff3b20bbbdc7a47746
 
 
 
-
-<div class=\"form-group\">
+<div class=\"container-fluid\">
+    <div class=\"checkbox\">
     <h5 class=\"text-danger\"> {{ form_errors(form.produitplats) }}</h5>
-    {{ form_label(form.produitplats,\"Composez votre menu\")}}
-    {{ form_widget(form.produitplats ,{'attr': {'class': 'form-control'}}) }}
+    {{ form_label(form.produitplats,\"Composez votre menu\",{'attr': {'class': 'label label-primary'}})}}
+    {{ form_widget(form.produitplats ,{'attr': {'class': 'form-check-input position-static'}}) }}
+</div>
 </div>
 <div class=\"col-md-12 text-center\">
     <button class=\"btn btn-primary\">{{ button_label|default('Ajouter') }}</button>
 
 </div>
-
 {{ form_end(form) }}
+
 ", "Back/restaurant/_form.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\restaurant\\_form.html.twig");
     }
 }
