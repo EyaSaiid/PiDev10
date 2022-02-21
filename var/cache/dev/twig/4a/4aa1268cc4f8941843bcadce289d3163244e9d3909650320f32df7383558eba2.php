@@ -1152,6 +1152,6 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 {% endblock %}
 
 </body>
-</html>", "base2.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\base2.html.twig");
+</html>", "base2.html.twig", "C:\\Users\\AMEN\\OneDrive\\Bureau\\PIgit\\GitHub\\PiDev10\\templates\\base2.html.twig");
     }
 }

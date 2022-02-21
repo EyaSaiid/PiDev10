@@ -163,6 +163,6 @@ class __TwigTemplate_f808965d9f67d21fc299f87e1f9b8e1f2c09b7a4d43212357365cac682a
     <!-- Carousel End -->
 
 {% endblock %}
-", "Front/index.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Front\\index.html.twig");
+", "Front/index.html.twig", "C:\\Users\\AMEN\\OneDrive\\Bureau\\PIgit\\GitHub\\PiDev10\\templates\\Front\\index.html.twig");
     }
 }
