@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Categorie;
 use App\Entity\Produit;
+use App\Entity\User;
 use App\Form\ProduitType;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -93,17 +95,21 @@ class ProduitController extends AbstractController
         return $this->render('produit/showFront.html.twig', [
             "produit" => $produit]);
     }
-
-
 /**
     * @Route("/produits/{id}", name="showProduitByCategory")
      */
-    public function showProduitByCategory(ProduitRepository $repProd, CategorieRepository $repCat, Categorie $categorie)
-    {
+    public function showProduitByCategory(PaginatorInterface $paginator,Request $request,ProduitRepository $repProd, CategorieRepository $repCat, Categorie $categorie)
+    {$donnees =$repProd->findByCategory1($categorie->getId());
+        $produit = $paginator->paginate(
+        $donnees, // Requête contenant les données à paginer (ici nos articles)
+        $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+        3 // Nombre de résultats par page
+    );
         $cat=$repCat->find($categorie->getId());
         $produit=$repProd->findByCategory1($cat->getId());
         return $this->render("Front/jointureCatPro.html.twig",[
             "p"=>$produit,'categories'=>$cat]);
+
     }
 
 

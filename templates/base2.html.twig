@@ -308,6 +308,7 @@
 
 
                 <li class="nav-item">
+
                     <a href="{{ path('GestionProduit') }}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -315,7 +316,37 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ path('produit_index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Afficher produit</p>
+                            </a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a href="{{ path('produit_new') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ajouter produit</p>
+                            </a>
+                        </li>
+
+
+                        {#  <li class="nav-item">
+                            <a href="{{ path('') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>modifier produit</p>
+                            </a>
+                        </li>#}
+
+                        {#  <li class="nav-item">
+                            <a href="{{ path('produit_delete') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>supprimer produit</p>
+                            </a>
+                        </li>
+                        #}
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{ path('GestionOffreTravail') }}" class="nav-link">

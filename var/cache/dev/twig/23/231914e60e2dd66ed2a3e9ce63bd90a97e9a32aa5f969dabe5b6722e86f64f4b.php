@@ -97,6 +97,6 @@ class __TwigTemplate_71d1b4ef8e3904cd4887c7b3ed0c014aa7afbe291ff292f543b492a6b2f
 {% block bodyBack %}
 
     <p>Afficher restaurant</p>
-{% endblock %}", "Back/GestionRestaurant.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\GestionRestaurant.html.twig");
+{% endblock %}", "Back/GestionRestaurant.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\Back\\GestionRestaurant.html.twig");
     }
 }

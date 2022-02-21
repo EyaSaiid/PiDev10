@@ -53,7 +53,8 @@ class Produit
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message=" le champs quantité est vide")
-     *  @Assert\GreaterThanOrEqual(0)(message=" le champs quantité doit être positif")
+     *  @Assert\GreaterThanOrEqual(0,
+     *     message=" le champs quantité doit être positif")
      */
     private $quantiteProduit;
 
@@ -71,6 +72,12 @@ class Produit
      * @Assert\File()
      */
     private $photo;
+
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getPhoto()
     {
@@ -142,5 +149,7 @@ class Produit
 
         return $this;
     }
+
+
 
 }

@@ -66,7 +66,59 @@ class __TwigTemplate_ee5445753fa9028c8506664e03c23730c2a63d649f9c1c7fb000e366ea3
 
         // line 3
         echo "
-    <p>Gestion Produit</p>
+
+            <!-- Main content -->
+            <section class=\"content\">
+                <div class=\"container-fluid\">
+                    <div class=\"row\">
+                        <!-- left column -->
+                        <div class=\"col-md-6\">
+                            <!-- general form elements -->
+                            <div class=\"card card-primary\">
+                                <div class=\"card-header\">
+                                    <h3 class=\"card-title\">Ajouter produit</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form>
+                                    <div class=\"card-body\">
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputEmail1\">Nom produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter le nom\">
+                                        </div>
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputPassword1\">Description produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"description\">
+                                        </div>
+
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputPassword1\">prix produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"prix\">
+                                        </div>
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputPassword1\">quantité produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"quantité\">
+                                        </div>
+                                      ";
+        // line 50
+        echo "
+                                        <!-- /.card-body -->
+
+                                    <div class=\"card-footer\">
+                                         <button type=\"submit\" class=\"btn btn-primary\">Submit </button>
+
+
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.card -->
+
+
+    </script>
+    </body>
+    </html>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -88,7 +140,7 @@ class __TwigTemplate_ee5445753fa9028c8506664e03c23730c2a63d649f9c1c7fb000e366ea3
 
     public function getDebugInfo()
     {
-        return array (  68 => 3,  58 => 2,  35 => 1,);
+        return array (  104 => 50,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -96,7 +148,70 @@ class __TwigTemplate_ee5445753fa9028c8506664e03c23730c2a63d649f9c1c7fb000e366ea3
         return new Source("{% extends 'base2.html.twig' %}
 {% block bodyBack %}
 
-    <p>Gestion Produit</p>
-{% endblock %}", "Back/GestionProduit.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\GestionProduit.html.twig");
+
+            <!-- Main content -->
+            <section class=\"content\">
+                <div class=\"container-fluid\">
+                    <div class=\"row\">
+                        <!-- left column -->
+                        <div class=\"col-md-6\">
+                            <!-- general form elements -->
+                            <div class=\"card card-primary\">
+                                <div class=\"card-header\">
+                                    <h3 class=\"card-title\">Ajouter produit</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form>
+                                    <div class=\"card-body\">
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputEmail1\">Nom produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter le nom\">
+                                        </div>
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputPassword1\">Description produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"description\">
+                                        </div>
+
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputPassword1\">prix produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"prix\">
+                                        </div>
+                                        <div class=\"form-group\">
+                                            <label for=\"exampleInputPassword1\">quantité produit</label>
+                                            <input type=\"text\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"quantité\">
+                                        </div>
+                                      {#  <div class=\"form-group\">
+                                            <label for=\"exampleInputFile\">Image du produit</label>
+                                            <div class=\"input-group\">
+                                                <div class=\"custom-file\">
+                                                    <input type=\"file\" class=\"custom-file-input\" id=\"exampleInputFile\">
+                                                    <label class=\"custom-file-label\" for=\"exampleInputFile\">Choose file</label>
+                                                </div>
+                                                <div class=\"input-group-append\">
+                                                    <span class=\"input-group-text\">Upload</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>#}
+
+                                        <!-- /.card-body -->
+
+                                    <div class=\"card-footer\">
+                                         <button type=\"submit\" class=\"btn btn-primary\">Submit </button>
+
+
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.card -->
+
+
+    </script>
+    </body>
+    </html>
+
+{% endblock %}", "Back/GestionProduit.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\Back\\GestionProduit.html.twig");
     }
 }

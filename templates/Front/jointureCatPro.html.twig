@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyMenu %}
+    <!-- Page Header Start -->
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Nos produits</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- Food Start -->
+
+<div class="food">
+    <div class="container">
+        <div class="row align-items-center">
+            {%  for produit in p %}
+
+                <div class="col-md-4">
+                    <div class="food-item">
+                        {#  <i class="flaticon-burger"></i>#}
+                        <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit }}" class="img-fluid">
+                        <h2>{{ produit.nomProduit }}</h2>
+                        <p>
+                            {{ produit.descriptionProduit }}
+                        </p>
+                        <h2>
+                            {{ produit.prixProduit }} DNT
+                        </h2>
+                      <ul> <bouton class="btn btn-success"> <a href="{{ path('showProduit', {'id': produit.id}) }}" >Voir produit</a></bouton></ul>
+                        <ul> <bouton class="btn btn-dark"> <a href="{{ path('produit_front') }}"> revenir a la liste</a></bouton> </ul>
+
+                    </div>
+                </div>
+
+
+
+
+
+ {% endfor %}
+
+{% endblock %}

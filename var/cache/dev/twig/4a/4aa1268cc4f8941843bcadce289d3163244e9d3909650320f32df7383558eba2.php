@@ -73,7 +73,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 ";
         // line 72
         $this->displayBlock('body', $context, $blocks);
-        // line 422
+        // line 452
         echo "
 </body>
 </html>";
@@ -553,8 +553,9 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
 
                 <li class=\"nav-item\">
+
                     <a href=\"";
-        // line 311
+        // line 312
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionProduit");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -563,11 +564,37 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                             <i class=\"fas fa-angle-left right\"></i>
                         </p>
                     </a>
+                    <ul class=\"nav nav-treeview\">
+                        <li class=\"nav-item\">
+                            <a href=\"";
+        // line 321
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_index");
+        echo "\" class=\"nav-link\">
+                                <i class=\"far fa-circle nav-icon\"></i>
+                                <p>Afficher produit</p>
+                            </a>
+                        </li>
 
+                        <li class=\"nav-item\">
+                            <a href=\"";
+        // line 328
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_new");
+        echo "\" class=\"nav-link\">
+                                <i class=\"far fa-circle nav-icon\"></i>
+                                <p>Ajouter produit</p>
+                            </a>
+                        </li>
+
+                        ";
+        // line 340
+        echo "
+                        ";
+        // line 348
+        echo "                    </ul>
                 </li>
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 321
+        // line 351
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionOffreTravail");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -580,7 +607,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 331
+        // line 361
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionEvenement");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -593,7 +620,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 341
+        // line 371
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionMenu");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -607,7 +634,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 352
+        // line 382
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionArtiste");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -620,7 +647,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 362
+        // line 392
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionCommande");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -672,9 +699,9 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
     <div class=\"content-wrapper\">
 
     ";
-        // line 411
+        // line 441
         $this->displayBlock('bodyBack', $context, $blocks);
-        // line 412
+        // line 442
         echo "
     </div>
 
@@ -693,7 +720,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     }
 
-    // line 411
+    // line 441
     public function block_bodyBack($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -724,7 +751,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     public function getDebugInfo()
     {
-        return array (  697 => 411,  678 => 412,  676 => 411,  624 => 362,  611 => 352,  597 => 341,  584 => 331,  571 => 321,  558 => 311,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 422,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
+        return array (  724 => 441,  705 => 442,  703 => 441,  651 => 392,  638 => 382,  624 => 371,  611 => 361,  598 => 351,  593 => 348,  590 => 340,  581 => 328,  571 => 321,  559 => 312,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 452,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -1039,6 +1066,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
 
                 <li class=\"nav-item\">
+
                     <a href=\"{{ path('GestionProduit') }}\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
@@ -1046,7 +1074,36 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                             <i class=\"fas fa-angle-left right\"></i>
                         </p>
                     </a>
+                    <ul class=\"nav nav-treeview\">
+                        <li class=\"nav-item\">
+                            <a href=\"{{ path('produit_index') }}\" class=\"nav-link\">
+                                <i class=\"far fa-circle nav-icon\"></i>
+                                <p>Afficher produit</p>
+                            </a>
+                        </li>
 
+                        <li class=\"nav-item\">
+                            <a href=\"{{ path('produit_new') }}\" class=\"nav-link\">
+                                <i class=\"far fa-circle nav-icon\"></i>
+                                <p>Ajouter produit</p>
+                            </a>
+                        </li>
+
+                        {#  <li class=\"nav-item\">
+                            <a href=\"{{ path('') }}\" class=\"nav-link\">
+                                <i class=\"far fa-circle nav-icon\"></i>
+                                <p>modifier produit</p>
+                            </a>
+                        </li>#}
+
+                        {#  <li class=\"nav-item\">
+                            <a href=\"{{ path('produit_delete') }}\" class=\"nav-link\">
+                                <i class=\"far fa-circle nav-icon\"></i>
+                                <p>supprimer produit</p>
+                            </a>
+                        </li>
+                        #}
+                    </ul>
                 </li>
                 <li class=\"nav-item\">
                     <a href=\"{{ path('GestionOffreTravail') }}\" class=\"nav-link\">
@@ -1152,6 +1209,6 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 {% endblock %}
 
 </body>
-</html>", "base2.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\base2.html.twig");
+</html>", "base2.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\base2.html.twig");
     }
 }

@@ -97,6 +97,6 @@ class __TwigTemplate_007fe7561d086a9d4d201ee3157c4bff0d8546cecc87b4bc14104ee96f7
 {% block bodyBack %}
 
     <p>Gestion Offre Travail</p>
-{% endblock %}", "Back/GestionOffreTravail.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\GestionOffreTravail.html.twig");
+{% endblock %}", "Back/GestionOffreTravail.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\Back\\GestionOffreTravail.html.twig");
     }
 }

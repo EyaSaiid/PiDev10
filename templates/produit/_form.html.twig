@@ -1,0 +1,49 @@
+{%  extends 'base2.html.twig' %}
+{% block body %}
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+<h1> Ajouter un produit </h1>
+
+<div class="form-group">
+    <div class="alert-danger" style="align-content: center">
+        {{ form_errors(form.nomProduit) }} </div>
+    {{ form_label(form.nomProduit,"Nom du produit") }}
+    {{ form_widget(form.nomProduit ,{'attr': {'class': 'form-control','placeholder':'ajouter le nom'}}) }}
+</div>
+    <div class="form-group">
+        <script>alert("Vérifiez que vous avez bien rempli vos champs svp!")</script>
+<div class="alert-danger" style="align-content: center">
+
+
+    {{ form_errors(form.descriptionProduit) }}
+</div>
+        {{ form_label(form.descriptionProduit,"Description du produit") }}
+        {{ form_widget(form.descriptionProduit ,{'attr': {'class': 'form-control','cols':'55', 'rows':'100','placeholder':'ajouter la description'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.prixProduit) }}</div>
+        {{ form_label(form.prixProduit,"Prix du produit") }}
+        {{ form_widget(form.prixProduit ,{'attr': {'class': 'form-control','placeholder':'ajouter le prix'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.quantiteProduit) }} </div>
+        {{ form_label(form.quantiteProduit,"Quantite du produit") }}
+        {{ form_widget(form.quantiteProduit ,{'attr': {'class': 'form-control','placeholder':'ajouter la quantité'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.Categorie) }} </div>
+        {{ form_label(form.Categorie,"Categorie du produit") }}
+        {{ form_widget(form.Categorie ,{'attr': {'class': 'form-control','placeholder':'ajouter la catégorie'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.photo) }} </div>
+        {{ form_label(form.photo,"photo du produit") }}
+        {{ form_widget(form.photo ,{'attr': {'class': 'form-control'}}) }}
+    </div>
+
+<button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+{% endblock %}

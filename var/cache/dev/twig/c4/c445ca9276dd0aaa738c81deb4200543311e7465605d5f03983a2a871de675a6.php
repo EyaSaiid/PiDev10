@@ -77,7 +77,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 ";
         // line 106
         $this->displayBlock('body', $context, $blocks);
-        // line 213
+        // line 214
         echo "</body>
 </html>";
         
@@ -351,18 +351,22 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
         echo "\" class=\"nav-item nav-link\">Detail menu</a>
                     <a href=\"";
         // line 123
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produitDma9");
+        echo "\" class=\"nav-item nav-link\">Produits</a>
+                    <a href=\"";
+        // line 124
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("list_restaurant");
         echo "\" class=\"nav-item nav-link\"> Restaurants </a>
                     <a href=\"";
-        // line 124
+        // line 125
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking");
         echo "\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"";
-        // line 125
+        // line 126
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
         echo "\" class=\"nav-item nav-link\">Contact</a>
                    ";
-        // line 134
+        // line 135
         echo "                </div>
             </div>
         </div>
@@ -373,9 +377,9 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 
 ";
-        // line 143
-        $this->displayBlock('bodyMenu', $context, $blocks);
         // line 144
+        $this->displayBlock('bodyMenu', $context, $blocks);
+        // line 145
         echo "
 
     <!-- Footer Start -->
@@ -429,7 +433,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
             <div class=\"container\">
                 <p>Copyright &copy; <a href=\"#\">Your Site Name</a>, All Right Reserved.</p>
                 <p>Designed By <a href= ";
-        // line 196
+        // line 197
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://htmlcodex.com"), "html", null, true);
         echo " >HTML Codex</a></p>
             </div>
@@ -456,7 +460,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     }
 
-    // line 143
+    // line 144
     public function block_bodyMenu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -487,7 +491,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     public function getDebugInfo()
     {
-        return array (  460 => 143,  433 => 196,  379 => 144,  377 => 143,  366 => 134,  362 => 125,  358 => 124,  354 => 123,  349 => 122,  345 => 120,  341 => 119,  337 => 118,  333 => 117,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 213,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
+        return array (  464 => 144,  437 => 197,  383 => 145,  381 => 144,  370 => 135,  366 => 126,  362 => 125,  358 => 124,  354 => 123,  349 => 122,  345 => 120,  341 => 119,  337 => 118,  333 => 117,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 214,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -614,6 +618,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
                     <a href=\"{{ path(\"team\") }}\" class=\"nav-item nav-link\">Team</a>
                     {# <a href=\"{{ path('templates/menu.html.twig') }}\" class=\"nav-item nav-link\">Menu</a> #}
                      <a href=\"{{ path(\"details_menu\") }}\" class=\"nav-item nav-link\">Detail menu</a>
+                    <a href=\"{{ path(\"produitDma9\") }}\" class=\"nav-item nav-link\">Produits</a>
                     <a href=\"{{ path(\"list_restaurant\") }}\" class=\"nav-item nav-link\"> Restaurants </a>
                     <a href=\"{{ path(\"booking\") }}\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"{{ path(\"contact\") }}\" class=\"nav-item nav-link\">Contact</a>
@@ -705,6 +710,6 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 {% endblock %}
 </body>
-</html>", "base.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiGit\\Pi\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\base.html.twig");
     }
 }

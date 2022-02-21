@@ -90,6 +90,15 @@ class ProductController extends AbstractController
         ]);
     }
     /**
+     * @Route("/produitDma9", name="produitDma9")
+     */
+    public function btn_produitDma9(): Response
+    {
+        return $this->render('Front/produitDma9.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
      * @Route("/booking", name="booking")
      */
     public function btn_booking(): Response
