@@ -31,6 +31,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
             'stylesheets' => [$this, 'block_stylesheets'],
             'javascripts' => [$this, 'block_javascripts'],
             'body' => [$this, 'block_body'],
+            'titles' => [$this, 'block_titles'],
             'bodyBack' => [$this, 'block_bodyBack'],
         ];
     }
@@ -146,7 +147,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         // line 22
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Back/plugins/jqvmap/jqvmap.min.css"), "html", null, true);
         echo "\">
-        <!-- Theme style -->
+            <!-- Theme style -->
         <link rel=\"stylesheet\" href=\"";
         // line 24
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Back/dist/css/adminlte.min.css"), "html", null, true);
@@ -657,7 +658,10 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         <div class=\"container-fluid\">
             <div class=\"row mb-2\">
                 <div class=\"col-sm-6\">
-                    <h1 class=\"m-0\">Dashboard</h1>
+                    <h1 class=\"m-0\">";
+        // line 397
+        $this->displayBlock('titles', $context, $blocks);
+        echo "</h1>
                 </div><!-- /.col -->
                 <div class=\"col-sm-6\">
                     <ol class=\"breadcrumb float-sm-right\">
@@ -669,7 +673,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class=\"content-wrapper\">
+    <div>
 
     ";
         // line 411
@@ -685,6 +689,25 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
     <!-- /.control-sidebar -->
 </div>
 ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 397
+    public function block_titles($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "titles"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "titles"));
+
+        echo " ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -724,7 +747,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     public function getDebugInfo()
     {
-        return array (  697 => 411,  678 => 412,  676 => 411,  624 => 362,  611 => 352,  597 => 341,  584 => 331,  571 => 321,  558 => 311,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 422,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
+        return array (  720 => 411,  701 => 397,  682 => 412,  680 => 411,  663 => 397,  625 => 362,  612 => 352,  598 => 341,  585 => 331,  572 => 321,  559 => 311,  552 => 306,  530 => 286,  514 => 272,  500 => 260,  463 => 226,  452 => 218,  389 => 158,  370 => 142,  351 => 126,  297 => 75,  293 => 73,  283 => 72,  271 => 68,  266 => 66,  261 => 64,  256 => 62,  251 => 60,  246 => 58,  241 => 56,  237 => 55,  232 => 53,  227 => 51,  223 => 50,  218 => 48,  213 => 46,  208 => 44,  199 => 38,  194 => 36,  190 => 34,  180 => 33,  168 => 30,  163 => 28,  158 => 26,  153 => 24,  148 => 22,  143 => 20,  138 => 18,  133 => 16,  128 => 14,  123 => 12,  119 => 10,  109 => 9,  90 => 5,  78 => 422,  76 => 72,  72 => 70,  70 => 33,  67 => 32,  65 => 9,  61 => 8,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -751,7 +774,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         <link rel=\"stylesheet\" href=\"{{ asset('Back/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}\">
         <!-- JQVMap -->
         <link rel=\"stylesheet\" href=\"{{ asset('Back/plugins/jqvmap/jqvmap.min.css') }}\">
-        <!-- Theme style -->
+            <!-- Theme style -->
         <link rel=\"stylesheet\" href=\"{{ asset('Back/dist/css/adminlte.min.css') }}\">
         <!-- overlayScrollbars -->
         <link rel=\"stylesheet\" href=\"{{ asset('Back/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}\">
@@ -1125,7 +1148,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         <div class=\"container-fluid\">
             <div class=\"row mb-2\">
                 <div class=\"col-sm-6\">
-                    <h1 class=\"m-0\">Dashboard</h1>
+                    <h1 class=\"m-0\">{% block titles %} {% endblock %}</h1>
                 </div><!-- /.col -->
                 <div class=\"col-sm-6\">
                     <ol class=\"breadcrumb float-sm-right\">
@@ -1137,7 +1160,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class=\"content-wrapper\">
+    <div>
 
     {% block bodyBack %} {% endblock %}
 
@@ -1152,6 +1175,6 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 {% endblock %}
 
 </body>
-</html>", "base2.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\base2.html.twig");
+</html>", "base2.html.twig", "C:\\Users\\Asus\\Documents\\GitHub\\PiDev10\\templates\\base2.html.twig");
     }
 }

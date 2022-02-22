@@ -13,6 +13,9 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/evenements/front' => [[['_route' => 'evenements_front', '_controller' => 'App\\Controller\\EvenementsController::indexFront'], null, ['GET' => 0], null, false, false, null]],
+        '/evenements' => [[['_route' => 'evenements_index', '_controller' => 'App\\Controller\\EvenementsController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/evenements/new' => [[['_route' => 'evenements_new', '_controller' => 'App\\Controller\\EvenementsController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/Front' => [[['_route' => 'Front', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\ProductController::btn_home'], null, null, null, false, false, null]],
         '/contact' => [[['_route' => 'contact', '_controller' => 'App\\Controller\\ProductController::btn_contact'], null, null, null, false, false, null]],
@@ -50,6 +53,18 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/commentaire/(?'
+                    .'|([^/]++)/edit/([^/]++)(*:207)'
+                    .'|delete/([^/]++)/([^/]++)(*:239)'
+                .')'
+                .'|/evenements/(?'
+                    .'|details/([^/]++)(*:279)'
+                    .'|([^/]++)(?'
+                        .'|(*:298)'
+                        .'|/edit(*:311)'
+                    .')'
+                    .'|delete/([^/]++)(*:335)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -59,8 +74,14 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        207 => [[['_route' => 'commentaire_edit', '_controller' => 'App\\Controller\\CommentaireController::edit'], ['id', 'ide'], null, null, false, true, null]],
+        239 => [[['_route' => 'commentaire_delete', '_controller' => 'App\\Controller\\CommentaireController::delete'], ['ide', 'idc'], null, null, false, true, null]],
+        279 => [[['_route' => 'evenements_details', '_controller' => 'App\\Controller\\EvenementsController::indexDetails'], ['id'], null, null, false, true, null]],
+        298 => [[['_route' => 'evenements_show', '_controller' => 'App\\Controller\\EvenementsController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        311 => [[['_route' => 'evenements_edit', '_controller' => 'App\\Controller\\EvenementsController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        335 => [
+            [['_route' => 'evenements_delete', '_controller' => 'App\\Controller\\EvenementsController::delete'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

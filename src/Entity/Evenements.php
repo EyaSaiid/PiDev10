@@ -51,6 +51,18 @@ class Evenements
      */
     private $description;
 
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @Assert\File(maxSize="500000000k")
+     */
+    public  $file;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,4 +139,74 @@ class Evenements
 
         return $this;
     }
+
+
+
+    public function getWebpath(){
+
+
+        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
+    }
+    protected  function  getUploadRootDir(){
+
+        return __DIR__.'/../../../PiDev10/public/Upload'.$this->getUploadDir();
+    }
+    protected function getUploadDir(){
+
+        return'';
+    }
+    public function getUploadFile(){
+        if (null === $this->getFile()) {
+            $this->image = "3.jpg";
+            return;
+        }
+
+
+        $this->getFile()->move(
+            $this->getUploadRootDir(),
+            $this->getFile()->getClientOriginalName()
+
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->image = $this->getFile()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->file = null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile($file): void
+    {
+        $this->file = $file;
+    }
+
+
+
 }
