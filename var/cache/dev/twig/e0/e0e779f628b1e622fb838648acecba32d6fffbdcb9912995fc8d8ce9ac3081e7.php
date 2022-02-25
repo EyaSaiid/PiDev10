@@ -87,7 +87,7 @@ class __TwigTemplate_36be91aee9a6280059ede3748380d55671ad54bc920e79f74aac07180ef
         // line 6
         echo "    <h1>OffreTravail index</h1>
 
-    <table class=\"table\">
+    <table class=\"table\" border=\"2\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -219,7 +219,7 @@ class __TwigTemplate_36be91aee9a6280059ede3748380d55671ad54bc920e79f74aac07180ef
 {% block bodyBack %}
     <h1>OffreTravail index</h1>
 
-    <table class=\"table\">
+    <table class=\"table\" border=\"2\">
         <thead>
             <tr>
                 <th>Id</th>

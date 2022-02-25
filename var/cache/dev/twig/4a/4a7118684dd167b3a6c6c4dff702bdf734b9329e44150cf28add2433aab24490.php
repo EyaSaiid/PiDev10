@@ -87,7 +87,7 @@ class __TwigTemplate_0ad3688100faa51da6d47da53858f67583d9a5d25729905892eaf155a8d
         // line 6
         echo "    <h1>User index</h1>
 
-    <table class=\"table\">
+    <table class=\"table\" border=\"2\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -242,7 +242,7 @@ class __TwigTemplate_0ad3688100faa51da6d47da53858f67583d9a5d25729905892eaf155a8d
 {% block bodyBack %}
     <h1>User index</h1>
 
-    <table class=\"table\">
+    <table class=\"table\" border=\"2\">
         <thead>
             <tr>
                 <th>Id</th>

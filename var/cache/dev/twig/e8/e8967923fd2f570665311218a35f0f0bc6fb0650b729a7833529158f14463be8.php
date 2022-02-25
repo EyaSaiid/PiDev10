@@ -165,22 +165,26 @@ class __TwigTemplate_cd32ad1c9e2d213a95cd6d76724695e86a2bc51e957ace2d3137cb765cb
         // line 52
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 52, $this->source); })()), "image", [], "any", false, false, false, 52), "html", null, true);
         echo "</td>
+                <img width=\"79\" src=\"/upload/img/";
+        // line 53
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 53, $this->source); })()), "image", [], "any", false, false, false, 53), "html", null, true);
+        echo "\" class=\"img-thumbnail\">
             </tr>
         </tbody>
     </table>
 
     <a href=\"";
-        // line 57
+        // line 58
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 59
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 59, $this->source); })()), "id", [], "any", false, false, false, 59)]), "html", null, true);
+        // line 60
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 60, $this->source); })()), "id", [], "any", false, false, false, 60)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 61
+        // line 62
         echo twig_include($this->env, $context, "Back/user/_delete_form.html.twig");
         echo "
 ";
@@ -204,7 +208,7 @@ class __TwigTemplate_cd32ad1c9e2d213a95cd6d76724695e86a2bc51e957ace2d3137cb765cb
 
     public function getDebugInfo()
     {
-        return array (  184 => 61,  179 => 59,  174 => 57,  166 => 52,  159 => 48,  152 => 44,  145 => 40,  138 => 36,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  188 => 62,  183 => 60,  178 => 58,  170 => 53,  166 => 52,  159 => 48,  152 => 44,  145 => 40,  138 => 36,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -261,6 +265,7 @@ class __TwigTemplate_cd32ad1c9e2d213a95cd6d76724695e86a2bc51e957ace2d3137cb765cb
             <tr>
                 <th>Image</th>
                 <td>{{ user.image}}</td>
+                <img width=\"79\" src=\"/upload/img/{{ user.image }}\" class=\"img-thumbnail\">
             </tr>
         </tbody>
     </table>

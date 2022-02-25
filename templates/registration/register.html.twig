@@ -99,10 +99,23 @@
                     {{ form_widget(registrationForm.email, {'attr': {'class': 'with-border','placeholder':'e.g. ***@***.com'}}) }}
         {#            {{ form_help(registrationForm.email,' A confirmation link will be send to this address') }}#}
                 </div>
+
+            <div class="form-group">
+                <div class="submit-field">
+                    <div class="alert alert-warning"  style="display: {% if registrationForm.image.vars.errors|length %} {% else %} none {% endif %}  ">
+                        {{ form_errors(registrationForm.image) }}
+                        <a class="close" href="#"></a>
+                    </div>
+                    {{ form_label(registrationForm.image,' ') }}
+                    {{ form_widget(registrationForm.image,{'attr':{'title':'télécharger votre image'}}) }}
+                </div>
+
+            </div>
                 {{ form_row(registrationForm.password, {
                         label: 'Password'
                     }) }}
                     {{ form_row(registrationForm.agreeTerms) }}
+
 
             <button class="btn btn-lg btn-primary" type="submit"> Register</button> </div>
                 </div>
