@@ -40,7 +40,7 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/reset_pass_page' => [[['_route' => 'app_reset_password_page', '_controller' => 'App\\Controller\\SecurityController::resetPasswordPage'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/admin/download' => [[['_route' => 'user_download', '_controller' => 'App\\Controller\\UserController::download'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/download' => [[['_route' => 'user_download', '_controller' => 'App\\Controller\\UserController::download'], null, null, null, false, false, null]],
         '/admin/stat' => [[['_route' => 'user_stat', '_controller' => 'App\\Controller\\UserController::statistic'], null, null, null, false, false, null]],
         '/admin/new' => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],

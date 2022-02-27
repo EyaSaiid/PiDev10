@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use function PHPUnit\Framework\countOf;
+use Dompdf\Dompdf ;
+use Dompdf\Options;
+
 
 /**
  * @Route("/admin")
@@ -30,13 +33,42 @@ class UserController extends AbstractController
         ]);
     }
     /**
-     * @Route("/download", name="user_download", methods={"GET"})
+     * @Route("/download", name="user_download")
      */
-    public function download(UserRepository $userRepository): Response
+    public function download()
     {
-        return $this->render('Back/user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+        //definit les option pdf
+        $pdfOptions = new Options();
+        //police
+        $pdfOptions->set('defaultFont', 'Arial');
+        // resoudre les prob lié au ssl
+        $pdfOptions->setIsRemoteEnabled(true);
+        // On instancie Dompdf
+        $dompdf = new Dompdf($pdfOptions);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE
+            ]
         ]);
+        $dompdf->setHttpContext($context);
+        // On génère le html
+        $html = $this->renderView('Back/user/download.html.twig');
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        // On génère un nom de fichier
+        $fichier = 'user-data-'. $this->getUser()->getId() .'.pdf';
+
+        // On envoie le PDF au navigateur
+        $dompdf->stream($fichier, [
+            'Attachment' => true    //méthode de stream qui va permettre de telechaarger
+        ]);
+
+        return new Response();
     }
     /**
      * @Route("/stat", name="user_stat")
