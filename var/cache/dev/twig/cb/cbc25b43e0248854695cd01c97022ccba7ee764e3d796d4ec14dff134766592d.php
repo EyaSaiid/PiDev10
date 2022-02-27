@@ -120,20 +120,12 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
     </div>
 </div>
 
-    <a href=\"";
-        // line 35
+    <div class=\"col-md-12 text-center\">
+        <a class=\"btn btn-outline-dark\" href=\"";
+        // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_index");
-        echo "\">retour à la liste </a>
-
-    <a href=\"";
-        // line 37
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_edit", ["id_categorie" => twig_get_attribute($this->env, $this->source, (isset($context["categorie"]) || array_key_exists("categorie", $context) ? $context["categorie"] : (function () { throw new RuntimeError('Variable "categorie" does not exist.', 37, $this->source); })()), "GetIdCategorie", [], "method", false, false, false, 37)]), "html", null, true);
-        echo "\">Modifier</a>
-
-    ";
-        // line 39
-        echo twig_include($this->env, $context, "Back/categorie/_delete_form.html.twig");
-        echo "
+        echo "\">Liste des catégories</a>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -155,7 +147,7 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
 
     public function getDebugInfo()
     {
-        return array (  135 => 39,  130 => 37,  125 => 35,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  126 => 36,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -194,11 +186,9 @@ class __TwigTemplate_5734af79d74d116945f0445da659ee2161d4025b2bb98df4ab94cb037bc
     </div>
 </div>
 
-    <a href=\"{{ path('categorie_index') }}\">retour à la liste </a>
-
-    <a href=\"{{ path('categorie_edit', {'id_categorie': categorie.GetIdCategorie()}) }}\">Modifier</a>
-
-    {{ include('Back/categorie/_delete_form.html.twig') }}
+    <div class=\"col-md-12 text-center\">
+        <a class=\"btn btn-outline-dark\" href=\"{{ path('categorie_index') }}\">Liste des catégories</a>
+    </div>
 {% endblock %}
 ", "Back/categorie/show.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\categorie\\show.html.twig");
     }

@@ -73,7 +73,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 ";
         // line 72
         $this->displayBlock('body', $context, $blocks);
-        // line 514
+        // line 532
         echo "
 </body>
 </html>";
@@ -543,6 +543,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                                 </a>
                             </li>
 
+
                         </ul>
 
 
@@ -550,9 +551,9 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                 </nav>
  ";
-        // line 306
-        echo "                ";
         // line 307
+        echo "                ";
+        // line 308
         echo "
                 <nav class=\"mt-2\">
 
@@ -568,7 +569,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                         <ul class=\"nav nav-treeview\">
                             <li class=\"nav-item\">
                                 <a href=\"";
-        // line 321
+        // line 322
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_index");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
@@ -578,7 +579,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                             <li class=\"nav-item\">
                                 <a href=\"";
-        // line 328
+        // line 329
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_new");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
@@ -593,9 +594,9 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                 </nav>
  ";
-        // line 341
-        echo "                ";
         // line 342
+        echo "                ";
+        // line 343
         echo "
 
                 <nav class=\"mt-2\">
@@ -612,7 +613,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                         <ul class=\"nav nav-treeview\">
                             <li class=\"nav-item\">
                                 <a href=\"";
-        // line 357
+        // line 358
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_index");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
@@ -622,11 +623,20 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                             <li class=\"nav-item\">
                                 <a href=\"";
-        // line 364
+        // line 365
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_new");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
                                     <p>Ajouter Plats et Boissons</p>
+                                </a>
+                            </li>
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 371
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("stat");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p> Statistique</p>
                                 </a>
                             </li>
 
@@ -637,7 +647,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                 </nav>
                 ";
-        // line 377
+        // line 384
         echo "
                 <nav class=\"mt-2\">
 
@@ -653,23 +663,40 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                         <ul class=\"nav nav-treeview\">
                             <li class=\"nav-item\">
                                 <a href=\"";
-        // line 391
+        // line 398
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_index");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
                                     <p>Afficher les reservations</p>
                                 </a>
                             </li>
-
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 404
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("calendar");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p> Calendrier</p>
+                                </a>
+                            </li>
+                            <li class=\"nav-item\">
+                                <a href=\"";
+        // line 410
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("statReservation");
+        echo "\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p> Statistique</p>
+                                </a>
+                            </li>
                         </ul>
                 </nav>
                 ";
-        // line 400
+        // line 418
         echo "
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 403
+        // line 421
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionOffreTravail");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -682,7 +709,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 413
+        // line 431
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionEvenement");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -698,7 +725,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 426
+        // line 444
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionArtiste");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -711,7 +738,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 436
+        // line 454
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionCommande");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
@@ -772,15 +799,15 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
 
   ";
-        // line 495
+        // line 513
         echo "
     ";
-        // line 496
+        // line 514
         $this->displayBlock('bodyBack', $context, $blocks);
-        // line 497
+        // line 515
         echo "
    ";
-        // line 500
+        // line 518
         echo "
 
 
@@ -803,7 +830,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
     }
 
-    // line 496
+    // line 514
     public function block_bodyBack($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -834,7 +861,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
 
     public function getDebugInfo()
     {
-        return array (  807 => 496,  784 => 500,  781 => 497,  779 => 496,  776 => 495,  715 => 436,  702 => 426,  686 => 413,  673 => 403,  668 => 400,  657 => 391,  641 => 377,  626 => 364,  616 => 357,  599 => 342,  597 => 341,  582 => 328,  572 => 321,  556 => 307,  554 => 306,  539 => 293,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 514,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
+        return array (  834 => 514,  811 => 518,  808 => 515,  806 => 514,  803 => 513,  742 => 454,  729 => 444,  713 => 431,  700 => 421,  695 => 418,  685 => 410,  676 => 404,  667 => 398,  651 => 384,  636 => 371,  627 => 365,  617 => 358,  600 => 343,  598 => 342,  583 => 329,  573 => 322,  557 => 308,  555 => 307,  539 => 293,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 532,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -1137,6 +1164,7 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                                 </a>
                             </li>
 
+
                         </ul>
 
 
@@ -1207,6 +1235,12 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                                     <p>Ajouter Plats et Boissons</p>
                                 </a>
                             </li>
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('stat') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p> Statistique</p>
+                                </a>
+                            </li>
 
                         </ul>
 
@@ -1234,7 +1268,18 @@ class __TwigTemplate_1aab3be1e7afdad2810eb52ea7f7e22ffe2249e5da566847cab48ad948d
                                     <p>Afficher les reservations</p>
                                 </a>
                             </li>
-
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('calendar') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p> Calendrier</p>
+                                </a>
+                            </li>
+                            <li class=\"nav-item\">
+                                <a href=\"{{ path('statReservation') }}\" class=\"nav-link\">
+                                    <i class=\"far fa-circle nav-icon\"></i>
+                                    <p> Statistique</p>
+                                </a>
+                            </li>
                         </ul>
                 </nav>
                 {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}

@@ -10,17 +10,36 @@ use App\Form\RestaurantType;
 use App\Repository\RestaurantRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\DocBlock\Serializer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/restaurant")
  */
 class RestaurantController extends AbstractController
 {
+
+    /**
+     * @Route("/listjson", name="produit_json")
+     */
+    public function ListRestaurantJson(RestaurantRepository $restaurep, SerializerInterface $serializerinterface): Response
+    {
+        $restaurant=$restaurep->findAll();
+
+        $json=$serializerinterface->normalize($restaurant,'json',['groups'=>'restaurant']);
+        //dump($restaurant);
+        //die;
+       //$formatted= $serializer->normalize($json);
+        return new Response(json_encode($json));
+    }
 
 
     /**
@@ -114,6 +133,9 @@ class RestaurantController extends AbstractController
 
 
 
+
+
+
     /**
      * @Route("/{id_restaurant}/aff", name="details_menu", methods={"GET"})
      */
@@ -173,5 +195,8 @@ class RestaurantController extends AbstractController
             'controller_name' => 'RestaurantController',
         ]);
     }
+
+
+
 
 }

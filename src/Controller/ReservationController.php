@@ -32,15 +32,60 @@ class ReservationController extends AbstractController
             'reservations' => $reservationRepository->findAll(),
         ]);
     }
+    /**
+     * @Route("/statReservation", name="statReservation", methods={"GET"})
+     */
+    public function stat(ReservationRepository $reservationRepo): Response
+    {    $reservations = $reservationRepo->CountBydate();
 
+        $dates = [];
+        $reservationsCount = [];
+        // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
+        foreach($reservations as $res){
+            $dates[] = $res['dateReservation'];
+            $reservationsCount[] = $res['count'];
+        }
+        return $this->render('Back/reservation/Stat.html.twig', [
+            'dates' => json_encode($dates),
+            'reservationsCount' => json_encode($reservationsCount),
+        ]);
+    }
+    /**
+     * @Route("/calendar", name="calendar")
+     */
+    public function calendrier(ReservationRepository $reservation)
+    {
+        $events = $reservation->findAll();
 
+        $rdvs = [];
+
+        foreach($events as $event){
+            $idRestaurant=$event->getIdRestaurant();
+            $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find($idRestaurant);
+            $rdvs[] = [
+
+                'id' => $event->getIdReservation(),
+                'date' => $event->getDateReservation()->format('Y-m-d'),
+                'idRestaurant' => $event->getIdRestaurant(),
+                'title'=>[$restaurant->getNomRestaurant(),
+                 $event->getNombre()],
+                'backgroundColor' => "White",
+                'borderColor' => "black",
+                'textColor' =>$event->getTextColor(),
+            ];
+        }
+
+        $data = json_encode($rdvs);
+
+        return $this->render('Back/reservation/Calendar.html.twig', compact('data'));
+    }
 
 
 
     /**
      * @Route("/new", name="reservation_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepository, \Swift_Mailer $mailer): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -65,15 +110,28 @@ class ReservationController extends AbstractController
                  'date'=>$DateRes,
              ]);}
             else{
-
-                //MAIL
                 $entityManager->persist($reservation);
                 $entityManager->flush();
-            }
+                //Mail
+                $message = (new \Swift_Message('Nouvelle reservation'))
+                    // On attribue l'expéditeur
+                    ->setFrom('DMA9@gmail.com')
+                    // On attribue le destinataire
+                    ->setTo($User->getEmail())
+                    // On crée le texte avec la vue
+                    ->setBody(
+                        $this->renderView(
+                            'Front/MailReservation.html.twig', compact('reservation')
+                        ),
+                        'text/html'
+                    )
+                ;
+                $mailer->send($message);
+                $this->addFlash('message', 'Votre reservation a ete bien ajoutée.');
 
+            }
            // return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
         }
-
         return $this->render('Back/reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form->createView(),
@@ -96,15 +154,53 @@ class ReservationController extends AbstractController
     /**
      * @Route("/{id_reservation}/edit", name="reservation_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Reservation $reservation, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(Request $request, Reservation $reservation, EntityManagerInterface $entityManager, UserRepository $userRepository, \Swift_Mailer $mailer): Response
+    {   $reservationOld=$this->getDoctrine()->getRepository(Reservation::class)->find(37);
         $form = $this->createForm(ReservationType::class, $reservation);
+        $oldValues = clone($reservationOld);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+            $IDrestaurant = $form["restaurants"]->getData();
+            // $IDrestaurant=$reservation->getIdRestaurant();
+            //$DateRes=$reservation->getDateReservation();
+            $DateRes = $form["date_reservation"]->getData();
+            $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find($IDrestaurant);
+            $somme=$this->getDoctrine()->getRepository(Reservation::class)->check($IDrestaurant,$DateRes)
+                +$form["nombre"]->getData()-$oldValues->getNombre();
+            $UserId=34; // hethy twali b session
+            $User=$userRepository->find($UserId);
+            $reservation->setIdClient($UserId);
+            $reservation->setUser($User);
+            $capacite=$restaurant->getCapacite();
+            if($somme>$capacite)
+            {
+                return $this->render('Back/reservation/ErreurBookingBack.html.twig', [
+                    'somme' => $oldValues->getNombre(),
+                    'date'=>$DateRes,
+                ]);}
 
-            return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
+            else{
+                $entityManager->flush();
+
+                //Mail
+                $message = (new \Swift_Message('Modification de la reservation'))
+                    // On attribue l'expéditeur
+                    ->setFrom('DMA9@gmail.com')
+                    // On attribue le destinataire
+                    ->setTo($User->getEmail())
+                    // On crée le texte avec la vue
+                    ->setBody(
+                        $this->renderView(
+                            'Back/reservation/MailReservationEdit.html.twig', compact('reservation')
+                        ),
+                        'text/html'
+                    )
+                ;
+                $mailer->send($message);
+                $this->addFlash('message', 'Votre reservation a ete bien modifiée.');
+            }
+
+           // return $this->redirectToRoute('reservation_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('Back/reservation/edit.html.twig', [

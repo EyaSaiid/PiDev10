@@ -7,6 +7,7 @@ use App\Entity\ProduitPlat;
 use App\Entity\Restaurant;
 use App\Form\ProduitPlatType;
 use App\Repository\ProduitPlatRepository;
+use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,6 +52,28 @@ class ProduitPlatController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+
+    /**
+     * @Route("/stat", name="stat", methods={"GET"})
+     */
+    public function stat(CategorieRepository $categorieRepo): Response
+    {    $categories = $categorieRepo->findAll();
+
+        $categNom = [];
+        $categCount = [];
+
+        // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
+        foreach($categories as $categorie){
+            $categNom[] = $categorie->getNomCategorie();
+            $categCount[] = count($categorie->getProduitPlats());
+        }
+        return $this->render('Back/produit_plat/Graph.html.twig', [
+            'categNom' => json_encode($categNom),
+            'categCount' => json_encode($categCount),
+        ]);
+    }
+
 
     /**
      * @Route("/{id_produitplat}", name="produit_plat_show", methods={"GET"})

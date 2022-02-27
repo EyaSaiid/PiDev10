@@ -56,4 +56,13 @@ class RestaurantRepository extends ServiceEntityRepository
             ->setParameter('idres',$idres);
         return $query->getResult();
     }
+
+    public function findnbrBySpecialite()
+    {
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT r FROM APP\Entity\Restaurant r Group By specialite");
+
+        return $query->getResult();
+    }
 }

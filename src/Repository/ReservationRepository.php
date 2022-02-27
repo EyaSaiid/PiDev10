@@ -59,5 +59,16 @@ class ReservationRepository extends ServiceEntityRepository
             ->setParameter('Date',$Date);
         return $query->getSingleScalarResult();
     }
-
+    public function CountBydate()
+    { $query = $this->createQueryBuilder('r')
+            ->select('SUBSTRING(r.date_reservation, 1, 10) as dateReservation, COUNT(r) as count')
+           ->groupBy('dateReservation')
+         ;
+         return $query->getQuery()->getResult();
+       // $entityManager=$this->getEntityManager();
+        //$query=$entityManager
+          //  ->createQuery("SELECT SUBSTRING(date_reservation) as dateReservation, COUNT(r) as count
+            //FROM APP\Entity\Reservation r GROUP BY r.date_reservation");
+       // return $query->getResult();
+    }
 }

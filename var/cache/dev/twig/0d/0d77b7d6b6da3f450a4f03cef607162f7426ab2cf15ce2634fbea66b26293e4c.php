@@ -140,20 +140,13 @@ class __TwigTemplate_b724976b5a8adcaf20c55480a4247578a608d8bb34d00b41cc3b1024c49
     </div>
 </div>
 
-    <a class=\"btn btn-light\" href=\"";
-        // line 46
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_index");
-        echo "\">back to list</a>
 
-    <a href=\"";
+    <div class=\"col-md-12 text-center\">
+        <a class=\"btn btn-outline-dark\" href=\"";
         // line 48
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_edit", ["id_reservation" => twig_get_attribute($this->env, $this->source, (isset($context["reservation"]) || array_key_exists("reservation", $context) ? $context["reservation"] : (function () { throw new RuntimeError('Variable "reservation" does not exist.', 48, $this->source); })()), "getIdReservation", [], "method", false, false, false, 48)]), "html", null, true);
-        echo "\">edit</a>
-
-    ";
-        // line 50
-        echo twig_include($this->env, $context, "Back/reservation/_delete_form.html.twig");
-        echo "
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reservation_index");
+        echo "\">Liste des reservations</a>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -175,7 +168,7 @@ class __TwigTemplate_b724976b5a8adcaf20c55480a4247578a608d8bb34d00b41cc3b1024c49
 
     public function getDebugInfo()
     {
-        return array (  155 => 50,  150 => 48,  145 => 46,  135 => 39,  128 => 35,  121 => 31,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  147 => 48,  135 => 39,  128 => 35,  121 => 31,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -225,11 +218,10 @@ class __TwigTemplate_b724976b5a8adcaf20c55480a4247578a608d8bb34d00b41cc3b1024c49
     </div>
 </div>
 
-    <a class=\"btn btn-light\" href=\"{{ path('reservation_index') }}\">back to list</a>
 
-    <a href=\"{{ path('reservation_edit', {'id_reservation': reservation.getIdReservation()}) }}\">edit</a>
-
-    {{ include('Back/reservation/_delete_form.html.twig') }}
+    <div class=\"col-md-12 text-center\">
+        <a class=\"btn btn-outline-dark\" href=\"{{ path('reservation_index') }}\">Liste des reservations</a>
+    </div>
 {% endblock %}
 ", "Back/reservation/show.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\reservation\\show.html.twig");
     }

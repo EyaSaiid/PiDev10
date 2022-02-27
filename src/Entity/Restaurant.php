@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=RestaurantRepository::class)
@@ -17,6 +18,7 @@ class Restaurant
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("restaurant")
      */
     private $id_restaurant;
 
@@ -29,12 +31,14 @@ class Restaurant
      *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
      *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
      * )
+     * @Groups("restaurant")
      */
     private $nom_restaurant;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="la description du restaurant est obligatoire")
+     * @Groups("restaurant")
      */
     private $desc_restaurant;
 
@@ -47,6 +51,7 @@ class Restaurant
      *      max = 50,
      *      notInRangeMessage = "la capacite du restaurant doit etre entre {{ min }} et {{ max }}",
      * )
+     * @Groups("restaurant")
      */
     private $capacite;
 
@@ -60,17 +65,20 @@ class Restaurant
      * )
      *@Assert\NotBlank(message="le numero de telephone est obligatoire")
      * @Assert\Positive
+     * @Groups("restaurant")
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("restaurant")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="vous devez choisir la sepcialite de votre restaurant")
+     * @Groups("restaurant")
      */
     private $specialite;
 
@@ -160,7 +168,7 @@ class Restaurant
      *     joinColumns={@ORM\JoinColumn(name="id_restaurant", referencedColumnName="id_restaurant")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="id_produitplat", referencedColumnName="id_produitplat")}
      *      )
-     *
+     *@Groups("restaurant")
      */
 
     private $produitplats;

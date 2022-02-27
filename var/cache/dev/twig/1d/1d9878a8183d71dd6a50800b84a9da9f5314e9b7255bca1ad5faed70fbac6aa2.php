@@ -132,21 +132,12 @@ class __TwigTemplate_de0618b858d3bea357a12bd2da6704216bc65a70f118537eb7ead47f67f
     </table>
     </div>
 </div>
-
-    <a href=\"";
+    <div class=\"col-md-12 text-center\">
+        <a class=\"btn btn-outline-dark\" href=\"";
         // line 42
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_index");
-        echo "\">back to list</a>
-
-    <a href=\"";
-        // line 44
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_plat_edit", ["id_produitplat" => twig_get_attribute($this->env, $this->source, (isset($context["produit_plat"]) || array_key_exists("produit_plat", $context) ? $context["produit_plat"] : (function () { throw new RuntimeError('Variable "produit_plat" does not exist.', 44, $this->source); })()), "getIdProduitPlat", [], "method", false, false, false, 44)]), "html", null, true);
-        echo "\">edit</a>
-
-    ";
-        // line 46
-        echo twig_include($this->env, $context, "Back/produit_plat/_delete_form.html.twig");
-        echo "
+        echo "\">Liste des plats/boissons</a>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -168,7 +159,7 @@ class __TwigTemplate_de0618b858d3bea357a12bd2da6704216bc65a70f118537eb7ead47f67f
 
     public function getDebugInfo()
     {
-        return array (  148 => 46,  143 => 44,  138 => 42,  128 => 35,  121 => 31,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  138 => 42,  128 => 35,  121 => 31,  114 => 27,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -213,12 +204,9 @@ class __TwigTemplate_de0618b858d3bea357a12bd2da6704216bc65a70f118537eb7ead47f67f
     </table>
     </div>
 </div>
-
-    <a href=\"{{ path('produit_plat_index') }}\">back to list</a>
-
-    <a href=\"{{ path('produit_plat_edit', {'id_produitplat': produit_plat.getIdProduitPlat()}) }}\">edit</a>
-
-    {{ include('Back/produit_plat/_delete_form.html.twig') }}
+    <div class=\"col-md-12 text-center\">
+        <a class=\"btn btn-outline-dark\" href=\"{{ path('produit_plat_index') }}\">Liste des plats/boissons</a>
+    </div>
 {% endblock %}
 ", "Back/produit_plat/show.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\produit_plat\\show.html.twig");
     }

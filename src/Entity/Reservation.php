@@ -101,6 +101,12 @@ class Reservation
 
 
 
+    public function getTextColor(): ?string
+    {
+        return "Blue";
+    }
+
+
     /**
      * @ORM\ManyToOne(targetEntity=Restaurant::class, inversedBy="reservations" )
      * @ORM\JoinColumns({
