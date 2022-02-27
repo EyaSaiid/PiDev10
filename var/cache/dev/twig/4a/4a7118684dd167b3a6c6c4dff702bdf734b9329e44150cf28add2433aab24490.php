@@ -208,7 +208,11 @@ class __TwigTemplate_0ad3688100faa51da6d47da53858f67583d9a5d25729905892eaf155a8d
     <a class=\"btn btn-primary\" href=\"";
         // line 51
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_new");
-        echo "\">Create new</a>
+        echo "\">Créer nouveau utilisateur</a>
+    <a class=\"btn btn-primary\" href=\"";
+        // line 52
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_download");
+        echo "\">Télécharger données</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -230,7 +234,7 @@ class __TwigTemplate_0ad3688100faa51da6d47da53858f67583d9a5d25729905892eaf155a8d
 
     public function getDebugInfo()
     {
-        return array (  210 => 51,  205 => 48,  196 => 44,  179 => 40,  175 => 39,  171 => 38,  166 => 36,  162 => 35,  158 => 34,  154 => 33,  150 => 32,  146 => 31,  142 => 30,  138 => 29,  134 => 28,  130 => 27,  127 => 26,  109 => 25,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  214 => 52,  210 => 51,  205 => 48,  196 => 44,  179 => 40,  175 => 39,  171 => 38,  166 => 36,  162 => 35,  158 => 34,  154 => 33,  150 => 32,  146 => 31,  142 => 30,  138 => 29,  134 => 28,  130 => 27,  127 => 26,  109 => 25,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -285,7 +289,8 @@ class __TwigTemplate_0ad3688100faa51da6d47da53858f67583d9a5d25729905892eaf155a8d
         </tbody>
     </table>
 
-    <a class=\"btn btn-primary\" href=\"{{ path('user_new') }}\">Create new</a>
+    <a class=\"btn btn-primary\" href=\"{{ path('user_new') }}\">Créer nouveau utilisateur</a>
+    <a class=\"btn btn-primary\" href=\"{{ path('user_download') }}\">Télécharger données</a>
 {% endblock %}
 ", "Back/user/index.html.twig", "C:\\Users\\SAID EYA\\Desktop\\PiGit\\Pi\\templates\\Back\\user\\index.html.twig");
     }

@@ -5644,7 +5644,7 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.0iUl0Wo.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.xdX8mSX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator..3DwnKC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\OffreTravailController::ShowAll" type="service_closure" id=".service_locator..1mhYpN"/>
@@ -5659,10 +5659,12 @@
         <argument key="App\Controller\SecurityController::resetPassword" type="service_closure" id=".service_locator.ccM2MGC"/>
         <argument key="App\Controller\SecurityController::resetPasswordPage" type="service_closure" id=".service_locator.t4zBQ5b"/>
         <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.0iUl0Wo"/>
+        <argument key="App\Controller\UserController::download" type="service_closure" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.atBQP32"/>
         <argument key="App\Controller\UserController::index" type="service_closure" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\UserController::new" type="service_closure" id=".service_locator.CoC3nYr"/>
         <argument key="App\Controller\UserController::show" type="service_closure" id=".service_locator.tIQ5Q0N"/>
+        <argument key="App\Controller\UserController::statistic" type="service_closure" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\OffreTravailController:ShowAll" type="service_closure" id=".service_locator..1mhYpN"/>
         <argument key="App\Controller\OffreTravailController:delete" type="service_closure" id=".service_locator.AaMCP78"/>
         <argument key="App\Controller\OffreTravailController:edit" type="service_closure" id=".service_locator.AaMCP78"/>
@@ -5675,10 +5677,12 @@
         <argument key="App\Controller\SecurityController:resetPassword" type="service_closure" id=".service_locator.ccM2MGC"/>
         <argument key="App\Controller\SecurityController:resetPasswordPage" type="service_closure" id=".service_locator.t4zBQ5b"/>
         <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.0iUl0Wo"/>
+        <argument key="App\Controller\UserController:download" type="service_closure" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.atBQP32"/>
         <argument key="App\Controller\UserController:index" type="service_closure" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\UserController:new" type="service_closure" id=".service_locator.CoC3nYr"/>
         <argument key="App\Controller\UserController:show" type="service_closure" id=".service_locator.tIQ5Q0N"/>
+        <argument key="App\Controller\UserController:statistic" type="service_closure" id=".service_locator.1UuH9tO"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6152,12 +6156,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.xdX8mSX"/>
+      <argument type="service" id=".service_locator..3DwnKC"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.xdX8mSX"/>
+      <argument type="service" id=".service_locator..3DwnKC"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6580,7 +6584,7 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.xdX8mSX"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator..3DwnKC"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use function PHPUnit\Framework\countOf;
 
 /**
  * @Route("/admin")
@@ -27,6 +28,49 @@ class UserController extends AbstractController
         return $this->render('Back/user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
+    }
+    /**
+     * @Route("/download", name="user_download", methods={"GET"})
+     */
+    public function download(UserRepository $userRepository): Response
+    {
+        return $this->render('Back/user/index.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/stat", name="user_stat")
+     */
+    public function statistic(UserRepository $userRepository)
+    {
+        /*$users = $userRepository->findAll();
+
+        $userName = [];
+        $userCount = [];
+        $users1 = $userRepository->countByDate();
+        foreach ( $users as $user){
+            $userName = $user->getSexe();
+        }
+
+        foreach ($users1 as $user){
+            $userCount = $user['count'];
+        }*/
+
+        $userSexe = ["Homme","Femme"];
+        $HommeCount=count($userRepository->findByHomme());
+        $FemmeCount=count($userRepository->findByFemme());
+        $userCount = [$HommeCount,$FemmeCount];
+
+        dump($HommeCount);
+        dump($FemmeCount);
+        dump($userCount);
+
+
+        return $this->render('Back/user/stat.html.twig', [
+            'userSexe'=>json_encode($userSexe),
+                'userCount'=>json_encode($userCount),
+            ]
+        );
     }
 
     /**
@@ -117,5 +161,7 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 
 }

@@ -47,6 +47,8 @@ return [
     'app_reset_password_page' => [[], ['_controller' => 'App\\Controller\\SecurityController::resetPasswordPage'], [], [['text', '/reset_pass_page']], [], []],
     'app_reset_password' => [['reset_token'], ['_controller' => 'App\\Controller\\SecurityController::resetPassword'], [], [['variable', '/', '[^/]++', 'reset_token'], ['text', '/reset_pass']], [], []],
     'user_index' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/admin/']], [], []],
+    'user_download' => [[], ['_controller' => 'App\\Controller\\UserController::download'], [], [['text', '/admin/download']], [], []],
+    'user_stat' => [[], ['_controller' => 'App\\Controller\\UserController::statistic'], [], [['text', '/admin/stat']], [], []],
     'user_new' => [[], ['_controller' => 'App\\Controller\\UserController::new'], [], [['text', '/admin/new']], [], []],
     'user_show' => [['id'], ['_controller' => 'App\\Controller\\UserController::show'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin']], [], []],
     'user_edit' => [['id'], ['_controller' => 'App\\Controller\\UserController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id'], ['text', '/admin']], [], []],

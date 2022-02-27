@@ -516,9 +516,9 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                             </li>
 
                             <li class=\"nav-item\">
-                                <a href=\"";
+                                <a href=\" ";
         // line 279
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_new");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_stat");
         echo "\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
                                     <p>Stat Utilisateur</p>
@@ -1091,7 +1091,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                             </li>
 
                             <li class=\"nav-item\">
-                                <a href=\"{{ path('user_new' ) }}\" class=\"nav-link\">
+                                <a href=\" {{ path('user_stat') }}\" class=\"nav-link\">
                                     <i class=\"far fa-circle nav-icon\"></i>
                                     <p>Stat Utilisateur</p>
                                 </a>
