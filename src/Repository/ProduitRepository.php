@@ -19,8 +19,48 @@ class ProduitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Produit::class);
     }
+    //search:
+    public function search($mots = null, $categorie = null){
+        $query = $this->createQueryBuilder('p');
+        if($mots != null){
+            $query->where('MATCH_AGAINST(p.nomProduit, p.descriptionProduit) AGAINST (:mots boolean)>0')
+                ->setParameter('mots', $mots);
+        }
+       // if($categorie != null){
+            //$query->leftJoin('p.Categorie', 'c');
+           // $query->andWhere('c.id = :id')
+              //  ->setParameter('id', $categorie);
+        //}
+        return $query->getQuery()->getResult();
+    }
+//pagination:
+    public function getPaginatedAnnonces($page, $limit, $filters = null){
+        $query = $this->createQueryBuilder('p');
 
+        // On filtre les données
+        if($filters != null){
+            $query->andWhere('p.Categorie IN(:cats)')
+                ->setParameter(':cats', array_values($filters));
+        }
 
+        $query
+            ->setFirstResult(($page * $limit) - $limit)
+            ->setMaxResults($limit)
+        ;
+        return $query->getQuery()->getResult();
+    }
+    public function getTotalProduits($filters = null){
+        $query = $this->createQueryBuilder('p')
+            ->select('COUNT(p)')
+            ->where('p.id = 9');
+        // On filtre les données
+        if($filters != null){
+            $query->andWhere('p.Categorie IN(:cats)')
+                ->setParameter(':cats', array_values($filters));
+        }
+
+        return $query->getQuery()->getSingleScalarResult();
+    }
     public function findByCategory($id)
     {
        $entityManager=$this->getEntityManager();

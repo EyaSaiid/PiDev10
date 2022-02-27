@@ -7,8 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=ProduitRepository::class)
+ * @UniqueEntity(fields={"nomProduit"},message="le produit existe déjà")
+ * @ORM\Table(name="produit", indexes={@ORM\Index(columns={"nom_produit", "description_produit"}, flags={"fulltext"})})
  */
 class Produit
 {
@@ -16,12 +20,14 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * Groups("produit")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message=" le champ nom est vide")
+     *  Groups("produit")
      */
     private $nomProduit;
 
@@ -34,6 +40,7 @@ class Produit
      *      minMessage = "La description doit avoir minimum{{ limit }} caractères",
      *      maxMessage = "La description doit avoir maximum{{ limit }} caractères"
      * )
+     *  Groups("produit")
      */
     private $descriptionProduit;
 
@@ -47,6 +54,7 @@ class Produit
      *     message="Le prix ne doit pas être nul ou négatif"
      * )
      * @Assert\NotBlank(message="Veuillez entrer un Prix (exemple : 1.50) ")
+     *  Groups("produit")
      */
     private $prixProduit;
 
@@ -55,12 +63,14 @@ class Produit
      * @Assert\NotBlank(message=" le champs quantité est vide")
      *  @Assert\GreaterThanOrEqual(0,
      *     message=" le champs quantité doit être positif")
+     *  Groups("produit")
      */
     private $quantiteProduit;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
      * @Assert\NotBlank(message=" le champs categorie est vide")
+     *  Groups("produit")
      */
     private $Categorie;
     public function getId(): ?int
@@ -69,7 +79,8 @@ class Produit
     }
     /**
      *@ORM\Column(type="string", length=255)
-     * @Assert\File()
+     *@Assert\NotBlank(message=" le champs photo est vide")
+     * Groups("produit")
      */
     private $photo;
 

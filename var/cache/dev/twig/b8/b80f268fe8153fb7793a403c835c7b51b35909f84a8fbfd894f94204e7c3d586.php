@@ -182,16 +182,17 @@ class __TwigTemplate_2c401dcb1c5ab0b242aaab5c223dcf07224268eb464c8f7c7eacda732f7
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 68
-        echo "        </tbody>
+        echo "
+        </tbody>
             </div>
     </table>
             <bouton class=\"btn btn-default\"><a href=\"";
-        // line 71
+        // line 72
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_new");
         echo "\">Nouveau produit</a></bouton>
     ";
-        // line 72
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 72, $this->source); })()));
+        // line 73
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 73, $this->source); })()));
         echo "
 ";
         
@@ -214,7 +215,7 @@ class __TwigTemplate_2c401dcb1c5ab0b242aaab5c223dcf07224268eb464c8f7c7eacda732f7
 
     public function getDebugInfo()
     {
-        return array (  194 => 72,  190 => 71,  185 => 68,  176 => 64,  159 => 60,  155 => 59,  151 => 58,  144 => 54,  140 => 53,  136 => 52,  132 => 51,  128 => 50,  124 => 48,  106 => 47,  88 => 31,  78 => 30,  59 => 28,  36 => 26,);
+        return array (  195 => 73,  191 => 72,  185 => 68,  176 => 64,  159 => 60,  155 => 59,  151 => 58,  144 => 54,  140 => 53,  136 => 52,  132 => 51,  128 => 50,  124 => 48,  106 => 47,  88 => 31,  78 => 30,  59 => 28,  36 => 26,);
     }
 
     public function getSourceContext()
@@ -286,6 +287,7 @@ class __TwigTemplate_2c401dcb1c5ab0b242aaab5c223dcf07224268eb464c8f7c7eacda732f7
                 <td colspan=\"6\">no records found</td>
             </tr>
         {% endfor %}
+
         </tbody>
             </div>
     </table>

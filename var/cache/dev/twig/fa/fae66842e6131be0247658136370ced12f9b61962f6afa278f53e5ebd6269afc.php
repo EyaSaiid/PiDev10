@@ -123,7 +123,7 @@ class __TwigTemplate_1fa5836384967b268c273d3e9783423a4daedeb33cc7bcadaccc00720ac
             echo "\" >Voir produit</a></bouton></ul>
                         <ul> <bouton class=\"btn btn-dark\"> <a href=\"";
             // line 38
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_front");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categorie_front");
             echo "\"> revenir a la liste</a></bouton> </ul>
 
                     </div>
@@ -203,7 +203,7 @@ class __TwigTemplate_1fa5836384967b268c273d3e9783423a4daedeb33cc7bcadaccc00720ac
                             {{ produit.prixProduit }} DNT
                         </h2>
                       <ul> <bouton class=\"btn btn-success\"> <a href=\"{{ path('showProduit', {'id': produit.id}) }}\" >Voir produit</a></bouton></ul>
-                        <ul> <bouton class=\"btn btn-dark\"> <a href=\"{{ path('produit_front') }}\"> revenir a la liste</a></bouton> </ul>
+                        <ul> <bouton class=\"btn btn-dark\"> <a href=\"{{ path('categorie_front') }}\"> revenir a la liste</a></bouton> </ul>
 
                     </div>
                 </div>

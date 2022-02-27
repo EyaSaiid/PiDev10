@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Categorie;
 use App\Entity\Produit;
-use App\Entity\User;
 use App\Form\ProduitType;
+use App\Form\SearchProduitType;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\UserRepository;
@@ -16,6 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * @Route("/produit")
  */
@@ -24,38 +29,75 @@ class ProduitController extends AbstractController
     /**
      * @Route("/", name="produit_index", methods={"GET"})
      */
-    public function index(Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
-    { $donnees =$produitRepository->findAll();
-
-        $produit = $paginator->paginate(
-        $donnees, // Requête contenant les données à paginer (ici nos articles)
-        $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-        3 // Nombre de résultats par page
-    );
-        return $this->render('produit/index.html.twig', [
-            'produits' => $produit,
-        ]);
-
-    }
-    /**
-     * @Route("/produitsFront", name="produit_front", methods={"GET"})
-     */
-    public function index_front(Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
-    { $donnees =$produitRepository->findAll();
+    public function index(CategorieRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
+    {
+        $donnees = $produitRepository->findAll();
 
         $produit = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             3 // Nombre de résultats par page
         );
+
+        return $this->render('produit/index.html.twig', [
+            'produits' => $produit,
+
+        ]);
+    }
+
+
+    /**
+     * @Route("/produitsFront", name="produit_front")
+     */
+    public function index_front(CategorieRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
+    {
+
+      /** $donnees =$produitRepository->findAll();
+
+       $produit = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+           $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+          3 // Nombre de résultats par page
+        );*/
+        $produit =$produitRepository->findAll();
+       $form = $this->createForm(SearchProduitType::class);
+        $search = $form->handleRequest($request);
+      if($form->isSubmitted() && $form->isValid())
+      {
+            $produit = $produitRepository->search(
+                $search->get('mots')->getData());
+        }
         return $this->render('Front/produitDma9.html.twig', [
             'produits' => $produit,
+            'form'=>$form->createView()
+
         ]);
 
     }
 
+        //  $limit = 1;
+        // $page = (int)$request->query->get("page", 1);
+        // $filters = $request->get("categories");
+        // $total = $produitRepository->getTotalProduits($filters);
+        //if ($request->get('ajax')) {
+        //  return new JsonResponse([
+        //    'content' => $this->renderView('Front/testAjax.html.twig', compact('produits','limit','page'))
+        //]);}
+
+        //$categorie = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
+        //  $item->expiresAfter(3600);
+
+        //return $catRepo->findAll();
+        //  });
+
+        // return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','limit','page','categorie'));
+
+   // }
+
+
+
     /**
-     * @Route("/new", name="produit_new", methods={"GET", "POST"})
+     * @Route("/nouveau", name="produit_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -65,13 +107,16 @@ class ProduitController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
                 $file=$produit->getPhoto();
-                $fileName=md5(uniqid()).'.'.$file->guessExtension();
-                try{
-                    $file->move(
-                        $this->getParameter('photo_directory'),
-                        $fileName
-                    );
-                } catch(FileException $e) {}
+               // foreach ($file as $fil) {
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    try {
+                        $file->move(
+                            $this->getParameter('photo_directory'),
+                            $fileName
+                        );
+                    } catch (FileException $e) {
+                    }
+               // }
 
                 $produit->setPhoto($fileName);
                 $entityManager->persist($produit);
@@ -85,7 +130,16 @@ class ProduitController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    /**
+     * @Route("/listjson", name="produit_json")
+     */
+    public function test_json(ProduitRepository $prorep, SerializerInterface $serializerinterface): Response
+    {
+        $produit=$prorep->findAll();
+        $json=$serializerinterface->serialize($produit,'json',['groups'=>'produits']);
+        dump($produit);
+        die;
+    }
     /**
      * @Route("/showProduit/{id}", name="showProduit")
      */
@@ -125,7 +179,7 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="produit_edit", methods={"GET", "POST"})
+     * @Route("/{id}/modifier", name="produit_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Produit $produit, EntityManagerInterface $entityManager): Response
     {
@@ -168,5 +222,6 @@ class ProduitController extends AbstractController
 
         return $this->redirectToRoute("produit_index");
     }
+
 
 }

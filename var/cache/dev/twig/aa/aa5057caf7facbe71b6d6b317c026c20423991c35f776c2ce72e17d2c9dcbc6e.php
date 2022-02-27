@@ -78,61 +78,66 @@ class __TwigTemplate_18618bed2f6d230a4f01ea9620dcc66ef53d38e33bbb24fdb8c4f13872d
     </div>
     <!-- Page Header End -->
     <!-- Food Start -->
+ ";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form');
+        echo "
+<div class=\"food\">
+    <div class=\"container\">
+        <div class=\"row align-items-center\">
 
-    <div class=\"food\">
-        <div class=\"container\">
-            <div class=\"row align-items-center\">
-       ";
-        // line 21
+            ";
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 21, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 22, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["produit"]) {
-            // line 22
+            // line 23
             echo "                <div class=\"col-md-4\">
                     <div class=\"food-item\">
-                       ";
-            // line 25
+                        ";
+            // line 26
             echo "                        <img src=\"/upload/img/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "photo", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "photo", [], "any", false, false, false, 26), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "nomProduit", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "nomProduit", [], "any", false, false, false, 26), "html", null, true);
             echo "\" class=\"img-fluid\" height=\"250\" width=\"250\">
                         <h2>";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "nomProduit", [], "any", false, false, false, 26), "html", null, true);
+            // line 27
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "nomProduit", [], "any", false, false, false, 27), "html", null, true);
             echo "</h2>
                         <p>
                             ";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "descriptionProduit", [], "any", false, false, false, 28), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "descriptionProduit", [], "any", false, false, false, 29), "html", null, true);
             echo "
                         </p>
                         <h2>
                             ";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "prixProduit", [], "any", false, false, false, 31), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["produit"], "prixProduit", [], "any", false, false, false, 32), "html", null, true);
             echo " DNT
                         </h2>
                         <a href=\"";
-            // line 33
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("showProduit", ["id" => twig_get_attribute($this->env, $this->source, $context["produit"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("showProduit", ["id" => twig_get_attribute($this->env, $this->source, $context["produit"], "id", [], "any", false, false, false, 34)]), "html", null, true);
             echo "\" >Voir produit</a>
 
                     </div>
                 </div>
 
-       ";
+            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
-        echo " <ul>
-    ";
         // line 39
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 39, $this->source); })()));
-        echo " </ul>
-
+        echo " ";
+        // line 41
+        echo "
+            ";
+        // line 57
+        echo "          </div>
+  </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -154,7 +159,7 @@ class __TwigTemplate_18618bed2f6d230a4f01ea9620dcc66ef53d38e33bbb24fdb8c4f13872d
 
     public function getDebugInfo()
     {
-        return array (  133 => 39,  130 => 38,  118 => 33,  113 => 31,  107 => 28,  102 => 26,  95 => 25,  91 => 22,  87 => 21,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  139 => 57,  136 => 41,  134 => 39,  122 => 34,  117 => 32,  111 => 29,  106 => 27,  99 => 26,  95 => 23,  91 => 22,  83 => 17,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -175,14 +180,15 @@ class __TwigTemplate_18618bed2f6d230a4f01ea9620dcc66ef53d38e33bbb24fdb8c4f13872d
     </div>
     <!-- Page Header End -->
     <!-- Food Start -->
+ {{ form(form) }}
+<div class=\"food\">
+    <div class=\"container\">
+        <div class=\"row align-items-center\">
 
-    <div class=\"food\">
-        <div class=\"container\">
-            <div class=\"row align-items-center\">
-       {%  for produit in produits %}
+            {%  for produit in produits %}
                 <div class=\"col-md-4\">
                     <div class=\"food-item\">
-                       {#  <i class=\"flaticon-burger\"></i>#}
+                        {#  <i class=\"flaticon-burger\"></i>#}
                         <img src=\"/upload/img/{{ produit.photo }}\" alt=\"{{ produit.nomProduit }}\" class=\"img-fluid\" height=\"250\" width=\"250\">
                         <h2>{{ produit.nomProduit }}</h2>
                         <p>
@@ -196,9 +202,29 @@ class __TwigTemplate_18618bed2f6d230a4f01ea9620dcc66ef53d38e33bbb24fdb8c4f13872d
                     </div>
                 </div>
 
-       {% endfor %} <ul>
-    {{ knp_pagination_render(produits) }} </ul>
+            {% endfor %} {# <ul>
+                {{ knp_pagination_render(produits) }} </ul> #}
 
-{% endblock %}", "Front/produitDma9.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\Front\\produitDma9.html.twig");
+            {#  <p>filter<p> <form id=\"filters\">
+      {% set queryParams = app.request.query.all %}
+                  {% for categori in categorie %}
+                   {% if queryParams is not empty and queryParams.categories is defined %}
+                        {% set checked = (categorie.id in queryParams.categories) ? \"checked\" : \"\" %}
+                    {% else %}
+                        {% set checked = \"\" %}
+                    {% endif %}
+                      <p><input type=\"checkbox\" name=\"categorie[]\" id=\"cat {{categori.id}}\" value=\"{{categori.id}}\"><label for=\"cat {{categori.id}}\">{{categori.Libelle}}</label></p>
+                  {% endfor %}
+                   <input type=\"hidden\" name=\"page\" value=\"{{page}}\">
+                   </form>
+          </div>
+          <div class=\"col-xs1 col-sm4\" id=\"content\">
+          {#   {%include \"Front/testAjax.html.twig\"%} </div>#}
+          </div>
+  </div>
+{% endblock %}
+{# {%block javascripts %}
+<script src=\"{{  asset('Back/plugins/jquery/filters.js')}}\"></script>
+{%endblock%}#}", "Front/produitDma9.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\Front\\produitDma9.html.twig");
     }
 }

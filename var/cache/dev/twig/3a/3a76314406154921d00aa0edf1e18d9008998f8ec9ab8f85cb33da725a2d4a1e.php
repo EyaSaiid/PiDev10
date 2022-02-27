@@ -87,7 +87,7 @@ class __TwigTemplate_ca6841afcb7fa27bf6201a09e8c3479cfde952df8317f1c4d0428af86d2
         // line 6
         echo "    <h1>Categories</h1>
 
-    <table class=\"table\">
+    <table class=\"table\" border=\"2\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -202,7 +202,7 @@ class __TwigTemplate_ca6841afcb7fa27bf6201a09e8c3479cfde952df8317f1c4d0428af86d2
 {% block bodyBack %}
     <h1>Categories</h1>
 
-    <table class=\"table\">
+    <table class=\"table\" border=\"2\">
         <thead>
             <tr>
                 <th>Id</th>

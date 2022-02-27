@@ -124,13 +124,9 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
         echo "</td>
             </tr>
             <tr>
-                <th>image du Produit</th>
-                <td>";
-        // line 48
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 48, $this->source); })()), "photo", [], "any", false, false, false, 48), "html", null, true);
-        echo "</td>
-                <img src=\"/upload/img/";
+               ";
         // line 49
+        echo "                <img src=\"/upload/img/";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 49, $this->source); })()), "photo", [], "any", false, false, false, 49), "html", null, true);
         echo "\" alt=\"";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 49, $this->source); })()), "nomProduit", [], "any", false, false, false, 49), "html", null, true);
@@ -186,7 +182,7 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
 
     public function getDebugInfo()
     {
-        return array (  168 => 65,  161 => 62,  155 => 59,  151 => 58,  148 => 57,  146 => 56,  134 => 49,  130 => 48,  123 => 44,  116 => 40,  109 => 36,  97 => 26,  93 => 24,  89 => 22,  87 => 21,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  164 => 65,  157 => 62,  151 => 59,  147 => 58,  144 => 57,  142 => 56,  129 => 49,  123 => 44,  116 => 40,  109 => 36,  97 => 26,  93 => 24,  89 => 22,  87 => 21,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -237,8 +233,8 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
                 <td>{{ produit.prixProduit }}</td>
             </tr>
             <tr>
-                <th>image du Produit</th>
-                <td>{{ produit.photo }}</td>
+               {#  <th>image du Produit</th>
+                <td>{{ produit.photo }}</td>#}
                 <img src=\"/upload/img/{{ produit.photo }}\" alt=\"{{ produit.nomProduit }}\" class=\"img-fluid\" height=\"100\" width=\"400\">
             </tr>
 

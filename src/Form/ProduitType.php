@@ -9,8 +9,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Validator\Constraints\All;
+use Symfony\Component\Validator\Constraints\File;
 class ProduitType extends AbstractType
+
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -22,9 +24,25 @@ class ProduitType extends AbstractType
             ->add('Categorie', EntityType::class,[
                 'class'=>Categorie::class,
                 'choice_label'=>'Libelle',
+
             ])
-            ->add('photo', FileType::class, array('data_class'=>null))
-        ;
+            ->add('photo', FileType::class, array('data_class'=>null));
+                  //'multiple' => true,
+                    //'required' => false,'constraints' => [
+                    //new All([
+                      //  'constraints' => [
+                        //    new File([
+                          //      'maxSize' => '1024k',
+                            //    'mimeTypesMessage' => 'Please upload a valid PDF document',
+                              //  'mimeTypes' => [
+                                //    'application/pdf',
+                                  //  'application/x-pdf'
+                                //]
+                            //]),
+                        //],
+                    //]),
+                //]
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

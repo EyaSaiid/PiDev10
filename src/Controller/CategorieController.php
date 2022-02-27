@@ -38,7 +38,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="categorie_new", methods={"GET", "POST"})
+     * @Route("/nouveau", name="categorie_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -70,7 +70,7 @@ class CategorieController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="categorie_edit", methods={"GET", "POST"})
+     * @Route("/{id}/modifier", name="categorie_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
