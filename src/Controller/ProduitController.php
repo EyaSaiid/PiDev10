@@ -166,6 +166,42 @@ class ProduitController extends AbstractController
 
     }
 
+    /**
+     * @Route("/statistiques", name="statistiques")
+     */
+    public function statistiques(ProduitRepository $repProd, CategorieRepository $repCat)
+    { $categories = $repCat->findAll();
+
+        $categNom = [];
+      //  $categColor = [];
+        $categCount = [];
+
+        // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
+        foreach($categories as $categorie){
+            $categNom[] = $categorie->getLibelle();
+            //$categColor[] = $categorie->getColor();
+            $categCount[] = count($categorie->getProduits());
+        }
+
+        // On va chercher le nombre d'annonces publiées par date
+        $produit = $repProd->countByCategorie();
+
+        $produitCount = [];
+
+        // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
+        foreach($produit as $produit){
+           // $dates[] = $produit['t.id'];
+            //$produitCount[] = $produit['count'];
+        }
+
+        return $this->render('produit/stats.html.twig', [
+            'categNom' => json_encode($categNom),
+
+            'categCount' => json_encode($categCount),
+
+            'produitCount' => json_encode($produitCount),
+        ]);
+    }
 
 
     /**
@@ -177,7 +213,37 @@ class ProduitController extends AbstractController
             'produit' => $produit,
         ]);
     }
+    /**
+     * @Route("/favoris/ajout/{id}", name="ajout_favoris")
+     */
+    public function ajoutFavoris(Produit $produit)
+    {
+        if(!$produit){
+            throw new NotFoundHttpException('Pas de produit trouvé');
+        }
+        $produit->addFavori($this->getUser());
 
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($produit);
+        $em->flush();
+        return $this->redirectToRoute('produit_front');
+    }
+
+    /**
+     * @Route("/favoris/retrait/{id}", name="retrait_favoris")
+     */
+    public function retraitFavoris(Produit $produit)
+    {
+        if(!$produit){
+            throw new NotFoundHttpException('Pas de produit trouvé');
+        }
+        $produit->removeFavori($this->getUser());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($produit);
+        $em->flush();
+        return $this->redirectToRoute('produit_front');
+    }
     /**
      * @Route("/{id}/modifier", name="produit_edit", methods={"GET", "POST"})
      */
@@ -222,6 +288,7 @@ class ProduitController extends AbstractController
 
         return $this->redirectToRoute("produit_index");
     }
+
 
 
 }

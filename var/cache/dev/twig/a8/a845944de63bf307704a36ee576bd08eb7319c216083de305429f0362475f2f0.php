@@ -159,11 +159,11 @@ class __TwigTemplate_9f429aeca187c1630c07f1846dc996147d63d517efe6f529422fa55d5e6
         echo " </div>
                         ";
         // line 89
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 89, $this->source); })()), "name", [], "any", false, false, false, 89), 'label', ["label" => "Nom du produit"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 89, $this->source); })()), "name", [], "any", false, false, false, 89), 'label', ["label" => "votre nom"]);
         echo "
                         ";
         // line 90
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 90, $this->source); })()), "name", [], "any", false, false, false, 90), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "ajouter le nom"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 90, $this->source); })()), "name", [], "any", false, false, false, 90), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "ajouter votre nom"]]);
         echo "
                     </div>
                     <div class=\"form-group\">
@@ -171,14 +171,14 @@ class __TwigTemplate_9f429aeca187c1630c07f1846dc996147d63d517efe6f529422fa55d5e6
         // line 93
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 93, $this->source); })()), "email", [], "any", false, false, false, 93), 'errors');
         echo "
-                    </div>
+
                     ";
         // line 95
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 95, $this->source); })()), "email", [], "any", false, false, false, 95), 'label', ["label" => "Description du produit"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 95, $this->source); })()), "email", [], "any", false, false, false, 95), 'label', ["label" => "votre mail"]);
         echo "
                     ";
         // line 96
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 96, $this->source); })()), "email", [], "any", false, false, false, 96), 'widget', ["attr" => ["cols" => "55", "rows" => "5", "class" => "form-control", "placeholder" => "ajouter la description"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 96, $this->source); })()), "email", [], "any", false, false, false, 96), 'widget', ["attr" => ["cols" => "55", "rows" => "5", "class" => "form-control", "placeholder" => "ajouter votre mail"]]);
         echo "
                 </div>
                 <div class=\"form-group\">
@@ -189,31 +189,21 @@ class __TwigTemplate_9f429aeca187c1630c07f1846dc996147d63d517efe6f529422fa55d5e6
         echo "</div>
                     ";
         // line 101
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 101, $this->source); })()), "sujet", [], "any", false, false, false, 101), 'label', ["label" => "Prix du produit"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 101, $this->source); })()), "sujet", [], "any", false, false, false, 101), 'label', ["label" => "Votre message"]);
         echo "
                     ";
         // line 102
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 102, $this->source); })()), "sujet", [], "any", false, false, false, 102), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "ajouter le prix"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 102, $this->source); })()), "sujet", [], "any", false, false, false, 102), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "ecrire votre message"]]);
         echo "
+                    <a href=\"";
+        // line 103
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
+        echo "<button class=\"style=\"color: darkgreen\" \" type=\"submit\" id=\"sendMessageButton\">Send Message</button>
                 </div>
-                <div class=\"form-group\">
-                    <div class=\"alert-danger\" style=\"align-content: center\">
-                        ";
-        // line 106
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 106, $this->source); })()), "message", [], "any", false, false, false, 106), 'errors');
-        echo " </div>
-                    ";
-        // line 107
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 107, $this->source); })()), "message", [], "any", false, false, false, 107), 'label', ["label" => "message"]);
-        echo "
-                    ";
-        // line 108
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 108, $this->source); })()), "message", [], "any", false, false, false, 108), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "ajouter la quantité"]]);
-        echo "
-                </div>
-            </div>
-        </div>
-    </div>
+              ";
+        // line 111
+        echo "            </div>
+
 
                 ";
         // line 114
@@ -221,7 +211,10 @@ class __TwigTemplate_9f429aeca187c1630c07f1846dc996147d63d517efe6f529422fa55d5e6
         echo "
 
     <!-- Contact End -->
-
+            </div>
+        </div>
+    </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -243,7 +236,7 @@ class __TwigTemplate_9f429aeca187c1630c07f1846dc996147d63d517efe6f529422fa55d5e6
 
     public function getDebugInfo()
     {
-        return array (  220 => 114,  211 => 108,  207 => 107,  203 => 106,  196 => 102,  192 => 101,  188 => 100,  181 => 96,  177 => 95,  172 => 93,  166 => 90,  162 => 89,  158 => 88,  150 => 83,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  210 => 114,  205 => 111,  200 => 103,  196 => 102,  192 => 101,  188 => 100,  181 => 96,  177 => 95,  172 => 93,  166 => 90,  162 => 89,  158 => 88,  150 => 83,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -336,35 +329,38 @@ class __TwigTemplate_9f429aeca187c1630c07f1846dc996147d63d517efe6f529422fa55d5e6
                     <div class=\"form-group\">
                         <div class=\"alert-danger\" style=\"align-content: center\">
                             {{ form_errors(contactForm.name) }} </div>
-                        {{ form_label(contactForm.name,\"Nom du produit\") }}
-                        {{ form_widget(contactForm.name ,{'attr': {'class': 'form-control','placeholder':'ajouter le nom'}}) }}
+                        {{ form_label(contactForm.name,\"votre nom\") }}
+                        {{ form_widget(contactForm.name ,{'attr': {'class': 'form-control','placeholder':'ajouter votre nom'}}) }}
                     </div>
                     <div class=\"form-group\">
                         {{ form_errors(contactForm.email) }}
-                    </div>
-                    {{ form_label(contactForm.email,\"Description du produit\") }}
-                    {{ form_widget(contactForm.email ,{'attr': {'cols':'55', 'rows':'5','class': 'form-control','placeholder':'ajouter la description'}}) }}
+
+                    {{ form_label(contactForm.email,\"votre mail\") }}
+                    {{ form_widget(contactForm.email ,{'attr': {'cols':'55', 'rows':'5','class': 'form-control','placeholder':'ajouter votre mail'}}) }}
                 </div>
                 <div class=\"form-group\">
                     <div class=\"alert-danger\" style=\"align-content: center\">
                         {{ form_errors(contactForm.sujet) }}</div>
-                    {{ form_label(contactForm.sujet,\"Prix du produit\") }}
-                    {{ form_widget(contactForm.sujet ,{'attr': {'class': 'form-control','placeholder':'ajouter le prix'}}) }}
+                    {{ form_label(contactForm.sujet,\"Votre message\") }}
+                    {{ form_widget(contactForm.sujet ,{'attr': {'class': 'form-control','placeholder':'ecrire votre message'}}) }}
+                    <a href=\"{{ path('contact') }}<button class=\"style=\"color: darkgreen\" \" type=\"submit\" id=\"sendMessageButton\">Send Message</button>
                 </div>
-                <div class=\"form-group\">
+              {#    <div class=\"form-group\">
                     <div class=\"alert-danger\" style=\"align-content: center\">
                         {{ form_errors(contactForm.message) }} </div>
                     {{ form_label(contactForm.message,\"message\") }}
                     {{ form_widget(contactForm.message ,{'attr': {'class': 'form-control','placeholder':'ajouter la quantité'}}) }}
-                </div>
+                </div>  #}
             </div>
-        </div>
-    </div>
+
 
                 {{ form_end(contactForm) }}
 
     <!-- Contact End -->
-
+            </div>
+        </div>
+    </div>
+    </div>
 {% endblock %}
 ", "contact/index.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\contact\\index.html.twig");
     }

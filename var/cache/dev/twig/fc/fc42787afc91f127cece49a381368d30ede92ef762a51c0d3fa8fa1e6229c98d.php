@@ -49,12 +49,9 @@ class __TwigTemplate_d6c1045b1898e5c0216cc502ca8e0fab6bd47d7d66b20fd91d7de80ca39
         // line 3
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["contact"]) || array_key_exists("contact", $context) ? $context["contact"] : (function () { throw new RuntimeError('Variable "contact" does not exist.', 3, $this->source); })()), "email", [], "any", false, false, false, 3), "html", null, true);
         echo "</p>
-<p>subject: ";
-        // line 4
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["contact"]) || array_key_exists("contact", $context) ? $context["contact"] : (function () { throw new RuntimeError('Variable "contact" does not exist.', 4, $this->source); })()), "sujet", [], "any", false, false, false, 4), "html", null, true);
-        echo "</p>
-<p>message: ";
+";
         // line 5
+        echo "<p>message: ";
         echo twig_get_attribute($this->env, $this->source, (isset($context["contact"]) || array_key_exists("contact", $context) ? $context["contact"] : (function () { throw new RuntimeError('Variable "contact" does not exist.', 5, $this->source); })()), "message", [], "any", false, false, false, 5);
         echo "</p>";
         
@@ -77,7 +74,7 @@ class __TwigTemplate_d6c1045b1898e5c0216cc502ca8e0fab6bd47d7d66b20fd91d7de80ca39
 
     public function getDebugInfo()
     {
-        return array (  58 => 5,  54 => 4,  50 => 3,  46 => 2,  43 => 1,);
+        return array (  54 => 5,  50 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -85,7 +82,7 @@ class __TwigTemplate_d6c1045b1898e5c0216cc502ca8e0fab6bd47d7d66b20fd91d7de80ca39
         return new Source("<h1>nouveau contact</h1>
 <p>nom: {{ contact.name }}</p>
 <p>email: {{ contact.email }}</p>
-<p>subject: {{ contact.sujet }}</p>
+{#  <p>subject: {{ contact.sujet }}</p>#}
 <p>message: {{ contact.message|raw }}</p>", "emails/contact.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\emails\\contact.html.twig");
     }
 }

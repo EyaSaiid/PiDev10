@@ -86,33 +86,36 @@
                     <div class="form-group">
                         <div class="alert-danger" style="align-content: center">
                             {{ form_errors(contactForm.name) }} </div>
-                        {{ form_label(contactForm.name,"Nom du produit") }}
-                        {{ form_widget(contactForm.name ,{'attr': {'class': 'form-control','placeholder':'ajouter le nom'}}) }}
+                        {{ form_label(contactForm.name,"votre nom") }}
+                        {{ form_widget(contactForm.name ,{'attr': {'class': 'form-control','placeholder':'ajouter votre nom'}}) }}
                     </div>
                     <div class="form-group">
                         {{ form_errors(contactForm.email) }}
-                    </div>
-                    {{ form_label(contactForm.email,"Description du produit") }}
-                    {{ form_widget(contactForm.email ,{'attr': {'cols':'55', 'rows':'5','class': 'form-control','placeholder':'ajouter la description'}}) }}
+
+                    {{ form_label(contactForm.email,"votre mail") }}
+                    {{ form_widget(contactForm.email ,{'attr': {'cols':'55', 'rows':'5','class': 'form-control','placeholder':'ajouter votre mail'}}) }}
                 </div>
                 <div class="form-group">
                     <div class="alert-danger" style="align-content: center">
                         {{ form_errors(contactForm.sujet) }}</div>
-                    {{ form_label(contactForm.sujet,"Prix du produit") }}
-                    {{ form_widget(contactForm.sujet ,{'attr': {'class': 'form-control','placeholder':'ajouter le prix'}}) }}
+                    {{ form_label(contactForm.sujet,"Votre message") }}
+                    {{ form_widget(contactForm.sujet ,{'attr': {'class': 'form-control','placeholder':'ecrire votre message'}}) }}
+                    <a href="{{ path('contact') }}<button class="style="color: darkgreen" " type="submit" id="sendMessageButton">Send Message</button>
                 </div>
-                <div class="form-group">
+              {#    <div class="form-group">
                     <div class="alert-danger" style="align-content: center">
                         {{ form_errors(contactForm.message) }} </div>
                     {{ form_label(contactForm.message,"message") }}
                     {{ form_widget(contactForm.message ,{'attr': {'class': 'form-control','placeholder':'ajouter la quantité'}}) }}
-                </div>
+                </div>  #}
             </div>
-        </div>
-    </div>
+
 
                 {{ form_end(contactForm) }}
 
     <!-- Contact End -->
-
+            </div>
+        </div>
+    </div>
+    </div>
 {% endblock %}

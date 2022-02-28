@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -73,6 +72,54 @@ class Produit
      *  Groups("produit")
      */
     private $Categorie;
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="produits")
+     * @ORM\JoinColumn(nullable=false)
+
+    private $users;
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="favoris")
+
+    private $favoris;
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser
+    (?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+    /**
+     * @return Collection|User[]
+
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(User $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(User $favori): self
+    {
+        if ($this->favoris->contains($favori)) {
+            $this->favoris->removeElement($favori);
+        }
+
+        return $this;
+    }*/
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,10 +132,13 @@ class Produit
     private $photo;
 
 
-    public function __construct()
+    /** public function __construct()
     {
-        $this->users = new ArrayCollection();
-    }
+       // $this->users = new ArrayCollection();
+
+        $this->favoris = new ArrayCollection();
+
+    }*/
 
     public function getPhoto()
     {

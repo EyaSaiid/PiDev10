@@ -39,10 +39,10 @@ class ContactType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('Envoyer', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn primary'
-                ]
-            ])
+            //->add('Envoyer', SubmitType::class, [
+              //  'attr' => [
+                //    'class' => 'btn primary'
+                //]
+            //])
         ;
 }}

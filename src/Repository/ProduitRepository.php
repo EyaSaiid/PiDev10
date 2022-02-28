@@ -70,6 +70,21 @@ class ProduitRepository extends ServiceEntityRepository
            ->setParameter('id',$id);
        return $query->getResult();
     }
+    public function countByCategorie(){
+        // $query = $this->createQueryBuilder('a')
+        //     ->select('SUBSTRING(a.created_at, 1, 10) as dateAnnonces, COUNT(a) as count')
+        //     ->groupBy('dateAnnonces')
+        // ;
+        // return $query->getQuery()->getResult();
+          $qb = $this->createQueryBuilder('p')
+				   ->join('p.Categorie', 't')
+				   ->addSelect('COUNT(p)')
+				   ->groupBy('t.id');
+
+		return $qb->getQuery()
+				   ->getScalarResult();
+
+        }
 
     public function findByCategory1($id)
     {

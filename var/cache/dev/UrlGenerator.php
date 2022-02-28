@@ -47,7 +47,10 @@ return [
     'produit_json' => [[], ['_controller' => 'App\\Controller\\ProduitController::test_json'], [], [['text', '/produit/listjson']], [], []],
     'showProduit' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::showProduit'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/showProduit']], [], []],
     'showProduitByCategory' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::showProduitByCategory'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/produits']], [], []],
+    'statistiques' => [[], ['_controller' => 'App\\Controller\\ProduitController::statistiques'], [], [['text', '/produit/statistiques']], [], []],
     'produit_show' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::show'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit']], [], []],
+    'ajout_favoris' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::ajoutFavoris'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/favoris/ajout']], [], []],
+    'retrait_favoris' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::retraitFavoris'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/favoris/retrait']], [], []],
     'produit_edit' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::edit'], [], [['text', '/modifier'], ['variable', '/', '[^/]++', 'id'], ['text', '/produit']], [], []],
     'produit_delete' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::delete'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit']], [], []],
 ];
