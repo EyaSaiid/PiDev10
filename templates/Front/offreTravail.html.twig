@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block bodyMenu %}
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Master Chef</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Job offers</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<div  >
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Restaurant </th>
+            <th>Restaurant owner</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for offre_travail in offre_travails %}
+            <tr>
+
+                <td>{{ offre_travail.titre }}</td>
+                <td>{{ offre_travail.description }}</td>
+                <td>{{ offre_travail.restaurant }}</td>
+                <td>{{ offre_travail.user.prenom ~" "~ offre_travail.user.nom }}</td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+{% endblock %}

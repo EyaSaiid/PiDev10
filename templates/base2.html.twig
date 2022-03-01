@@ -226,7 +226,7 @@
                 <img src="{{ asset('Back/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Admin</a>
             </div>
         </div>
 
@@ -256,16 +256,51 @@
                     </a>
 
                 </li>
-                <li class="nav-item">
-                    <a href="{{ path('GestionUser') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Utilisateur
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                <nav class="mt-2">
 
-                </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion Utilisateur
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('user_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manipuler Utilisateur</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href=" {{ path('user_stat') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Stat Utilisateur</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('user_new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Request des Utilisateurs</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('user_new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Supprimer Utilisateur</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+
+                </nav>
 
 
 {#  **********************Gestion restaurant avec navbar*******************************#}
@@ -317,15 +352,56 @@
                     </a>
 
                 </li>
-                <li class="nav-item">
-                    <a href="{{ path('GestionOffreTravail') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Offres de travail
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                </li>
+
+
+
+                <nav class="mt-2">
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion offre de travail
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('offre_travail_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manipuler les offres</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Stat</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Request</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Supprimer Utilisateur</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+
+
 
                 <li class="nav-item">
                     <a href="{{ path('GestionEvenement') }}" class="nav-link">
@@ -406,11 +482,10 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="content-wrapper">
 
     {% block bodyBack %} {% endblock %}
 
-    </div>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
