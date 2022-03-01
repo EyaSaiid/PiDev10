@@ -457,10 +457,10 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         <!-- Sidebar user panel (optional) -->
         <div class=\"user-panel mt-3 pb-3 mb-3 d-flex\">
             <div class=\"image\">
-                <img src=\"";
+                <img width=\"79\" src=\"/upload/img/";
         // line 226
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Back/dist/img/user2-160x160.jpg"), "html", null, true);
-        echo "\" class=\"img-circle elevation-2\" alt=\"User Image\">
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 226, $this->source); })()), "image", [], "any", false, false, false, 226), "html", null, true);
+        echo "\" class=\"img-thumbnail\">
             </div>
             <div class=\"info\">
                 <a href=\"#\" class=\"d-block\">Admin</a>
@@ -1038,7 +1038,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
         <!-- Sidebar user panel (optional) -->
         <div class=\"user-panel mt-3 pb-3 mb-3 d-flex\">
             <div class=\"image\">
-                <img src=\"{{ asset('Back/dist/img/user2-160x160.jpg') }}\" class=\"img-circle elevation-2\" alt=\"User Image\">
+                <img width=\"79\" src=\"/upload/img/{{ user.image }}\" class=\"img-thumbnail\">
             </div>
             <div class=\"info\">
                 <a href=\"#\" class=\"d-block\">Admin</a>
