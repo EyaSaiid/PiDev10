@@ -199,6 +199,9 @@ class Restaurant
     {
         if (!$this->produitplats->contains($produitplat)) {
             $this->produitplats[] = $produitplat;
+        }
+        return $this;
+    }
 
 
     /**

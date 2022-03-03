@@ -113,7 +113,7 @@ class User implements UserInterface
 
 
 
-
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $activationToken;
@@ -315,6 +315,8 @@ class User implements UserInterface
             $this->reservations[] = $reservation;
             $reservation->setUser($this);
         }
+        return $this;
+    }
 
     public function getActivationToken(): ?string
     {
@@ -336,6 +338,8 @@ class User implements UserInterface
                 $reservation->setUser(null);
             }
         }
+        return $this;
+    }
 
     public function getResetToken(): ?string
     {
@@ -363,6 +367,8 @@ class User implements UserInterface
             $this->restaurants[] = $restaurant;
             $restaurant->setUser($this);
         }
+        return $this;
+    }
 
     public function getImage(): ?string
     {
@@ -390,10 +396,6 @@ class User implements UserInterface
 
 
 
-
-
-
-}
 
     public function getAddress(): ?string
     {
