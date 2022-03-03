@@ -121,12 +121,15 @@
                     <a href="{{ path('home') }}" class="nav-item nav-link active">Home</a>
                     <a href="{{ path('about') }}" class="nav-item nav-link">About</a>
                     <a href="{{ path("feature") }}" class="nav-item nav-link">Feature</a>
+                    <a href="{{ path("restaurant_liste") }}" class="nav-item nav-link"> Restaurant </a>
+
+                    {% if app.user  %}
                     <a href="{{ path("offre_travail_showAll") }}" class="nav-item nav-link">Jobs</a>
                     
                     {# <a href="{{ path('templates/menu.html.twig') }}" class="nav-item nav-link">Menu</a> #}
                     {#<a href="{{ path("details_menu") }}" class="nav-item nav-link">Detail menu</a>#}
-                    <a href="{{ path("restaurant_liste") }}" class="nav-item nav-link"> Restaurant </a>
                     <a href="{{ path("reservation_new") }}" class="nav-item nav-link"> Reservation </a>
+                    {% endif %}
                     <a href="{{ path("contact") }}" class="nav-item nav-link">Contact</a>
                     {% if app.user %}
                     <div class="nav-item dropdown">
@@ -138,7 +141,10 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">???</a>
                                 <a class="dropdown-item" href=" ">Profile</a>
+                                {% if app.user.roles[0]=="ROLE_ADMIN" %}
                                 <a class="dropdown-item" href="{{ path('user_index') }}">Admin</a>
+                                {% endif %}
+
                                 <a class="dropdown-item" href="{{ path("app_logout") }}" >Logout</a>
                             </div>
                         </div>

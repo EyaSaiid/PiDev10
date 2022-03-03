@@ -98,7 +98,9 @@ class ReservationController extends AbstractController
             $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find($IDrestaurant);
             $somme=$this->getDoctrine()->getRepository(Reservation::class)->check($IDrestaurant,$DateRes)
                 +$form["nombre"]->getData();
-            $UserId=34; // hethy twali b session
+
+         //   dump($this->getUser()->getId()  );
+            $UserId=$this->getUser()->getId() ; // hethy twali b session
             $User=$userRepository->find($UserId);
             $reservation->setIdClient($UserId);
             $reservation->setUser($User);

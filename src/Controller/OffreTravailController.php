@@ -25,7 +25,7 @@ class OffreTravailController extends AbstractController
      */
     public function index(OffreTravailRepository $offreTravailRepository): Response
     {
-         $currentUserId = 73;// ki ngid auth nakhou id user mil session
+         $currentUserId = $this->getUser()->getId() ;// ki ngid auth nakhou id user mil session
         //dump($offreTravailRepository->findAll());
         return $this->render('Back/offre_travail/index.html.twig', [
             'offre_travails' => $offreTravailRepository->findAllByUser($currentUserId),
@@ -56,7 +56,7 @@ class OffreTravailController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $currentUserId =73;// ki ngid auth nakhou id user mil session
+            $currentUserId =$this->getUser()->getId() ;// ki ngid auth nakhou id user mil session
             $currentUser =$userRepository->find($currentUserId);
             $offreTravail->setUser($currentUser);
             $entityManager->persist($offreTravail);
