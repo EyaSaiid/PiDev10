@@ -223,10 +223,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img width="79" src="/upload/img/{{ user.image }}" class="img-thumbnail">
+                <img width="79" src="/upload/img/{{ app.user.image }}" class="img-thumbnail">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">{{ app.user.nom }} {{ app.user.prenom }}</a>
             </div>
         </div>
 
