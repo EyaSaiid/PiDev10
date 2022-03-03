@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    {% if items | length >0 %}
+    {% if articles | length >0 %}
         <table class="table">
             <thead>
             <tr>
@@ -30,14 +30,19 @@
             </tr>
             </thead>
             <tbody>
-            {% for item in items %}
+            {% for key,item in articles %}
                 <tr>
-                    <td>{{ item.product.nomProduit }}</td>
-                    <td>{{ item.product.prixProduit }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.prixProduit * item.quantity }}</td>
+                    <td>{{ articles[key].nomProduit  }}</td>
+
+                    <td>{{ articles[key].prixProduit }}</td>
                     <td>
-                        <a href="{{ path('cart_remove', {'id':item.product.id}) }}" class="btn btn-danger btn-sm">
+                  <a href="{{ path('panier_minus' ,  {'id': articles[key].id}) }}">-</a>
+                        {{ qts[key] }}
+
+                        <a href="{{ path('panier_plus', {'id': articles[key].id}) }}">+</a> </td>
+                    <td>{{ qts[key] * articles[key].prixProduit  }} DT</td>
+                    <td>
+                        <a href="{{ path('cart_remove', {'id':articles[key].id}) }}" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>

@@ -102,7 +102,7 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
 
     ";
         // line 21
-        if ((1 === twig_compare(twig_length_filter($this->env, (isset($context["items"]) || array_key_exists("items", $context) ? $context["items"] : (function () { throw new RuntimeError('Variable "items" does not exist.', 21, $this->source); })())), 0))) {
+        if ((1 === twig_compare(twig_length_filter($this->env, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 21, $this->source); })())), 0))) {
             // line 22
             echo "        <table class=\"table\">
             <thead>
@@ -118,30 +118,41 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
             ";
             // line 33
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["items"]) || array_key_exists("items", $context) ? $context["items"] : (function () { throw new RuntimeError('Variable "items" does not exist.', 33, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 33, $this->source); })()));
+            foreach ($context['_seq'] as $context["key"] => $context["item"]) {
                 // line 34
                 echo "                <tr>
                     <td>";
                 // line 35
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "product", [], "any", false, false, false, 35), "nomProduit", [], "any", false, false, false, 35), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 35, $this->source); })()), $context["key"], [], "array", false, false, false, 35), "nomProduit", [], "any", false, false, false, 35), "html", null, true);
                 echo "</td>
-                    <td>";
-                // line 36
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "product", [], "any", false, false, false, 36), "prixProduit", [], "any", false, false, false, 36), "html", null, true);
-                echo "</td>
+
                     <td>";
                 // line 37
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "quantity", [], "any", false, false, false, 37), "html", null, true);
-                echo "</td>
-                    <td>";
-                // line 38
-                echo twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "product", [], "any", false, false, false, 38), "prixProduit", [], "any", false, false, false, 38) * twig_get_attribute($this->env, $this->source, $context["item"], "quantity", [], "any", false, false, false, 38)), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 37, $this->source); })()), $context["key"], [], "array", false, false, false, 37), "prixProduit", [], "any", false, false, false, 37), "html", null, true);
                 echo "</td>
                     <td>
-                        <a href=\"";
+                  <a href=\"";
+                // line 39
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier_minus", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 39, $this->source); })()), $context["key"], [], "array", false, false, false, 39), "id", [], "any", false, false, false, 39)]), "html", null, true);
+                echo "\">-</a>
+                        ";
                 // line 40
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_remove", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "product", [], "any", false, false, false, 40), "id", [], "any", false, false, false, 40)]), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["qts"]) || array_key_exists("qts", $context) ? $context["qts"] : (function () { throw new RuntimeError('Variable "qts" does not exist.', 40, $this->source); })()), $context["key"], [], "array", false, false, false, 40), "html", null, true);
+                echo "
+
+                        <a href=\"";
+                // line 42
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier_plus", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 42, $this->source); })()), $context["key"], [], "array", false, false, false, 42), "id", [], "any", false, false, false, 42)]), "html", null, true);
+                echo "\">+</a> </td>
+                    <td>";
+                // line 43
+                echo twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->source, (isset($context["qts"]) || array_key_exists("qts", $context) ? $context["qts"] : (function () { throw new RuntimeError('Variable "qts" does not exist.', 43, $this->source); })()), $context["key"], [], "array", false, false, false, 43) * twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 43, $this->source); })()), $context["key"], [], "array", false, false, false, 43), "prixProduit", [], "any", false, false, false, 43)), "html", null, true);
+                echo " DT</td>
+                    <td>
+                        <a href=\"";
+                // line 45
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_remove", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 45, $this->source); })()), $context["key"], [], "array", false, false, false, 45), "id", [], "any", false, false, false, 45)]), "html", null, true);
                 echo "\" class=\"btn btn-danger btn-sm\">
                             <i class=\"fas fa-trash\"></i>
                         </a>
@@ -150,9 +161,9 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
             ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 46
+            // line 51
             echo "            </tbody>
             <tfoot>
                 <tr>
@@ -160,11 +171,11 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
                     </td>
 
                     <td>";
-            // line 52
-            echo twig_escape_filter($this->env, (isset($context["total"]) || array_key_exists("total", $context) ? $context["total"] : (function () { throw new RuntimeError('Variable "total" does not exist.', 52, $this->source); })()), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, (isset($context["total"]) || array_key_exists("total", $context) ? $context["total"] : (function () { throw new RuntimeError('Variable "total" does not exist.', 57, $this->source); })()), "html", null, true);
             echo "</td>
                     <td><a href=\"";
-            // line 53
+            // line 58
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("remove_all");
             echo "\" class=\"btn btn-danger btn-sm\"> Supprimmer tout
                             <i class=\"fas fa-trash-alt\"></i>
@@ -174,7 +185,7 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
                     <td>
 
                     <a href=\"";
-            // line 60
+            // line 65
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_new");
             echo "\" class=\"btn btn-success float-right\" >Commander
                     <i class=\"fas fa-shopping-cart mr1\"></i>
@@ -185,7 +196,7 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
         </table>
     ";
         } else {
-            // line 68
+            // line 73
             echo "        <p> Votre panier est vide!</p>
     ";
         }
@@ -209,7 +220,7 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
 
     public function getDebugInfo()
     {
-        return array (  189 => 68,  178 => 60,  168 => 53,  164 => 52,  156 => 46,  144 => 40,  139 => 38,  135 => 37,  131 => 36,  127 => 35,  124 => 34,  120 => 33,  107 => 22,  105 => 21,  89 => 7,  79 => 6,  59 => 3,  36 => 2,);
+        return array (  200 => 73,  189 => 65,  179 => 58,  175 => 57,  167 => 51,  155 => 45,  150 => 43,  146 => 42,  141 => 40,  137 => 39,  132 => 37,  127 => 35,  124 => 34,  120 => 33,  107 => 22,  105 => 21,  89 => 7,  79 => 6,  59 => 3,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -234,7 +245,7 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
         </div>
     </div>
 
-    {% if items | length >0 %}
+    {% if articles | length >0 %}
         <table class=\"table\">
             <thead>
             <tr>
@@ -246,14 +257,19 @@ class __TwigTemplate_bfe8d0ce47efd517a427702aa231c62eb5bb8887dd64a9018fcd8040592
             </tr>
             </thead>
             <tbody>
-            {% for item in items %}
+            {% for key,item in articles %}
                 <tr>
-                    <td>{{ item.product.nomProduit }}</td>
-                    <td>{{ item.product.prixProduit }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.prixProduit * item.quantity }}</td>
+                    <td>{{ articles[key].nomProduit  }}</td>
+
+                    <td>{{ articles[key].prixProduit }}</td>
                     <td>
-                        <a href=\"{{ path('cart_remove', {'id':item.product.id}) }}\" class=\"btn btn-danger btn-sm\">
+                  <a href=\"{{ path('panier_minus' ,  {'id': articles[key].id}) }}\">-</a>
+                        {{ qts[key] }}
+
+                        <a href=\"{{ path('panier_plus', {'id': articles[key].id}) }}\">+</a> </td>
+                    <td>{{ qts[key] * articles[key].prixProduit  }} DT</td>
+                    <td>
+                        <a href=\"{{ path('cart_remove', {'id':articles[key].id}) }}\" class=\"btn btn-danger btn-sm\">
                             <i class=\"fas fa-trash\"></i>
                         </a>
                     </td>

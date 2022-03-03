@@ -73,7 +73,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 ";
         // line 72
         $this->displayBlock('body', $context, $blocks);
-        // line 422
+        // line 421
         echo "
 </body>
 </html>";
@@ -617,15 +617,14 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                         </p>
                     </a>
                 </li>
-
                 <li class=\"nav-item\">
                     <a href=\"";
-        // line 362
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("GestionCommande");
+        // line 361
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_index");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
-                            Gestion <Commande></Commande>
+                            Gestion Commande
                             <i class=\"fas fa-angle-left right\"></i>
                         </p>
                     </a>
@@ -672,9 +671,9 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
     <div class=\"content-wrapper\">
 
     ";
-        // line 411
+        // line 410
         $this->displayBlock('bodyBack', $context, $blocks);
-        // line 412
+        // line 411
         echo "
     </div>
 
@@ -693,7 +692,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     }
 
-    // line 411
+    // line 410
     public function block_bodyBack($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -724,7 +723,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
 
     public function getDebugInfo()
     {
-        return array (  697 => 411,  678 => 412,  676 => 411,  624 => 362,  611 => 352,  597 => 341,  584 => 331,  571 => 321,  558 => 311,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 422,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
+        return array (  696 => 410,  677 => 411,  675 => 410,  623 => 361,  611 => 352,  597 => 341,  584 => 331,  571 => 321,  558 => 311,  551 => 306,  529 => 286,  513 => 272,  499 => 260,  462 => 226,  451 => 218,  388 => 158,  369 => 142,  350 => 126,  296 => 75,  292 => 73,  282 => 72,  270 => 68,  265 => 66,  260 => 64,  255 => 62,  250 => 60,  245 => 58,  240 => 56,  236 => 55,  231 => 53,  226 => 51,  222 => 50,  217 => 48,  212 => 46,  207 => 44,  198 => 38,  193 => 36,  189 => 34,  179 => 33,  167 => 30,  162 => 28,  157 => 26,  152 => 24,  147 => 22,  142 => 20,  137 => 18,  132 => 16,  127 => 14,  122 => 12,  118 => 10,  108 => 9,  89 => 5,  77 => 421,  75 => 72,  71 => 70,  69 => 33,  66 => 32,  64 => 9,  60 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -1088,12 +1087,11 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                         </p>
                     </a>
                 </li>
-
                 <li class=\"nav-item\">
-                    <a href=\"{{ path('GestionCommande') }}\" class=\"nav-link\">
+                    <a href=\"{{ path(\"livraison_index\") }}\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
-                            Gestion <Commande></Commande>
+                            Gestion Commande
                             <i class=\"fas fa-angle-left right\"></i>
                         </p>
                     </a>

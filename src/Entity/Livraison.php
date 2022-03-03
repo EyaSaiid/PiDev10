@@ -50,7 +50,12 @@ class Livraison
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="required")
+     *
+     * @Assert\GreaterThan(0),
+     *
+     *
      */
+
     private $tel;
 
     /**

@@ -151,10 +151,10 @@ class __TwigTemplate_55a0239ee51119d5673029edb80c6b403d8ff09fe88fc6d2c1d8f3e88b9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_index");
         echo "\">back to list</a>
 
-    <!--";
+    ";
         // line 47
         echo twig_include($this->env, $context, "livraison/_delete_form.html.twig");
-        echo "-->
+        echo "
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -227,7 +227,7 @@ class __TwigTemplate_55a0239ee51119d5673029edb80c6b403d8ff09fe88fc6d2c1d8f3e88b9
 
     <a href=\"{{ path('livraison_index') }}\">back to list</a>
 
-    <!--{{ include('livraison/_delete_form.html.twig') }}-->
+    {{ include('livraison/_delete_form.html.twig') }}
 {% endblock %}
 ", "livraison/edit.html.twig", "C:\\Users\\AMEN\\OneDrive\\Bureau\\PIgit\\GitHub\\PiDev10\\templates\\livraison\\edit.html.twig");
     }

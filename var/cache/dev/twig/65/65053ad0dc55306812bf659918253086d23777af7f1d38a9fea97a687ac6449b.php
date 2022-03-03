@@ -95,6 +95,6 @@ class __TwigTemplate_23e92ff39fd18f9aecb6c0d666b67f1167a61b650a061f874932db1121d
         return new Source("{% extends 'base2.html.twig' %}
 {% block bodyBack %}
     <p>Gestion Artiste</p>
-{% endblock %}", "Back/GestionArtiste.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\GestionArtiste.html.twig");
+{% endblock %}", "Back/GestionArtiste.html.twig", "C:\\Users\\AMEN\\OneDrive\\Bureau\\PIgit\\GitHub\\PiDev10\\templates\\Back\\GestionArtiste.html.twig");
     }
 }

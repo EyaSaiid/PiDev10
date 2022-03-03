@@ -1,29 +1,14 @@
-
-
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block bodyMenu %}
 <td>
 <div>
-{{ form_start(form)}}
-    {{ form_errors(form.Prenom) }}
-    {{ form_widget(form.Prenom, {'attr':{'placeholder':'Votre Prénom ...','required': false}}) }}
-    <br>
-    {{ form_errors(form.Nom) }}
-    {{ form_widget(form.Nom, {'attr':{'placeholder':'Votre Nom ...'}}) }}
-    <br>
-    {{ form_errors(form.adresse) }}
-    {{ form_widget(form.adresse, {'attr':{'placeholder':'Votre adresse ...'}}) }}
-    <br>
-    {{ form_errors(form.tel) }}
-    {{ form_widget(form.tel, {'attr':{'placeholder':'Votre Telephone ...'}}) }}
-    <br>
-    {{ form_errors(form.email) }}
-    {{ form_widget(form.email, {'attr':{'placeholder':'Votre email ...'}}) }}
-    <br>
-    {{ form_widget(form.commande)}}
-    <br>
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+
+    {{ form_widget(form)}}
     <button class="btn btn-success">{{ button_label|default('Save') }}</button>
     {{ form_end(form) }}
 </div>
 </td>
 
 </table>
-
+{% endblock %}

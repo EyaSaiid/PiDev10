@@ -128,7 +128,7 @@ class __TwigTemplate_e3ba494cae2dcddc03dc2e40ebfc59ba7091e5185766d68272443a45091
         <td>
             <a href=\"";
             // line 33
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_add", ["id" => twig_get_attribute($this->env, $this->source, $context["produit"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier_ajout", ["id" => twig_get_attribute($this->env, $this->source, $context["produit"], "id", [], "any", false, false, false, 33)]), "html", null, true);
             echo "\" class=\"btn btn-success float-right\">
                 <i class=\"fas fa-shopping-cart mr1\"></i>
                 Ajouter
@@ -200,7 +200,7 @@ class __TwigTemplate_e3ba494cae2dcddc03dc2e40ebfc59ba7091e5185766d68272443a45091
 <td>{{ produit.descriptionProduit }}</td>
 <td>{{ produit.prixProduit }}</td>
         <td>
-            <a href=\"{{ path('cart_add',{'id': produit.id}) }}\" class=\"btn btn-success float-right\">
+            <a href=\"{{ path('panier_ajout',{'id': produit.id}) }}\" class=\"btn btn-success float-right\">
                 <i class=\"fas fa-shopping-cart mr1\"></i>
                 Ajouter
             </a>

@@ -97,7 +97,7 @@ class __TwigTemplate_a57b9bfb6def23253448dfdc42ee6b073bce4bf3fc48ad0d7589ce093b5
                 <th>Tel</th>
                 <th>Email</th>
                 <th>Etat</th>
-                <th>ID</th>
+                <th>Commande ID</th>
                 <th>actions</th>
 
             </tr>
@@ -149,7 +149,7 @@ class __TwigTemplate_a57b9bfb6def23253448dfdc42ee6b073bce4bf3fc48ad0d7589ce093b5
             // line 36
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_show", ["id" => twig_get_attribute($this->env, $this->source, $context["livraison"], "id", [], "any", false, false, false, 36)]), "html", null, true);
             echo "\">show</a>-->
-                    <a href=\"";
+                    <a class=\"btn btn-primary\" href=\"";
             // line 37
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["livraison"], "id", [], "any", false, false, false, 37)]), "html", null, true);
             echo "\">Changer état</a>
@@ -223,7 +223,7 @@ class __TwigTemplate_a57b9bfb6def23253448dfdc42ee6b073bce4bf3fc48ad0d7589ce093b5
                 <th>Tel</th>
                 <th>Email</th>
                 <th>Etat</th>
-                <th>ID</th>
+                <th>Commande ID</th>
                 <th>actions</th>
 
             </tr>
@@ -242,7 +242,7 @@ class __TwigTemplate_a57b9bfb6def23253448dfdc42ee6b073bce4bf3fc48ad0d7589ce093b5
 
                 <td>
                     <!--<a href=\"{{ path('livraison_show', {'id': livraison.id}) }}\">show</a>-->
-                    <a href=\"{{ path('livraison_edit', {'id': livraison.id}) }}\">Changer état</a>
+                    <a class=\"btn btn-primary\" href=\"{{ path('livraison_edit', {'id': livraison.id}) }}\">Changer état</a>
                    <!-- <a  href=\"{{ path('ListByProduit',{'id':livraison.commande.id}) }}\" class =\"btn-small01 btn-blue\">Accéder</a>-->
                 </td>
             </tr>

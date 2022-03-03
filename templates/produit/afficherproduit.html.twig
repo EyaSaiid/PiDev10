@@ -30,7 +30,7 @@
 <td>{{ produit.descriptionProduit }}</td>
 <td>{{ produit.prixProduit }}</td>
         <td>
-            <a href="{{ path('cart_add',{'id': produit.id}) }}" class="btn btn-success float-right">
+            <a href="{{ path('panier_ajout',{'id': produit.id}) }}" class="btn btn-success float-right">
                 <i class="fas fa-shopping-cart mr1"></i>
                 Ajouter
             </a>

@@ -42,7 +42,7 @@ class LivraisonController extends AbstractController
             $entityManager->flush();
 
 
-            return $this->redirectToRoute('livraison_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('livraison/new.html.twig', [

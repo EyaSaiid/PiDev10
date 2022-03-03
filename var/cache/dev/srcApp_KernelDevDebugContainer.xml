@@ -5266,11 +5266,10 @@
         <argument key="livraison" type="service_closure" id=".errored..service_locator.gzkzdNF.App\Entity\Livraison"/>
       </argument>
     </service>
-    <service id=".service_locator.miWCEVF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.D_VxfLH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="produitRepository" type="service_closure" id="App\Repository\ProduitRepository"/>
-        <argument key="session" type="service_closure" id="session"/>
       </argument>
     </service>
     <service id=".service_locator.Kg8VUsg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5279,7 +5278,7 @@
         <argument key="repo" type="service_closure" id="App\Repository\ProduitRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.w8EsE9F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator..z5M5Oo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CommandeController::AjouterCommande" type="service_closure" id=".service_locator.o3htLhs"/>
@@ -5289,9 +5288,9 @@
         <argument key="App\Controller\LivraisonController::index" type="service_closure" id=".service_locator.MvS2xH3"/>
         <argument key="App\Controller\LivraisonController::new" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\LivraisonController::show" type="service_closure" id=".service_locator.t9z1pbv"/>
-        <argument key="App\Controller\PanierController::add" type="service_closure" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PanierController::ajoutauPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
         <argument key="App\Controller\PanierController::deleteAll" type="service_closure" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\PanierController::index" type="service_closure" id=".service_locator.miWCEVF"/>
+        <argument key="App\Controller\PanierController::getPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
         <argument key="App\Controller\PanierController::remove" type="service_closure" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ProduitController::fetchProduits" type="service_closure" id=".service_locator.Kg8VUsg"/>
         <argument key="App\Controller\CommandeController:AjouterCommande" type="service_closure" id=".service_locator.o3htLhs"/>
@@ -5301,9 +5300,9 @@
         <argument key="App\Controller\LivraisonController:index" type="service_closure" id=".service_locator.MvS2xH3"/>
         <argument key="App\Controller\LivraisonController:new" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\LivraisonController:show" type="service_closure" id=".service_locator.t9z1pbv"/>
-        <argument key="App\Controller\PanierController:add" type="service_closure" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PanierController:ajoutauPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
         <argument key="App\Controller\PanierController:deleteAll" type="service_closure" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\PanierController:index" type="service_closure" id=".service_locator.miWCEVF"/>
+        <argument key="App\Controller\PanierController:getPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
         <argument key="App\Controller\PanierController:remove" type="service_closure" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ProduitController:fetchProduits" type="service_closure" id=".service_locator.Kg8VUsg"/>
       </argument>
@@ -5778,12 +5777,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.w8EsE9F"/>
+      <argument type="service" id=".service_locator..z5M5Oo"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.w8EsE9F"/>
+      <argument type="service" id=".service_locator..z5M5Oo"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6185,7 +6184,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.w8EsE9F"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator..z5M5Oo"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

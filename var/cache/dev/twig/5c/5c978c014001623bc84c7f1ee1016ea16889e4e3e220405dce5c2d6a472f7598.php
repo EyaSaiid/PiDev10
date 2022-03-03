@@ -89,7 +89,7 @@ class __TwigTemplate_448162ea695c5d1c0cfd83c383e9617bcf2d2c944753bec1e151cf044ef
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-12\">
-                    <h2>Votre panier</h2>
+                    <h2>Passer votre commande</h2>
                 </div>
                 <div class=\"col-12\">
                     <a href=\"\">Home</a>
@@ -144,7 +144,7 @@ class __TwigTemplate_448162ea695c5d1c0cfd83c383e9617bcf2d2c944753bec1e151cf044ef
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-12\">
-                    <h2>Votre panier</h2>
+                    <h2>Passer votre commande</h2>
                 </div>
                 <div class=\"col-12\">
                     <a href=\"\">Home</a>
