@@ -75,6 +75,11 @@ class User implements UserInterface
     private $roles = [];
 
 
+    /**
+     * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="user")
+     */
+    private $offreTravail;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -89,6 +94,7 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
+
      * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
      */
     private $reservations;
@@ -102,9 +108,31 @@ class User implements UserInterface
     {
         $this->reservations = new ArrayCollection();
         $this->restaurants = new ArrayCollection();
+        $this->offreTravail = new ArrayCollection();
     }
 
 
+
+
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activationToken;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resetToken;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\File()
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $address;
 
     public function getId(): ?int
     {
@@ -195,7 +223,35 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|offreTravail[]
+     */
+    public function getOffreTravail(): Collection
+    {
+        return $this->offreTravail;
+    }
 
+    public function addOffreTravail(offreTravail $offreTravail): self
+    {
+        if (!$this->offreTravail->contains($offreTravail)) {
+            $this->offreTravail[] = $offreTravail;
+            $offreTravail->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreTravail(offreTravail $offreTravail): self
+    {
+        if ($this->offreTravail->removeElement($offreTravail)) {
+            // set the owning side to null (unless already changed)
+            if ($offreTravail->getUser() === $this) {
+                $offreTravail->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 
     public function __toString()
     {
@@ -224,6 +280,8 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+
+        return $this->email;
     }
 
     public function eraseCredentials()
@@ -258,6 +316,15 @@ class User implements UserInterface
             $reservation->setUser($this);
         }
 
+    public function getActivationToken(): ?string
+    {
+        return $this->activationToken;
+    }
+
+    public function setActivationToken(?string $activationToken): self
+    {
+        $this->activationToken = $activationToken;
+
         return $this;
     }
 
@@ -269,6 +336,15 @@ class User implements UserInterface
                 $reservation->setUser(null);
             }
         }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
 
         return $this;
     }
@@ -287,6 +363,15 @@ class User implements UserInterface
             $this->restaurants[] = $restaurant;
             $restaurant->setUser($this);
         }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
@@ -308,4 +393,17 @@ class User implements UserInterface
 
 
 
+}
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
 }

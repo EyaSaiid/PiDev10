@@ -66,3 +66,4 @@ class RestaurantRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 }
+

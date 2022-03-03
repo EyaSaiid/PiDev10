@@ -100,6 +100,8 @@
 
 
 
+
+
     {% endblock %}
 </head>
 <body>
@@ -114,16 +116,42 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto">
-                    <a href="{{ path('home') }}" class="nav-item nav-link active">Accueil</a>
+
+                <li class="navbar-nav ml-auto">
+                    <a href="{{ path('home') }}" class="nav-item nav-link active">Home</a>
                     <a href="{{ path('about') }}" class="nav-item nav-link">About</a>
                     <a href="{{ path("feature") }}" class="nav-item nav-link">Feature</a>
-                    <a href="{{ path("team") }}" class="nav-item nav-link">Equipe</a>
+                    <a href="{{ path("offre_travail_showAll") }}" class="nav-item nav-link">Jobs</a>
+                    
                     {# <a href="{{ path('templates/menu.html.twig') }}" class="nav-item nav-link">Menu</a> #}
                     {#<a href="{{ path("details_menu") }}" class="nav-item nav-link">Detail menu</a>#}
                     <a href="{{ path("restaurant_liste") }}" class="nav-item nav-link"> Restaurant </a>
                     <a href="{{ path("reservation_new") }}" class="nav-item nav-link"> Reservation </a>
                     <a href="{{ path("contact") }}" class="nav-item nav-link">Contact</a>
+                    {% if app.user %}
+                    <div class="nav-item dropdown">
+
+                        <div class="mb-3">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ app.user.username }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">???</a>
+                                <a class="dropdown-item" href=" ">Profile</a>
+                                <a class="dropdown-item" href="{{ path('user_index') }}">Admin</a>
+                                <a class="dropdown-item" href="{{ path("app_logout") }}" >Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% else %}
+                            <div class="mb-3">
+
+                                    <a href="{{ path("app_login") }}" class="nav-item nav-link ">Login</a>
+                            </div>
+
+                    {% endif %}
                    {# <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu">

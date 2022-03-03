@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+
 /**
  * @ORM\Entity(repositoryClass=RestaurantRepository::class)
  */
@@ -81,6 +82,19 @@ class Restaurant
      * @Groups("post:read")
      */
     private $specialite;
+
+   
+    /**
+     * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="restaurant")
+     */
+    private $offreTravail;
+
+    public function __construct()
+    {
+        $this->offreTravail = new ArrayCollection();
+        $this->produitplats = new ArrayCollection();
+
+    }
 
     public function getIdRestaurant(): ?int
     {
@@ -172,10 +186,6 @@ class Restaurant
      */
 
     private $produitplats;
-    public function __construct()
-    {
-        $this->produitplats = new ArrayCollection();
-    }
 
     /**
      * @return Collection|ProduitPlat[]
@@ -190,6 +200,20 @@ class Restaurant
         if (!$this->produitplats->contains($produitplat)) {
             $this->produitplats[] = $produitplat;
 
+
+    /**
+     * @return Collection|OffreTravail[]
+     */
+    public function getOffreTravail(): Collection
+    {
+        return $this->offreTravail;
+    }
+
+    public function addOffreTravail(OffreTravail $offreTravail): self
+    {
+        if (!$this->offreTravail->contains($offreTravail)) {
+            $this->offreTravail[] = $offreTravail;
+            $offreTravail->setRestaurant($this);
         }
 
         return $this;
@@ -258,5 +282,25 @@ class Restaurant
 
         return $this;
     }
+
+    public function removeOffreTravail(OffreTravail $offreTravail): self
+    {
+        if ($this->offreTravail->removeElement($offreTravail)) {
+            // set the owning side to null (unless already changed)
+            if ($offreTravail->getRestaurant() === $this) {
+                $offreTravail->setRestaurant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->getNomRestaurant();
+    }
+
+
 
 }
