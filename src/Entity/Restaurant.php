@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=RestaurantRepository::class)
@@ -17,31 +19,40 @@ class Restaurant
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_restaurant;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le nom du restaurant est obligatoire")
+     *  @Assert\Length(
+     *      min = 3,
+     *      max = 25,
+     *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
+     *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
+     * )
+     * @Groups("post:read")
      */
     private $nom_restaurant;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="la description du restaurant est obligatoire")
+     * @Groups("post:read")
      */
     private $desc_restaurant;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Positive
+     * @Assert\Positive(message="La capacité doit etre une valeur positive")
      * @Assert\NotBlank(message="vous devez inserer le nombre de place de votre restaurant")
-     *  @Assert\Length(
+     * * @Assert\Range(
      *      min = 1,
-     *      max = 500,
-     *      minMessage = "la capacite du restaurant doit etre entre [1..500]",
-     *      maxMessage = "la capacite du restaurant doit etre entre [1..500]"
+     *      max = 50,
+     *      notInRangeMessage = "la capacite du restaurant doit etre entre {{ min }} et {{ max }}",
      * )
+     * @Groups("post:read")
      */
     private $capacite;
 
@@ -53,21 +64,26 @@ class Restaurant
      *      minMessage = "le numero du telephone doit contenir 8 numeros",
      *      maxMessage = "le numero du telephone doit contenir 8 numeros"
      * )
+     *@Assert\NotBlank(message="le numero de telephone est obligatoire")
      * @Assert\Positive
+     * @Groups("post:read")
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("post:read")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="vous devez choisir la sepcialite de votre restaurant")
+     * @Groups("post:read")
      */
     private $specialite;
 
+   
     /**
      * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="restaurant")
      */
@@ -76,6 +92,8 @@ class Restaurant
     public function __construct()
     {
         $this->offreTravail = new ArrayCollection();
+        $this->produitplats = new ArrayCollection();
+
     }
 
     public function getIdRestaurant(): ?int
@@ -155,6 +173,34 @@ class Restaurant
         return $this;
     }
 
+
+    //    Relations
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ProduitPlat::class, inversedBy="restaurants")
+     *  @ORM\JoinTable(name="Resto_produitplat",
+     *     joinColumns={@ORM\JoinColumn(name="id_restaurant", referencedColumnName="id_restaurant")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_produitplat", referencedColumnName="id_produitplat")}
+     *      )
+     * @Groups("post:read")
+     */
+
+    private $produitplats;
+
+    /**
+     * @return Collection|ProduitPlat[]
+     */
+    public function getProduitPlats(): Collection
+    {
+        return $this->produitplats;
+    }
+
+    public function addProduitPlat(ProduitPlat $produitplat): self
+    {
+        if (!$this->produitplats->contains($produitplat)) {
+            $this->produitplats[] = $produitplat;
+
+
     /**
      * @return Collection|OffreTravail[]
      */
@@ -169,6 +215,70 @@ class Restaurant
             $this->offreTravail[] = $offreTravail;
             $offreTravail->setRestaurant($this);
         }
+
+        return $this;
+    }
+
+    public function removeProduitPlat(ProduitPlat $produitplat): self
+    {
+       $this->produitplats->removeElement($produitplat);
+
+        return $this;
+    }
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="restaurants")
+     *@Groups("post:read")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="restaurants")
+     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
+     * })
+     */
+    private $user;
+
+    /**
+     * @return Collection|Reservation[]|null
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setReservation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getReservation() === $this) {
+                $reservation->setReservation(null);
+            }
+        }
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

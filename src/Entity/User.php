@@ -74,10 +74,12 @@ class User implements UserInterface
      */
     private $roles = [];
 
+
     /**
      * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="user")
      */
     private $offreTravail;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -92,6 +94,26 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
+
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Restaurant::class, mappedBy="user")
+     */
+    private $restaurants;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+        $this->restaurants = new ArrayCollection();
+        $this->offreTravail = new ArrayCollection();
+    }
+
+
+
+
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $activationToken;
@@ -111,11 +133,6 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
-
-    public function __construct()
-    {
-        $this->offreTravail = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -263,6 +280,7 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+
         return $this->email;
     }
 
@@ -283,6 +301,21 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setUser($this);
+        }
+
     public function getActivationToken(): ?string
     {
         return $this->activationToken;
@@ -294,6 +327,15 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getUser() === $this) {
+                $reservation->setUser(null);
+            }
+        }
 
     public function getResetToken(): ?string
     {
@@ -307,6 +349,21 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Restaurant[]
+     */
+    public function getRestaurants(): Collection
+    {
+        return $this->restaurants;
+    }
+
+    public function addRestaurant(Restaurant $restaurant): self
+    {
+        if (!$this->restaurants->contains($restaurant)) {
+            $this->restaurants[] = $restaurant;
+            $restaurant->setUser($this);
+        }
+
     public function getImage(): ?string
     {
         return $this->image;
@@ -318,6 +375,25 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function removeRestaurant(Restaurant $restaurant): self
+    {
+        if ($this->restaurants->removeElement($restaurant)) {
+            // set the owning side to null (unless already changed)
+            if ($restaurant->getUser() === $this) {
+                $restaurant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+
+
+
+}
 
     public function getAddress(): ?string
     {
