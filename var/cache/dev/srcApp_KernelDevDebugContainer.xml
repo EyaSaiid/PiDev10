@@ -5573,6 +5573,13 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.NIPuDqX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="cat" type="service_closure" id="App\Repository\CategorieRepository"/>
+        <argument key="normalizer" type="service_closure" id="serializer"/>
+      </argument>
+    </service>
     <service id=".service_locator.hqNb5OX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5679,11 +5686,11 @@
         <argument key="reservation" type="service_closure" id=".errored..service_locator.seS9gks.App\Entity\Reservation"/>
       </argument>
     </service>
-    <service id=".service_locator.P3fkpr8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.c3Se6SB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="normalizer" type="service_closure" id="serializer"/>
         <argument key="restaurep" type="service_closure" id="App\Repository\RestaurantRepository"/>
-        <argument key="serializerinterface" type="service_closure" id="serializer"/>
       </argument>
     </service>
     <service id=".service_locator.6fGK5AF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5725,9 +5732,10 @@
         <argument key="restaurant" type="service_closure" id=".errored..service_locator..ik47nb.App\Entity\Restaurant"/>
       </argument>
     </service>
-    <service id=".service_locator.ixonJEW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.BAp0hyn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CategorieController::ListCategorieJson" type="service_closure" id=".service_locator.NIPuDqX"/>
         <argument key="App\Controller\CategorieController::delete" type="service_closure" id=".service_locator.pCoFPhJ"/>
         <argument key="App\Controller\CategorieController::edit" type="service_closure" id=".service_locator.pCoFPhJ"/>
         <argument key="App\Controller\CategorieController::index" type="service_closure" id=".service_locator.hqNb5OX"/>
@@ -5747,7 +5755,7 @@
         <argument key="App\Controller\ReservationController::new" type="service_closure" id=".service_locator.2SxEx4F"/>
         <argument key="App\Controller\ReservationController::show" type="service_closure" id=".service_locator.kvNeJHT"/>
         <argument key="App\Controller\ReservationController::stat" type="service_closure" id=".service_locator.rw3vVXJ"/>
-        <argument key="App\Controller\RestaurantController::ListRestaurantJson" type="service_closure" id=".service_locator.P3fkpr8"/>
+        <argument key="App\Controller\RestaurantController::ListRestaurantJson" type="service_closure" id=".service_locator.c3Se6SB"/>
         <argument key="App\Controller\RestaurantController::delete" type="service_closure" id=".service_locator..ik47nb"/>
         <argument key="App\Controller\RestaurantController::edit" type="service_closure" id=".service_locator..ik47nb"/>
         <argument key="App\Controller\RestaurantController::index" type="service_closure" id=".service_locator.6fGK5AF"/>
@@ -5756,6 +5764,7 @@
         <argument key="App\Controller\RestaurantController::show" type="service_closure" id=".service_locator.ky1UVZL"/>
         <argument key="App\Controller\RestaurantController::show2" type="service_closure" id=".service_locator.xDFrwl5"/>
         <argument key="App\Controller\RestaurantController::show3" type="service_closure" id=".service_locator.ky1UVZL"/>
+        <argument key="App\Controller\CategorieController:ListCategorieJson" type="service_closure" id=".service_locator.NIPuDqX"/>
         <argument key="App\Controller\CategorieController:delete" type="service_closure" id=".service_locator.pCoFPhJ"/>
         <argument key="App\Controller\CategorieController:edit" type="service_closure" id=".service_locator.pCoFPhJ"/>
         <argument key="App\Controller\CategorieController:index" type="service_closure" id=".service_locator.hqNb5OX"/>
@@ -5775,7 +5784,7 @@
         <argument key="App\Controller\ReservationController:new" type="service_closure" id=".service_locator.2SxEx4F"/>
         <argument key="App\Controller\ReservationController:show" type="service_closure" id=".service_locator.kvNeJHT"/>
         <argument key="App\Controller\ReservationController:stat" type="service_closure" id=".service_locator.rw3vVXJ"/>
-        <argument key="App\Controller\RestaurantController:ListRestaurantJson" type="service_closure" id=".service_locator.P3fkpr8"/>
+        <argument key="App\Controller\RestaurantController:ListRestaurantJson" type="service_closure" id=".service_locator.c3Se6SB"/>
         <argument key="App\Controller\RestaurantController:delete" type="service_closure" id=".service_locator..ik47nb"/>
         <argument key="App\Controller\RestaurantController:edit" type="service_closure" id=".service_locator..ik47nb"/>
         <argument key="App\Controller\RestaurantController:index" type="service_closure" id=".service_locator.6fGK5AF"/>
@@ -6260,12 +6269,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.ixonJEW"/>
+      <argument type="service" id=".service_locator.BAp0hyn"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.ixonJEW"/>
+      <argument type="service" id=".service_locator.BAp0hyn"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6695,7 +6704,7 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ixonJEW"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.BAp0hyn"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

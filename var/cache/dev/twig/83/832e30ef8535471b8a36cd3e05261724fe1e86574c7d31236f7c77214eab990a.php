@@ -87,22 +87,25 @@ class __TwigTemplate_cac6986e8d519339268422d03a33ae2e3527ffbb1123d5682cbd34618f4
         // line 6
         echo "    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css\" integrity=\"sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==\" crossorigin=\"anonymous\">
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
-    
-    <canvas id=\"reservations\" width=\"400\" height=\"100\"></canvas>
+
+    <div class=\"card\">
+        <h2>Nombre de reservation par date</h2>
+        <canvas id=\"reservations\" width=\"400\" height=\"100\"></canvas>
+    </div>
     <script>
         let reservations = document.querySelector(\"#reservations\")
         let annGraph = new Chart(reservations, {
             type: \"line\",
             data: {
                 labels: ";
-        // line 15
-        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 15, $this->source); })());
+        // line 18
+        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 18, $this->source); })());
         echo ",
                 datasets: [{
                     label: \"Nombre de reservation\",
                     data: ";
-        // line 18
-        echo (isset($context["reservationsCount"]) || array_key_exists("reservationsCount", $context) ? $context["reservationsCount"] : (function () { throw new RuntimeError('Variable "reservationsCount" does not exist.', 18, $this->source); })());
+        // line 21
+        echo (isset($context["reservationsCount"]) || array_key_exists("reservationsCount", $context) ? $context["reservationsCount"] : (function () { throw new RuntimeError('Variable "reservationsCount" does not exist.', 21, $this->source); })());
         echo "
                 }]
             },
@@ -139,7 +142,7 @@ class __TwigTemplate_cac6986e8d519339268422d03a33ae2e3527ffbb1123d5682cbd34618f4
 
     public function getDebugInfo()
     {
-        return array (  105 => 18,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  108 => 21,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -151,8 +154,11 @@ class __TwigTemplate_cac6986e8d519339268422d03a33ae2e3527ffbb1123d5682cbd34618f4
 {% block bodyBack %}
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css\" integrity=\"sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==\" crossorigin=\"anonymous\">
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
-    
-    <canvas id=\"reservations\" width=\"400\" height=\"100\"></canvas>
+
+    <div class=\"card\">
+        <h2>Nombre de reservation par date</h2>
+        <canvas id=\"reservations\" width=\"400\" height=\"100\"></canvas>
+    </div>
     <script>
         let reservations = document.querySelector(\"#reservations\")
         let annGraph = new Chart(reservations, {

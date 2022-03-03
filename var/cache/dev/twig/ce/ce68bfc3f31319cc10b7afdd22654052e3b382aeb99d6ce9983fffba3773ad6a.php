@@ -67,16 +67,19 @@ class __TwigTemplate_151a7c3e9583b80ed2c6979836aebfb2e74aa835e087685662c3cebcd02
         // line 3
         echo "    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css\" integrity=\"sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=\" crossorigin=\"anonymous\">
     <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js\" integrity=\"sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=\" crossorigin=\"anonymous\"></script>
-
     <style>
         #reservation{
             width: 80%;
             margin: auto;
         }
     </style>
-    
-    <div id=\"reservation\">
 
+    <div class=\"card\">
+        <h2>Calendrier des reservation</h2>
+        <div id=\"reservation\">
+
+        </div>
+        <canvas id=\"reservations\" width=\"400\" height=\"100\"></canvas>
     </div>
     <script>
         window.onload = () => {
@@ -91,26 +94,16 @@ class __TwigTemplate_151a7c3e9583b80ed2c6979836aebfb2e74aa835e087685662c3cebcd02
                     end: 'dayGridMonth'
                 },
                 events: ";
-        // line 28
-        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 28, $this->source); })());
+        // line 31
+        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 31, $this->source); })());
         echo ",
                 editable: true,
                 eventResizableFromStart: true,
 
             })
-
-
             calendar.render()
         }
     </script>
-
-
-
-
-
-
-
-
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -132,7 +125,7 @@ class __TwigTemplate_151a7c3e9583b80ed2c6979836aebfb2e74aa835e087685662c3cebcd02
 
     public function getDebugInfo()
     {
-        return array (  95 => 28,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  98 => 31,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -141,16 +134,19 @@ class __TwigTemplate_151a7c3e9583b80ed2c6979836aebfb2e74aa835e087685662c3cebcd02
 {% block bodyBack %}
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css\" integrity=\"sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=\" crossorigin=\"anonymous\">
     <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js\" integrity=\"sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=\" crossorigin=\"anonymous\"></script>
-
     <style>
         #reservation{
             width: 80%;
             margin: auto;
         }
     </style>
-    
-    <div id=\"reservation\">
 
+    <div class=\"card\">
+        <h2>Calendrier des reservation</h2>
+        <div id=\"reservation\">
+
+        </div>
+        <canvas id=\"reservations\" width=\"400\" height=\"100\"></canvas>
     </div>
     <script>
         window.onload = () => {
@@ -169,19 +165,9 @@ class __TwigTemplate_151a7c3e9583b80ed2c6979836aebfb2e74aa835e087685662c3cebcd02
                 eventResizableFromStart: true,
 
             })
-
-
             calendar.render()
         }
     </script>
-
-
-
-
-
-
-
-
 {% endblock %}", "Back/reservation/Calendar.html.twig", "C:\\Users\\dell\\Desktop\\PGit\\PiDev10\\templates\\Back\\reservation\\Calendar.html.twig");
     }
 }

@@ -5,17 +5,34 @@ namespace App\Controller;
 use App\Entity\Categorie;
 use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
+use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
  * @Route("/categorie")
  */
 class CategorieController extends AbstractController
 {
+    /**
+     * @Route("/listjson", name="categorie_json")
+     */
+    public function ListCategorieJson(CategorieRepository $cat, NormalizerInterface $normalizer): Response
+    {
+        $categorie=$cat->findAll();
+        $js=$normalizer->normalize($categorie,'json',['groups'=>'post:read']);
+        // $json=$serializerinterface->normalize($restaurant,'json',['groups'=>'restaurant']);
+        // dump($restaurant);
+        //die;
+        //$formatted= $serializer->normalize($json);
+        return new Response(json_encode($js));
+    }
+
+
     /**
      * @Route("/findAll", name="categorie_index", methods={"GET"})
      */
@@ -90,6 +107,8 @@ class CategorieController extends AbstractController
 
         return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 
 
 }

@@ -20,6 +20,8 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 /**
  * @Route("/restaurant")
@@ -28,17 +30,17 @@ class RestaurantController extends AbstractController
 {
 
     /**
-     * @Route("/listjson", name="produit_json")
+     * @Route("/listjson", name="restaurant_json")
      */
-    public function ListRestaurantJson(RestaurantRepository $restaurep, SerializerInterface $serializerinterface): Response
+    public function ListRestaurantJson(RestaurantRepository $restaurep, NormalizerInterface $normalizer): Response
     {
         $restaurant=$restaurep->findAll();
-
-        $json=$serializerinterface->normalize($restaurant,'json',['groups'=>'restaurant']);
-        //dump($restaurant);
+        $js=$normalizer->normalize($restaurant,'json',['groups'=>'post:read']);
+       // $json=$serializerinterface->normalize($restaurant,'json',['groups'=>'restaurant']);
+       // dump($restaurant);
         //die;
        //$formatted= $serializer->normalize($json);
-        return new Response(json_encode($json));
+        return new Response(json_encode($js));
     }
 
 

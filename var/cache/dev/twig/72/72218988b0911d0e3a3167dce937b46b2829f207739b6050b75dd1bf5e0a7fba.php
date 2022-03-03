@@ -87,23 +87,27 @@ class __TwigTemplate_f30f8461a7f8e33c38de8162c878a9e44b611fe7e03c872f434e81e0f5e
         // line 6
         echo "    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css\" integrity=\"sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==\" crossorigin=\"anonymous\">
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
-    <canvas id=\"categories\" width=\"400\" height=\"100\"></canvas>
+    <div class=\"card\">
+        <h2>Nombre de produits par catégorie</h2>
+        <canvas id=\"categories\" width=\"400\" height=\"100\"></canvas>
+    </div>
+
 <script>
     let categories = document.querySelector(\"#categories\")
     let categGraph = new Chart(categories, {
-        type: \"pie\",
+        type: \"doughnut\",
         data: {
             labels: ";
-        // line 14
-        echo (isset($context["categNom"]) || array_key_exists("categNom", $context) ? $context["categNom"] : (function () { throw new RuntimeError('Variable "categNom" does not exist.', 14, $this->source); })());
+        // line 18
+        echo (isset($context["categNom"]) || array_key_exists("categNom", $context) ? $context["categNom"] : (function () { throw new RuntimeError('Variable "categNom" does not exist.', 18, $this->source); })());
         echo ",
             datasets: [{
                 label: \"Répartition des catégories\",
                 data: ";
-        // line 17
-        echo (isset($context["categCount"]) || array_key_exists("categCount", $context) ? $context["categCount"] : (function () { throw new RuntimeError('Variable "categCount" does not exist.', 17, $this->source); })());
+        // line 21
+        echo (isset($context["categCount"]) || array_key_exists("categCount", $context) ? $context["categCount"] : (function () { throw new RuntimeError('Variable "categCount" does not exist.', 21, $this->source); })());
         echo ",
-                backgroundColor: [\"blue\",\"red\",\"orange\"],
+                backgroundColor: [\"blue\",\"pink\",\"orange\"],
             }]
         }
     })
@@ -130,7 +134,7 @@ class __TwigTemplate_f30f8461a7f8e33c38de8162c878a9e44b611fe7e03c872f434e81e0f5e
 
     public function getDebugInfo()
     {
-        return array (  104 => 17,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  108 => 21,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -142,17 +146,21 @@ class __TwigTemplate_f30f8461a7f8e33c38de8162c878a9e44b611fe7e03c872f434e81e0f5e
 {% block bodyBack %}
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css\" integrity=\"sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==\" crossorigin=\"anonymous\">
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
-    <canvas id=\"categories\" width=\"400\" height=\"100\"></canvas>
+    <div class=\"card\">
+        <h2>Nombre de produits par catégorie</h2>
+        <canvas id=\"categories\" width=\"400\" height=\"100\"></canvas>
+    </div>
+
 <script>
     let categories = document.querySelector(\"#categories\")
     let categGraph = new Chart(categories, {
-        type: \"pie\",
+        type: \"doughnut\",
         data: {
             labels: {{ categNom|raw }},
             datasets: [{
                 label: \"Répartition des catégories\",
                 data: {{ categCount|raw }},
-                backgroundColor: [\"blue\",\"red\",\"orange\"],
+                backgroundColor: [\"blue\",\"pink\",\"orange\"],
             }]
         }
     })

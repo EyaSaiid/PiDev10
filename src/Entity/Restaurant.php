@@ -18,7 +18,7 @@ class Restaurant
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $id_restaurant;
 
@@ -31,14 +31,14 @@ class Restaurant
      *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
      *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
      * )
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $nom_restaurant;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="la description du restaurant est obligatoire")
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $desc_restaurant;
 
@@ -51,7 +51,7 @@ class Restaurant
      *      max = 50,
      *      notInRangeMessage = "la capacite du restaurant doit etre entre {{ min }} et {{ max }}",
      * )
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $capacite;
 
@@ -65,20 +65,20 @@ class Restaurant
      * )
      *@Assert\NotBlank(message="le numero de telephone est obligatoire")
      * @Assert\Positive
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="vous devez choisir la sepcialite de votre restaurant")
-     * @Groups("restaurant")
+     * @Groups("post:read")
      */
     private $specialite;
 
@@ -168,7 +168,7 @@ class Restaurant
      *     joinColumns={@ORM\JoinColumn(name="id_restaurant", referencedColumnName="id_restaurant")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="id_produitplat", referencedColumnName="id_produitplat")}
      *      )
-     *@Groups("restaurant")
+     * @Groups("post:read")
      */
 
     private $produitplats;
@@ -206,6 +206,7 @@ class Restaurant
 
     /**
      * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="restaurants")
+     *@Groups("post:read")
      */
     private $reservations;
 

@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -19,11 +19,13 @@ class ProduitPlat
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_produitplat;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_categorie;
 
@@ -36,6 +38,7 @@ class ProduitPlat
      *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
      *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
      * )
+     * @Groups("post:read")
      */
     private $nom_produitplat;
 
@@ -43,6 +46,7 @@ class ProduitPlat
      * @ORM\Column(type="float")
      * @Assert\Positive
      * @Assert\NotBlank(message="le prix est obligatoire")
+     * @Groups("post:read")
      */
     private $prix;
 
@@ -143,6 +147,7 @@ class ProduitPlat
      * @ORM\JoinColumns({
      *  @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_categorie" , onDelete="CASCADE")
      * })
+     *
      */
     private $categories;
 

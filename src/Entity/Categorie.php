@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=CategorieRepository::class)
  */
@@ -16,6 +17,7 @@ class Categorie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_categorie;
 
@@ -28,6 +30,7 @@ class Categorie
      *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
      *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
      * )
+     * @Groups("post:read")
      */
     private $nom_categorie;
 
@@ -52,6 +55,7 @@ class Categorie
 
     /**
      * @ORM\OneToMany(targetEntity=ProduitPlat::class, mappedBy="categories")
+     * @Groups("post:read")
      */
     private $produitplats;
     public function __construct()
