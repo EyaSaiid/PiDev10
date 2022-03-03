@@ -19,131 +19,122 @@ class Livraison
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="required")
-     * @Assert\Regex(
-     *        pattern  = "/[^a-z A-Z À-þ]+/",
-     *     match=false,
-     *     message="le prenom ne doit pas contenir des chiffres"
-     * )
-     */
-    private $Prenom;
+
+
+
+
+
+
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="required")
-     * @Assert\Regex(
-     *        pattern  = "/[^a-z A-Z À-þ]+/",
-     *     match=false,
-     *     message="le nom ne doit pas contenir des chiffres"
-     * )
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="livraisons", cascade={"persist"})
      */
-    private $Nom;
+    private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="required")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commande_produit", mappedBy="livraisons",cascade={"persist","remove"})
      */
-    private $adresse;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="required")
-     *
-     * @Assert\GreaterThan(0),
-     *
-     *
-     */
-
-    private $tel;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="required")
-     * @Assert\Regex(
-     *     pattern="/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/",
-     *     message="not_valid_email"
-     * )
-     *
-     * @var string
-     */
-    private $email;
-
+    private $produits;
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $etat;
-
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $total;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $datecommande;
     /**
      * @ORM\ManyToOne(targetEntity=Commande::class, inversedBy="livraison")
      */
     private $commande;
+
+    /**
+     * @param $etat
+     * @param $datecommande
+     */
+    public function __construct()
+    {
+        $this->etat = 'en attente';
+        $this->datecommande = new \DateTime();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPrenom(): ?string
+    /**
+     * @return mixed
+     */
+    public function getUser()
     {
-        return $this->Prenom;
+        return $this->user;
     }
 
-    public function setPrenom(string $Prenom): self
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
     {
-        $this->Prenom = $Prenom;
-
-        return $this;
+        $this->user = $user;
     }
 
-    public function getNom(): ?string
+    /**
+     * @return mixed
+     */
+    public function getProduits()
     {
-        return $this->Nom;
+        return $this->produits;
     }
 
-    public function setNom(string $Nom): self
+    /**
+     * @param mixed $produits
+     */
+    public function setProduits($produits): void
     {
-        $this->Nom = $Nom;
-
-        return $this;
+        $this->produits = $produits;
     }
 
-    public function getAdresse(): ?string
+    /**
+     * @return mixed
+     */
+    public function getTotal()
     {
-        return $this->adresse;
+        return $this->total;
     }
 
-    public function setAdresse(string $adresse): self
+    /**
+     * @param mixed $total
+     */
+    public function setTotal($total): void
     {
-        $this->adresse = $adresse;
-
-        return $this;
+        $this->total = $total;
     }
 
-    public function getTel(): ?string
+    /**
+     * @return mixed
+     */
+    public function getDatecommande()
     {
-        return $this->tel;
+        return $this->datecommande;
     }
 
-    public function setTel(string $tel): self
+    /**
+     * @param mixed $datecommande
+     */
+    public function setDatecommande($datecommande): void
     {
-        $this->tel = $tel;
-
-        return $this;
+        $this->datecommande = $datecommande;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
 
-        return $this;
-    }
+
+
 
     public function getEtat(): ?string
     {
@@ -168,4 +159,6 @@ class Livraison
 
         return $this;
     }
+
+
 }

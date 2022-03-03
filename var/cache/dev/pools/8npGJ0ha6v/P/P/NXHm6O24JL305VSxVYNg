@@ -8,10 +8,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'stdClass' => [
             'targetEntity' => [
-                'App\\Entity\\Commande',
+                'App\\Entity\\Commande_produit',
             ],
             'mappedBy' => [
-                'produit',
+                'produits',
+            ],
+            'cascade' => [
+                [
+                    'persist',
+                    'remove',
+                ],
             ],
         ],
     ],

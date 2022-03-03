@@ -15,11 +15,7 @@ class LivraisonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Prenom')
-            ->add('Nom')
-            ->add('adresse')
-            ->add('tel')
-            ->add('email',EmailType::class)
+
             //->add('etat')
             ->add('commande' , EntityType::class, [
                 'class'=>Commande::class,

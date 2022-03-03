@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerVd442ol/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerXGr0X5h/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -42,7 +42,10 @@ $classes[] = 'App\Form\EditLivraisonType';
 $classes[] = 'App\Form\LivraisonType';
 $classes[] = 'App\Repository\CommandeRepository';
 $classes[] = 'App\Repository\LivraisonRepository';
+$classes[] = 'App\Repository\OffreTravailRepository';
 $classes[] = 'App\Repository\ProduitRepository';
+$classes[] = 'App\Repository\RestaurantRepository';
+$classes[] = 'App\Repository\UserRepository';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Registry';
@@ -364,7 +367,7 @@ $classes[] = 'Symfony\Component\Security\Http\RememberMe\ResponseListener';
 $classes[] = 'Symfony\Component\Security\Core\Role\RoleHierarchy';
 $classes[] = 'Symfony\Component\Security\Core\Authentication\Token\Storage\UsageTrackingTokenStorage';
 $classes[] = 'Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage';
-$classes[] = 'Symfony\Component\Security\Core\User\InMemoryUserProvider';
+$classes[] = 'Symfony\Bridge\Doctrine\Security\User\EntityUserProvider';
 $classes[] = 'Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator';
 $classes[] = 'Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener';
 $classes[] = 'Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener';

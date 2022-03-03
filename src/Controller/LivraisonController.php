@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande_produit;
 use App\Entity\Livraison;
+use App\Entity\User;
 use App\Form\LivraisonType;
 use App\Form\EditLivraisonType;
 use App\Repository\LivraisonRepository;
+use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,16 +33,47 @@ class LivraisonController extends AbstractController
     /**
      * @Route("/new", name="livraison_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager , ProduitRepository $produitRepository): Response
     {
-        $livraison = new Livraison();
-        $form = $this->createForm(LivraisonType::class, $livraison);
-        $form->handleRequest($request);
 
+        $session=  $this->get('session');
+
+        if (!$session->has('panier')) {$session->set('panier',array());}
+        $panier = $session->get('panier');
+        $livraison = new Livraison();
+        $form = $this->createForm(LivraisonType::class, $livraison );
+        $form->handleRequest($request);
+        $usr= new User();
+        $usr->setId(1);
         if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($livraison);
+            $livraison->setUser($usr);
+            $livraison->setTotal(0);
             $livraison->setEtat('non livré');
             $entityManager->persist($livraison);
             $entityManager->flush();
+            foreach ($panier as $id => $qte) {
+                $cp = new Commande_produit();
+
+                $article = $produitRepository->findOneBy(['id' => $id]);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($cp);
+                $cp->setProduit($article);
+                $cp->setLivraison($livraison);
+                $cp->setQte($qte);
+                $entityManager->persist($cp);
+
+                $entityManager->flush();
+            }
+            //AAAAAAAAAAAAAAAAAAAAA
+       /*
+        $livraison = new Livraison();
+        $form = $this->createForm(LivraisonType::class, $livraison);
+        $form->handleRequest($request);
+*/
+
+
 
 
             return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);

@@ -49,7 +49,7 @@ class Produit
     private $quantiteProduit;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Commande::class, mappedBy="produit")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Commande_produit", mappedBy="produits",cascade={"persist","remove"})
      */
     private $commandes;
 

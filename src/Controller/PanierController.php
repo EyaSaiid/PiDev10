@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande_produit;
+use App\Entity\Livraison;
+use App\Form\LivraisonType;
 use App\Repository\ProduitRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +20,7 @@ class PanierController extends AbstractController
      */
 
 
-    public function getPanier(ProduitRepository $produitRepository)
+    public function getPanier(ProduitRepository $produitRepository , Request  $request)
     {
         $articles=[];
         $qts=[];
@@ -33,7 +36,33 @@ class PanierController extends AbstractController
 
             $total+=$qte*$article->getPrixProduit();
         }
-        return $this->render('panier/index.html.twig', [
+        $livraison = new Livraison();
+        $form = $this->createForm(LivraisonType::class, $livraison );
+        $form->handleRequest($request);
+        $usr= 1;
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($livraison);
+            $livraison->setUser($usr);
+            $livraison->setTotal(0);
+            $entityManager->flush();
+            foreach ($panier as $id => $qte) {
+                $cp = new Commande_produit();
+
+                $article = $produitRepository->findOneBy(['id' => $id]);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($cp);
+                $cp->setProduit($article);
+                $cp->setLivraison($livraison);
+                $cp->setQte($qte);
+                $entityManager->flush();
+            }
+            $this->viderPanier();
+            return $this->redirectToRoute('Front');
+        }
+
+
+                return $this->render('panier/index.html.twig', [
             'articles' => $articles,
             'total' => $total,
             'nbr'=>$this->panierCount(),
@@ -168,4 +197,9 @@ class PanierController extends AbstractController
         return( $this->redirectToRoute('panier'));
 
     }
+    public  function viderPanier(){
+        $session = $this->get('session');
+        $session->set('panier',array());
+    }
+
 }
