@@ -22,16 +22,17 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
+                <th>Ref commande</th>
+                <th>Etat Livraison</th>
+                <th>Date Livraison</th>
+
                 <th></th>
             </tr>
             </thead>
             <tbody>
             {% for livraison in livraisons %}
                 <tr>
+                    <td>{{ livraison.id  }}</td>
                     <td>{{ livraison.etat  }}</td>
 
                     <td>{{ livraison.datecommande|date('d-m-Y') }}</td>
@@ -40,18 +41,7 @@
                 </tr>
             {% endfor %}
             </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="3" class="text-right">Total :
-                </td>
 
-
-
-
-
-
-            </tr>
-            </tfoot>
         </table>
     {% else %}
         <p> Votre panier est vide!</p>

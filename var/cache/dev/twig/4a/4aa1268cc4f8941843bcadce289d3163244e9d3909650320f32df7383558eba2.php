@@ -620,7 +620,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                 <li class=\"nav-item\">
                     <a href=\"";
         // line 361
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Affichel");
         echo "\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
@@ -1088,7 +1088,7 @@ class __TwigTemplate_2f1d809e330993861c42a6b216a63756509db2294c04f16da3902c4f7b3
                     </a>
                 </li>
                 <li class=\"nav-item\">
-                    <a href=\"{{ path(\"livraison_index\") }}\" class=\"nav-link\">
+                    <a href=\"{{ path(\"Affichel\") }}\" class=\"nav-link\">
                         <i class=\"nav-icon fas fa-table\"></i>
                         <p>
                             Gestion Commande

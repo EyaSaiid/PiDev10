@@ -77,7 +77,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 ";
         // line 106
         $this->displayBlock('body', $context, $blocks);
-        // line 215
+        // line 216
         echo "</body>
 </html>";
         
@@ -369,8 +369,12 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
         // line 127
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
         echo "\" class=\"nav-item nav-link\">Panier</a>
+                    <a href=\"";
+        // line 128
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_index");
+        echo "\" class=\"nav-item nav-link\">Mes commandes</a>
                    ";
-        // line 136
+        // line 137
         echo "                </div>
             </div>
         </div>
@@ -381,9 +385,9 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
 
 ";
-        // line 145
-        $this->displayBlock('bodyMenu', $context, $blocks);
         // line 146
+        $this->displayBlock('bodyMenu', $context, $blocks);
+        // line 147
         echo "
 
     <!-- Footer Start -->
@@ -437,7 +441,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
             <div class=\"container\">
                 <p>Copyright &copy; <a href=\"#\">Your Site Name</a>, All Right Reserved.</p>
                 <p>Designed By <a href= ";
-        // line 198
+        // line 199
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://htmlcodex.com"), "html", null, true);
         echo " >HTML Codex</a></p>
             </div>
@@ -464,7 +468,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     }
 
-    // line 145
+    // line 146
     public function block_bodyMenu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -495,7 +499,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
 
     public function getDebugInfo()
     {
-        return array (  468 => 145,  441 => 198,  387 => 146,  385 => 145,  374 => 136,  370 => 127,  366 => 126,  362 => 125,  358 => 124,  353 => 123,  349 => 121,  345 => 120,  341 => 119,  337 => 118,  327 => 111,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 215,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
+        return array (  472 => 146,  445 => 199,  391 => 147,  389 => 146,  378 => 137,  374 => 128,  370 => 127,  366 => 126,  362 => 125,  358 => 124,  353 => 123,  349 => 121,  345 => 120,  341 => 119,  337 => 118,  327 => 111,  321 => 107,  311 => 106,  296 => 99,  291 => 97,  286 => 95,  281 => 93,  277 => 92,  272 => 90,  267 => 88,  255 => 79,  249 => 76,  245 => 75,  239 => 72,  235 => 71,  231 => 70,  227 => 69,  223 => 68,  219 => 67,  215 => 66,  212 => 65,  202 => 64,  187 => 58,  182 => 56,  178 => 55,  173 => 53,  168 => 51,  163 => 48,  157 => 27,  151 => 24,  147 => 23,  143 => 22,  139 => 21,  135 => 20,  131 => 19,  125 => 16,  121 => 14,  111 => 13,  92 => 5,  81 => 216,  79 => 106,  75 => 104,  73 => 64,  70 => 63,  68 => 13,  64 => 12,  58 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -627,6 +631,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
                     <a href=\"{{ path(\"booking\") }}\" class=\"nav-item nav-link\"> Booking </a>
                     <a href=\"{{ path(\"contact\") }}\" class=\"nav-item nav-link\">Contact</a>
                     <a href=\"{{ path(\"panier\") }}\" class=\"nav-item nav-link\">Panier</a>
+                    <a href=\"{{ path(\"livraison_index\") }}\" class=\"nav-item nav-link\">Mes commandes</a>
                    {# <div class=\"nav-item dropdown\">
                         <a href=\"#\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\">Pages</a>
                         <div class=\"dropdown-menu\">

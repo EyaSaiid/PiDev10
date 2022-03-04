@@ -107,10 +107,10 @@ class __TwigTemplate_1d1e8b42f86c4b0173f525a6ce689cfb5adf0d4cbafb5fb1ce75ed99e11
             echo "        <table class=\"table\">
             <thead>
             <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
+                <th>Ref commande</th>
+                <th>Etat Livraison</th>
+                <th>Date Livraison</th>
+
                 <th></th>
             </tr>
             </thead>
@@ -124,16 +124,20 @@ class __TwigTemplate_1d1e8b42f86c4b0173f525a6ce689cfb5adf0d4cbafb5fb1ce75ed99e11
                 echo "                <tr>
                     <td>";
                 // line 35
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["livraison"], "etat", [], "any", false, false, false, 35), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["livraison"], "id", [], "any", false, false, false, 35), "html", null, true);
+                echo "</td>
+                    <td>";
+                // line 36
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["livraison"], "etat", [], "any", false, false, false, 36), "html", null, true);
                 echo "</td>
 
                     <td>";
-                // line 37
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["livraison"], "datecommande", [], "any", false, false, false, 37), "d-m-Y"), "html", null, true);
+                // line 38
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["livraison"], "datecommande", [], "any", false, false, false, 38), "d-m-Y"), "html", null, true);
                 echo "</td>
 <td>                     <a href=\"";
-                // line 38
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_show", ["id" => twig_get_attribute($this->env, $this->source, $context["livraison"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+                // line 39
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("livraison_show", ["id" => twig_get_attribute($this->env, $this->source, $context["livraison"], "id", [], "any", false, false, false, 39)]), "html", null, true);
                 echo "\" class=\"btn btn-success float-right\" >
         detail</a></td>
                 </tr>
@@ -142,24 +146,13 @@ class __TwigTemplate_1d1e8b42f86c4b0173f525a6ce689cfb5adf0d4cbafb5fb1ce75ed99e11
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['livraison'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 42
+            // line 43
             echo "            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan=\"3\" class=\"text-right\">Total :
-                </td>
 
-
-
-
-
-
-            </tr>
-            </tfoot>
         </table>
     ";
         } else {
-            // line 57
+            // line 47
             echo "        <p> Votre panier est vide!</p>
     ";
         }
@@ -183,7 +176,7 @@ class __TwigTemplate_1d1e8b42f86c4b0173f525a6ce689cfb5adf0d4cbafb5fb1ce75ed99e11
 
     public function getDebugInfo()
     {
-        return array (  163 => 57,  146 => 42,  136 => 38,  132 => 37,  127 => 35,  124 => 34,  120 => 33,  107 => 22,  105 => 21,  89 => 7,  79 => 6,  59 => 3,  36 => 2,);
+        return array (  156 => 47,  150 => 43,  140 => 39,  136 => 38,  131 => 36,  127 => 35,  124 => 34,  120 => 33,  107 => 22,  105 => 21,  89 => 7,  79 => 6,  59 => 3,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -212,16 +205,17 @@ class __TwigTemplate_1d1e8b42f86c4b0173f525a6ce689cfb5adf0d4cbafb5fb1ce75ed99e11
         <table class=\"table\">
             <thead>
             <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
+                <th>Ref commande</th>
+                <th>Etat Livraison</th>
+                <th>Date Livraison</th>
+
                 <th></th>
             </tr>
             </thead>
             <tbody>
             {% for livraison in livraisons %}
                 <tr>
+                    <td>{{ livraison.id  }}</td>
                     <td>{{ livraison.etat  }}</td>
 
                     <td>{{ livraison.datecommande|date('d-m-Y') }}</td>
@@ -230,18 +224,7 @@ class __TwigTemplate_1d1e8b42f86c4b0173f525a6ce689cfb5adf0d4cbafb5fb1ce75ed99e11
                 </tr>
             {% endfor %}
             </tbody>
-            <tfoot>
-            <tr>
-                <td colspan=\"3\" class=\"text-right\">Total :
-                </td>
 
-
-
-
-
-
-            </tr>
-            </tfoot>
         </table>
     {% else %}
         <p> Votre panier est vide!</p>

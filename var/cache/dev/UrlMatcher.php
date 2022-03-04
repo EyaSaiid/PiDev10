@@ -17,6 +17,8 @@ return [
         '/Ajoutercommande' => [[['_route' => 'Ajoutercommande', '_controller' => 'App\\Controller\\CommandeController::AjouterCommande'], null, null, null, false, false, null]],
         '/livraison' => [[['_route' => 'livraison_index', '_controller' => 'App\\Controller\\LivraisonController::index'], null, ['GET' => 0], null, true, false, null]],
         '/livraison/new' => [[['_route' => 'livraison_new', '_controller' => 'App\\Controller\\LivraisonController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/livraisonback' => [[['_route' => 'livraisonback', '_controller' => 'App\\Controller\\LivraisonbackController::index'], null, null, null, false, false, null]],
+        '/Affichel' => [[['_route' => 'Affichel', '_controller' => 'App\\Controller\\LivraisonbackController::AfficheAF'], null, null, null, false, false, null]],
         '/panier' => [[['_route' => 'panier', '_controller' => 'App\\Controller\\PanierController::getPanier'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/panier/ajout' => [[['_route' => 'panier_ajout', '_controller' => 'App\\Controller\\PanierController::ajoutauPanier'], null, null, null, false, false, null]],
         '/panier/remove}' => [[['_route' => 'remove_all', '_controller' => 'App\\Controller\\PanierController::deleteAll'], null, null, null, false, false, null]],
@@ -68,7 +70,9 @@ return [
                     .'|/edit(*:236)'
                     .'|(*:244)'
                 .')'
-                .'|/panier/remove/([^/]++)(*:276)'
+                .'|/UpdateA/([^/]++)(*:270)'
+                .'|/sup/([^/]++)(*:291)'
+                .'|/panier/remove/([^/]++)(*:322)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -83,7 +87,9 @@ return [
         223 => [[['_route' => 'livraison_show', '_controller' => 'App\\Controller\\LivraisonController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         236 => [[['_route' => 'livraison_edit', '_controller' => 'App\\Controller\\LivraisonController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         244 => [[['_route' => 'livraison_delete', '_controller' => 'App\\Controller\\LivraisonController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        276 => [
+        270 => [[['_route' => 'Update', '_controller' => 'App\\Controller\\LivraisonbackController::Update'], ['id'], null, null, false, true, null]],
+        291 => [[['_route' => 'delete', '_controller' => 'App\\Controller\\LivraisonbackController::delete'], ['id'], null, null, false, true, null]],
+        322 => [
             [['_route' => 'cart_remove', '_controller' => 'App\\Controller\\PanierController::remove'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

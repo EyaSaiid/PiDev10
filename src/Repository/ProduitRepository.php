@@ -56,4 +56,16 @@ class ProduitRepository extends ServiceEntityRepository
             ->setParameter('id',$id)
             ->getQuery()->getResult();
     }
+
+
+
+    function ListProduitByLivraison($id){ // function by QueryBuilder
+        return $this-> createQueryBuilder('p')
+            ->join('p.livraison' , 'l')
+            ->addSelect('l')
+            ->where('l.id=:id')
+            ->setParameter('id',$id)
+            ->getQuery()->getResult();
+    }
+
 }

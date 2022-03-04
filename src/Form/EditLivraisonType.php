@@ -24,6 +24,7 @@ class EditLivraisonType extends AbstractType
                         'Non livré'    =>'Non livré',
                         'En cours' => 'En cours',
                         'Livré' => 'Livré',
+                        'Annulé' => 'Annulé',
 
             )))
             //->add('commande')
