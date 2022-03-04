@@ -22,6 +22,7 @@ return [
         '/panier/remove}' => [[['_route' => 'remove_all', '_controller' => 'App\\Controller\\PanierController::deleteAll'], null, null, null, false, false, null]],
         '/panier/plus' => [[['_route' => 'panier_plus', '_controller' => 'App\\Controller\\PanierController::plusPanier'], null, null, null, false, false, null]],
         '/panier/minus' => [[['_route' => 'panier_minus', '_controller' => 'App\\Controller\\PanierController::minusPanier'], null, null, null, false, false, null]],
+        '/commandedetatil' => [[['_route' => 'cmd_client', '_controller' => 'App\\Controller\\PanierController::cmdclient'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/Front' => [[['_route' => 'Front', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\ProductController::btn_home'], null, null, null, false, false, null]],
         '/contact' => [[['_route' => 'contact', '_controller' => 'App\\Controller\\ProductController::btn_contact'], null, null, null, false, false, null]],

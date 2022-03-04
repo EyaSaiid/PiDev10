@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Commande_produit;
 use App\Entity\Livraison;
+use App\Entity\User;
 use App\Form\LivraisonType;
+use App\Repository\LivraisonRepository;
 use App\Repository\ProduitRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -57,6 +59,10 @@ class PanierController extends AbstractController
                 $cp->setQte($qte);
                 $entityManager->flush();
             }
+            $entityManager->persist($livraison);
+            $livraison->setTotal($total);
+            $entityManager->flush();
+            $this->getDoctrine()->getManager()->flush();
             $this->viderPanier();
             return $this->redirectToRoute('Front');
         }
@@ -67,6 +73,7 @@ class PanierController extends AbstractController
             'total' => $total,
             'nbr'=>$this->panierCount(),
             'qts' => $qts,
+                    'total' =>$total,
 
 
         ]);
@@ -201,5 +208,16 @@ class PanierController extends AbstractController
         $session = $this->get('session');
         $session->set('panier',array());
     }
+    /**
+     * @Route("/commandedetatil", name="cmd_client", methods={"GET","POST"})
+     */
+    public  function  cmdclient(Request $request , LivraisonRepository $livraisonRepository ): Response{
+        $usr= new User();
+        $usr->setId(2);
+        $livraisons= $livraisonRepository->findBy(array('user'=>$usr));
+        return $this->render('panier/showcmd.html.twig', [
+            'commandess' => $livraisons,
 
+        ]);
+    }
 }

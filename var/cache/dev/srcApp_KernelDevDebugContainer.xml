@@ -384,6 +384,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\LivraisonProduitRepository" class="App\Repository\LivraisonProduitRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3954,7 +3958,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.10dZmCv"/>
+      <argument type="service" id=".service_locator.H6UmkLk"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4974,6 +4978,8 @@
     <service id=".abstract.instanceof.App\Form\LivraisonType" class="App\Form\LivraisonType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommandeRepository" class="App\Repository\CommandeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CommandeRepository" class="App\Repository\CommandeRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LivraisonProduitRepository" class="App\Repository\LivraisonProduitRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\LivraisonProduitRepository" class="App\Repository\LivraisonProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OffreTravailRepository" class="App\Repository\OffreTravailRepository" autowire="true" abstract="true"/>
@@ -5291,10 +5297,11 @@
         <argument key="produitRepository" type="service_closure" id="App\Repository\ProduitRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.t9z1pbv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.OOqUvgD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="livraison" type="service_closure" id=".errored..service_locator.t9z1pbv.App\Entity\Livraison"/>
+        <argument key="livraison" type="service_closure" id=".errored..service_locator.OOqUvgD.App\Entity\Livraison"/>
+        <argument key="livraisonProduitRepository" type="service_closure" id="App\Repository\LivraisonProduitRepository"/>
       </argument>
     </service>
     <service id=".service_locator.gzkzdNF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5316,7 +5323,7 @@
         <argument key="repo" type="service_closure" id="App\Repository\ProduitRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.bowPEB8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.HgRs.Ea" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CommandeController::AjouterCommande" type="service_closure" id=".service_locator.o3htLhs"/>
@@ -5325,8 +5332,9 @@
         <argument key="App\Controller\LivraisonController::edit" type="service_closure" id=".service_locator.gzkzdNF"/>
         <argument key="App\Controller\LivraisonController::index" type="service_closure" id=".service_locator.MvS2xH3"/>
         <argument key="App\Controller\LivraisonController::new" type="service_closure" id=".service_locator.A77owVz"/>
-        <argument key="App\Controller\LivraisonController::show" type="service_closure" id=".service_locator.t9z1pbv"/>
+        <argument key="App\Controller\LivraisonController::show" type="service_closure" id=".service_locator.OOqUvgD"/>
         <argument key="App\Controller\PanierController::ajoutauPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
+        <argument key="App\Controller\PanierController::cmdclient" type="service_closure" id=".service_locator.MvS2xH3"/>
         <argument key="App\Controller\PanierController::deleteAll" type="service_closure" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PanierController::getPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
         <argument key="App\Controller\PanierController::remove" type="service_closure" id=".service_locator.o3htLhs"/>
@@ -5337,8 +5345,9 @@
         <argument key="App\Controller\LivraisonController:edit" type="service_closure" id=".service_locator.gzkzdNF"/>
         <argument key="App\Controller\LivraisonController:index" type="service_closure" id=".service_locator.MvS2xH3"/>
         <argument key="App\Controller\LivraisonController:new" type="service_closure" id=".service_locator.A77owVz"/>
-        <argument key="App\Controller\LivraisonController:show" type="service_closure" id=".service_locator.t9z1pbv"/>
+        <argument key="App\Controller\LivraisonController:show" type="service_closure" id=".service_locator.OOqUvgD"/>
         <argument key="App\Controller\PanierController:ajoutauPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
+        <argument key="App\Controller\PanierController:cmdclient" type="service_closure" id=".service_locator.MvS2xH3"/>
         <argument key="App\Controller\PanierController:deleteAll" type="service_closure" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PanierController:getPanier" type="service_closure" id=".service_locator.D_VxfLH"/>
         <argument key="App\Controller\PanierController:remove" type="service_closure" id=".service_locator.o3htLhs"/>
@@ -5583,10 +5592,11 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator.10dZmCv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.H6UmkLk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CommandeRepository" type="service_closure" id="App\Repository\CommandeRepository"/>
+        <argument key="App\Repository\LivraisonProduitRepository" type="service_closure" id="App\Repository\LivraisonProduitRepository"/>
         <argument key="App\Repository\LivraisonRepository" type="service_closure" id="App\Repository\LivraisonRepository"/>
         <argument key="App\Repository\OffreTravailRepository" type="service_closure" id="App\Repository\OffreTravailRepository"/>
         <argument key="App\Repository\ProduitRepository" type="service_closure" id="App\Repository\ProduitRepository"/>
@@ -5818,12 +5828,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.bowPEB8"/>
+      <argument type="service" id=".service_locator.HgRs.Ea"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.bowPEB8"/>
+      <argument type="service" id=".service_locator.HgRs.Ea"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5833,7 +5843,7 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
-    <service id=".errored..service_locator.t9z1pbv.App\Entity\Livraison" class="App\Entity\Livraison"/>
+    <service id=".errored..service_locator.OOqUvgD.App\Entity\Livraison" class="App\Entity\Livraison"/>
     <service id=".errored..service_locator.gzkzdNF.App\Entity\Livraison" class="App\Entity\Livraison"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.TfYcj5y"/>
@@ -6225,7 +6235,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.bowPEB8"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.HgRs.Ea"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

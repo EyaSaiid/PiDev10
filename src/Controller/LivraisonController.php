@@ -7,6 +7,7 @@ use App\Entity\Livraison;
 use App\Entity\User;
 use App\Form\LivraisonType;
 use App\Form\EditLivraisonType;
+use App\Repository\LivraisonProduitRepository;
 use App\Repository\LivraisonRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,7 +26,7 @@ class LivraisonController extends AbstractController
      */
     public function index(LivraisonRepository $livraisonRepository): Response
     {
-        return $this->render('livraison/index.html.twig', [
+        return $this->render('panier/showcmd.html.twig', [
             'livraisons' => $livraisonRepository->findAll(),
         ]);
     }
@@ -55,7 +56,6 @@ class LivraisonController extends AbstractController
             $entityManager->flush();
             foreach ($panier as $id => $qte) {
                 $cp = new Commande_produit();
-
                 $article = $produitRepository->findOneBy(['id' => $id]);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($cp);
@@ -88,10 +88,12 @@ class LivraisonController extends AbstractController
     /**
      * @Route("/{id}", name="livraison_show", methods={"GET"})
      */
-    public function show(Livraison $livraison): Response
+    public function show(Livraison $livraison,  LivraisonProduitRepository $livraisonProduitRepository): Response
     {
+$lp= $livraisonProduitRepository->findBy(array('livraison' =>$livraison->getId()));
         return $this->render('livraison/show.html.twig', [
             'livraison' => $livraison,
+            'lp' => $lp
         ]);
     }
 

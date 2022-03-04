@@ -1,0 +1,59 @@
+
+{% extends 'base.html.twig' %}
+{% block title %} Panier
+{% endblock %}
+
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Votre panier</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Votre panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if livraisons | length >0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for livraison in livraisons %}
+                <tr>
+                    <td>{{ livraison.etat  }}</td>
+
+                    <td>{{ livraison.datecommande|date('d-m-Y') }}</td>
+<td>                     <a href="{{ path('livraison_show' , {'id': livraison.id}) }}" class="btn btn-success float-right" >
+        detail</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total :
+                </td>
+
+
+
+
+
+
+            </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p> Votre panier est vide!</p>
+    {% endif %}
+{% endblock %}

@@ -29,6 +29,7 @@ return [
     'remove_all' => [[], ['_controller' => 'App\\Controller\\PanierController::deleteAll'], [], [['text', '/panier/remove}']], [], []],
     'panier_plus' => [[], ['_controller' => 'App\\Controller\\PanierController::plusPanier'], [], [['text', '/panier/plus']], [], []],
     'panier_minus' => [[], ['_controller' => 'App\\Controller\\PanierController::minusPanier'], [], [['text', '/panier/minus']], [], []],
+    'cmd_client' => [[], ['_controller' => 'App\\Controller\\PanierController::cmdclient'], [], [['text', '/commandedetatil']], [], []],
     'Front' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/Front']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_home'], [], [['text', '/']], [], []],
     'contact' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_contact'], [], [['text', '/contact']], [], []],
