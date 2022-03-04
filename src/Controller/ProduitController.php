@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Categorie;
 use App\Entity\Produit;
+use App\Entity\Images;
 use App\Form\ProduitType;
 use App\Form\SearchProduitType;
 use App\Repository\CategorieRepository;
@@ -44,6 +45,8 @@ class ProduitController extends AbstractController
 
         ]);
     }
+
+
 
 
     /**
@@ -92,8 +95,41 @@ class ProduitController extends AbstractController
 
         // return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','limit','page','categorie'));
 
-   // }
 
+
+    /**
+     * @Route("/testajax")
+     */
+    public function indexajax(ProduitRepository $produitRepo, CategorieRepository $catRepo, Request $request, CacheInterface $cache){
+        // On définit le nombre d'éléments par page
+        //$limit = 10;
+
+        // On récupère le numéro de page
+       // $page = (int)$request->query->get("page", 1);
+
+        // On récupère les filtres
+        $filters = $request->get("categories");
+
+        // On récupère les annonces de la page en fonction du filtre
+        $produits = $produitRepo->getPaginatedproduit($filters);
+
+        // On récupère le nombre total d'annonces
+        $total = $produitRepo->getTotalProduits($filters);
+
+        // On vérifie si on a une requête Ajax
+        if ($request->get('ajax')) {
+         return new JsonResponse([
+           'content' => $this->renderView('Front/testAjax.html.twig', compact('produits'))
+        ]);}
+
+        $categorie = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
+         $item->expiresAfter(3600);
+
+        return $catRepo->findAll();
+        });
+
+         return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','categorie'));
+        }
 
 
     /**
@@ -124,6 +160,57 @@ class ProduitController extends AbstractController
 
             return $this->redirectToRoute('produit_index', [], Response::HTTP_SEE_OTHER);
             }
+
+        return $this->render('produit/new.html.twig', [
+            'produit' => $produit,
+            'form' => $form->createView(),
+        ]);
+    }
+//testtt image multiples:
+    /**
+     * @Route("/nouveauM", name="produit_new", methods={"GET", "POST"})
+     */
+    public function newM(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $produit = new Produit();
+        $form = $this->createForm(ProduitType::class, $produit);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // On récupère les images transmises
+            $file=$produit->getPhoto();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move(
+                    $this->getParameter('photo_directory'),
+                    $fileName
+                );
+            $produit->setPhoto($file);
+            $images = $form->get('images')->getData();}
+        if ($form->isSubmitted() && $form->isValid()) {
+            // On boucle sur les images
+            foreach($images as $image){
+                // On génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // On copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('photo_directory'),
+                    $fichier
+                );
+
+                // On stocke l'image dans la base de données (son nom)
+                $img = new Images();
+                $img->setName($fichier);
+                $produit->addImage($img);
+            }
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($produit);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('produit_index');
+        }
 
         return $this->render('produit/new.html.twig', [
             'produit' => $produit,
@@ -253,26 +340,36 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file=$produit->getPhoto();
-            $fileName=md5(uniqid()).'.'.$file->guessExtension();
-            try{
-                $file->move(
+            // On récupère les images transmises
+            $images = $form->get('images')->getData();
+
+            // On boucle sur les images
+            foreach($images as $image){
+                // On génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // On copie le fichier dans le dossier uploads
+                $image->move(
                     $this->getParameter('photo_directory'),
-                    $fileName
+                    $fichier
                 );
-            } catch(FileException $e) {}
 
-            $produit->setPhoto($fileName);
-            $entityManager->persist($produit);
-            $entityManager->flush();
+                // On stocke l'image dans la base de données (son nom)
+                $img = new Images();
+                $img->setName($fichier);
+                $produit->addImage($img);
+            }
 
-            return $this->redirectToRoute('produit_index', [], Response::HTTP_SEE_OTHER);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('produit_index');
         }
 
         return $this->render('produit/edit.html.twig', [
             'produit' => $produit,
             'form' => $form->createView(),
         ]);
+
     }
 
     /**
@@ -287,6 +384,30 @@ class ProduitController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute("produit_index");
+    }
+    /**
+     * @Route("/supprime/image/{id}", name="produit_delete_image", methods={"DELETE"})
+     */
+    public function deleteImage(Images $image, Request $request){
+        $data = json_decode($request->getContent(), true);
+
+        // On vérifie si le token est valide
+        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])){
+            // On récupère le nom de l'image
+            $nom = $image->getName();
+            // On supprime le fichier
+            unlink($this->getParameter('photo_directory').'/'.$nom);
+
+            // On supprime l'entrée de la base
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($image);
+            $em->flush();
+
+            // On répond en json
+            return new JsonResponse(['success' => 1]);
+        }else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
     }
 
 

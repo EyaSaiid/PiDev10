@@ -417,6 +417,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ImagesRepository" class="App\Repository\ImagesRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -4123,7 +4127,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.vb4PEIE"/>
+      <argument type="service" id=".service_locator.RS__3V8"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5272,6 +5276,8 @@
     <service id=".abstract.instanceof.App\Form\SearchProduitType" class="App\Form\SearchProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImagesRepository" class="App\Repository\ImagesRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ImagesRepository" class="App\Repository\ImagesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
@@ -5597,6 +5603,14 @@
         <argument key="produitRepository" type="service_closure" id="App\Repository\ProduitRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.pjHMoL_" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="cache" type="service_closure" id="cache.app"/>
+        <argument key="catRepo" type="service_closure" id="App\Repository\CategorieRepository"/>
+        <argument key="produitRepo" type="service_closure" id="App\Repository\ProduitRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.hGgIkes" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5633,7 +5647,13 @@
         <argument key="produit" type="service_closure" id=".errored..service_locator.YUBf_o3.App\Entity\Produit"/>
       </argument>
     </service>
-    <service id=".service_locator.d.6VfXU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.cdLZrjd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="image" type="service_closure" id=".errored..service_locator.cdLZrjd.App\Entity\Images"/>
+      </argument>
+    </service>
+    <service id=".service_locator..zuC74L" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CategorieController::edit" type="service_closure" id=".service_locator.pCoFPhJ"/>
@@ -5643,10 +5663,13 @@
         <argument key="App\Controller\CategorieController::show" type="service_closure" id=".service_locator.RdXN6Y1"/>
         <argument key="App\Controller\ContactController::index_contact" type="service_closure" id=".service_locator.8ZuNAXa"/>
         <argument key="App\Controller\ProduitController::ajoutFavoris" type="service_closure" id=".service_locator.J966qaa"/>
+        <argument key="App\Controller\ProduitController::deleteImage" type="service_closure" id=".service_locator.cdLZrjd"/>
         <argument key="App\Controller\ProduitController::edit" type="service_closure" id=".service_locator.YUBf_o3"/>
         <argument key="App\Controller\ProduitController::index" type="service_closure" id=".service_locator.ih064pd"/>
         <argument key="App\Controller\ProduitController::index_front" type="service_closure" id=".service_locator.ih064pd"/>
+        <argument key="App\Controller\ProduitController::indexajax" type="service_closure" id=".service_locator.pjHMoL_"/>
         <argument key="App\Controller\ProduitController::new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\ProduitController::newM" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\ProduitController::retraitFavoris" type="service_closure" id=".service_locator.J966qaa"/>
         <argument key="App\Controller\ProduitController::show" type="service_closure" id=".service_locator.J966qaa"/>
         <argument key="App\Controller\ProduitController::showProduitByCategory" type="service_closure" id=".service_locator.AWUdal8"/>
@@ -5659,10 +5682,13 @@
         <argument key="App\Controller\CategorieController:show" type="service_closure" id=".service_locator.RdXN6Y1"/>
         <argument key="App\Controller\ContactController:index_contact" type="service_closure" id=".service_locator.8ZuNAXa"/>
         <argument key="App\Controller\ProduitController:ajoutFavoris" type="service_closure" id=".service_locator.J966qaa"/>
+        <argument key="App\Controller\ProduitController:deleteImage" type="service_closure" id=".service_locator.cdLZrjd"/>
         <argument key="App\Controller\ProduitController:edit" type="service_closure" id=".service_locator.YUBf_o3"/>
         <argument key="App\Controller\ProduitController:index" type="service_closure" id=".service_locator.ih064pd"/>
         <argument key="App\Controller\ProduitController:index_front" type="service_closure" id=".service_locator.ih064pd"/>
+        <argument key="App\Controller\ProduitController:indexajax" type="service_closure" id=".service_locator.pjHMoL_"/>
         <argument key="App\Controller\ProduitController:new" type="service_closure" id=".service_locator.x8FmIZ0"/>
+        <argument key="App\Controller\ProduitController:newM" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\ProduitController:retraitFavoris" type="service_closure" id=".service_locator.J966qaa"/>
         <argument key="App\Controller\ProduitController:show" type="service_closure" id=".service_locator.J966qaa"/>
         <argument key="App\Controller\ProduitController:showProduitByCategory" type="service_closure" id=".service_locator.AWUdal8"/>
@@ -5910,10 +5936,11 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator.vb4PEIE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.RS__3V8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CategorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
+        <argument key="App\Repository\ImagesRepository" type="service_closure" id="App\Repository\ImagesRepository"/>
         <argument key="App\Repository\ProduitRepository" type="service_closure" id="App\Repository\ProduitRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
@@ -6136,12 +6163,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.d.6VfXU"/>
+      <argument type="service" id=".service_locator..zuC74L"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.d.6VfXU"/>
+      <argument type="service" id=".service_locator..zuC74L"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6156,6 +6183,7 @@
     <service id=".errored..service_locator.AWUdal8.App\Entity\Categorie" class="App\Entity\Categorie"/>
     <service id=".errored..service_locator.J966qaa.App\Entity\Produit" class="App\Entity\Produit"/>
     <service id=".errored..service_locator.YUBf_o3.App\Entity\Produit" class="App\Entity\Produit"/>
+    <service id=".errored..service_locator.cdLZrjd.App\Entity\Images" class="App\Entity\Images"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.MrSgT.u"/>
       <argument type="collection">
@@ -6564,7 +6592,7 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.d.6VfXU"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator..zuC74L"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

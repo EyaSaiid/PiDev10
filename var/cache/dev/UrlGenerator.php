@@ -43,7 +43,8 @@ return [
     'GestionArtiste' => [[], ['_controller' => 'App\\Controller\\ProductController::btn_GestionArtiste'], [], [['text', '/GestionArtiste']], [], []],
     'produit_index' => [[], ['_controller' => 'App\\Controller\\ProduitController::index'], [], [['text', '/produit/']], [], []],
     'produit_front' => [[], ['_controller' => 'App\\Controller\\ProduitController::index_front'], [], [['text', '/produit/produitsFront']], [], []],
-    'produit_new' => [[], ['_controller' => 'App\\Controller\\ProduitController::new'], [], [['text', '/produit/nouveau']], [], []],
+    'app_produit_indexajax' => [[], ['_controller' => 'App\\Controller\\ProduitController::indexajax'], [], [['text', '/produit/testajax']], [], []],
+    'produit_new' => [[], ['_controller' => 'App\\Controller\\ProduitController::newM'], [], [['text', '/produit/nouveauM']], [], []],
     'produit_json' => [[], ['_controller' => 'App\\Controller\\ProduitController::test_json'], [], [['text', '/produit/listjson']], [], []],
     'showProduit' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::showProduit'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/showProduit']], [], []],
     'showProduitByCategory' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::showProduitByCategory'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/produits']], [], []],
@@ -53,4 +54,5 @@ return [
     'retrait_favoris' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::retraitFavoris'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/favoris/retrait']], [], []],
     'produit_edit' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::edit'], [], [['text', '/modifier'], ['variable', '/', '[^/]++', 'id'], ['text', '/produit']], [], []],
     'produit_delete' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::delete'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit']], [], []],
+    'produit_delete_image' => [['id'], ['_controller' => 'App\\Controller\\ProduitController::deleteImage'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/produit/supprime/image']], [], []],
 ];

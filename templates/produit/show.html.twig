@@ -12,6 +12,7 @@
                 <div class="card card-primary">
                     <div class="card-header"> <h1>Produit</h1></div>
     <table class="table">
+
         <tbody>
             <tr>
                 <th>Id</th>
@@ -34,14 +35,19 @@
                 <td>{{ produit.quantiteProduit }}</td>
             </tr>
             <tr>
-                {#  <th>image du Produit</th>#}
-               {#   <td>{{ produit.photo }}</td>#}
-                <img src="/upload/img/{{ produit.photo }}" class="img-fluid">
+                 <th>image du Produit</th>
+                 <td>{{ produit.photo }}</td>
+                <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit}}" class="img-fluid">
+                {% for image in produit.images %}
+                    <div>
+                        <img src="{{ asset('/upload/img/' ~ image.name) }}" alt="Image" width="150">
+                    </div>
+                {% endfor %}
             </tr>
         </tbody>
+                </div>
 
 
-</div>
 </table>
 <ul>
    <bouton class="btn btn-default" ><a href="{{ path('produit_index') }}">revenir a la liste </a></bouton>

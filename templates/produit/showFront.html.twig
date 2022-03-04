@@ -33,7 +33,11 @@
             <tbody>
             <tr>
                 <th>Nom du Produit</th>
-                <td>{{ produit.nomProduit }}</td>
+                {% for image in produit.images %}
+                <div>
+                    <img src="{{ asset('/upload/img/' ~ image.name) }}" alt="Image" width="150">
+                </div>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Description du Produit</th>
@@ -43,12 +47,12 @@
                 <th>Prix du Produit</th>
                 <td>{{ produit.prixProduit }}</td>
             </tr>
-            <tr>
-               {#  <th>image du Produit</th>
-                <td>{{ produit.photo }}</td>#}
+           {# <tr>
+                 <th>image du Produit</th>
+                <td>{{ produit.photo }}</td>
                 <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit }}" class="img-fluid" height="100" width="400">
             </tr>
-
+           #}
             </tbody>
 
     </div>

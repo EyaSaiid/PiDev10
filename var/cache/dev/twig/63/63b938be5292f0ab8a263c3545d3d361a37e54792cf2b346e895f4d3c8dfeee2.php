@@ -93,22 +93,18 @@ class __TwigTemplate_a35e510eba6bded394e500f1d02ea6b8222a959ced49042b5d08acf83af
                 <!-- general form elements -->
                 <div class=\"card card-primary\">
                     <div class=\"card-header\">
-                        <h3 class=\"card-title\">Ajouter un produit</h3>
+                        <h3 class=\"card-title\">Editer un produit</h3>
                     </div>
-
-
-
-
     ";
-        // line 20
+        // line 16
         echo twig_include($this->env, $context, "produit/_form.html.twig", ["button_label" => "Update"]);
         echo "
-    <a href=\"";
-        // line 21
+    <ul><a href=\"";
+        // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_index");
-        echo "\">liste produit</a>
+        echo "\">liste produit</a></ul>
     ";
-        // line 22
+        // line 18
         echo twig_include($this->env, $context, "produit/_delete_form.html.twig");
         echo "
 
@@ -133,7 +129,7 @@ class __TwigTemplate_a35e510eba6bded394e500f1d02ea6b8222a959ced49042b5d08acf83af
 
     public function getDebugInfo()
     {
-        return array (  112 => 22,  108 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  108 => 18,  104 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -151,14 +147,10 @@ class __TwigTemplate_a35e510eba6bded394e500f1d02ea6b8222a959ced49042b5d08acf83af
                 <!-- general form elements -->
                 <div class=\"card card-primary\">
                     <div class=\"card-header\">
-                        <h3 class=\"card-title\">Ajouter un produit</h3>
+                        <h3 class=\"card-title\">Editer un produit</h3>
                     </div>
-
-
-
-
     {{ include('produit/_form.html.twig', {'button_label': 'Update'}) }}
-    <a href=\"{{ path('produit_index') }}\">liste produit</a>
+    <ul><a href=\"{{ path('produit_index') }}\">liste produit</a></ul>
     {{ include('produit/_delete_form.html.twig') }}
 
 {% endblock %}", "produit/edit.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\produit\\edit.html.twig");

@@ -38,7 +38,8 @@ return [
         '/GestionArtiste' => [[['_route' => 'GestionArtiste', '_controller' => 'App\\Controller\\ProductController::btn_GestionArtiste'], null, null, null, false, false, null]],
         '/produit' => [[['_route' => 'produit_index', '_controller' => 'App\\Controller\\ProduitController::index'], null, ['GET' => 0], null, true, false, null]],
         '/produit/produitsFront' => [[['_route' => 'produit_front', '_controller' => 'App\\Controller\\ProduitController::index_front'], null, null, null, false, false, null]],
-        '/produit/nouveau' => [[['_route' => 'produit_new', '_controller' => 'App\\Controller\\ProduitController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/produit/testajax' => [[['_route' => 'app_produit_indexajax', '_controller' => 'App\\Controller\\ProduitController::indexajax'], null, null, null, false, false, null]],
+        '/produit/nouveauM' => [[['_route' => 'produit_new', '_controller' => 'App\\Controller\\ProduitController::newM'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/produit/listjson' => [[['_route' => 'produit_json', '_controller' => 'App\\Controller\\ProduitController::test_json'], null, null, null, false, false, null]],
         '/produit/statistiques' => [[['_route' => 'statistiques', '_controller' => 'App\\Controller\\ProduitController::statistiques'], null, null, null, false, false, null]],
     ],
@@ -76,6 +77,7 @@ return [
                         .'|/modifier(*:384)'
                         .'|(*:392)'
                     .')'
+                    .'|supprime/image/([^/]++)(*:424)'
                 .')'
             .')/?$}sD',
     ],
@@ -96,8 +98,9 @@ return [
         331 => [[['_route' => 'ajout_favoris', '_controller' => 'App\\Controller\\ProduitController::ajoutFavoris'], ['id'], null, null, false, true, null]],
         355 => [[['_route' => 'retrait_favoris', '_controller' => 'App\\Controller\\ProduitController::retraitFavoris'], ['id'], null, null, false, true, null]],
         384 => [[['_route' => 'produit_edit', '_controller' => 'App\\Controller\\ProduitController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        392 => [
-            [['_route' => 'produit_delete', '_controller' => 'App\\Controller\\ProduitController::delete'], ['id'], ['POST' => 0], null, false, true, null],
+        392 => [[['_route' => 'produit_delete', '_controller' => 'App\\Controller\\ProduitController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        424 => [
+            [['_route' => 'produit_delete_image', '_controller' => 'App\\Controller\\ProduitController::deleteImage'], ['id'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

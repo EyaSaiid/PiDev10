@@ -34,7 +34,7 @@ class ProduitRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 //pagination:
-    public function getPaginatedAnnonces($page, $limit, $filters = null){
+    public function getPaginatedproduit($filters = null){
         $query = $this->createQueryBuilder('p');
 
         // On filtre les données
@@ -42,11 +42,6 @@ class ProduitRepository extends ServiceEntityRepository
             $query->andWhere('p.Categorie IN(:cats)')
                 ->setParameter(':cats', array_values($filters));
         }
-
-        $query
-            ->setFirstResult(($page * $limit) - $limit)
-            ->setMaxResults($limit)
-        ;
         return $query->getQuery()->getResult();
     }
     public function getTotalProduits($filters = null){

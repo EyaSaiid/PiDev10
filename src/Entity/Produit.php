@@ -72,53 +72,6 @@ class Produit
      *  Groups("produit")
      */
     private $Categorie;
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="produits")
-     * @ORM\JoinColumn(nullable=false)
-
-    private $users;
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="favoris")
-
-    private $favoris;
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser
-    (?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-    /**
-     * @return Collection|User[]
-
-    public function getFavoris(): Collection
-    {
-        return $this->favoris;
-    }
-
-    public function addFavori(User $favori): self
-    {
-        if (!$this->favoris->contains($favori)) {
-            $this->favoris[] = $favori;
-        }
-
-        return $this;
-    }
-
-    public function removeFavori(User $favori): self
-    {
-        if ($this->favoris->contains($favori)) {
-            $this->favoris->removeElement($favori);
-        }
-
-        return $this;
-    }*/
 
     public function getId(): ?int
     {
@@ -131,14 +84,16 @@ class Produit
      */
     private $photo;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="produit",orphanRemoval=true, cascade={"persist"})
+     * @Assert\NotBlank(message=" le champs images est vide")
+     */
+    private $images;
 
-    /** public function __construct()
+    public function __construct()
     {
-       // $this->users = new ArrayCollection();
-
-        $this->favoris = new ArrayCollection();
-
-    }*/
+        $this->images = new ArrayCollection();
+    }
 
     public function getPhoto()
     {
@@ -207,6 +162,36 @@ class Produit
     public function setCategorie(?Categorie $Categorie): self
     {
         $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getProduit() === $this) {
+                $image->setProduit(null);
+            }
+        }
 
         return $this;
     }

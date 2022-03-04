@@ -104,63 +104,69 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
             <tbody>
             <tr>
                 <th>Nom du Produit</th>
-                <td>";
+                ";
         // line 36
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 36, $this->source); })()), "nomProduit", [], "any", false, false, false, 36), "html", null, true);
-        echo "</td>
-            </tr>
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 36, $this->source); })()), "images", [], "any", false, false, false, 36));
+        foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
+            // line 37
+            echo "                <div>
+                    <img src=\"";
+            // line 38
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/upload/img/" . twig_get_attribute($this->env, $this->source, $context["image"], "name", [], "any", false, false, false, 38))), "html", null, true);
+            echo "\" alt=\"Image\" width=\"150\">
+                </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 41
+        echo "            </tr>
             <tr>
                 <th>Description du Produit</th>
                 <td>";
-        // line 40
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 40, $this->source); })()), "descriptionProduit", [], "any", false, false, false, 40), "html", null, true);
+        // line 44
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 44, $this->source); })()), "descriptionProduit", [], "any", false, false, false, 44), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Prix du Produit</th>
                 <td>";
-        // line 44
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 44, $this->source); })()), "prixProduit", [], "any", false, false, false, 44), "html", null, true);
+        // line 48
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 48, $this->source); })()), "prixProduit", [], "any", false, false, false, 48), "html", null, true);
         echo "</td>
             </tr>
-            <tr>
-               ";
-        // line 49
-        echo "                <img src=\"/upload/img/";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 49, $this->source); })()), "photo", [], "any", false, false, false, 49), "html", null, true);
-        echo "\" alt=\"";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 49, $this->source); })()), "nomProduit", [], "any", false, false, false, 49), "html", null, true);
-        echo "\" class=\"img-fluid\" height=\"100\" width=\"400\">
-            </tr>
-
-            </tbody>
+           ";
+        // line 56
+        echo "            </tbody>
 
     </div>
     </table>
             ";
-        // line 56
-        if ((1 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 56, $this->source); })()), "quantiteProduit", [], "any", false, false, false, 56), 0))) {
-            // line 57
+        // line 60
+        if ((1 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 60, $this->source); })()), "quantiteProduit", [], "any", false, false, false, 60), 0))) {
+            // line 61
             echo "            <ul>
                 <bouton class=\"btn btn-danger\"> <a href=\"";
-            // line 58
+            // line 62
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_front");
             echo "\"> revenir a la liste</a></bouton> </ul>
            <ul>     <bouton class=\"btn btn-success\"> <a href=\"";
-            // line 59
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_front", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 59, $this->source); })()), "id", [], "any", false, false, false, 59)]), "html", null, true);
+            // line 63
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_front", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 63, $this->source); })()), "id", [], "any", false, false, false, 63)]), "html", null, true);
             echo "\">ajouter au panier</a></bouton></ul>
 
             ";
         } else {
-            // line 62
+            // line 66
             echo "            <bouton class=\"btn btn-danger\"> <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("produit_front");
             echo "\"> revenir a la liste</a></bouton> </ul>
             <ul>
                 ";
         }
-        // line 65
+        // line 69
         echo "                ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -182,7 +188,7 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
 
     public function getDebugInfo()
     {
-        return array (  164 => 65,  157 => 62,  151 => 59,  147 => 58,  144 => 57,  142 => 56,  129 => 49,  123 => 44,  116 => 40,  109 => 36,  97 => 26,  93 => 24,  89 => 22,  87 => 21,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  170 => 69,  163 => 66,  157 => 63,  153 => 62,  150 => 61,  148 => 60,  142 => 56,  137 => 48,  130 => 44,  125 => 41,  116 => 38,  113 => 37,  109 => 36,  97 => 26,  93 => 24,  89 => 22,  87 => 21,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -222,7 +228,11 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
             <tbody>
             <tr>
                 <th>Nom du Produit</th>
-                <td>{{ produit.nomProduit }}</td>
+                {% for image in produit.images %}
+                <div>
+                    <img src=\"{{ asset('/upload/img/' ~ image.name) }}\" alt=\"Image\" width=\"150\">
+                </div>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Description du Produit</th>
@@ -232,12 +242,12 @@ class __TwigTemplate_79d0cfca915a681be5dafbe86f0ad8221cc210d800eec7763fef6e53a2b
                 <th>Prix du Produit</th>
                 <td>{{ produit.prixProduit }}</td>
             </tr>
-            <tr>
-               {#  <th>image du Produit</th>
-                <td>{{ produit.photo }}</td>#}
+           {# <tr>
+                 <th>image du Produit</th>
+                <td>{{ produit.photo }}</td>
                 <img src=\"/upload/img/{{ produit.photo }}\" alt=\"{{ produit.nomProduit }}\" class=\"img-fluid\" height=\"100\" width=\"400\">
             </tr>
-
+           #}
             </tbody>
 
     </div>

@@ -80,13 +80,6 @@ class __TwigTemplate_91f463ca979784367328cf1e54d286ec66d368f3ac2aa76987f1fa656a9
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo " <ul>
-    ";
-        // line 19
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["produits"]) || array_key_exists("produits", $context) ? $context["produits"] : (function () { throw new RuntimeError('Variable "produits" does not exist.', 19, $this->source); })()));
-        echo " </ul>
-";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -107,7 +100,7 @@ class __TwigTemplate_91f463ca979784367328cf1e54d286ec66d368f3ac2aa76987f1fa656a9
 
     public function getDebugInfo()
     {
-        return array (  87 => 19,  84 => 18,  72 => 13,  67 => 11,  61 => 8,  58 => 7,  51 => 5,  47 => 2,  43 => 1,);
+        return array (  72 => 13,  67 => 11,  61 => 8,  58 => 7,  51 => 5,  47 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -129,8 +122,7 @@ class __TwigTemplate_91f463ca979784367328cf1e54d286ec66d368f3ac2aa76987f1fa656a9
         </div>
     </div>
 
-{% endfor %} <ul>
-    {{ knp_pagination_render(produits) }} </ul>
+{% endfor %}
 ", "Front/testAjax.html.twig", "C:\\Users\\Nour Hammami\\Desktop\\pii\\PiDev10\\templates\\Front\\testAjax.html.twig");
     }
 }
