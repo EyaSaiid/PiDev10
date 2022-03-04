@@ -452,7 +452,58 @@
                 {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
 
 
+                <li class="nav-item">
 
+                    <a href="{{ path('GestionProduit') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Gestion Produit
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ path('produit_index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Afficher produit</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ path('produit_new') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ajouter produit</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+
+
+                    <a href="{{ path('GestionRestaurant') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Gestion categories
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ path('categorie_index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Afficher categorie</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ path('categorie_new') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ajouter categorie</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
                 </li>
 
 

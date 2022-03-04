@@ -1,0 +1,32 @@
+{%  extends 'base2.html.twig' %}
+{% block body %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    {#  <h1> Ajouter une catégorie </h1>#}
+    <div class="form-group">
+        <script>alert("Vérifiez que vous avez bien rempli vos champs svp!")</script>
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.Libelle) }}
+        </div>
+        {{ form_label(form.Name,"libelle du produit") }}
+        {{ form_widget(form.Name ,{'attr': {'class': 'form-control','placeholder':'ajouter le libelle'}}) }}
+
+    </div>
+    </div>
+    {{ form_label(form.Email,"libelle du produit") }}
+    {{ form_widget(form.Email ,{'attr': {'class': 'form-control','placeholder':'ajouter le libelle'}}) }}
+
+    </div>
+    </div>
+    {{ form_label(form.Subject,"libelle du produit") }}
+    {{ form_widget(form.Subject ,{'attr': {'class': 'form-control','placeholder':'ajouter le libelle'}}) }}
+
+    </div>
+    </div>
+    {{ form_label(form.Message,"libelle du produit") }}
+    {{ form_widget(form.Message ,{'attr': {'class': 'form-control','placeholder':'ajouter le libelle'}}) }}
+
+    </div>
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

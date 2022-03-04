@@ -47,8 +47,6 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
-
-
     public function findByHomme()
     {
         return$this->createQueryBuilder('u')

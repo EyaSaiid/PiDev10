@@ -253,6 +253,7 @@ class User implements UserInterface
         return $this;
     }
 
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
@@ -326,7 +327,6 @@ class User implements UserInterface
     public function setActivationToken(?string $activationToken): self
     {
         $this->activationToken = $activationToken;
-
         return $this;
     }
 
@@ -349,7 +349,6 @@ class User implements UserInterface
     public function setResetToken(?string $resetToken): self
     {
         $this->resetToken = $resetToken;
-
         return $this;
     }
 

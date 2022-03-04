@@ -5,7 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 class ProductController extends AbstractController
 {
     /**
@@ -26,15 +29,7 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
-    /**
-     * @Route("/contact", name="contact")
-     */
-    public function btn_contact(): Response
-    {
-        return $this->render('Front/contact.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
-    }
+
     /**
      * @Route("/about", name="about")
      */
@@ -80,7 +75,34 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
-
+  
+    /**
+     * @Route("/restaurant", name="restaurant")
+     */
+    public function btn_restaurant(): Response
+    {
+        return $this->render('Front/restaurent.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/produitDma9", name="produitDma9")
+     */
+    public function btn_produitDma9(): Response
+    {
+        return $this->render('Front/produitDma9.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/booking", name="booking")
+     */
+    public function btn_booking(): Response
+    {
+        return $this->render('Front/booking.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
 
 
 
