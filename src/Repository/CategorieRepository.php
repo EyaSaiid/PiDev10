@@ -47,4 +47,21 @@ class CategorieRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findCategorie($res){
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT c
+                        FROM APP\Entity\Categorie c
+                        JOIN c.produitplats p INNER JOIN p.restaurants r
+                           WHERE r.id_restaurant=:res ")
+            ->setParameter('res',$res);
+        return $query->getResult();
+    }
+
+
+
+
+
+
 }

@@ -3,15 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
-use App\Entity\Produit;
 use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
+use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
  * @Route("/categorie")
@@ -19,26 +19,32 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class CategorieController extends AbstractController
 {
     /**
-     * @Route("/", name="categorie_index", methods={"GET"})
+     * @Route("/listjson", name="categorie_json")
+     */
+    public function ListCategorieJson(CategorieRepository $cat, NormalizerInterface $normalizer): Response
+    {
+        $categorie=$cat->findAll();
+        $js=$normalizer->normalize($categorie,'json',['groups'=>'post:read']);
+        // $json=$serializerinterface->normalize($restaurant,'json',['groups'=>'restaurant']);
+        // dump($restaurant);
+        //die;
+        //$formatted= $serializer->normalize($json);
+        return new Response(json_encode($js));
+    }
+
+
+    /**
+     * @Route("/findAll", name="categorie_index", methods={"GET"})
      */
     public function index(CategorieRepository $categorieRepository): Response
     {
-        return $this->render('categorie/index.html.twig', [
-            'categories' => $categorieRepository->findAll(),
-        ]);
-    }
-    /**
-     * @Route("/catFront", name="categorie_front", methods={"GET"})
-     */
-    public function indexFront(CategorieRepository $categorieRepository): Response
-    {
-        return $this->render('Front/categorie_produit_dma9.html.twig', [
+        return $this->render('/Back/categorie/index.html.twig', [
             'categories' => $categorieRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/nouveau", name="categorie_new", methods={"GET", "POST"})
+     * @Route("/new", name="categorie_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -53,24 +59,24 @@ class CategorieController extends AbstractController
             return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('categorie/new.html.twig', [
+        return $this->render('Back/categorie/new.html.twig', [
             'categorie' => $categorie,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="categorie_show", methods={"GET"})
+     * @Route("/{id_categorie}", name="categorie_show", methods={"GET"})
      */
     public function show(Categorie $categorie): Response
     {
-        return $this->render('categorie/show.html.twig', [
+        return $this->render('Back/categorie/show.html.twig', [
             'categorie' => $categorie,
         ]);
     }
 
     /**
-     * @Route("/{id}/modifier", name="categorie_edit", methods={"GET", "POST"})
+     * @Route("/{id_categorie}/edit", name="categorie_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
@@ -83,23 +89,26 @@ class CategorieController extends AbstractController
             return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('categorie/edit.html.twig', [
+        return $this->render('Back/categorie/edit.html.twig', [
             'categorie' => $categorie,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="categorie_delete", methods={"POST"})
+     * @Route("/{id_categorie}", name="categorie_delete", methods={"POST"})
      */
-    public function delete(int $id): Response
+    public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $categorie = $entityManager->getRepository(Categorie::class)->find($id);
-        $entityManager->remove($categorie);
-        $entityManager->flush();
+        if ($this->isCsrfTokenValid('delete'.$categorie->getIdCategorie(), $request->request->get('_token'))) {
+            $entityManager->remove($categorie);
+            $entityManager->flush();
+        }
 
-        return $this->redirectToRoute("categorie_index");
+        return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
 
 }

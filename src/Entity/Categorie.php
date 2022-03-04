@@ -3,15 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\CategorieRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=CategorieRepository::class)
- *  @UniqueEntity(fields={"Libelle"},message="la catégorie existe déjà")
  */
 class Categorie
 {
@@ -19,73 +17,83 @@ class Categorie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     *  Groups("produit")
+     * @Groups("post:read")
      */
-    private $id;
+    private $id_categorie;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *  @Assert\NotBlank(message=" le champ libelle est vide")
-     *  Groups("produit")
+     *@Assert\NotBlank(message="le nom de la categorie est obligatoire")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 20,
+     *      minMessage = "Le nombre de caractére minimal est {{ limit }}",
+     *      maxMessage = "Le nombre de caractére maximal est {{ limit }} "
+     * )
+     * @Groups("post:read")
      */
-    private $Libelle;
+    private $nom_categorie;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="Categorie")
-     *  Groups("produit")
-     */
-    private $produits;
-
-    public function __construct()
+    public function getIdCategorie(): ?int
     {
-        $this->produits = new ArrayCollection();
+        return $this->id_categorie;
     }
 
-    public function getId(): ?int
+    public function getNomCategorie(): ?string
     {
-        return $this->id;
+        return $this->nom_categorie;
     }
 
-    public function getLibelle(): ?string
+    public function setNomCategorie(string $nom_categorie): self
     {
-        return $this->Libelle;
-    }
-
-    public function setLibelle(string $Libelle): self
-    {
-        $this->Libelle = $Libelle;
+        $this->nom_categorie = $nom_categorie;
 
         return $this;
     }
 
+    /*Relation*/
+
     /**
-     * @return Collection|Produit[]
+     * @ORM\OneToMany(targetEntity=ProduitPlat::class, mappedBy="categories")
+     * @Groups("post:read")
      */
-    public function getProduits(): Collection
+    private $produitplats;
+    public function __construct()
     {
-        return $this->produits;
+        $this->produitplats = new ArrayCollection();
     }
 
-    public function addProduit(Produit $produit): self
+    /**
+     * @return Collection|ProduitPlat[]|null
+     */
+    public function getProduitPlats(): Collection
     {
-        if (!$this->produits->contains($produit)) {
-            $this->produits[] = $produit;
-            $produit->setCategorie($this);
+        return $this->produitplats;
+    }
+
+    public function addProduitPlat(ProduitPlat $produitplat): self
+    {
+        if (!$this->produitplats->contains($produitplat)) {
+            $this->produitplats[] = $produitplat;
+            $produitplat->setCategories($this);
         }
 
         return $this;
     }
 
-    public function removeProduit(Produit $produit): self
+        public function removeProduitPlat(ProduitPlat $produitplat): self
     {
-        if ($this->produits->removeElement($produit)) {
+        if ($this->produitplats->removeElement($produitplat)) {
             // set the owning side to null (unless already changed)
-            if ($produit->getCategorie() === $this) {
-                $produit->setCategorie(null);
+            if ($produitplat->getCategories() === $this) {
+                $produitplat->setCategories(null);
             }
         }
 
         return $this;
     }
-
+    public function __toString()
+    {
+        return(string)$this->getNomCategorie();
+    }
 }

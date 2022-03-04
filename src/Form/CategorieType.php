@@ -6,27 +6,14 @@ use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CategorieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
-           // ->add('Libelle',ChoiceType::class,
-               // array(
-                 //   'choices' => [
-                   //     'ingredient'    => "ingredient",
-                     //   'produitNettoyage' => 'produitNettoyage',
-                       // 'couvert' => 'couvert',
-                        //'accessoire' => 'accessoire',
-                        //'equipementMateriel' => 'equipementMateriel',
-
-       // ])
-            ->add('Libelle')
-            ;
-
+            ->add('nom_categorie')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

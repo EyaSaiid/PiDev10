@@ -75,6 +75,7 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
+  
     /**
      * @Route("/restaurant", name="restaurant")
      */
@@ -104,6 +105,7 @@ class ProductController extends AbstractController
     }
 
 
+
     /**********************************************/
     /**
      * @Route("/back", name="back")
@@ -123,15 +125,7 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
-    /**
-    * @Route("/GestionRestaurant", name="GestionRestaurant")
-    */
-    public function btn_GestionResaturant(): Response
-    {
-        return $this->render('Back/GestionRestaurant.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
-    }
+
     /**
      * @Route("/GestionOffreTravail", name="GestionOffreTravail")
      */

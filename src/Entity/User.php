@@ -68,24 +68,18 @@ class User implements UserInterface
      *     message="This email '{{ value }}' is not a valid email address.")
      */
     private $email;
-    /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="user", orphanRemoval=true)
-     */
-    private $produits;
-    /**
-     * @ORM\ManyToMany(targetEntity=Produit::class, mappedBy="favoris")
-     */
-    private $favoris;
 
-    public function __construct()
-    {
-        $this->produits = new ArrayCollection();
-        $this->favoris = new ArrayCollection();
-    }
     /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="user")
+     */
+    private $offreTravail;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -99,6 +93,46 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Restaurant::class, mappedBy="user")
+     */
+    private $restaurants;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+        $this->restaurants = new ArrayCollection();
+        $this->offreTravail = new ArrayCollection();
+    }
+
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activationToken;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resetToken;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\File()
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $address;
 
     public function getId(): ?int
     {
@@ -189,6 +223,36 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|offreTravail[]
+     */
+    public function getOffreTravail(): Collection
+    {
+        return $this->offreTravail;
+    }
+
+    public function addOffreTravail(offreTravail $offreTravail): self
+    {
+        if (!$this->offreTravail->contains($offreTravail)) {
+            $this->offreTravail[] = $offreTravail;
+            $offreTravail->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreTravail(offreTravail $offreTravail): self
+    {
+        if ($this->offreTravail->removeElement($offreTravail)) {
+            // set the owning side to null (unless already changed)
+            if ($offreTravail->getUser() === $this) {
+                $offreTravail->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     public function __toString()
     {
@@ -208,35 +272,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Produit[]
-     */
-    public function getProduit(): Collection
-    {
-        return $this->produits;
-    }
-
-    public function addProduit(Produit $produit): self
-    {
-        if (!$this->produits->contains($produit)) {
-            $this->produits[] = $produit;
-            $produit->setUser($this);
-        }
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): self
-    {
-        if ($this->produits->contains($produit)) {
-            $this->produits->removeElement($produit);
-            // set the owning side to null (unless already changed)
-            if ($produit->getUser() === $this) {
-                $produit->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getSalt()
     {
@@ -246,6 +281,8 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+
+        return $this->email;
     }
 
     public function eraseCredentials()
@@ -264,32 +301,110 @@ class User implements UserInterface
 
         return $this;
     }
+
     /**
-     * @return Collection|Produit[]
+     * @return Collection|Reservation[]
      */
-    public function getFavoris(): Collection
+    public function getReservations(): Collection
     {
-        return $this->favoris;
+        return $this->reservations;
     }
 
-    public function addFavori(Produit $favori): self
+    public function addReservation(Reservation $reservation): self
     {
-        if (!$this->favoris->contains($favori)) {
-            $this->favoris[] = $favori;
-            $favori->addFavori($this);
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setUser($this);
+        }
+        return $this;
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activationToken;
+    }
+
+    public function setActivationToken(?string $activationToken): self
+    {
+        $this->activationToken = $activationToken;
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getUser() === $this) {
+                $reservation->setUser(null);
+            }
+        }
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
+        return $this;
+    }
+
+    /**
+     * @return Collection|Restaurant[]
+     */
+    public function getRestaurants(): Collection
+    {
+        return $this->restaurants;
+    }
+
+    public function addRestaurant(Restaurant $restaurant): self
+    {
+        if (!$this->restaurants->contains($restaurant)) {
+            $this->restaurants[] = $restaurant;
+            $restaurant->setUser($this);
+        }
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function removeRestaurant(Restaurant $restaurant): self
+    {
+        if ($this->restaurants->removeElement($restaurant)) {
+            // set the owning side to null (unless already changed)
+            if ($restaurant->getUser() === $this) {
+                $restaurant->setUser(null);
+            }
         }
 
         return $this;
     }
 
-    public function removeFavori(Produit $favori): self
+
+
+
+    public function getAddress(): ?string
     {
-        if ($this->favoris->contains($favori)) {
-            $this->favoris->removeElement($favori);
-            $favori->removeFavori($this);
-        }
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
 
         return $this;
     }
-
 }
