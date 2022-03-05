@@ -134,6 +134,10 @@
                     <a href="{{ path("produit_front") }}" class="nav-item nav-link">Produits</a>
                     <a href="{{ path("category_front") }}" class="nav-item nav-link">Categories</a>
                     <a href="{{ path("contact") }}" class="nav-item nav-link">Contact</a>
+
+                    <a href="{{ path("panier") }}" class="nav-item nav-link">Panier</a>
+                    <a href="{{ path("livraison_index") }}" class="nav-item nav-link">Mes commandes</a>
+
                     {% if app.user %}
                     <div class="nav-item dropdown">
 
@@ -161,6 +165,7 @@
                             </div>
 
                     {% endif %}
+
                    {# <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu">

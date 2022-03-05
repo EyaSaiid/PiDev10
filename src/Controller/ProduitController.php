@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+   
+
 use App\Entity\Category;
 use App\Entity\Produit;
 use App\Entity\Images;
@@ -49,6 +51,20 @@ class ProduitController extends AbstractController
     }
 
 
+  
+   /**
+     * @Route("/fetchProduits", name="fetchProduits")
+     */
+    public function fetchProduits(ProduitRepository $repo):Response
+    {
+        $result =$repo->findAll();
+        return $this->render('produit/afficherproduit.html.twig',[
+           'produits'=>$result
+        ]);
+    }
+  
+  
+  
 
 
     /**
