@@ -127,13 +127,12 @@
                     <a href="{{ path("offre_travail_showAll") }}" class="nav-item nav-link">Jobs</a>
                     
                     {# <a href="{{ path('templates/menu.html.twig') }}" class="nav-item nav-link">Menu</a> #}
-
-                     {# nouuur<a href="{{ path("produit_front") }}" class="nav-item nav-link">Produits</a> #}
                     {# nouur <a href="{{ path("categorie_front") }}" class="nav-item nav-link"> Categories </a> #}
                     {#<a href="{{ path("details_menu") }}" class="nav-item nav-link">Detail menu</a>#}
                     <a href="{{ path("reservation_new") }}" class="nav-item nav-link"> Reservation </a>
                     {% endif %}
-
+                    <a href="{{ path("produit_front") }}" class="nav-item nav-link">Produits</a>
+                    <a href="{{ path("category_front") }}" class="nav-item nav-link">Categories</a>
                     <a href="{{ path("contact") }}" class="nav-item nav-link">Contact</a>
                     {% if app.user %}
                     <div class="nav-item dropdown">

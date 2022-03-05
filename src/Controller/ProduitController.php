@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Categorie;
+use App\Entity\Category;
 use App\Entity\Produit;
 use App\Entity\Images;
 use App\Form\ProduitType;
 use App\Form\SearchProduitType;
-use App\Repository\CategorieRepository;
+use App\Repository\CategoryRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,7 +32,7 @@ class ProduitController extends AbstractController
     /**
      * @Route("/", name="produit_index", methods={"GET"})
      */
-    public function index(CategorieRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
+    public function index(CategoryRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
     {
         $donnees = $produitRepository->findAll();
 
@@ -52,16 +54,16 @@ class ProduitController extends AbstractController
     /**
      * @Route("/produitsFront", name="produit_front")
      */
-    public function index_front(CategorieRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
+    public function index_front(CategoryRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
     {
 
-      /** $donnees =$produitRepository->findAll();
+       $donnees =$produitRepository->findAll();
 
        $produit = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-          3 // Nombre de résultats par page
-        );*/
+          1 // Nombre de résultats par page
+        );
         $produit =$produitRepository->findAll();
        $form = $this->createForm(SearchProduitType::class);
         $search = $form->handleRequest($request);
@@ -96,11 +98,35 @@ class ProduitController extends AbstractController
         // return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','limit','page','categorie'));
 
 
+    /**
+     * @Route("/recherche", name="recherche")
+     */
+    public function recherche(ProduitRepository $produitsRepo, Request $request)
+    {
+        $produits = $produitsRepo->findBy(['nomProduit' => true], ['id' => 'desc'], 5);
+
+        $form = $this->createForm(SearchProduitType::class);
+
+        $search = $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            // On recherche les annonces correspondant aux mots clés
+            $produits = $produitsRepo->search(
+                $search->get('mots')->getData(),
+                $search->get('categorie')->getData()
+            );
+        }
+
+        return $this->render('Front/produitDma9.html.twig', [
+            'produits' => $produits,
+            'form' => $form->createView()
+        ]);
+    }
 
     /**
      * @Route("/testajax")
      */
-    public function indexajax(ProduitRepository $produitRepo, CategorieRepository $catRepo, Request $request, CacheInterface $cache){
+    public function indexajax(ProduitRepository $produitRepo, CategoryRepository $catRepo, Request $request, CacheInterface $cache){
         // On définit le nombre d'éléments par page
         //$limit = 10;
 
@@ -239,7 +265,7 @@ class ProduitController extends AbstractController
 /**
     * @Route("/produits/{id}", name="showProduitByCategory")
      */
-    public function showProduitByCategory(PaginatorInterface $paginator,Request $request,ProduitRepository $repProd, CategorieRepository $repCat, Categorie $categorie)
+    public function showProduitByCategory(PaginatorInterface $paginator,Request $request,ProduitRepository $repProd, CategoryRepository $repCat, Category $categorie)
     {$donnees =$repProd->findByCategory1($categorie->getId());
         $produit = $paginator->paginate(
         $donnees, // Requête contenant les données à paginer (ici nos articles)
@@ -256,7 +282,7 @@ class ProduitController extends AbstractController
     /**
      * @Route("/statistiques", name="statistiques")
      */
-    public function statistiques(ProduitRepository $repProd, CategorieRepository $repCat)
+    public function statistiques(ProduitRepository $repProd, CategoryRepository $repCat)
     { $categories = $repCat->findAll();
 
         $categNom = [];
@@ -371,6 +397,41 @@ class ProduitController extends AbstractController
         ]);
 
     }
+//pdf:
+    /**
+     * @Route("/download", name="produit_download")
+     */
+    public function download()
+    {
+        //definit les option pdf
+        $pdfOptions = new Options();
+        //police
+        $pdfOptions->set('defaultFont', 'Arial');
+        // resoudre les prob lié au ssl
+        $pdfOptions->setIsRemoteEnabled(true);
+        // On instancie Dompdf
+        $dompdf = new Dompdf($pdfOptions);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE
+            ]
+        ]);
+        $dompdf->setHttpContext($context);
+        // On génère le html
+        $html = $this->renderView('produit/downloadpdf.html.twig');
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        // On envoie le PDF au navigateur
+        $dompdf->stream("mypdf.pdf", [
+            'Attachment' => true    //méthode de stream qui va permettre de telechaarger
+        ]);
+
+        return new Response();
+    }
 
     /**
      * @Route("/{id}", name="produit_delete", methods={"POST"})
@@ -409,7 +470,6 @@ class ProduitController extends AbstractController
             return new JsonResponse(['error' => 'Token Invalide'], 400);
         }
     }
-
 
 
 }
