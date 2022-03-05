@@ -1,0 +1,35 @@
+{%extends '/Front/menu.html.twig'  %}
+{% block DetailMenu %}
+
+    <div class="tab-content">
+        <div id="burgers" class="container tab-pane active">
+            <div class="row">
+
+                <div class="col-lg-7 col-md-12">
+                    {% for pdt in listPdt %}
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="{{ asset('Front/img/imageMenu2.jpg') }}" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>{{ pdt.nomProduitPlat }}</span> <strong> {{ pdt.Prix }}</strong></h3>
+                                <p> {{ pdt.DescProduitPlat }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="pagination">
+                        <div class="row-cols-sm-4">
+                            {{ knp_pagination_render(listPdt) }}
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="{{ asset('Front/img/imagefood2.jpg') }}" alt="Image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

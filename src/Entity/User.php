@@ -25,31 +25,31 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable= true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez insérer votre nom.")
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable= true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez insérer votre prénom.")
      */
     private $prenom;
 
     /**
-     * @ORM\Column(type="date", nullable= true)
+     * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Vous devez insérer date.")
      */
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable= true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="This value should not be blank.")
      */
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer", nullable= true)
+     * @ORM\Column(type="integer")
      * @Assert\Positive
      * @Assert\NotBlank(message="Vous devez insérer votre numéro de téléphone.")
      * * @Assert\Length(
@@ -62,7 +62,7 @@ class User implements UserInterface
     private $numero_tele;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable= true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez insérer votre email.")
      *  @Assert\Email(
      *     message="This email '{{ value }}' is not a valid email address.")
@@ -70,17 +70,21 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json", nullable= true)
+     * @ORM\Column(type="json")
      */
     private $roles = [];
+
+
 
     /**
      * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="user")
      */
     private $offreTravail;
 
+
+
     /**
-     * @ORM\Column(type="string", length=255,nullable= true)
+     * @ORM\Column(type="string", length=255)
      * @var string The hashed password
      * @Assert\NotBlank(message="Vous devez insérer votre mot de passe!.")
      */
@@ -90,6 +94,25 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Restaurant::class, mappedBy="user")
+     */
+    private $restaurants;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+        $this->restaurants = new ArrayCollection();
+        $this->offreTravail = new ArrayCollection();
+    }
+
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -102,7 +125,7 @@ class User implements UserInterface
     private $resetToken;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\File()
      */
     private $image;
@@ -112,10 +135,6 @@ class User implements UserInterface
      */
     private $address;
 
-    public function __construct()
-    {
-        $this->offreTravail = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -236,10 +255,13 @@ class User implements UserInterface
         return $this;
     }
 
+
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return "".$this->id;
+        return $this->getEmail();
+
     }
 
     public function getPassword(): ?string
@@ -263,6 +285,7 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+
         return $this->email;
     }
 
@@ -283,6 +306,25 @@ class User implements UserInterface
         return $this;
     }
 
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setUser($this);
+        }
+        return $this;
+    }
+
+
     public function getActivationToken(): ?string
     {
         return $this->activationToken;
@@ -291,6 +333,18 @@ class User implements UserInterface
     public function setActivationToken(?string $activationToken): self
     {
         $this->activationToken = $activationToken;
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getUser() === $this) {
+                $reservation->setUser(null);
+            }
+        }
 
         return $this;
     }
@@ -307,6 +361,24 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Restaurant[]
+     */
+    public function getRestaurants(): Collection
+    {
+        return $this->restaurants;
+    }
+
+    public function addRestaurant(Restaurant $restaurant): self
+    {
+        if (!$this->restaurants->contains($restaurant)) {
+            $this->restaurants[] = $restaurant;
+            $restaurant->setUser($this);
+        }
+
+        return $this;
+    }
+
     public function getImage(): ?string
     {
         return $this->image;
@@ -318,6 +390,23 @@ class User implements UserInterface
 
         return $this;
     }
+
+
+    public function removeRestaurant(Restaurant $restaurant): self
+    {
+        if ($this->restaurants->removeElement($restaurant)) {
+            // set the owning side to null (unless already changed)
+            if ($restaurant->getUser() === $this) {
+                $restaurant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+
 
     public function getAddress(): ?string
     {
@@ -331,12 +420,5 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
 }
+

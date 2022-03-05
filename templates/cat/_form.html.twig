@@ -1,0 +1,16 @@
+{%  extends 'base2.html.twig' %}
+{% block body %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    {#  <h1> Ajouter une catégorie </h1>#}
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.Libelle) }}
+        </div>
+        {{ form_label(form.Libelle,"libelle du produit") }}
+        {{ form_widget(form.Libelle ,{'attr': {'class': 'form-control','placeholder':'ajouter le libelle'}}) }}
+    </div>
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

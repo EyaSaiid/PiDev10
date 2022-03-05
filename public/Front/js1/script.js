@@ -32,6 +32,7 @@ jQuery(function ($) {
 		fixedHeader();
 
 
+
 		// Count Up
 		function counter() {
 			var oTop;
