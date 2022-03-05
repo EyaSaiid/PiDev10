@@ -99,14 +99,15 @@ class __TwigTemplate_448162ea695c5d1c0cfd83c383e9617bcf2d2c944753bec1e151cf044ef
         </div>
     </div>
     <h1>Passer votre commande</h1>
+    <h1>Voulez vous confirmer votre commande? Si oui cliquez sur SAVE</h1>
 
     ";
-        // line 21
+        // line 22
         echo twig_include($this->env, $context, "livraison/_form.html.twig");
         echo "
 
     <bouton class=\"btn btn-secondary\"><a href=\"";
-        // line 23
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("panier");
         echo "\">Retourner au panier </a></bouton>
 ";
@@ -130,7 +131,7 @@ class __TwigTemplate_448162ea695c5d1c0cfd83c383e9617bcf2d2c944753bec1e151cf044ef
 
     public function getDebugInfo()
     {
-        return array (  110 => 23,  105 => 21,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  111 => 24,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -154,6 +155,7 @@ class __TwigTemplate_448162ea695c5d1c0cfd83c383e9617bcf2d2c944753bec1e151cf044ef
         </div>
     </div>
     <h1>Passer votre commande</h1>
+    <h1>Voulez vous confirmer votre commande? Si oui cliquez sur SAVE</h1>
 
     {{ include('livraison/_form.html.twig') }}
 

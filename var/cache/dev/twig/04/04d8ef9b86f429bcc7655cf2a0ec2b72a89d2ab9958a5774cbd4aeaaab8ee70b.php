@@ -65,10 +65,8 @@ class __TwigTemplate_185e3b972bd284588a1864f8c2b17f30447e6ffb81810e4247ddda3e554
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyBack"));
 
         // line 3
-        echo "    ";
-        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 3, $this->source); })()), [0 => "bootstrap_4_layout.html.twig"], true);
-        // line 4
-        echo "    <p>Gestion Livraison</p>
+        echo "
+    <p>Gestion Livraison</p>
 
 <table class=\"table\">
     <thead>
@@ -106,7 +104,7 @@ class __TwigTemplate_185e3b972bd284588a1864f8c2b17f30447e6ffb81810e4247ddda3e554
             // line 24
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["l"], "datecommande", [], "any", false, false, false, 24), "d-m-Y"), "html", null, true);
             echo "</td>
-<td><a href=\"";
+<td> <a class=\"btn btn-secondary\" href=\"";
             // line 25
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Update", ["id" => twig_get_attribute($this->env, $this->source, $context["l"], "id", [], "any", false, false, false, 25)]), "html", null, true);
             echo "\"> Update </a> </td>
@@ -144,14 +142,14 @@ class __TwigTemplate_185e3b972bd284588a1864f8c2b17f30447e6ffb81810e4247ddda3e554
 
     public function getDebugInfo()
     {
-        return array (  125 => 33,  111 => 25,  107 => 24,  103 => 23,  99 => 22,  95 => 21,  91 => 19,  87 => 18,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  123 => 33,  109 => 25,  105 => 24,  101 => 23,  97 => 22,  93 => 21,  89 => 19,  85 => 18,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base2.html.twig' %}
 {% block bodyBack %}
-    {% form_theme f 'bootstrap_4_layout.html.twig' %}
+
     <p>Gestion Livraison</p>
 
 <table class=\"table\">
@@ -173,7 +171,7 @@ class __TwigTemplate_185e3b972bd284588a1864f8c2b17f30447e6ffb81810e4247ddda3e554
     <td>{{ l.user.prenom }}</td>
     <td>{{ l.etat }}</td>
     <td>{{ l.datecommande|date('d-m-Y') }}</td>
-<td><a href=\"{{ path('Update',{'id':l.id}) }}\"> Update </a> </td>
+<td> <a class=\"btn btn-secondary\" href=\"{{ path('Update',{'id':l.id}) }}\"> Update </a> </td>
 
 
 

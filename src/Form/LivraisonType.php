@@ -14,13 +14,13 @@ class LivraisonType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
+        //$builder
 
             //->add('etat')
-            ->add('commande' , EntityType::class, [
-                'class'=>Commande::class,
-                'choice_label'=>'id'
-            ])
+            //->add('commande' , EntityType::class, [
+              //  'class'=>Livraison::class,
+                //'choice_label'=>'id'
+          //  ])
         ;
         ;
     }
