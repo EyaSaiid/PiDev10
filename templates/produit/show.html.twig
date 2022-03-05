@@ -35,9 +35,8 @@
                 <td>{{ produit.quantiteProduit }}</td>
             </tr>
             <tr>
-                 <th>image du Produit</th>
-                 <td>{{ produit.photo }}</td>
-                <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit}}" class="img-fluid">
+
+                {# <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit}}" class="img-fluid"> #}
                 {% for image in produit.images %}
                     <div>
                         <img src="{{ asset('/upload/img/' ~ image.name) }}" alt="Image" width="150">

@@ -4,6 +4,7 @@ namespace App\Entity;
 use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use App\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -67,11 +68,13 @@ class Produit
     private $quantiteProduit;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="produits")
      * @Assert\NotBlank(message=" le champs categorie est vide")
      *  Groups("produit")
      */
     private $Categorie;
+
+
 
     public function getId(): ?int
     {
@@ -154,12 +157,12 @@ class Produit
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
+    public function getCategorie(): ?Category
     {
         return $this->Categorie;
     }
 
-    public function setCategorie(?Categorie $Categorie): self
+    public function setCategorie(?Category $Categorie): self
     {
         $this->Categorie = $Categorie;
 

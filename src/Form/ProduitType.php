@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Categorie;
+use App\Entity\Category;
 use App\Entity\Produit;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -22,7 +23,7 @@ class ProduitType extends AbstractType
             ->add('prixProduit')
             ->add('quantiteProduit')
             ->add('Categorie', EntityType::class,[
-                'class'=>Categorie::class,
+                'class'=>Category::class,
                 'choice_label'=>'Libelle',
 
             ])
@@ -33,7 +34,7 @@ class ProduitType extends AbstractType
                 'required' => false
             ])
 
-           ->add('photo', FileType::class, array('data_class'=>null));
+          ->add('photo', FileType::class, array('data_class'=>null));
                   //'multiple' => true,
                     //'required' => false,'constraints' => [
                     //new All([
