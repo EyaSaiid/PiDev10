@@ -10,6 +10,7 @@ use App\Form\EditLivraisonType;
 use App\Repository\LivraisonProduitRepository;
 use App\Repository\LivraisonRepository;
 use App\Repository\ProduitRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +35,7 @@ class LivraisonController extends AbstractController
     /**
      * @Route("/new", name="livraison_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager , ProduitRepository $produitRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager , ProduitRepository $produitRepository, UserRepository $userRepository): Response
     {
 
         $session=  $this->get('session');
@@ -44,12 +45,16 @@ class LivraisonController extends AbstractController
         $livraison = new Livraison();
         $form = $this->createForm(LivraisonType::class, $livraison );
         $form->handleRequest($request);
-        $usr= new User();
-        $usr->setId(1);
+
+        $UserId=$this->getUser()->getId() ; // hethy twali b session
+        $User=$userRepository->find($UserId);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($livraison);
-            $livraison->setUser($usr);
+
+            $livraison->setUser($User);
+
             $livraison->setTotal(0);
             $livraison->setEtat('non livré');
             $entityManager->persist($livraison);
