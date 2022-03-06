@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %} Panier
+{% endblock %}
+{% set total = 0 %}
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Votre panier</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Votre panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Livraison ID</th>
+                <th>Nom Produit</th>
+                <th>Prix Unitaire</th>
+                <th>Quantité</th>
+                <th>Prix Total</th>
+
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for l in lp %}
+                <tr>
+                    <td>{{ l.livraison.id }}</td>
+
+                    <td>{{ l.produit.nomProduit }}</td>
+                    <td>{{ l.produit.prixProduit }} DT</td>
+                    <td>
+                     {{ l.qte }}
+                    </td>
+                    <td>{{ l.produit.prixProduit * l.qte }}</td>
+                    {% set total = total+ l.produit.prixProduit * l.qte %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total : {{ total }}
+                </td>
+
+
+
+
+
+
+            </tr>
+            </tfoot>
+        </table>
+
+{% endblock %}

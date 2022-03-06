@@ -1,0 +1,50 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Livraison index{% endblock %}
+
+{% block bodyBack %}
+    <h1>Livraison index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>Etat</th>
+                <th>Commande ID</th>
+                <th>actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.id }}</td>
+                <td>{{ livraison.Prenom }}</td>
+                <td>{{ livraison.Nom }}</td>
+                <td>{{ livraison.adresse }}</td>
+                <td>{{ livraison.tel }}</td>
+                <td>{{ livraison.email }}</td>
+                <td>{{ livraison.etat }}</td>
+               <td>{{ livraison.commande.id }}</td>
+
+                <td>
+                    <!--<a href="{{ path('livraison_show', {'id': livraison.id}) }}">show</a>-->
+                    <a class="btn btn-primary" href="{{ path('livraison_edit', {'id': livraison.id}) }}">Changer état</a>
+                   <!-- <a  href="{{ path('ListByProduit',{'id':livraison.commande.id}) }}" class ="btn-small01 btn-blue">Accéder</a>-->
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<!-- <a href="{{ path('livraison_new') }}">Create new</a>
+{% endblock %}

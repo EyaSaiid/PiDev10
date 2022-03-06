@@ -1,0 +1,75 @@
+
+{% extends 'base.html.twig' %}
+{% block title %} Panier
+{% endblock %}
+
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Votre panier</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Votre panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if articles | length >0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for key,item in articles %}
+                <tr>
+                    <td>{{ articles[key].nomProduit  }}</td>
+
+                    <td>{{ articles[key].prixProduit }}</td>
+                    <td>
+                  <a href="{{ path('panier_minus' ,  {'id': articles[key].id}) }}">-</a>
+                        {{ qts[key] }}
+
+                        <a href="{{ path('panier_plus', {'id': articles[key].id}) }}">+</a> </td>
+                    <td>{{ qts[key] * articles[key].prixProduit  }} DT</td>
+                    <td>
+                        <a href="{{ path('cart_remove', {'id':articles[key].id}) }}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total :
+                    </td>
+
+                    <td>{{ total }}</td>
+                    <td><a href="{{ path('remove_all')}}" class="btn btn-danger btn-sm"> Supprimmer tout
+                            <i class="fas fa-trash-alt"></i>
+                        </a></td>
+
+
+                    <td>
+
+                    <a href="{{ path('livraison_new') }}" class="btn btn-success float-right" >Commander
+                    <i class="fas fa-shopping-cart mr1"></i>
+                    </a>
+                </td>
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p> Votre panier est vide!</p>
+    {% endif %}
+{% endblock %}

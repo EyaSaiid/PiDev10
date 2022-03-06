@@ -75,10 +75,12 @@ class User implements UserInterface
     private $roles = [];
 
 
+
     /**
      * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="user")
      */
     private $offreTravail;
+
 
 
     /**
@@ -94,7 +96,6 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
-
      * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="user")
      */
     private $reservations;
@@ -133,6 +134,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
+
 
     public function getId(): ?int
     {
@@ -253,10 +255,13 @@ class User implements UserInterface
         return $this;
     }
 
+
+
     public function __toString()
     {
         // TODO: Implement __toString() method.
         return $this->getEmail();
+
     }
 
     public function getPassword(): ?string
@@ -301,6 +306,7 @@ class User implements UserInterface
         return $this;
     }
 
+
     /**
      * @return Collection|Reservation[]
      */
@@ -317,6 +323,7 @@ class User implements UserInterface
         }
         return $this;
     }
+
 
     public function getActivationToken(): ?string
     {
@@ -338,6 +345,7 @@ class User implements UserInterface
                 $reservation->setUser(null);
             }
         }
+
         return $this;
     }
 
@@ -367,6 +375,7 @@ class User implements UserInterface
             $this->restaurants[] = $restaurant;
             $restaurant->setUser($this);
         }
+
         return $this;
     }
 
@@ -381,6 +390,7 @@ class User implements UserInterface
 
         return $this;
     }
+
 
     public function removeRestaurant(Restaurant $restaurant): self
     {
@@ -397,6 +407,7 @@ class User implements UserInterface
 
 
 
+
     public function getAddress(): ?string
     {
         return $this->address;
@@ -408,4 +419,6 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
+

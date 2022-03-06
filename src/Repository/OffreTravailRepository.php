@@ -7,6 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use phpDocumentor\Reflection\Types\Integer;
 
+
 /**
  * @method OffreTravail|null find($id, $lockMode = null, $lockVersion = null)
  * @method OffreTravail|null findOneBy(array $criteria, array $orderBy = null)
@@ -48,6 +49,7 @@ class OffreTravailRepository extends ServiceEntityRepository
         ;
     }
     */
+
     public function findAllByUser(   $idUser)
     {
         return $this->createQueryBuilder('o')
@@ -57,4 +59,5 @@ class OffreTravailRepository extends ServiceEntityRepository
             ->getResult();
 
     }
+
 }

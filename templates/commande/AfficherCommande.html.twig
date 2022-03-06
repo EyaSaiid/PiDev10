@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits
+{% endblock %}
+
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Votre panier</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Votre panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <td>Produit</td>
+            <td>Description</td>
+            <td>Prix</td>
+        </tr>
+        {%for c in commandes%}
+            <tr>
+
+                <td>{{ c.id }}</td>
+                <td>{{ c.quantity }}</td>
+                <td>{{ c.total }}</td>
+                <td>
+                    <a  href="{{ path('ListByProduit',{'id':c.id}) }}" class ="btn-small01 btn-blue">Accéder</a>
+
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

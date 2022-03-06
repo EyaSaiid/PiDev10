@@ -1,0 +1,28 @@
+{% for produit in produits %}
+    <div class="grix xs2 sm3 gutter-0 card">
+            <div class="card-content">
+                <p>Catégorie : {{ produit.Categorie.Libelle }}</p>
+
+                <div class="txt-red">
+                    {% if is_granted("ROLE_USER") %}
+                        {% set isFavorite = false %}
+                        {% for favoris in produit.favoris %}
+                            {% if produit.id == app.user.id %}
+                                {% set isFavorite = true %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if isFavorite %}
+                            <a href="{{ path('retrait_favoris', {id: produit.id}) }}"><i class="fas fa-heart"></i></a>
+                        {% else %}
+                            <a href="{{ path('ajout_favoris', {id: produit.id}) }}"><i class="far fa-heart"></i></a>
+                        {% endif %}
+
+                    {% else %}
+                        <i class="far fa-heart"></i>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

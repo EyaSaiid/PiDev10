@@ -1,0 +1,18 @@
+{%  for produit in produits %}
+    <div class="col-md-4">
+        <div class="food-item">
+            {#  <i class="flaticon-burger"></i>#}
+            <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit }}" class="img-fluid" height="250" width="250">
+            {#  <h2>{{ produit.nomProduit }}</h2>#}
+            <p>
+                {{ produit.descriptionProduit }}
+            </p>
+            <h2>
+                {{ produit.prixProduit }} DNT
+            </h2>
+            <a href="{{ path('showProduit', {'id': produit.id}) }}" >Voir produit</a>
+
+        </div>
+    </div>
+
+{% endfor %}
