@@ -32,9 +32,9 @@ class ProduitType extends AbstractType
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false
-            ])
+            ]);
 
-          ->add('photo', FileType::class, array('data_class'=>null));
+         // ->add('photo', FileType::class, array('data_class'=>null));
                   //'multiple' => true,
                     //'required' => false,'constraints' => [
                     //new All([

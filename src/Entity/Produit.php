@@ -96,11 +96,8 @@ class Produit
      *@Assert\NotBlank(message=" le champs photo est vide")
      * Groups("produit")
      */
-    private $photo;
-  
-  
-  
-  
+   // private $photo;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Images::class, mappedBy="produit",orphanRemoval=true, cascade={"persist"})
@@ -127,18 +124,16 @@ class Produit
         return $this->id;
     }
 
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
+    //public function getPhoto()
+  //  {
+  //      return $this->photo;
+   // }
 
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
+   // public function setPhoto($photo)
+   // {
+    //    $this->photo = $photo;
+     //   return $this;
+    //}
     public function getNomProduit(): ?string
     {
         return $this->nomProduit;

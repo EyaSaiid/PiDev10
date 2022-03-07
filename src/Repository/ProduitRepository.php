@@ -124,5 +124,24 @@ class ProduitRepository extends ServiceEntityRepository
            ->setParameter('id',$id)
            ->getQuery()->getResult();
     }
+    /**
+     *
+     * Requête QueryBuilder tri
+     */
+    public function getProduitPrix($prixProduit){
+        return $this->createQueryBuilder('c')
+            ->where('c.prixProduit < :prixProduit ')
+            ->setParameter('prixProduit' ,  $prixProduit)
+
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findProduitByName($nom){
+        return $this->createQueryBuilder('produit')
+            ->where('produit.nomProduit LIKE :nom')
+            ->setParameter('nom', '%'.$nom.'%')
+            ->getQuery()->getResult();
+    }
 }
 
