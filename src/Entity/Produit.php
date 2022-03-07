@@ -76,11 +76,6 @@ class Produit
     private $commandes;
 
 
-    
-
-
-    
-
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="produits")
      * @Assert\NotBlank(message=" le champs categorie est vide")

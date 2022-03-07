@@ -215,7 +215,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
+{#
         <img width="79" src="/upload/img/{{ user.image }}" class="brand-image img-circle elevation-3" style="opacity: .8">
+#}
 
         <span class="brand-text font-weight-light">DevFive </span>
     </a>
@@ -331,45 +333,16 @@
                     </li>
 
                 </nav>
- {#  ***************************        End  --------   Gestion restaurant avec navbar    ************************#}
+                {% endif %}
+
+                {#  ***************************        End  --------   Gestion restaurant avec navbar    ************************#}
                 {#  ********************** Gestion Categorie avec navbar *******************************#}
 
-                <nav class="mt-2">
 
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-table"></i>
-                            <p>
-                                Gestion Categories produit
+                                {#  ********************** Gestion ProduitPlat avec navbar *******************************#}
 
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ path('cat_index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Afficher Categorie</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ path('cat_new') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Ajouter Categorie</p>
-                                </a>
-                            </li>
-
-                        </ul>
-
-
-                    </li>
-
-                </nav>
- {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
-                {#  ********************** Gestion ProduitPlat avec navbar *******************************#}
-
+                {% if app.user.roles[0]=="ROLE_RESTAURANT" %}
 
                 <nav class="mt-2">
 
@@ -508,34 +481,41 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                    <nav class="mt-2">
 
-
-                    <a href="{{ path('GestionRestaurant') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion categories
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ path('categorie_index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Afficher categorie</p>
-                            </a>
-                        </li>
 
                         <li class="nav-item">
-                            <a href="{{ path('categorie_new') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Ajouter categorie</p>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Gestion Categories produit
+
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('cat_index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Afficher Categorie</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ path('cat_new') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ajouter Categorie</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
                         </li>
 
+                    </nav>
+                    {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
 
-                    </ul>
-                </li>
 
 
                 {% endif %}
