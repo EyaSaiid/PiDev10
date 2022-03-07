@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+   
+
 use App\Entity\Category;
 use App\Form\FiltreType;
 use MercurySeries\FlashyBundle\FlashyNotifier;
@@ -83,9 +85,23 @@ class ProduitController extends AbstractController
         $dompdf->stream("mypdf.pdf", [
             'Attachment' => true    //méthode de stream qui va permettre de telechaarger
         ]);
-
-
     }
+   /**
+     * @Route("/fetchProduits", name="fetchProduits")
+     */
+    public function fetchProduits(ProduitRepository $repo):Response
+    {
+        $result =$repo->findAll();
+        return $this->render('produit/afficherproduit.html.twig',[
+           'produits'=>$result
+        ]);
+    }
+  
+  
+  
+
+
+    
     /**
      * @Route("/produitsFront", name="produit_front")
      */

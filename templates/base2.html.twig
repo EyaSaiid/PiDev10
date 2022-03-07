@@ -215,7 +215,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <img src="{{ asset('Back/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img width="79" src="/upload/img/{{ user.image }}" class="brand-image img-circle elevation-3" style="opacity: .8">
+
         <span class="brand-text font-weight-light">DevFive </span>
     </a>
 
@@ -248,63 +249,54 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ path('home') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            Dma9
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
 
                 </li>
-                <nav class="mt-2">
+                {% if app.user.roles[0]=="ROLE_ADMIN" %}
+
+                    <nav class="mt-2">
 
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-table"></i>
-                            <p>
-                                Gestion Utilisateur
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ path('user_index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Manipuler Utilisateur</p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Gestion Utilisateur
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('user_index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manipuler Utilisateur</p>
+                                    </a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a href=" {{ path('user_stat') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Stat Utilisateur</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ path('user_new') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Request des Utilisateurs</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ path('user_new') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Supprimer Utilisateur</p>
-                                </a>
-                            </li>
-                        </ul>
+                                <li class="nav-item">
+                                    <a href=" {{ path('user_stat') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Stat Utilisateur</p>
+                                    </a>
+                                </li>
 
 
-                    </li>
+                            </ul>
 
-                </nav>
 
+                        </li>
+
+                    </nav>
+                {% endif %}
 
 {#  ********************** Gestion restaurant avec navbar*******************************#}
+                {% if app.user.roles[0]=="ROLE_RESTAURANT" %}
 
                 <nav class="mt-2">
 
@@ -350,6 +342,7 @@
                             <i class="nav-icon fas fa-table"></i>
                             <p>
                                 Gestion Categories produit
+
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -450,6 +443,43 @@
                             </li>
                         </ul>
                 </nav>
+                {% endif %}
+                {% if app.user.roles[0]=="ROLE_ADMIN" %}
+
+                <nav class="mt-2">
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Gestion offre de travail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('offre_travail_index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manipuler les offres</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Statistiques</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+
+                    </nav>
+
+
                 {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
 
 
@@ -508,52 +538,8 @@
                 </li>
 
 
+                {% endif %}
 
-                <nav class="mt-2">
-
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-table"></i>
-                            <p>
-                                Gestion offre de travail
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ path('offre_travail_index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Manipuler les offres</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Stat</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Request</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Supprimer Utilisateur</p>
-                                </a>
-                            </li>
-                        </ul>
-
-
-                    </li>
-
-                </nav>
 
 
 
@@ -579,9 +565,8 @@
                         </p>
                     </a>
                 </li>
-
                 <li class="nav-item">
-                    <a href="{{ path('GestionCommande') }}" class="nav-link">
+                    <a href="{{ path("Affichel") }}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Gestion Commande

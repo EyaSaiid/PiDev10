@@ -35,7 +35,7 @@ class UserType extends AbstractType
             ->add('numero_tele')
             ->add('email',EmailType::class)
             ->add('roles', ChoiceType::class, array(
-            'choices' => array('ROLE_ADMIN' =>'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER',),
+            'choices' => array('ROLE_ADMIN' =>'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER','ROLE_RESTAURANT'=>'ROLE_RESTAURANT'),
             'multiple' => false,
             'required' => true,
             )

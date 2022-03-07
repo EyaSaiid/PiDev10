@@ -21,14 +21,15 @@
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
-<div class="container" >
+    <div class="container" >
 
         <div class="section-header text-center"> <br>
             <h2>Register</h2>
         </div>
 
 {#      <table class=" justify-content-center align-items-center container" >#}
-        <div class="col-6">
+        <div class="col-lg-9">
+            <div class=" justify-content-center align-items-center container" >
         {{ form_start(registrationForm,{'attr':{'novalidate':'novalidate'}}) }}
 
                         <div class="form-group">
@@ -36,8 +37,9 @@
                                 {{ form_errors(registrationForm.nom) }}
                                 <a class="close" href="#"></a>
                             </div>
+
                             {{ form_label(registrationForm.nom,'Nom') }}
-                            {{ form_widget(registrationForm.nom, {'attr': {'class': 'with-border','placeholder':'e.g. said '}}) }}
+                          {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control','placeholder':'e.g. said '}}) }}
                         </div>
 
                         <div class="form-group">
@@ -47,79 +49,82 @@
                                 <a class="close" href="#"></a>
                             </div>
                             {{ form_label(registrationForm.prenom,'Prenom ') }}
-                            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'with-border','placeholder':'e.g. eya'}}) }}
+
+                            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control','placeholder':'e.g. eya'}}) }}
                         </div>
 
-        <div class="form-group">
-            <div class="alert alert-warning"  style="display: {% if registrationForm.date.vars.errors|length %} {% else %} none {% endif %}  ">
-                {{ form_errors(registrationForm.date) }}
-                <a class="close" href="#"></a>
-            </div>
-            {{form_label(registrationForm.date,"Date de naissance")  }}
-            {{form_widget(registrationForm.date) }}
+                        <div class="form-group">
+                            <div class="alert alert-warning"  style="display: {% if registrationForm.date.vars.errors|length %} {% else %} none {% endif %}  ">
+                                {{ form_errors(registrationForm.date) }}
+                                <a class="close" href="#"></a>
+                            </div>
+                            {{form_label(registrationForm.date,"Date de naissance")  }}
+                            {{form_widget(registrationForm.date,{'attr': {'class': 'form-control'}}) }}
 
-        </div>
-        <div class="form-group">
+                        </div>
+                        <div class="form-group">
 
-            <div class="alert alert-warning"  style="display: {% if registrationForm.sexe.vars.errors|length %} {% else %} none {% endif %}  ">
-                {{ form_errors(registrationForm.sexe) }}
-                <a class="close" href="#"></a>
-            </div>
-            {{ form_label(registrationForm.sexe,'Sexe') }}
-            {{ form_widget(registrationForm.sexe, {'attr': {'class': 'with-border','placeholder':'e.g. '}}) }}
+                            <div class="alert alert-warning"  style="display: {% if registrationForm.sexe.vars.errors|length %} {% else %} none {% endif %}  ">
+                                {{ form_errors(registrationForm.sexe) }}
+                                <a class="close" href="#"></a>
+                            </div>
+                            {{ form_label(registrationForm.sexe,'Sexe') }}
+                            {{ form_widget(registrationForm.sexe, {'attr': {'class': 'form-control'}}) }}
 
-        </div>
-        <div class="form-group">
-            <div class="alert alert-warning"  style="display: {% if registrationForm.numero_tele.vars.errors|length %} {% else %} none {% endif %}  ">
-                {{ form_errors(registrationForm.numero_tele) }}
-                <a class="close" href="#"></a>
-            </div>
-            {{ form_label(registrationForm.numero_tele,'Numero de telephone') }}
-            {{ form_widget(registrationForm.numero_tele, {'attr': {'class': 'with-border','placeholder':'e.g. 22222222'}}) }}
+                        </div>
+                        <div class="form-group">
+                            <div class="alert alert-warning"  style="display: {% if registrationForm.numero_tele.vars.errors|length %} {% else %} none {% endif %}  ">
+                                {{ form_errors(registrationForm.numero_tele) }}
+                                <a class="close" href="#"></a>
+                            </div>
+                            {{ form_label(registrationForm.numero_tele,'Numero de telephone') }}
 
-        </div>
-        <div class="form-group">
-            <div class="submit-field">
-                <div class="alert alert-warning"  style="display: {% if registrationForm.roles.vars.errors|length %} {% else %} none {% endif %}  ">
-                    {{ form_errors(registrationForm.roles) }}
-                    <a class="close" href="#"></a>
-                </div>
-                {{ form_label(registrationForm.roles,'user roles') }}
-                {{ form_widget(registrationForm.roles,{'attr':{'title':'Select your role'}}) }}
-            </div>
+                           {{ form_widget(registrationForm.numero_tele, {'attr': {'class': 'form-control','placeholder':'e.g. 22222222'}}) }}
 
-        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="submit-field">
+                                <div class="alert alert-warning"  style="display: {% if registrationForm.roles.vars.errors|length %} {% else %} none {% endif %}  ">
+                                    {{ form_errors(registrationForm.roles) }}
+                                    <a class="close" href="#"></a>
+                                </div>
+                                {{ form_label(registrationForm.roles,'user roles') }}
+                                {{ form_widget(registrationForm.roles,{'attr':{'class': 'form-control','title':'Select your role'}}) }}
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <div class="alert alert-warning"  style="display: {% if registrationForm.email.vars.errors|length %} {% else %} none {% endif %}  ">
-                        {{ form_errors(registrationForm.email) }}
-                        <a class="close" href="#"></a>
+                        <div class="form-group">
+                            <div class="alert alert-warning"  style="display: {% if registrationForm.email.vars.errors|length %} {% else %} none {% endif %}  ">
+                                {{ form_errors(registrationForm.email) }}
+                                <a class="close" href="#"></a>
+                            </div>
+                            {{ form_label(registrationForm.email,'Email') }}
+                            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control','placeholder':'e.g. ***@***.com'}}) }}
+                {#            {{ form_help(registrationForm.email,' A confirmation link will be send to this address') }}#}
+                        </div>
+
+                        <div class="form-group">
+                            <div class="submit-field">
+                                <div class="alert alert-warning"  style="display: {% if registrationForm.image.vars.errors|length %} {% else %} none {% endif %}  ">
+                                    {{ form_errors(registrationForm.image) }}
+                                    <a class="close" href="#"></a>
+                                </div>
+                                {{ form_label(registrationForm.image,' ') }}
+                                {{ form_widget(registrationForm.image,{'attr':{'title':'télécharger votre image','class': 'form-control'}}) }}
+                            </div>
+
+                        </div>
+                    {{ form_row(registrationForm.password, {
+                            label: 'Password'
+                        }) }}
+                        {{ form_row(registrationForm.agreeTerms) }}
+
+
+                        <button class="btn btn-lg btn-primary" type="submit"> Register</button>
                     </div>
-                    {{ form_label(registrationForm.email,'Email') }}
-                    {{ form_widget(registrationForm.email, {'attr': {'class': 'with-border','placeholder':'e.g. ***@***.com'}}) }}
-        {#            {{ form_help(registrationForm.email,' A confirmation link will be send to this address') }}#}
-                </div>
-
-            <div class="form-group">
-                <div class="submit-field">
-                    <div class="alert alert-warning"  style="display: {% if registrationForm.image.vars.errors|length %} {% else %} none {% endif %}  ">
-                        {{ form_errors(registrationForm.image) }}
-                        <a class="close" href="#"></a>
-                    </div>
-                    {{ form_label(registrationForm.image,' ') }}
-                    {{ form_widget(registrationForm.image,{'attr':{'title':'télécharger votre image'}}) }}
-                </div>
-
-            </div>
-                {{ form_row(registrationForm.password, {
-                        label: 'Password'
-                    }) }}
-                    {{ form_row(registrationForm.agreeTerms) }}
-
-
-            <button class="btn btn-lg btn-primary" type="submit"> Register</button> </div>
                 </div>
             </div>
+    </div>
 
     </div>
 </div>

@@ -174,6 +174,7 @@ class Restaurant
     }
 
 
+
     //    Relations
 
     /**
@@ -204,6 +205,7 @@ class Restaurant
     }
 
 
+
     /**
      * @return Collection|OffreTravail[]
      */
@@ -221,6 +223,7 @@ class Restaurant
 
         return $this;
     }
+
 
     public function removeProduitPlat(ProduitPlat $produitplat): self
     {
@@ -286,6 +289,7 @@ class Restaurant
         return $this;
     }
 
+
     public function removeOffreTravail(OffreTravail $offreTravail): self
     {
         if ($this->offreTravail->removeElement($offreTravail)) {
@@ -306,4 +310,7 @@ class Restaurant
 
 
 
+
+
 }
+
