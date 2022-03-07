@@ -220,7 +220,7 @@ class User implements UserInterface
 
     public function setRoles(array $roles): self
     {
-        $this->roles = ["ROLE_USER"];
+        $this->roles = $roles;
 
         return $this;
     }

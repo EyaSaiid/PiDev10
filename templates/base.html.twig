@@ -170,8 +170,11 @@
                                 {% if app.user.roles[0]=="ROLE_ADMIN" %}
                                 <a class="dropdown-item" href="{{ path('user_index') }}">Admin</a>
                                 {% endif %}
-
+                                {% if app.user.roles[0]=="ROLE_RESTAURANT" %}
+                                    <a class="dropdown-item" href="{{ path('restaurant_index') }}">Admin</a>
+                                {% endif %}
                                 <a class="dropdown-item" href="{{ path("app_logout") }}" >Logout</a>
+
                             </div>
                         </div>
 
