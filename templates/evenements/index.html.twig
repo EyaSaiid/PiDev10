@@ -1,0 +1,58 @@
+{% extends 'base2.html.twig' %}
+
+{% block titles %}Evenements List{% endblock %}
+
+{% block bodyBack %}
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Lieu</th>
+                            <th>NbParticipant</th>
+                            <th>Datadeb</th>
+                            <th>DateFin</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for evenement in evenements %}
+                            <tr>
+                                <td>{{ evenement.titre }}</td>
+                                <td>{{ evenement.lieu }}</td>
+                                <td>{{ evenement.nbParticipant }}</td>
+                                <td>{{ evenement.datadeb ? evenement.datadeb|date('Y-m-d') : '' }}</td>
+                                <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
+                                <td>{{ evenement.description }}</td>
+                                <td><img src="{{ asset('Upload/')}}{{ evenement.image }}" width="100"  /></td>
+
+                                <td>
+                                    <a href="{{ path('evenements_delete', {'id': evenement.id}) }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ path('evenements_edit', {'id': evenement.id}) }}" class="btn btn-primary">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {{ knp_pagination_render(evenements) }}
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+{% endblock %}

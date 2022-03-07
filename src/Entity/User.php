@@ -153,6 +153,7 @@ class User implements UserInterface
         return $this;
     }
 
+
     public function getPrenom(): ?string
     {
         return $this->prenom;
