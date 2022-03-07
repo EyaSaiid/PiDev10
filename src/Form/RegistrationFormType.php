@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
             ->add('numero_tele')
             ->add('email')
             ->add('roles', ChoiceType::class, array(
-                    'choices' => array('ROLE_ADMIN' =>'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER',),
+                    'choices' => array('USER' => 'USER',),
                     'multiple' => false,
                     'required' => true,
                 )

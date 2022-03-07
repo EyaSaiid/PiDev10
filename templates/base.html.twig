@@ -131,12 +131,25 @@
                     {#<a href="{{ path("details_menu") }}" class="nav-item nav-link">Detail menu</a>#}
                     <a href="{{ path("reservation_new") }}" class="nav-item nav-link"> Reservation </a>
                     {% endif %}
-                    <a href="{{ path("produit_front") }}" class="nav-item nav-link">Produits</a>
-                    <a href="{{ path("category_front") }}" class="nav-item nav-link">Categories</a>
+
+
+                    <div class="nav-item dropdown">
+
+                        <div class="mb-3">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Boutique </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <a href="{{ path("produit_front") }}" class="dropdown-item">Produits</a>
+                                <a href="{{ path("category_front") }}" class="dropdown-item" >Catégories</a>
+                            </div>
+                        </div>
+                    </div>
+                    {#                    <a href="{{ path("category_front") }}" class="nav-item nav-link">Categories</a>#}
                     <a href="{{ path("contact") }}" class="nav-item nav-link">Contact</a>
 
                     <a href="{{ path("panier") }}" class="nav-item nav-link">Panier</a>
-                    <a href="{{ path("livraison_index") }}" class="nav-item nav-link">Mes commandes</a>
+                    <a href="{{ path("livraison_index") }}" class="nav-item nav-link">Commandes</a>
 
                     {% if app.user %}
                     <div class="nav-item dropdown">
