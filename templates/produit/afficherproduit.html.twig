@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits
+{% endblock %}
+
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Votre panier</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Votre panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<table>
+    <tr>
+        <td>Produit</td>
+        <td>Description</td>
+        <td>Prix</td>
+    </tr>
+{%for produit in produits%}
+    <tr>
+
+<td>{{ produit.nomProduit }}</td>
+<td>{{ produit.descriptionProduit }}</td>
+<td>{{ produit.prixProduit }}</td>
+        <td>
+            <a href="{{ path('panier_ajout',{'id': produit.id}) }}" class="btn btn-success float-right">
+                <i class="fas fa-shopping-cart mr1"></i>
+                Ajouter
+            </a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block bodyBack %}
+    <h1>Categories</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.Libelle }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('cat_show', {'id': category.id}) }}">voir</a>
+                    <a class="btn btn-secondary" href="{{ path('cat_edit', {'id': category.id}) }}">modifier</a>
+                    {{ include('cat/_delete_form.html.twig' , {'button_label': 'Delete'}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="{{ path('cat_new') }}">Nouvelle categorie</a>
+{% endblock %}

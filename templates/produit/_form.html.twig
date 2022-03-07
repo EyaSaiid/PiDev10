@@ -1,0 +1,66 @@
+{%  extends 'base2.html.twig' %}
+{% block body %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    <h1> Ajouter un produit </h1>
+
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.nomProduit) }} </div>
+        {{ form_label(form.nomProduit,"Nom du produit") }}
+        {{ form_widget(form.nomProduit ,{'attr': {'class': 'form-control','placeholder':'ajouter le nom'}}) }}
+    </div>
+    <div class="form-group">
+
+        <div class="alert-danger" style="align-content: center">
+
+
+            {{ form_errors(form.descriptionProduit) }}
+        </div>
+        {{ form_label(form.descriptionProduit,"Description du produit") }}
+        {{ form_widget(form.descriptionProduit ,{'attr': {'class': 'form-control','cols':'55', 'rows':'100','placeholder':'ajouter la description'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.prixProduit) }}</div>
+        {{ form_label(form.prixProduit,"Prix du produit") }}
+        {{ form_widget(form.prixProduit ,{'attr': {'class': 'form-control','placeholder':'ajouter le prix'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.quantiteProduit) }} </div>
+        {{ form_label(form.quantiteProduit,"Quantite du produit") }}
+        {{ form_widget(form.quantiteProduit ,{'attr': {'class': 'form-control','placeholder':'ajouter la quantité'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.Categorie) }} </div>
+        {{ form_label(form.Categorie,"Categorie du produit") }}
+        {{ form_widget(form.Categorie ,{'attr': {'class': 'form-control','placeholder':'ajouter la catégorie'}}) }}
+    </div>
+    <div class="form-group">
+        <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.images) }} </div>
+        {{ form_label(form.images,"photo du produit") }}
+        {{ form_widget(form.images ,{'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+         {#  <div class="alert-danger" style="align-content: center">
+            {{ form_errors(form.photo) }} </div>
+        {{ form_label(form.photo,"photo par défaut") }}
+        {{ form_widget(form.photo,{'attr': {'class': 'form-control'}}) }} #}
+    </div>
+    {% if app.request.attributes.get('_route') == 'produit_edit' %}
+        <h2>Images</h2>
+        {% for image in produit.images %}
+            <div>
+                <img src="{{ asset('/upload/img' ~ image.name) }}" alt="Image" width="150">
+                <a href="{{ path('produit_delete_image', {id: image.id}) }}"
+                   data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+            </div>
+
+        {% endfor %}
+    {% endif %}
+
+  <ul><button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button></ul>
+    {{ form_end(form) }}
+{% endblock %}

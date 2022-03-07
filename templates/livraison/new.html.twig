@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Livraison{% endblock %}
+
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Passer votre commande</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Détails de livraison</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>Passer votre commande</h1>
+    <h4>Voulez vous confirmer votre commande? Si oui cliquez sur SAVE</h4>
+
+    {{ include('livraison/_form.html.twig') }}
+<br>
+    <bouton class="btn btn-success"><a href="{{ path('panier') }}">Retourner au panier </a></bouton>
+{% endblock %}

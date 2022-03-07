@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block bodyMenu %}
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Profil</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Profil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ user.nom }}</td>
+        </tr>
+        <tr>
+            <th>Prenom</th>
+            <td>{{ user.prenom }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ user.date ? user.date|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Sexe</th>
+            <td>{{ user.sexe }}</td>
+        </tr>
+        <tr>
+            <th>Numero_tele</th>
+            <td>{{ user.numeroTele }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Roles</th>
+            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>{{ user.password}}</td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td>{{ user.image}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('user_edit_', {'id': user.id}) }}">edit</a>
+
+
+{% endblock %}

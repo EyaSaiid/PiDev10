@@ -1,0 +1,35 @@
+{% extends 'base2.html.twig' %}
+{% block bodyBack %}
+
+    <p>Gestion Livraison</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>prénom</th>
+        <th>Etat</th>
+        <th>date commande</th>
+
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+{% for l in livraison %}
+<tr>
+
+    <td>{{ l.user.nom }}</td>
+    <td>{{ l.user.prenom }}</td>
+    <td>{{ l.etat }}</td>
+    <td>{{ l.datecommande|date('d-m-Y') }}</td>
+<td> <a class="btn btn-secondary" href="{{ path('Update',{'id':l.id}) }}"> Update </a> </td>
+
+
+
+
+    </tr>
+    </tbody>
+{% endfor %}
+</table>
+{% endblock %}
+

@@ -19,6 +19,7 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
@@ -47,4 +48,36 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function findByHomme()
+    {
+        return$this->createQueryBuilder('u')
+            ->where('u.sexe LIKE :sexe')
+            ->setParameter('sexe','Homme')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findByFemme()
+    {
+        return$this->createQueryBuilder('u')
+            ->where('u.sexe LIKE :sexe')
+            ->setParameter('sexe','Femme')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /*
+     * @return void
+     */
+    public function countByDate(){
+        $query = $this->createQueryBuilder('u')
+            ->select('SUBSTRING(u.date, 1, 10) as dat, COUNT(u) as count')
+            ->groupBy('dat');
+        return$query->getQuery()->getResult();
+    }
+
 }

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyMenu %}
+<!-- Page Header Start -->
+<div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Nos produits</h2>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Food Start -->
+
+<div class="food">
+    <div class="container">
+        <div class="row align-items-center">
+            {% if produit.quantiteProduit> 0 %}
+            <h1 style="color:darkgreen";>Produit en stock</h1>
+            {% else %}
+            <h1 style="color:red";>Produit en rupture</h1>
+            {% endif %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+
+            </div>
+        </div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Nom du Produit</th>
+                {% for image in produit.images %}
+                <div>
+                    <img src="{{ asset('/upload/img/' ~ image.name) }}" alt="Image" width="400">
+                </div>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Description du Produit</th>
+                <td>{{ produit.descriptionProduit }}</td>
+            </tr>
+            <tr>
+                <th>Prix du Produit</th>
+                <td>{{ produit.prixProduit }}</td>
+            </tr>
+           {# <tr>
+                 <th>image du Produit</th>
+                <td>{{ produit.photo }}</td>
+                <img src="/upload/img/{{ produit.photo }}" alt="{{ produit.nomProduit }}" class="img-fluid" height="100" width="400">
+            </tr>
+           #}
+            </tbody>
+
+    </div>
+    </table>
+            {% if produit.quantiteProduit> 0 %}
+            <ul>
+                <bouton class="btn btn-danger"> <a href="{{ path('produit_front') }}"> revenir a la liste</a></bouton> </ul>
+           <ul>     <bouton class="btn btn-success"> <a href="{{ path('panier_ajout',{'id': produit.id}) }}">ajouter au panier</a></bouton></ul>
+
+            {% else %}
+            <bouton class="btn btn-danger"> <a href="{{ path('produit_front') }}"> revenir a la liste</a></bouton> </ul>
+            <ul>
+                {% endif %}
+                {% endblock %}
+

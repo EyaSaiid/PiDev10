@@ -215,18 +215,22 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <img src="{{ asset('Back/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+{#
+        <img width="79" src="/upload/img/{{ user.image }}" class="brand-image img-circle elevation-3" style="opacity: .8">
+#}
+
         <span class="brand-text font-weight-light">DevFive </span>
     </a>
+
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('Back/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+              {#  <img width="79" src="/upload/img/{{ app.user.image }}" class="img-thumbnail">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ app.user.nom }} {{ app.user.prenom }}</a> #}
             </div>
         </div>
 
@@ -247,28 +251,54 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ path('home') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            Dma9
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
 
                 </li>
-                <li class="nav-item">
-                    <a href="{{ path('GestionUser') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Utilisateur
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                {% if app.user.roles[0]=="ROLE_ADMIN" %}
 
-                </li>
+                    <nav class="mt-2">
 
 
-{#  **********************Gestion restaurant avec navbar*******************************#}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Gestion Utilisateur
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('user_index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manipuler Utilisateur</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href=" {{ path('user_stat') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Stat Utilisateur</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+
+
+                        </li>
+
+                    </nav>
+                {% endif %}
+
+{#  ********************** Gestion restaurant avec navbar*******************************#}
+                {% if app.user.roles[0]=="ROLE_RESTAURANT" %}
 
                 <nav class="mt-2">
 
@@ -277,22 +307,72 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
-                                 GestionRestaurant
+                                 Gestion Restaurant
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ path('GestionRestaurant') }}" class="nav-link">
+                                <a href="{{ path('restaurant_index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Afficher Restaraunt</p>
+                                    <p> Afficher Restaurant</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="../forms/general.html" class="nav-link">
+                                <a href="{{ path('restaurant_new') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Ajouter Restaraunt</p>
+                                    <p> Ajouter Restaurant</p>
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+
+                    </li>
+
+                </nav>
+                {% endif %}
+
+                {#  ***************************        End  --------   Gestion restaurant avec navbar    ************************#}
+                {#  ********************** Gestion Categorie avec navbar *******************************#}
+
+
+
+                                {#  ********************** Gestion ProduitPlat avec navbar *******************************#}
+
+                {% if app.user.roles[0]=="ROLE_RESTAURANT" %}
+
+                <nav class="mt-2">
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion Plats et Boissons
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('produit_plat_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Afficher Plats et Boissons</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('produit_plat_new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter Plats et Boissons</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('stat') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Statistique</p>
                                 </a>
                             </li>
 
@@ -302,12 +382,82 @@
                     </li>
 
                 </nav>
- {#  ***************************        End  --------   Gestion restaurant avec navbar    ************************#}
+                {#  ********************** Gestion Categorie avec navbar *******************************#}
+
+                <nav class="mt-2">
 
 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Gestion Reservation
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('reservation_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Afficher les reservations</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('calendar') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Calendrier</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('statReservation') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> Statistique</p>
+                                </a>
+                            </li>
+                        </ul>
+                </nav>
+                {% endif %}
+                {% if app.user.roles[0]=="ROLE_ADMIN" %}
+
+                <nav class="mt-2">
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Gestion offre de travail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('offre_travail_index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manipuler les offres</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Statistiques</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+
+                    </nav>
+
+
+                {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
 
 
                 <li class="nav-item">
+
                     <a href="{{ path('GestionProduit') }}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -315,17 +465,63 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ path('produit_index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Afficher produit</p>
+                            </a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a href="{{ path('produit_new') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ajouter produit</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ path('GestionOffreTravail') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Offres de travail
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                </li>
+                    <nav class="mt-2">
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Gestion Categories produit
+
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ path('cat_index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Afficher Categorie</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ path('cat_new') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ajouter Categorie</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+
+                    </nav>
+                    {#  ***************************        End  --------   Gestion Categorie avec navbar    ************************#}
+
+
+
+                {% endif %}
+
+
+
 
                 <li class="nav-item">
                     <a href="{{ path('evenements_new') }}" class="nav-link">
@@ -337,15 +533,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ path('GestionMenu') }}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Gestion Menu
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                </li>
+
 
 
                 <li class="nav-item">
@@ -357,12 +545,11 @@
                         </p>
                     </a>
                 </li>
-
                 <li class="nav-item">
-                    <a href="{{ path('GestionCommande') }}" class="nav-link">
+                    <a href="{{ path("Affichel") }}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Gestion <Commande></Commande>
+                            Gestion Commande
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -406,11 +593,32 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+  {#<div class="content-wrapper">#}
+
 
     {% block bodyBack %} {% endblock %}
 
-    </div>
+   {# </div>
+#}
+
+
+
+
+
+
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
