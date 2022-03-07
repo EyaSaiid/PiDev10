@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Form\FiltreType;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use App\Entity\Produit;
 use App\Entity\Images;
 use App\Form\ProduitType;
@@ -47,10 +49,43 @@ class ProduitController extends AbstractController
 
         ]);
     }
+    /**
+     * @Route("/listp", name="produit_pdf", methods={"GET"})
+     */
+    public function indexpdf(Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
+    { //definit les option pdf
+        $pdfOptions = new Options();
+        $produit = $produitRepository->findAll();
 
 
+        //police
+        $pdfOptions->set('defaultFont', 'Arial');
+        // resoudre les prob lié au ssl
+        $pdfOptions->setIsRemoteEnabled(true);
+        // On instancie Dompdf
+        $dompdf = new Dompdf($pdfOptions);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE
+            ]
+        ]);
+        $dompdf->setHttpContext($context);
+        // On génère le html
+        $html = $this->renderView('produit/downloadpdf.html.twig', [
+        'produits' => $produit]);
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        // On envoie le PDF au navigateur
+        $dompdf->stream("mypdf.pdf", [
+            'Attachment' => true    //méthode de stream qui va permettre de telechaarger
+        ]);
 
 
+    }
     /**
      * @Route("/produitsFront", name="produit_front")
      */
@@ -113,7 +148,7 @@ class ProduitController extends AbstractController
             // On recherche les annonces correspondant aux mots clés
             $produits = $produitsRepo->search(
                 $search->get('mots')->getData(),
-                $search->get('categorie')->getData()
+                //$search->get('categorie')->getData()
             );
         }
 
@@ -122,7 +157,38 @@ class ProduitController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    /**
+     * @Route("/tri",name="tri_produit")
+     */
+    public function AfficheProduitClients(EntityManagerInterface $entityManager,Request $request,ProduitRepository $repository){
 
+        $tableproduits=$repository->findAll();
+        $form = $this->createForm(FiltreType::class);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $nomproduit=$form->getData();
+            $produitResult=$this->getDoctrine()->getRepository(Produit::class)->getProduitPrix($nomproduit);
+
+            return $this->render('produit/triProduitNour.html.twig', [
+                'tableproduits'=>$tableproduits,
+                'produits' => $produitResult,
+                'form2' => $form->createView(),
+
+
+
+            ]);
+        }
+
+
+
+        return $this->render('produit/triProduitNour.html.twig'
+            ,['produits'=>$tableproduits,
+                'form2' => $form->createView(),
+
+            ]);
+
+    }
     /**
      * @Route("/testajax")
      */
@@ -196,22 +262,22 @@ class ProduitController extends AbstractController
     /**
      * @Route("/nouveauM", name="produit_new", methods={"GET", "POST"})
      */
-    public function newM(Request $request, EntityManagerInterface $entityManager): Response
+    public function newM(Request $request, EntityManagerInterface $entityManager,FlashyNotifier $flashy): Response
     {
         $produit = new Produit();
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        //if ($form->isSubmitted() && $form->isValid()) {
             // On récupère les images transmises
-            $file=$produit->getPhoto();
-            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-                $file->move(
-                    $this->getParameter('photo_directory'),
-                    $fileName
-                );
-            $produit->setPhoto($file);
-            $images = $form->get('images')->getData();}
+           // $file=$produit->getPhoto();
+          //  $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            //    $file->move(
+              //      $this->getParameter('photo_directory'),
+                //    $fileName
+                //);
+            //$produit->setPhoto($file);
+            $images = $form->get('images')->getData();//}
         if ($form->isSubmitted() && $form->isValid()) {
             // On boucle sur les images
             foreach($images as $image){
@@ -234,7 +300,8 @@ class ProduitController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($produit);
             $entityManager->flush();
-
+//flash message
+            $flashy->warning('produit ajouté avec succès !', 'http://your-awesome-link.com');
             return $this->redirectToRoute('produit_index');
         }
 
@@ -316,6 +383,41 @@ class ProduitController extends AbstractController
         ]);
     }
 
+//pdf:
+    /**
+     * @Route("/download", name="produit_download")
+     */
+    public function download()
+    {
+        //definit les option pdf
+        $pdfOptions = new Options();
+        //police
+        $pdfOptions->set('defaultFont', 'Arial');
+        // resoudre les prob lié au ssl
+        $pdfOptions->setIsRemoteEnabled(true);
+        // On instancie Dompdf
+        $dompdf = new Dompdf($pdfOptions);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE
+            ]
+        ]);
+        $dompdf->setHttpContext($context);
+        // On génère le html
+        $html = $this->renderView('produit/downloadpdf.html.twig');
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        // On envoie le PDF au navigateur
+        $dompdf->stream("mypdf.pdf", [
+            'Attachment' => true    //méthode de stream qui va permettre de telechaarger
+        ]);
+
+        return new Response();
+    }
 
     /**
      * @Route("/{id}", name="produit_show", methods={"GET"})
@@ -397,79 +499,30 @@ class ProduitController extends AbstractController
         ]);
 
     }
-//pdf:
-    /**
-     * @Route("/download", name="produit_download")
-     */
-    public function download()
-    {
-        //definit les option pdf
-        $pdfOptions = new Options();
-        //police
-        $pdfOptions->set('defaultFont', 'Arial');
-        // resoudre les prob lié au ssl
-        $pdfOptions->setIsRemoteEnabled(true);
-        // On instancie Dompdf
-        $dompdf = new Dompdf($pdfOptions);
-        $context = stream_context_create([
-            'ssl' => [
-                'verify_peer' => FALSE,
-                'verify_peer_name' => FALSE,
-                'allow_self_signed' => TRUE
-            ]
-        ]);
-        $dompdf->setHttpContext($context);
-        // On génère le html
-        $html = $this->renderView('produit/downloadpdf.html.twig');
-
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-        // On envoie le PDF au navigateur
-        $dompdf->stream("mypdf.pdf", [
-            'Attachment' => true    //méthode de stream qui va permettre de telechaarger
-        ]);
-
-        return new Response();
-    }
 
     /**
      * @Route("/{id}", name="produit_delete", methods={"POST"})
      */
-    public function delete(int $id): Response
+    public function delete(int $id,FlashyNotifier $flashy): Response
     {
 
         $entityManager = $this->getDoctrine()->getManager();
         $product = $entityManager->getRepository(Produit::class)->find($id);
         $entityManager->remove($product);
         $entityManager->flush();
-
+        $flashy->warning('produit supprimé avec succès !', 'http://your-awesome-link.com');
         return $this->redirectToRoute("produit_index");
     }
     /**
-     * @Route("/supprime/image/{id}", name="produit_delete_image", methods={"DELETE"})
+     * @Route("/supprime/image/{id}", name="produit_delete_image", methods={"GET"})
      */
-    public function deleteImage(Images $image, Request $request){
-        $data = json_decode($request->getContent(), true);
+    public function deleteImage(Images $image, Request $request, int $id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $image = $entityManager->getRepository(Images::class)->find($id);
+        $entityManager->remove($image);
+        $entityManager->flush();
 
-        // On vérifie si le token est valide
-        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])){
-            // On récupère le nom de l'image
-            $nom = $image->getName();
-            // On supprime le fichier
-            unlink($this->getParameter('photo_directory').'/'.$nom);
-
-            // On supprime l'entrée de la base
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($image);
-            $em->flush();
-
-            // On répond en json
-            return new JsonResponse(['success' => 1]);
-        }else{
-            return new JsonResponse(['error' => 'Token Invalide'], 400);
-        }
+        return $this->redirectToRoute("produit_index");
     }
-
 
 }
