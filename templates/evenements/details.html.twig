@@ -19,9 +19,10 @@
                     </div>
                     <div class="about-text">
                         <p style="text-align: center !important;"> Description : {{ evenements.description }}</p><br>
-                        <p style="text-align: center !important;"> Lieu : {{ evenements.description }}</p><br>
-                        <p style="text-align: center !important;"> Date Début : {{ evenements.description }}</p><br>
-                        <p style="text-align: center !important;"> Date Fin : {{ evenements.description }}</p><br>
+                        <p style="text-align: center !important;"> Lieu : {{ evenements.lieu }}</p><br>
+                        <p style="text-align: center !important;"> Date Début : {{ evenements.datadeb ? evenements.datadeb|date('Y-m-d') : '' }}</p><br>
+                        <p style="text-align: center !important;"> Date Fin : {{ evenements.dateFin ? evenements.dateFin|date('Y-m-d') : '' }}</p><br>
+                        <a  style="text-align: center !important;" href="{{ path('pdf_event', {'id': evenements.id}) }}" class="btn btn-primary">Détails</a><br>
 
                     </div>
 

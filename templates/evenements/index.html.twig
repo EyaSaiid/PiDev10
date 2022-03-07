@@ -32,8 +32,9 @@
                                 <td>{{ evenement.nbParticipant }}</td>
                                 <td>{{ evenement.datadeb ? evenement.datadeb|date('Y-m-d') : '' }}</td>
                                 <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
-                                <td><img src="{{ asset('Upload/')}}{{ evenement.image }}" width="100"  /></td>
                                 <td>{{ evenement.description }}</td>
+                                <td><img src="{{ asset('Upload/')}}{{ evenement.image }}" width="100"  /></td>
+
                                 <td>
                                     <a href="{{ path('evenements_delete', {'id': evenement.id}) }}" class="btn btn-danger">Delete</a>
                                     <a href="{{ path('evenements_edit', {'id': evenement.id}) }}" class="btn btn-primary">edit</a>
@@ -46,6 +47,7 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                    {{ knp_pagination_render(evenements) }}
                 </div>
                 <!-- /.card-body -->
             </div>

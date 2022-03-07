@@ -9,6 +9,9 @@ use App\Repository\CommentaireRepository;
 use App\Repository\EvenementsRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,6 +35,24 @@ class EvenementsController extends AbstractController
     }
 
     /**
+     * @Route("/", name="evenements_index", methods={"GET"})
+     */
+    public function index(EvenementsRepository $evenementsRepository,Request $request, PaginatorInterface $paginator): Response
+    {
+        $evements = $evenementsRepository->findAll();
+        $evements = $paginator->paginate(
+            $evements,//on passe les données
+            $request->query->getInt('page',1),//numéro de la page en cours 1 par défaut
+            1
+        );
+        return $this->render('evenements/index.html.twig', [
+            'evenements' => $evements,
+
+        ]);
+    }
+
+
+    /**
      * @Route("/details/{id}", name="evenements_details")
      */
     public function indexDetails(EvenementsRepository $evenementsRepository,CommentaireRepository $commentaireRepository,UserRepository $userRepository,$id,Request $request, EntityManagerInterface $entityManager): Response
@@ -40,9 +61,9 @@ class EvenementsController extends AbstractController
         $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
          $commentaires=$commentaireRepository->findBy(array('id_evenement'=>$evenementsRepository->find($id)));
-
         if ($form->isSubmitted() && $form->isValid()) {
             $commentaire->setDateC(new \DateTime());
+            $commentaire->setComment($this->filterwords($commentaire->getComment()));
             $commentaire->setIdEvenement($evenementsRepository->find($id));
             $commentaire->setIdUser($userRepository->find(1));
             $entityManager->persist($commentaire);
@@ -58,17 +79,15 @@ class EvenementsController extends AbstractController
 
         ]);
     }
-    /**
-     * @Route("/", name="evenements_index", methods={"GET"})
-     */
-    public function index(EvenementsRepository $evenementsRepository): Response
-    {
-        return $this->render('evenements/index.html.twig', [
-            'evenements' => $evenementsRepository->findAll(),
-        ]);
+
+    function filterwords($text){
+        $filterWords = array('fuck', 'nike', 'pute','bitch');
+        $filterCount = sizeof($filterWords);
+        for ($i = 0; $i < $filterCount; $i++) {
+            $text = preg_replace_callback('/\b' . $filterWords[$i] . '\b/i', function($matches){return str_repeat('*', strlen($matches[0]));}, $text);
+        }
+        return $text;
     }
-
-
 
 
     /**
@@ -96,15 +115,6 @@ class EvenementsController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="evenements_show", methods={"GET"})
-     */
-    public function show(Evenements $evenement): Response
-    {
-        return $this->render('evenements/show.html.twig', [
-            'evenement' => $evenement,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="evenements_edit", methods={"GET", "POST"})
@@ -115,7 +125,9 @@ class EvenementsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            if($evenement->getFile() != null){
+                $evenement->getUploadFile();
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('evenements_index', [], Response::HTTP_SEE_OTHER);
@@ -133,9 +145,41 @@ class EvenementsController extends AbstractController
     public function delete($id): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $examen = $em->getRepository(Evenements::class)->find($id);
-        $em->remove($examen);
+        $evenement= $em->getRepository(Evenements::class)->find($id);
+        $em->remove($evenement);
         $em->flush();
         return $this->redirectToRoute('evenements_index');
+    }
+
+    /**
+     * @Route("/pdf/{id}", name="pdf_event")
+     */
+    public function pdfevent($id,EvenementsRepository $evenementsRepository)
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('evenements/mypdf.html.twig', [
+            'event' => $evenementsRepository->find($id)
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
     }
 }
