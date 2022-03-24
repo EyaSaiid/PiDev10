@@ -19,40 +19,6 @@ class ProduitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Produit::class);
     }
-
-
-    // /**
-    //  * @return Produit[] Returns an array of Produit objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Produit
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
-
-
-
-
     //search:
     public function search($mots = null, $categorie = null){
         $query = $this->createQueryBuilder('p');
@@ -60,10 +26,10 @@ class ProduitRepository extends ServiceEntityRepository
             $query->where('MATCH_AGAINST(p.nomProduit, p.descriptionProduit) AGAINST (:mots boolean)>0')
                 ->setParameter('mots', $mots);
         }
-       // if($categorie != null){
-            //$query->leftJoin('p.Categorie', 'c');
-           // $query->andWhere('c.id = :id')
-              //  ->setParameter('id', $categorie);
+        // if($categorie != null){
+        //$query->leftJoin('p.Categorie', 'c');
+        // $query->andWhere('c.id = :id')
+        //  ->setParameter('id', $categorie);
         //}
         return $query->getQuery()->getResult();
     }
@@ -92,12 +58,12 @@ class ProduitRepository extends ServiceEntityRepository
     }
     public function findByCategory($id)
     {
-       $entityManager=$this->getEntityManager();
-       $query=$entityManager
-           ->createQuery("SELECT p FROM APP\Entity\Produit p 
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT p FROM APP\Entity\Produit p 
            JOIN p.Categorie c WHERE c.id=:id")
-           ->setParameter('id',$id);
-       return $query->getResult();
+            ->setParameter('id',$id);
+        return $query->getResult();
     }
     public function countByCategorie(){
         // $query = $this->createQueryBuilder('a')
@@ -105,24 +71,24 @@ class ProduitRepository extends ServiceEntityRepository
         //     ->groupBy('dateAnnonces')
         // ;
         // return $query->getQuery()->getResult();
-          $qb = $this->createQueryBuilder('p')
-				   ->join('p.Categorie', 't')
-				   ->addSelect('COUNT(p)')
-				   ->groupBy('t.id');
+        $qb = $this->createQueryBuilder('p')
+            ->join('p.Categorie', 't')
+            ->addSelect('COUNT(p)')
+            ->groupBy('t.id');
 
-		return $qb->getQuery()
-				   ->getScalarResult();
+        return $qb->getQuery()
+            ->getScalarResult();
 
-        }
+    }
 
     public function findByCategory1($id)
     {
-       return $this->createQueryBuilder('p')
-           ->join('p.Categorie','cat')
-           ->addSelect('cat')
-           ->where('cat.id=:id')
-           ->setParameter('id',$id)
-           ->getQuery()->getResult();
+        return $this->createQueryBuilder('p')
+            ->join('p.Categorie','cat')
+            ->addSelect('cat')
+            ->where('cat.id=:id')
+            ->setParameter('id',$id)
+            ->getQuery()->getResult();
     }
     /**
      *
@@ -143,5 +109,26 @@ class ProduitRepository extends ServiceEntityRepository
             ->setParameter('nom', '%'.$nom.'%')
             ->getQuery()->getResult();
     }
-}
 
+    function orderByNameAscQB(){
+        return $this->createQueryBuilder('ev')
+            -> orderBy('ev.nomProduit','ASC')
+            -> getQuery()->getResult();
+    }
+
+    function orderByNameDescQB(){
+        return $this->createQueryBuilder('ev')
+            -> orderBy('ev.nomProduit','DESC')
+            -> getQuery()->getResult();
+    }
+    function orderByPrixAescQB(){
+        return $this->createQueryBuilder('ev')
+            -> orderBy('ev.prixProduit','ASC')
+            -> getQuery()->getResult();
+    }
+    function orderByPrixDescQB(){
+        return $this->createQueryBuilder('ev')
+            -> orderBy('ev.prixProduit','DESC')
+            -> getQuery()->getResult();
+    }
+}

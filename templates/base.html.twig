@@ -141,12 +141,14 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                 <a href="{{ path("produit_front") }}" class="dropdown-item">Produits</a>
-                                <a href="{{ path("category_front") }}" class="dropdown-item" >Catégories</a>
+                                <a href="{{ path("category_front") }}" class="dropdown-item" >Categories</a>
+                                <a href="{{ path("recherche") }}" class="dropdown-item" >recherche</a>
                             </div>
                         </div>
                     </div>
                     {#                    <a href="{{ path("category_front") }}" class="nav-item nav-link">Categories</a>#}
                     <a href="{{ path("contact") }}" class="nav-item nav-link">Contact</a>
+                    <a href="{{ path("evenements_front") }}" class="nav-item nav-link">Event</a>
 
                     <a href="{{ path("panier") }}" class="nav-item nav-link">Panier</a>
                     <a href="{{ path("livraison_index") }}" class="nav-item nav-link">Commandes</a>
@@ -171,7 +173,7 @@
                                 <a class="dropdown-item" href="{{ path('user_index') }}">Admin</a>
                                 {% endif %}
                                 {% if app.user.roles[0]=="ROLE_RESTAURANT" %}
-                                    <a class="dropdown-item" href="{{ path('restaurant_index') }}">Admin</a>
+                                    <a class="dropdown-item" href="{{ path('restaurant_index') }}">Rest-prop</a>
                                 {% endif %}
                                 <a class="dropdown-item" href="{{ path("app_logout") }}" >Logout</a>
 

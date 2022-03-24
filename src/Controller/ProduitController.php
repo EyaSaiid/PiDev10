@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-   
-
 use App\Entity\Category;
 use App\Form\FiltreType;
 use MercurySeries\FlashyBundle\FlashyNotifier;
@@ -76,7 +74,7 @@ class ProduitController extends AbstractController
         $dompdf->setHttpContext($context);
         // On génère le html
         $html = $this->renderView('produit/downloadpdf.html.twig', [
-        'produits' => $produit]);
+            'produits' => $produit]);
 
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
@@ -85,41 +83,27 @@ class ProduitController extends AbstractController
         $dompdf->stream("mypdf.pdf", [
             'Attachment' => true    //méthode de stream qui va permettre de telechaarger
         ]);
-    }
-   /**
-     * @Route("/fetchProduits", name="fetchProduits")
-     */
-    public function fetchProduits(ProduitRepository $repo):Response
-    {
-        $result =$repo->findAll();
-        return $this->render('produit/afficherproduit.html.twig',[
-           'produits'=>$result
-        ]);
-    }
-  
-  
-  
 
 
-    
+    }
     /**
      * @Route("/produitsFront", name="produit_front")
      */
     public function index_front(CategoryRepository $catRepo,CacheInterface $cache,Request $request,ProduitRepository $produitRepository,PaginatorInterface $paginator): Response
     {
 
-       $donnees =$produitRepository->findAll();
+        $donnees =$produitRepository->findAll();
 
-       $produit = $paginator->paginate(
+        $produit = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
-           $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-          1 // Nombre de résultats par page
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            1 // Nombre de résultats par page
         );
         $produit =$produitRepository->findAll();
-       $form = $this->createForm(SearchProduitType::class);
+        $form = $this->createForm(SearchProduitType::class);
         $search = $form->handleRequest($request);
-      if($form->isSubmitted() && $form->isValid())
-      {
+        if($form->isSubmitted() && $form->isValid())
+        {
             $produit = $produitRepository->search(
                 $search->get('mots')->getData());
         }
@@ -131,22 +115,22 @@ class ProduitController extends AbstractController
 
     }
 
-        //  $limit = 1;
-        // $page = (int)$request->query->get("page", 1);
-        // $filters = $request->get("categories");
-        // $total = $produitRepository->getTotalProduits($filters);
-        //if ($request->get('ajax')) {
-        //  return new JsonResponse([
-        //    'content' => $this->renderView('Front/testAjax.html.twig', compact('produits','limit','page'))
-        //]);}
+    //  $limit = 1;
+    // $page = (int)$request->query->get("page", 1);
+    // $filters = $request->get("categories");
+    // $total = $produitRepository->getTotalProduits($filters);
+    //if ($request->get('ajax')) {
+    //  return new JsonResponse([
+    //    'content' => $this->renderView('Front/testAjax.html.twig', compact('produits','limit','page'))
+    //]);}
 
-        //$categorie = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
-        //  $item->expiresAfter(3600);
+    //$categorie = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
+    //  $item->expiresAfter(3600);
 
-        //return $catRepo->findAll();
-        //  });
+    //return $catRepo->findAll();
+    //  });
 
-        // return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','limit','page','categorie'));
+    // return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','limit','page','categorie'));
 
 
     /**
@@ -164,47 +148,47 @@ class ProduitController extends AbstractController
             // On recherche les annonces correspondant aux mots clés
             $produits = $produitsRepo->search(
                 $search->get('mots')->getData(),
-                //$search->get('categorie')->getData()
+            //$search->get('categorie')->getData()
             );
         }
 
-        return $this->render('Front/produitDma9.html.twig', [
+        return $this->render('produit/triProduitNour.html.twig', [
             'produits' => $produits,
-            'form' => $form->createView()
+            'form2' => $form->createView()
         ]);
     }
-    /**
-     * @Route("/tri",name="tri_produit")
-     */
-    public function AfficheProduitClients(EntityManagerInterface $entityManager,Request $request,ProduitRepository $repository){
-
-        $tableproduits=$repository->findAll();
-        $form = $this->createForm(FiltreType::class);
-
-        $form->handleRequest($request);
-        if($form->isSubmitted()){
-            $nomproduit=$form->getData();
-            $produitResult=$this->getDoctrine()->getRepository(Produit::class)->getProduitPrix($nomproduit);
-
-            return $this->render('produit/triProduitNour.html.twig', [
-                'tableproduits'=>$tableproduits,
-                'produits' => $produitResult,
-                'form2' => $form->createView(),
-
-
-
-            ]);
-        }
-
-
-
-        return $this->render('produit/triProduitNour.html.twig'
-            ,['produits'=>$tableproduits,
-                'form2' => $form->createView(),
-
-            ]);
-
-    }
+//   /* /**
+//     * @Route("/tri",name="tri_produit")
+//     */
+//    public function AfficheProduitClients(EntityManagerInterface $entityManager,Request $request,ProduitRepository $repository){
+//
+//        $tableproduits=$repository->findAll();
+//        $form = $this->createForm(FiltreType::class);
+//
+//        $form->handleRequest($request);
+//        if($form->isSubmitted()){
+//            $nomproduit=$form->getData();
+//            $produitResult=$this->getDoctrine()->getRepository(Produit::class)->getProduitPrix($nomproduit);
+//
+//            return $this->render('produit/triProduitNour.html.twig', [
+//                'tableproduits'=>$tableproduits,
+//                'produits' => $produitResult,
+//                'form2' => $form->createView(),
+//
+//
+//
+//            ]);
+//        }
+//*/
+//
+//
+//        return $this->render('produit/triProduitNour.html.twig'
+//            ,['produits'=>$tableproduits,
+//                'form2' => $form->createView(),
+//
+//            ]);
+//
+//    }
     /**
      * @Route("/testajax")
      */
@@ -213,7 +197,7 @@ class ProduitController extends AbstractController
         //$limit = 10;
 
         // On récupère le numéro de page
-       // $page = (int)$request->query->get("page", 1);
+        // $page = (int)$request->query->get("page", 1);
 
         // On récupère les filtres
         $filters = $request->get("categories");
@@ -226,18 +210,18 @@ class ProduitController extends AbstractController
 
         // On vérifie si on a une requête Ajax
         if ($request->get('ajax')) {
-         return new JsonResponse([
-           'content' => $this->renderView('Front/testAjax.html.twig', compact('produits'))
-        ]);}
+            return new JsonResponse([
+                'content' => $this->renderView('Front/testAjax.html.twig', compact('produits'))
+            ]);}
 
         $categorie = $cache->get('categories_list', function(ItemInterface $item) use($catRepo){
-         $item->expiresAfter(3600);
+            $item->expiresAfter(3600);
 
-        return $catRepo->findAll();
+            return $catRepo->findAll();
         });
 
-         return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','categorie'));
-        }
+        return $this->render('Front/produitDma9.html.twig', compact('produits', 'total','categorie'));
+    }
 
 
     /**
@@ -250,24 +234,24 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-                $file=$produit->getPhoto();
-               // foreach ($file as $fil) {
-                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-                    try {
-                        $file->move(
-                            $this->getParameter('photo_directory'),
-                            $fileName
-                        );
-                    } catch (FileException $e) {
-                    }
-               // }
+            $file=$produit->getPhoto();
+            // foreach ($file as $fil) {
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            try {
+                $file->move(
+                    $this->getParameter('photo_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+            }
+            // }
 
-                $produit->setPhoto($fileName);
-                $entityManager->persist($produit);
-                $entityManager->flush();
+            $produit->setPhoto($fileName);
+            $entityManager->persist($produit);
+            $entityManager->flush();
 
             return $this->redirectToRoute('produit_index', [], Response::HTTP_SEE_OTHER);
-            }
+        }
 
         return $this->render('produit/new.html.twig', [
             'produit' => $produit,
@@ -285,15 +269,15 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         //if ($form->isSubmitted() && $form->isValid()) {
-            // On récupère les images transmises
-           // $file=$produit->getPhoto();
-          //  $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-            //    $file->move(
-              //      $this->getParameter('photo_directory'),
-                //    $fileName
-                //);
-            //$produit->setPhoto($file);
-            $images = $form->get('images')->getData();//}
+        // On récupère les images transmises
+        // $file=$produit->getPhoto();
+        //  $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+        //    $file->move(
+        //      $this->getParameter('photo_directory'),
+        //    $fileName
+        //);
+        //$produit->setPhoto($file);
+        $images = $form->get('images')->getData();//}
         if ($form->isSubmitted() && $form->isValid()) {
             // On boucle sur les images
             foreach($images as $image){
@@ -345,16 +329,16 @@ class ProduitController extends AbstractController
         return $this->render('produit/showFront.html.twig', [
             "produit" => $produit]);
     }
-/**
-    * @Route("/produits/{id}", name="showProduitByCategory")
+    /**
+     * @Route("/produits/{id}", name="showProduitByCategory")
      */
     public function showProduitByCategory(PaginatorInterface $paginator,Request $request,ProduitRepository $repProd, CategoryRepository $repCat, Category $categorie)
     {$donnees =$repProd->findByCategory1($categorie->getId());
         $produit = $paginator->paginate(
-        $donnees, // Requête contenant les données à paginer (ici nos articles)
-        $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-        3 // Nombre de résultats par page
-    );
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            3 // Nombre de résultats par page
+        );
         $cat=$repCat->find($categorie->getId());
         $produit=$repProd->findByCategory1($cat->getId());
         return $this->render("Front/jointureCatPro.html.twig",[
@@ -369,7 +353,7 @@ class ProduitController extends AbstractController
     { $categories = $repCat->findAll();
 
         $categNom = [];
-      //  $categColor = [];
+        //  $categColor = [];
         $categCount = [];
 
         // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
@@ -386,7 +370,7 @@ class ProduitController extends AbstractController
 
         // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
         foreach($produit as $produit){
-           // $dates[] = $produit['t.id'];
+            // $dates[] = $produit['t.id'];
             //$produitCount[] = $produit['count'];
         }
 
@@ -399,6 +383,67 @@ class ProduitController extends AbstractController
         ]);
     }
 
+//test ajax:
+    /**
+     * @Route("/searchResajax ", name="searchResajax")
+     */
+    public function searchEventAjax(ProduitRepository $repo,Request $request)
+    {
+        $requestString=$request->get('searchValue');
+        $events = $repo->findProduitByName($requestString);
+
+        return $this->render('produit/testajax.html.twig', [
+            "produits"=>$events
+        ]);
+    }
+    /**
+     * @Route("/sortbynameasc", name="sortname")
+     */
+    public function searchnomass(ProduitRepository $repo,Request $request)
+    {
+        $requestString=$request->get('searchValue');
+        $events = $repo->orderByNameAscQB();
+
+        return $this->render('produit/testajax.html.twig', [
+            "produits"=>$events
+        ]);
+    }
+    /**
+     * @Route("/sortbynamedsc", name="sortname2")
+     */
+    public function searchnomdss(ProduitRepository $repo,Request $request)
+    {
+        $requestString=$request->get('searchValue');
+        $events = $repo->orderByNameDescQB();
+
+        return $this->render('Front/produitDma9.html.twig', [
+            "produits"=>$events
+        ]);
+    }
+    /**
+     * @Route("/sortbyprixdsc", name="sortprix")
+     */
+    public function searchprixdss(ProduitRepository $repo,Request $request)
+    {
+        $requestString=$request->get('searchValue');
+        $events = $repo->orderByPrixDescQB();
+
+        return $this->render('Front/produitDma9.html.twig', [
+            "produits"=>$events
+        ]);
+    }
+    /**
+     * @Route("/sortbyprixasc", name="sortprix2")
+     */
+    public function searchprixasc(ProduitRepository $repo,Request $request)
+    {
+        $requestString=$request->get('searchValue');
+        $events = $repo->orderByPrixAescQB();
+
+        return $this->render('Front/produitDma9.html.twig', [
+            "produits"=>$events
+        ]);
+    }
 //pdf:
     /**
      * @Route("/download", name="produit_download")
