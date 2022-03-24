@@ -6,6 +6,8 @@ use App\Repository\ReservationRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 
 /**
@@ -17,16 +19,19 @@ class Reservation
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_reservation;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_restaurant;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id_client;
 
@@ -38,11 +43,13 @@ class Reservation
      *      max = 50,
      *      notInRangeMessage = "la capacite du restaurant doit etre entre {{ min }} et {{ max }}",
      * )
+     * @Groups("post:read")
      */
     private $nombre;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("post:read")
      */
     private $date_reservation;
 
@@ -112,6 +119,7 @@ class Reservation
      * @ORM\JoinColumns({
      *  @ORM\JoinColumn(name="id_restaurant", referencedColumnName="id_restaurant", onDelete="CASCADE")
      * })
+     * @Groups("post:read")
      */
 
     private $restaurants;
@@ -119,6 +127,7 @@ class Reservation
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("post:read")
      */
     private $user;
 

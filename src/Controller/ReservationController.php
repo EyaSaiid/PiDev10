@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\RestaurantController;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
  * @Route("/reservation")
@@ -32,6 +33,8 @@ class ReservationController extends AbstractController
             'reservations' => $reservationRepository->findAll(),
         ]);
     }
+
+
     /**
      * @Route("/statReservation", name="statReservation", methods={"GET"})
      */
@@ -225,6 +228,23 @@ class ReservationController extends AbstractController
     }
 
 
+    /**
+     * @Route("/ajouterResJson/new", name="reservation_add")
+     */
+    public function AjouterJson(Request $request, NormalizerInterface $Normalizer): Response
+    {   $em=$this->getDoctrine()->getManager();
+        $reservation= new Reservation();
+        //$reservation->setUser($request->get("id_client"));
+        $reservation->setNombre($request->get('nombre'));
+        $reservation->setDateReservation(\DateTime::createFromFormat('Y-m-d', $request->get('date_reservation')));
+        $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find(18);
+        $reservation->setIdRestaurant($request->get('id_restaurant'));
+        $reservation->setIdClient($request->get("id_client"));
+        $em->persist($reservation);
+        $em->flush();
+        $jsoncontent = $Normalizer->normalize($reservation,'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsoncontent));
+    }
 
 
 

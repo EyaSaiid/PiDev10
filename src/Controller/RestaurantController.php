@@ -55,6 +55,17 @@ class RestaurantController extends AbstractController
     }
 
     /**
+     * @Route("/{id_restaurant}/affCat", name="CategorieRestaurant")
+     */
+    public function ListRestaurantCategorie(Restaurant $restaurant,NormalizerInterface $normalizer): Response
+    {
+        $resid=$restaurant->getIdRestaurant();
+        $categorie = $this->getDoctrine()->getRepository(Categorie::class)->findCategorie($resid);
+        $js=$normalizer->normalize($categorie,'json',['groups'=>'post:read']);
+        return new Response(json_encode($js));
+    }
+
+    /**
      * @Route("/new", name="restaurant_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepository): Response

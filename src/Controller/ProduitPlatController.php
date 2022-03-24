@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
  * @Route("/produit/plat")
@@ -28,6 +29,20 @@ class ProduitPlatController extends AbstractController
         return $this->render('Back/produit_plat/index.html.twig', [
             'produit_plats' => $produitPlatRepository->findAll(),
         ]);
+    }
+
+    /**
+     * @Route("/aff/{id_restaurant}/{id_categorie}", name="JsonProduitPlatCategorie")
+     */
+    public function JsonPDT(Categorie $categorie,NormalizerInterface $normalizer,Restaurant $res, Request $request):Response
+    {   $resid=$res->getIdRestaurant();
+        $categorie2 = $this->getDoctrine()->getRepository(Categorie::class)->findCategorie($resid);
+        $id=$categorie->getIdCategorie();
+        $donnees= $this->getDoctrine()->getRepository(ProduitPlat::class)->findProduitPlatByCategorieandRestaurant($resid,$id);
+        $res->getProduitPlats();
+        $js=$normalizer->normalize($donnees,'json',['groups'=>'post:read']);
+        return new Response(json_encode($js));
+
     }
 
 
