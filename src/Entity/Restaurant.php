@@ -236,7 +236,7 @@ class Restaurant
 
     /**
      * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="restaurants")
-     *@Groups("post:read")
+     *
      */
     private $reservations;
 
