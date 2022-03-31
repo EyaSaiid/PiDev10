@@ -14,12 +14,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 /**
  * @Route("/offre/travail")
  */
 class OffreTravailController extends AbstractController
 {
+
+    /**
+     * @Route("/listjson", name="offreTravail_json")
+     */
+    public function ListRestaurantJson(OffreTravailRepository $offreTravailRepository, NormalizerInterface $normalizer): Response
+    {
+        $offre=$offreTravailRepository->findAll();
+        $js=$normalizer->normalize($offre,'json',['groups'=>'post:read']);
+        // $json=$serializerinterface->normalize($offre,'json',['groups'=>'offre']);
+        //dump($offre);
+        //die;
+        //$formatted= $serializer->normalize($json);
+        return new Response(json_encode($js));
+    }
+
     /**
      * @Route("/", name="offre_travail_index", methods={"GET"})
      */

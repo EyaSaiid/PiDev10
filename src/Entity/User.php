@@ -10,6 +10,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -21,30 +23,35 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez insérer votre nom.")
+     * @Groups("post:read")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez insérer votre prénom.")
+     * @Groups("post:read")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Vous devez insérer date.")
+     * @Groups("post:read")
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="This value should not be blank.")
+     * @Groups("post:read")
      */
     private $sexe;
 
@@ -58,6 +65,7 @@ class User implements UserInterface
      *      minMessage = "Your user phone number must be at least {{ limit }}  long",
      *      maxMessage = "Your  phone number cannot be longer than {{ limit }} "
      * )
+     * @Groups("post:read")
      */
     private $numero_tele;
 
@@ -66,6 +74,7 @@ class User implements UserInterface
      * @Assert\NotBlank(message="Vous devez insérer votre email.")
      *  @Assert\Email(
      *     message="This email '{{ value }}' is not a valid email address.")
+     * @Groups("post:read")
      */
     private $email;
 
@@ -87,6 +96,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @var string The hashed password
      * @Assert\NotBlank(message="Vous devez insérer votre mot de passe!.")
+     * @Groups("post:read")
      */
     private $password;
 
@@ -127,11 +137,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\File()
+     * @Groups("post:read")
      */
     private $image;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
      */
     private $address;
 
