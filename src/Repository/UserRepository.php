@@ -70,6 +70,50 @@ class UserRepository extends ServiceEntityRepository
             ;
     }
 
+    public function verifier($email, $mdp)
+    {
+        {
+            $em = $this->getEntityManager();
+
+            $query = $em->createQuery(
+                'SELECT u FROM   App\Entity\User u  where   u.password = :pass   and  u.email = :email '
+            );
+            $query->setParameter('email', $email);
+            $query->setParameter('pass', $mdp);
+
+
+            return $query->getResult();
+        }
+    }
+    public function verifieremail($email)
+    {
+        {
+            $em = $this->getEntityManager();
+
+            $query = $em->createQuery(
+                'SELECT u FROM   App\Entity\User u  where   u.email = :email '
+            );
+            $query->setParameter('email', $email);
+
+
+            return $query->getResult();
+        }
+    }
+    public function verifierid($id)
+    {
+        {
+            $em = $this->getEntityManager();
+
+            $query = $em->createQuery(
+                'SELECT u FROM   App\Entity\User u  where   u.id = :id '
+            );
+            $query->setParameter('id', $id);
+
+
+            return $query->getResult();
+        }
+    }
+
     /*
      * @return void
      */

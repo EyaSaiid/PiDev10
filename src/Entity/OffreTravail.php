@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\OffreTravailRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=OffreTravailRepository::class)
@@ -15,6 +17,7 @@ class OffreTravail
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -27,6 +30,7 @@ class OffreTravail
      *      minMessage = "la min du titre doit etre entre [1..500]",
      *      maxMessage = "la capacite du restaurant doit etre entre [1..500]"
      * )
+     * @Groups("post:read")
      */
     private $titre;
 
@@ -39,6 +43,7 @@ class OffreTravail
      *      minMessage = "le min du description doit etre entre [1..500]",
      *      maxMessage = "le maximum du description doit etre entre [1..500]"
      * )
+     * @Groups("post:read")
      */
     private $description;
 
