@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/categorie")
@@ -31,6 +32,89 @@ class CategorieController extends AbstractController
         //$formatted= $serializer->normalize($json);
         return new Response(json_encode($js));
     }
+
+    /**
+     * @Route("/addCategorieJSON",name="addCategorieJSON")
+     */
+    public function addCategorieJSON(Request $request, SerializerInterface $serializer)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $cat = new Categorie();
+        $cat->setNomCategorie($request->get('nom_categorie'));
+        $em->persist($cat);
+        $em->flush();
+        $jsonContent = $serializer->serialize($cat, 'json', [
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }  ],
+        );
+
+        // On instancie la réponse
+        $response = new Response($jsonContent);
+
+        // On ajoute l'entête HTTP
+        $response->headers->set('Content-Type', 'application/json');
+
+        // On envoie la réponse
+        return $response;
+
+
+    }
+    /**
+     * @Route("/deleteCategorieJSON/{id}",name="deleteCategorieJSON")
+     */
+
+    public function deleteCategorieJSON(Request $request,SerializerInterface  $serializer, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cat=$em->getRepository(Categorie::class)->find($id);
+        $em->remove($cat);
+        $em->flush();
+        $jsonContent = $serializer->serialize($cat, 'json', [
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }  ],
+        );
+
+        // On instancie la réponse
+        $response = new Response($jsonContent);
+
+        // On ajoute l'entête HTTP
+        $response->headers->set('Content-Type', 'application/json');
+
+        // On envoie la réponse
+        return $response;
+
+
+    }
+    /**
+     * @Route("/updateCategorieJSON/{id}",name="updateCategorieJSON")
+     */
+    public function updateCategorieJSON(Request $request, SerializerInterface $serializer, $id)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $cat = $em->getRepository(Categorie::class)->find($id);
+        $cat->setNomCategorie($request->get('nom_categorie'));
+
+        $em->flush();
+        $jsonContent = $serializer->serialize($cat, 'json', [
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }  ],
+        );
+
+        // On instancie la réponse
+        $response = new Response($jsonContent);
+
+        // On ajoute l'entête HTTP
+        $response->headers->set('Content-Type', 'application/json');
+
+        // On envoie la réponse
+        return $response;
+
+    }
+
+
 
 
     /**

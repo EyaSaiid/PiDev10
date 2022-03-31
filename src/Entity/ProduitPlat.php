@@ -97,6 +97,7 @@ class ProduitPlat
      * @ORM\ManyToMany(targetEntity=Restaurant::class, mappedBy="produitplats", cascade={"persist"})
      * @ORM\JoinColumn(name="id_restaurant", referencedColumnName="id_restaurant")
      *
+     *
      */
     private $restaurants;
 
@@ -148,11 +149,13 @@ class ProduitPlat
      *  @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_categorie" , onDelete="CASCADE")
      * })
      *
+     *
      */
     private $categories;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("post:read")
      */
     private $desc_produitplat;
     public function getCategories(): ?Categorie

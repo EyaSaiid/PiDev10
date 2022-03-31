@@ -86,6 +86,8 @@ class Restaurant
    
     /**
      * @ORM\OneToMany(targetEntity=OffreTravail::class, mappedBy="restaurant")
+     *
+     *
      */
     private $offreTravail;
 
@@ -237,6 +239,7 @@ class Restaurant
     /**
      * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="restaurants")
      *
+     *
      */
     private $reservations;
 
@@ -245,6 +248,7 @@ class Restaurant
      * @ORM\JoinColumn(nullable=false)
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      * })
+     *
      */
     private $user;
 

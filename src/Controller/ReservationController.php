@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Reservation;
 use App\Entity\Restaurant;
 use App\Repository\RestaurantRepository;
@@ -15,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\RestaurantController;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/reservation")
@@ -22,7 +24,37 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class ReservationController extends AbstractController
 {
 
+    /**
+     * @Route("/addReservationJSON",name="addReservationJSON")
+     */
+    public function addReservationJSON(Request $request, SerializerInterface $serializer)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $reservation= new Reservation();
+        $reservation->setNombre($request->get('nombre'));
+        $reservation->setDateReservation(\DateTime::createFromFormat('Y-m-d', $request->get('date_reservation')));
+        $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find(18);
+        $reservation->setIdRestaurant($request->get('id_restaurant'));
+        $reservation->setIdClient($request->get("id_client"));
+        $em->persist($reservation);
+        $em->flush();
+        $jsonContent = $serializer->serialize($reservation, 'json', [
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }  ],
+        );
 
+        // On instancie la réponse
+        $response = new Response($jsonContent);
+
+        // On ajoute l'entête HTTP
+        $response->headers->set('Content-Type', 'application/json');
+
+        // On envoie la réponse
+        return $response;
+
+
+    }
 
     /**
      * @Route("/findAll", name="reservation_index", methods={"GET"})
@@ -234,7 +266,7 @@ class ReservationController extends AbstractController
     public function AjouterJson(Request $request, NormalizerInterface $Normalizer): Response
     {   $em=$this->getDoctrine()->getManager();
         $reservation= new Reservation();
-        //$reservation->setUser($request->get("id_client"));
+        $reservation->setUser($request->get("id_client"));
         $reservation->setNombre($request->get('nombre'));
         $reservation->setDateReservation(\DateTime::createFromFormat('Y-m-d', $request->get('date_reservation')));
         $restaurant=$this->getDoctrine()->getRepository(Restaurant::class)->find(18);
@@ -245,6 +277,7 @@ class ReservationController extends AbstractController
         $jsoncontent = $Normalizer->normalize($reservation,'json',['groups'=>'post:read']);
         return new Response(json_encode($jsoncontent));
     }
+
 
 
 

@@ -119,7 +119,7 @@ class Reservation
      * @ORM\JoinColumns({
      *  @ORM\JoinColumn(name="id_restaurant", referencedColumnName="id_restaurant", onDelete="CASCADE")
      * })
-     * @Groups("post:read")
+     *
      */
 
     private $restaurants;
